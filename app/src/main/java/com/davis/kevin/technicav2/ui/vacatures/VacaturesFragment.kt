@@ -1,4 +1,4 @@
-package com.davis.kevin.technicav2.ui.share
+package com.davis.kevin.technicav2.ui.sponsors
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.davis.kevin.technicav2.R
 
-class ShareFragment : Fragment() {
+class VacaturesFragment : Fragment() {
 
-    private lateinit var shareViewModel: ShareViewModel
+    private lateinit var vacaturesViewModel: VacaturesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        shareViewModel =
-            ViewModelProviders.of(this).get(ShareViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_share, container, false)
-        val textView: TextView = root.findViewById(R.id.text_share)
-        shareViewModel.text.observe(this, Observer {
+        vacaturesViewModel =
+            ViewModelProviders.of(this).get(VacaturesViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_vacatures, container, false)
+        val textView: TextView = root.findViewById(R.id.text_slideshow)
+        vacaturesViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

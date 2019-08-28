@@ -1,4 +1,4 @@
-package com.davis.kevin.technicav2.ui.slideshow
+package com.davis.kevin.technicav2.ui.praesidium
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.davis.kevin.technicav2.R
 
-class SlideshowFragment : Fragment() {
+class PraesidiumFragment : Fragment() {
 
-    private lateinit var slideshowViewModel: SlideshowViewModel
+    private lateinit var praesidiumViewModel: PraesidiumViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        slideshowViewModel =
-            ViewModelProviders.of(this).get(SlideshowViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
-        slideshowViewModel.text.observe(this, Observer {
+        praesidiumViewModel =
+            ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_praesidium, container, false)
+        val textView: TextView = root.findViewById(R.id.text_share)
+        praesidiumViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

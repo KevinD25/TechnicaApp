@@ -9,30 +9,25 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_onzeclub"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="@string/menu_onzeclub" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_sponsors"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_sponsors" />
         <item
-            android:id="@+id/nav_tools"
+            android:id="@+id/nav_kalender"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:title="@string/menu_kalender" />
+        <item
+            android:id="@+id/nav_praesidium"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/menu_praesidium" />
+        <item
+            android:id="@+id/nav_clublied"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/menu_clublied" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
 
 </menu>

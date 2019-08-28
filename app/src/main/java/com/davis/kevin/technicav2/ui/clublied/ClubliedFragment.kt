@@ -1,4 +1,4 @@
-package com.davis.kevin.technicav2.ui.gallery
+package com.davis.kevin.technicav2.ui.clublied
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.davis.kevin.technicav2.R
 
-class GalleryFragment : Fragment() {
+class ClubliedFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private lateinit var clubliedViewModel: ClubliedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-            ViewModelProviders.of(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(this, Observer {
+        clubliedViewModel =
+            ViewModelProviders.of(this).get(ClubliedViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_clublied, container, false)
+        val textView: TextView = root.findViewById(R.id.text_send)
+        clubliedViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

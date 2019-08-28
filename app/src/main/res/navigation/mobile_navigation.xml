@@ -12,32 +12,36 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.davis.kevin.technicav2.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_onzeclub"
+        android:name="com.davis.kevin.technicav2.ui.onzeclub.OnzeclubFragment"
+        android:label="@string/menu_onzeclub"
+        tools:layout="@layout/fragment_onzeclub" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.davis.kevin.technicav2.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_sponsors"
+        android:name="com.davis.kevin.technicav2.ui.sponsors.VacaturesFragment"
+        android:label="@string/menu_sponsors"
+        tools:layout="@layout/fragment_sponsors" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.davis.kevin.technicav2.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/nav_kalender"
+        android:name="com.davis.kevin.technicav2.ui.kalender.KalenderFragment"
+        android:label="@string/menu_kalender"
+        tools:layout="@layout/fragment_kalender" />
 
     <fragment
-        android:id="@+id/nav_share"
-        android:name="com.davis.kevin.technicav2.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        android:id="@+id/nav_praesidium"
+        android:name="com.davis.kevin.technicav2.ui.praesidium.PraesidiumFragment"
+        android:label="@string/menu_praesidium"
+        tools:layout="@layout/fragment_praesidium" />
 
     <fragment
-        android:id="@+id/nav_send"
-        android:name="com.davis.kevin.technicav2.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
+        android:id="@+id/nav_clublied"
+        android:name="com.davis.kevin.technicav2.ui.clublied.ClubliedFragment"
+        android:label="@string/menu_clublied"
+        tools:layout="@layout/fragment_clublied" />
+    <fragment
+        android:id="@+id/nav_vacatures"
+        android:name="com.davis.kevin.technicav2.ui.vacatures.VacaturesFragment"
+        android:label="fragment_vacatures" />
 </navigation>

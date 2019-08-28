@@ -1,4 +1,4 @@
-package com.davis.kevin.technicav2.ui.send
+package com.davis.kevin.technicav2.ui.kalender
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.davis.kevin.technicav2.R
 
-class SendFragment : Fragment() {
+class KalenderFragment : Fragment() {
 
-    private lateinit var sendViewModel: SendViewModel
+    private lateinit var kalenderViewModel: KalenderViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        sendViewModel =
-            ViewModelProviders.of(this).get(SendViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_send, container, false)
-        val textView: TextView = root.findViewById(R.id.text_send)
-        sendViewModel.text.observe(this, Observer {
+        kalenderViewModel =
+            ViewModelProviders.of(this).get(KalenderViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_kalender, container, false)
+        val textView: TextView = root.findViewById(R.id.text_tools)
+        kalenderViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

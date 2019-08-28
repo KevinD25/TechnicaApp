@@ -1,4 +1,4 @@
-package com.davis.kevin.technicav2.ui.tools
+package com.davis.kevin.technicav2.ui.onzeclub
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.davis.kevin.technicav2.R
 
-class ToolsFragment : Fragment() {
+class OnzeclubFragment : Fragment() {
 
-    private lateinit var toolsViewModel: ToolsViewModel
+    private lateinit var onzeclubViewModel: OnzeclubViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        toolsViewModel =
-            ViewModelProviders.of(this).get(ToolsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_tools, container, false)
-        val textView: TextView = root.findViewById(R.id.text_tools)
-        toolsViewModel.text.observe(this, Observer {
+        onzeclubViewModel =
+            ViewModelProviders.of(this).get(OnzeclubViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_onzeclub, container, false)
+        val textView: TextView = root.findViewById(R.id.text_gallery)
+        onzeclubViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
