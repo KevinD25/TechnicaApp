@@ -1,4 +1,4 @@
-package com.davis.kevin.technicav2.ui.sponsors
+package com.davis.kevin.technicav2.ui.vacatures
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

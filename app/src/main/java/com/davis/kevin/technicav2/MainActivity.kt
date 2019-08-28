@@ -24,11 +24,11 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
+       /* val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-        }
+        }*/
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -37,7 +37,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_onzeclub, R.id.nav_sponsors,
-                R.id.nav_kalender, R.id.nav_praesidium, R.id.nav_clublied
+                R.id.nav_kalender, R.id.nav_praesidium, R.id.nav_clublied,
+                R.id.nav_vacatures
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

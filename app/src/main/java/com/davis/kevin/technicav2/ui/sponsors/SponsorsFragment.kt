@@ -12,7 +12,7 @@ import com.davis.kevin.technicav2.R
 
 class SponsorsFragment : Fragment() {
 
-    private lateinit var sponsorsViewModel: VacaturesViewModel
+    private lateinit var sponsorsViewModel: SponsorsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,7 +20,7 @@ class SponsorsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         sponsorsViewModel =
-            ViewModelProviders.of(this).get(VacaturesViewModel::class.java)
+            ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_sponsors, container, false)
         val textView: TextView = root.findViewById(R.id.text_slideshow)
         sponsorsViewModel.text.observe(this, Observer {

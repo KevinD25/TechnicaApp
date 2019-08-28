@@ -22,10 +22,10 @@ class ClubliedFragment : Fragment() {
         clubliedViewModel =
             ViewModelProviders.of(this).get(ClubliedViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_clublied, container, false)
-        val textView: TextView = root.findViewById(R.id.text_send)
-        clubliedViewModel.text.observe(this, Observer {
+        val textView: TextView = root.findViewById(R.id.txtClublied)
+       /* clubliedViewModel.text.observe(this, Observer {
             textView.text = it
-        })
+        })*/
         return root
     }
 }

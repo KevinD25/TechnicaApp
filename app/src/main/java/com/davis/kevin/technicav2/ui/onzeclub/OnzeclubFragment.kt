@@ -22,9 +22,9 @@ class OnzeclubFragment : Fragment() {
         onzeclubViewModel =
             ViewModelProviders.of(this).get(OnzeclubViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_onzeclub, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
+        val textView: TextView = root.findViewById(R.id.txtClub)
         onzeclubViewModel.text.observe(this, Observer {
-            textView.text = it
+            //textView.text = it
         })
         return root
     }
