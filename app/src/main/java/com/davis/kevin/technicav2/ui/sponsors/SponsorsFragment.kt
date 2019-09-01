@@ -22,10 +22,10 @@ class SponsorsFragment : Fragment() {
         sponsorsViewModel =
             ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_sponsors, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
+       /* val textView: TextView = root.findViewById(R.id.text_slideshow)
         sponsorsViewModel.text.observe(this, Observer {
             textView.text = it
-        })
+        })*/
         return root
     }
 }
