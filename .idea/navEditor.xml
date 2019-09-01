@@ -80,13 +80,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="placeholder">
+                  <entry key="nav_vacatures">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="724" />
-                            <option name="y" value="364" />
+                            <option name="x" value="718" />
+                            <option name="y" value="17" />
                           </Point>
                         </option>
                       </LayoutPositions>

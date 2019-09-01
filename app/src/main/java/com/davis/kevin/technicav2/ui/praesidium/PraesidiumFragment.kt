@@ -22,10 +22,10 @@ class PraesidiumFragment : Fragment() {
         praesidiumViewModel =
             ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_praesidium, container, false)
-        val textView: TextView = root.findViewById(R.id.text_share)
+       /* val textView: TextView = root.findViewById(R.id.text_share)
         praesidiumViewModel.text.observe(this, Observer {
             textView.text = it
-        })
+        })*/
         return root
     }
 }
