@@ -6,18 +6,30 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3-IT"
+        android:layout_marginTop="16dp"
+        android:textSize="26dp"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.github.siyamed.shapeimageview.CircularImageView
         android:id="@+id/circularImageView"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:src="@drawable/sponsor3it"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtName"
         app:siBorderColor="@color/colorPrimary"
         app:siBorderWidth="6dp" />
 
@@ -25,9 +37,9 @@
         android:id="@+id/txtUitleg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="16dp"
         android:lineSpacingExtra="5dp"
         android:maxLines="5"
         android:minLines="5"

@@ -15,7 +15,10 @@
     <string name="menu_clublied">Clublied</string>
     <string name="menu_vacatures">Vacatures</string>
 
-    <string name="uitleg_sponsor">Hier komt een tekstje over het bedrijf van maximaal 5 lijnen. "\n" - "\n" - "\n" -</string>
+    <string name="uitleg_sponsor">3-it wil dat u als klant krijgt wat u helpt vooruit te komen. Dat klinkt heel veelbelovend en oh zo makkelijk.
+                    Door onze persoonlijke aanpak en door echt naar u te luisteren proberen we dat verschil te maken en een echte partner
+                    voor u te zijn. Het aandragen van de juiste oplossing om uw vragen te kunnen beantwoorden kan alleen maar als we exact
+                    weten wat uw speelveld is en wat u daarbinnen bezighoudt.</string>
 
     <string name="home_week">Het volgende evenement bij Technica:</string>
     <string name="onze_club">Ik had mezelf voorgenomen dat studentenverenigingen niets voor mij waren, tot op het moment dat een paar goede vrienden mij uiteindelijk overtuigden om het toch maar eens te proberen.
@@ -30,4 +33,6 @@
     Ja, wij zijn de heersers van Boom, "\n" De mannen van Technica. "\n" "\n"
     En Technica (en Technica), "\n" En Technica (en Technica), "\n" En Technica (en Technica), "\n" En Technica, HOI, HOI "\n" "\n"
     Ja, wij zijn de heersers van Boom, "\n" De mannen van Technica.</string>
+
+    <string name=""
 </resources>
