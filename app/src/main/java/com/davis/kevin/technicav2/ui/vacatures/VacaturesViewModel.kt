@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.DOM.Vacature
-import com.davis.kevin.technicav2.ui.kalender.KalenderViewModel
+import com.davis.kevin.technicav2.ui.vacatures.vacatureNavigator
 
 class VacaturesViewModel : ViewModel {
 
@@ -34,6 +34,7 @@ class VacaturesViewModel : ViewModel {
     var arraylistMutableLiveData = MutableLiveData<ArrayList<VacaturesViewModel>>()
 
     var arraylist = ArrayList<VacaturesViewModel>()
+
 
     fun getArrayList() : MutableLiveData<ArrayList<VacaturesViewModel>>{
 
