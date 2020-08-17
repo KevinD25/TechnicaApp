@@ -1,13 +1,62 @@
 package com.davis.kevin.technicav2.ui.sponsors
 
+import android.content.Context
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.viewpager2.widget.ViewPager2
+import com.davis.kevin.technicav2.DOM.Partner
+import com.davis.kevin.technicav2.DOM.Praesidium
+import com.davis.kevin.technicav2.DOM.Vacature
+import com.davis.kevin.technicav2.adapters.CustomPartnerAdapter
+import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
+import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
 
-class SponsorsViewModel : ViewModel() {
+class SponsorsViewModel : ViewModel {
 
-    private val _text = MutableLiveData<String>().apply {
+    var id = ""
+    var name = ""
+    var description = ""
+    var website = ""
+    var vacancies : List<Vacature>? = null
+
+   /* private val _text = MutableLiveData<String>().apply {
         value = "This is slideshow Fragment"
     }
-    val text: LiveData<String> = _text
+    val text: LiveData<String> = _text*/
+
+    constructor() : super()
+    constructor(
+        partner: Partner
+    ) : super() {
+        this.id = partner.id
+        this.name = partner.name
+        this.description = partner.description
+        this.website = partner.website
+        this.vacancies = partner.vacancies
+    }
+
+
+    var arrayListMutableLiveData = MutableLiveData<ArrayList<SponsorsViewModel>>()
+
+    var arrayList = ArrayList<SponsorsViewModel>()
+
+    fun getArrayList() : MutableLiveData<ArrayList<SponsorsViewModel>>{
+
+        var emptyVacanciesList : List<Vacature> = emptyList()
+
+        val partner1 = Partner(id="1", name="3IT", description = "Sponsor description van 3 lijnen max", website = "www.3it.be", vacancies = emptyVacanciesList )
+        val partner2 = Partner(id="2", name="Induver", description = "Sponsor description van 3 lijnen max", website = "www.induver.be", vacancies = emptyVacanciesList)
+
+        val sponsorsViewModel1 : SponsorsViewModel = SponsorsViewModel(partner1)
+        val sponsorsViewModel2 : SponsorsViewModel = SponsorsViewModel(partner2)
+
+        arrayList!!.add(sponsorsViewModel1)
+        arrayList!!.add(sponsorsViewModel2)
+
+        arrayListMutableLiveData.value = arrayList
+        return arrayListMutableLiveData
+    }
+
 }

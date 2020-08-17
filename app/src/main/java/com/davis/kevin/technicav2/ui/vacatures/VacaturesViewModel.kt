@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.DOM.Vacature
-import com.davis.kevin.technicav2.ui.vacatures.vacatureNavigator
 
 class VacaturesViewModel : ViewModel {
 
@@ -14,10 +13,10 @@ class VacaturesViewModel : ViewModel {
     var description = ""
     var link = ""
 
-    private val _text = MutableLiveData<String>().apply {
+    /*private val _text = MutableLiveData<String>().apply {
         value = "This is slideshow Fragment"
     }
-    val text: LiveData<String> = _text
+    val text: LiveData<String> = _text*/
 
     constructor() : super() {}
     constructor(
