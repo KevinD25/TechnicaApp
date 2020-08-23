@@ -42,7 +42,6 @@ class VacaturesFragment : Fragment(){
 
         vacaturesViewModel.getArrayList().observe(this, Observer { vacaturesViewModels ->
 
-
             customVacatureAdapter = CustomVacatureAdapter(ctx, vacaturesViewModels!!)
             VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
             VacatureRV!!.adapter = customVacatureAdapter
