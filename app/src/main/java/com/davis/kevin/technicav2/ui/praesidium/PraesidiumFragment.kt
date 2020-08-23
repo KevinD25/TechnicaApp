@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
 import kotlinx.android.synthetic.main.fragment_praesidium.*
+import me.relex.circleindicator.CircleIndicator3
 
 class PraesidiumFragment : Fragment() {
 
@@ -39,7 +40,11 @@ class PraesidiumFragment : Fragment() {
         praesidiumViewModel.getArrayList().observe(this, Observer { praesidiumViewModels ->
             customPraesidiumAdapter = CustomPraesidiumAdapter(ctx, praesidiumViewModels!!)
             praesidiumVP!!.adapter= customPraesidiumAdapter
+            val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
+            indicator.setViewPager(praesidiumVP)
         })
+
+
 
 
        /* val textView: TextView = root.findViewById(R.id.text_share)

@@ -1,17 +1,9 @@
 package com.davis.kevin.technicav2.ui.sponsors
 
-import android.content.Context
-import android.view.View
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.viewpager2.widget.ViewPager2
-import com.davis.kevin.technicav2.DOM.Partner
-import com.davis.kevin.technicav2.DOM.Praesidium
-import com.davis.kevin.technicav2.DOM.Vacature
-import com.davis.kevin.technicav2.adapters.CustomPartnerAdapter
-import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
-import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
+import com.davis.kevin.technicav2.models.Partner
+import com.davis.kevin.technicav2.models.Vacature
 
 class SponsorsViewModel : ViewModel {
 

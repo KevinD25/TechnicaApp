@@ -1,13 +1,9 @@
 package com.davis.kevin.technicav2.ui.kalender
 
-import android.widget.ListView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.davis.kevin.technicav2.DOM.Event
-import com.davis.kevin.technicav2.DOM.Vacature
-import com.davis.kevin.technicav2.ui.vacatures.VacaturesViewModel
-import java.util.*
+import com.davis.kevin.technicav2.models.Event
 import kotlin.collections.ArrayList
 
 class KalenderViewModel : ViewModel {

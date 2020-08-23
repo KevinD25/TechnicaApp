@@ -12,9 +12,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.davis.kevin.technicav2.DOM.Vacature
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomVacatureAdapter
+import kotlinx.android.synthetic.main.fragment_vacatures.view.*
 
 
 class VacaturesFragment : Fragment(){
@@ -24,6 +24,7 @@ class VacaturesFragment : Fragment(){
     private lateinit var viewOfLayout: View
     private var customVacatureAdapter : CustomVacatureAdapter? = null
     private lateinit var ctx : Context
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,27 +40,17 @@ class VacaturesFragment : Fragment(){
         vacaturesViewModel =
             ViewModelProviders.of(this).get(VacaturesViewModel::class.java)
 
-        vacaturesViewModel.getArrayList().observe(this, Observer {vacaturesViewModels->
+        vacaturesViewModel.getArrayList().observe(this, Observer { vacaturesViewModels ->
 
 
             customVacatureAdapter = CustomVacatureAdapter(ctx, vacaturesViewModels!!)
-            VacatureRV!!.layoutManager = LinearLayoutManager(ctx )
+            VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
             VacatureRV!!.adapter = customVacatureAdapter
 
         })
 
         return viewOfLayout
 
-    }
-
-    fun goToLink(view: View, url: String){
-        goToUrl(url)
-    }
-
-    fun goToUrl(url: String) {
-        val uriUrl: Uri = Uri.parse(url)
-        val launchBrowser = Intent(Intent.ACTION_VIEW, uriUrl)
-        startActivity(launchBrowser)
     }
 
 }

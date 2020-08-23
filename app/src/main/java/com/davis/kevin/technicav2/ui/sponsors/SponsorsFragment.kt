@@ -16,6 +16,7 @@ import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
 import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
 import kotlinx.android.synthetic.main.fragment_praesidium.*
 import kotlinx.android.synthetic.main.fragment_sponsors.*
+import me.relex.circleindicator.CircleIndicator3
 
 class SponsorsFragment : Fragment() {
 
@@ -46,6 +47,8 @@ class SponsorsFragment : Fragment() {
         sponsorsViewModel.getArrayList().observe(this, Observer { sponsorsViewModels ->
             customPartnerAdapter = CustomPartnerAdapter(ctx, sponsorsViewModels!!)
             partnerVP!!.adapter= customPartnerAdapter
+            val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
+            indicator.setViewPager(partnerVP)
         })
 
 

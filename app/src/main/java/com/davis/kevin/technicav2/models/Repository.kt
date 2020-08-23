@@ -1,4 +1,4 @@
-package com.davis.kevin.technicav2.DOM
+package com.davis.kevin.technicav2.models
 
 class Repository() {
 

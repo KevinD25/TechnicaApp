@@ -49,4 +49,5 @@ dependencies {
     //Third party
     implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
     implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'me.relex:circleindicator:2.1.4'
 }

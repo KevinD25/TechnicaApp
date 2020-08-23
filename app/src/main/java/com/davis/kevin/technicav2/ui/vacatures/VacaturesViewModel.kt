@@ -1,9 +1,8 @@
 package com.davis.kevin.technicav2.ui.vacatures
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.davis.kevin.technicav2.DOM.Vacature
+import com.davis.kevin.technicav2.models.Vacature
 
 class VacaturesViewModel : ViewModel {
 
@@ -50,4 +49,6 @@ class VacaturesViewModel : ViewModel {
 
         return arraylistMutableLiveData
     }
+
+
 }
