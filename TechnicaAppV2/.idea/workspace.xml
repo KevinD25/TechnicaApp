@@ -10,32 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec2247c-829c-400a-af59-adf6439b56c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/DesignTimeBuild/.dtbcache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/DesignTimeBuild/.dtbcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/config/applicationhost.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/v16/Server/sqlite3/storage.ide-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/v16/Server/sqlite3/storage.ide-wal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/Debug/netstandard2.0/Classlib.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/Debug/netstandard2.0/Classlib.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/bin/Debug/netcoreapp3.1/TECHNICATEST.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/bin/Debug/netcoreapp3.1/TECHNICATEST.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/bin/Debug/netcoreapp3.1/TECHNICATEST.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/bin/Debug/netcoreapp3.1/TECHNICATEST.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/Debug/netcoreapp3.1/TECHNICATEST.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/Debug/netcoreapp3.1/TECHNICATEST.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/TECHNICATEST.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/TECHNICATEST.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/TECHNICATEST.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/TECHNICATEST.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/project.assets.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_API_28" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.0.147:5555" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -63,7 +59,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1ftn0ATjx5dxSaO0hpknZcGoTAn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -92,6 +88,9 @@
     </key>
     <key name="android.template.packageName">
       <recent name="com.davis.kevin.technicav2" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.davis.kevin.technicav2.networking" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Technica\TechnicaApp\Applicatie\TechnicaAppV2\app\src\main\res\layout" />
@@ -238,6 +237,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598193590646" />
+    <state x="739" y="183" width="521" height="673" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1600969455455">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="183" width="521" height="673" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600969455455" />
     <state x="-1700" y="-9" key="AndroidCreateResourceDirectoryDialog" timestamp="1597068386898">
       <screen x="-2560" y="-464" width="2560" height="1400" />
     </state>
@@ -272,10 +275,10 @@
     </state>
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598225768641" />
     <state width="1877" height="158" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597233115661" />
-    <state x="485" y="142" key="SettingsEditor" timestamp="1597681849494">
+    <state x="485" y="142" key="SettingsEditor" timestamp="1600967055854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="485" y="142" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597681849494" />
+    <state x="485" y="142" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600967055854" />
     <state x="92" y="92" width="1736" height="856" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1597593420876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

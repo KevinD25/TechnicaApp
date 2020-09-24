@@ -6,3 +6,12 @@ C:\Users\Rob\source\repos\TECHNICATEST\Classlib\bin\Debug\netstandard2.0\Classli
 C:\Users\Rob\source\repos\TECHNICATEST\Classlib\bin\Debug\netstandard2.0\Classlib.pdb
 C:\Users\Rob\source\repos\TECHNICATEST\Classlib\obj\Debug\netstandard2.0\Classlib.dll
 C:\Users\Rob\source\repos\TECHNICATEST\Classlib\obj\Debug\netstandard2.0\Classlib.pdb
+D:\Technica\TechnicaApp\Applicatie\Backend\Classlib\bin\Debug\netstandard2.0\Classlib.deps.json
+D:\Technica\TechnicaApp\Applicatie\Backend\Classlib\bin\Debug\netstandard2.0\Classlib.dll
+D:\Technica\TechnicaApp\Applicatie\Backend\Classlib\bin\Debug\netstandard2.0\Classlib.pdb
+D:\Technica\TechnicaApp\Applicatie\Backend\Classlib\obj\Debug\netstandard2.0\Classlib.csprojAssemblyReference.cache
+D:\Technica\TechnicaApp\Applicatie\Backend\Classlib\obj\Debug\netstandard2.0\Classlib.AssemblyInfoInputs.cache
+D:\Technica\TechnicaApp\Applicatie\Backend\Classlib\obj\Debug\netstandard2.0\Classlib.AssemblyInfo.cs
+D:\Technica\TechnicaApp\Applicatie\Backend\Classlib\obj\Debug\netstandard2.0\Classlib.csproj.CoreCompileInputs.cache
+D:\Technica\TechnicaApp\Applicatie\Backend\Classlib\obj\Debug\netstandard2.0\Classlib.dll
+D:\Technica\TechnicaApp\Applicatie\Backend\Classlib\obj\Debug\netstandard2.0\Classlib.pdb
