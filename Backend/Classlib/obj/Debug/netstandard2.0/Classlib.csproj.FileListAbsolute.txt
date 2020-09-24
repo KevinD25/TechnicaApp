@@ -1,0 +1,8 @@
+C:\Users\Rob\source\repos\TECHNICATEST\Classlib\obj\Debug\netstandard2.0\Classlib.csprojAssemblyReference.cache
+C:\Users\Rob\source\repos\TECHNICATEST\Classlib\obj\Debug\netstandard2.0\Classlib.AssemblyInfoInputs.cache
+C:\Users\Rob\source\repos\TECHNICATEST\Classlib\obj\Debug\netstandard2.0\Classlib.AssemblyInfo.cs
+C:\Users\Rob\source\repos\TECHNICATEST\Classlib\bin\Debug\netstandard2.0\Classlib.deps.json
+C:\Users\Rob\source\repos\TECHNICATEST\Classlib\bin\Debug\netstandard2.0\Classlib.dll
+C:\Users\Rob\source\repos\TECHNICATEST\Classlib\bin\Debug\netstandard2.0\Classlib.pdb
+C:\Users\Rob\source\repos\TECHNICATEST\Classlib\obj\Debug\netstandard2.0\Classlib.dll
+C:\Users\Rob\source\repos\TECHNICATEST\Classlib\obj\Debug\netstandard2.0\Classlib.pdb

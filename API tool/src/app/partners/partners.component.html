@@ -1,0 +1,17 @@
+<form>
+    <div class="row">
+      <div class="column"> 
+        <label>Naam:</label><br>
+        <label>Info over bedrijf:</label><br>
+        <label>website link:</label><br>
+        <label>Logo:</label><br>
+      </div>
+      <div class="column">
+        <input type="text" name="naam" #naam><br>
+        <input type="text" name="info" #info><br>
+        <input type="text" name="websitelink" #websitelink><br>
+        <input type="text" name="logo" #logo><br>
+      </div>
+    </div>
+    <button (click)="VoegNieuwePartnerToe(naam.value,info.value,websitelink.value,logo.value)">Voeg toe!</button>
+  </form>
