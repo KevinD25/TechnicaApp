@@ -19,7 +19,6 @@ class CustomKalenderAdapter(private val ctx: Context, private val arrayList:Arra
             this.kalenderBinding.kalendermodel = kalenderViewModel
             kalenderBinding.executePendingBindings()
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {

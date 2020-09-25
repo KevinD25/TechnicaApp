@@ -7,19 +7,27 @@ import retrofit2.http.*
 
 interface Endpoints {
 
+    @GET("home")
+    suspend fun getHome(): Home
 
-    @GET("Clubtext")
+    @GET("clubtext")
     suspend fun getClubText(): Clubtext
 
-    @GET("Event")
+    @GET("event")
     suspend fun getEvents(): List<Event>
 
-    @GET("Partner")
+    @GET("sponsor")
     suspend fun getPartners(): List<Partner>
 
-    @GET("Praesidium")
+    @GET("sponsor/{id}")
+    suspend fun getSponsorByID(): Partner
+
+    @GET("praesidium")
     suspend fun getPraesidium(): List<Praesidium>
 
-    @GET("Vacature")
+    @GET("praesidium/{id}")
+    suspend fun getPraesidiumByID(): Praesidium
+
+    @GET("vacature")
     suspend fun getVacatures(): List<Vacature>
 }

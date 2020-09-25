@@ -40,7 +40,7 @@
                         android:id="@+id/id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{kalendermodel.id}" />
+                        android:text="@{kalendermodel.idString}" />
 
                     <TextView
                         android:id="@+id/companyID"

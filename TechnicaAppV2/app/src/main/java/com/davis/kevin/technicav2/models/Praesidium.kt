@@ -1,4 +1,4 @@
 package com.davis.kevin.technicav2.models
 
-class Praesidium(val id: String, val name: String, val surname: String, val birthday: String, val studies: String, val functie: String) {
+class Praesidium(val id: Int = 0 , val name: String?  = null, val surname: String? = null, val birthday: String? = null, val studies: String? = null, val functie: String? = null) {
 }

@@ -8,11 +8,12 @@ import kotlin.collections.ArrayList
 
 class KalenderViewModel : ViewModel {
 
-    var id = ""
-    var name = ""
-    var date   = ""
-    var location = ""
-    var description = ""
+    var id = 0
+    var idString : String? = ""
+    var name : String? = ""
+    var date  : String? = ""
+    var location : String? = ""
+    var description : String? = ""
 
 
     private val _text = MutableLiveData<String>().apply {
@@ -26,6 +27,7 @@ class KalenderViewModel : ViewModel {
         event: Event
     ): super(){
         this.id = event.id
+        this.idString = event.id.toString()
         this.name = event.name
         this.date = event.date
         this.location = event.location
@@ -38,14 +40,14 @@ class KalenderViewModel : ViewModel {
 
     fun getArrayList() : MutableLiveData<ArrayList<KalenderViewModel>> {
         val event1 = Event(
-            id = "1",
+            id = 1,
             name = "testevent1",
             date = "11/08/2020",
             location = "Hier",
             description = "testDescr"
         )
         val event2 = Event(
-            id = "2",
+            id = 2,
             name = "testevent2",
             date = "12/08/2020",
             location = "Daar",

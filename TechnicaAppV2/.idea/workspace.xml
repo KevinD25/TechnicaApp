@@ -9,29 +9,13 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec2247c-829c-400a-af59-adf6439b56c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/DesignTimeBuild/.dtbcache" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/DesignTimeBuild/.dtbcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/v16/Server/sqlite3/storage.ide-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/.vs/TECHNICATEST/v16/Server/sqlite3/storage.ide-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/Classlib.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/Debug/netstandard2.0/Classlib.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/Debug/netstandard2.0/Classlib.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/Classlib/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/Classlib/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/bin/Debug/netcoreapp3.1/TECHNICATEST.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/bin/Debug/netcoreapp3.1/TECHNICATEST.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/bin/Debug/netcoreapp3.1/TECHNICATEST.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/bin/Debug/netcoreapp3.1/TECHNICATEST.runtimeconfig.dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/Debug/netcoreapp3.1/TECHNICATEST.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/Debug/netcoreapp3.1/TECHNICATEST.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/TECHNICATEST.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/TECHNICATEST.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/TECHNICATEST.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/TECHNICATEST.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/TECHNICATEST/obj/project.assets.json" afterDir="false" />
-    </list>
+    <list default="true" id="0ec2247c-829c-400a-af59-adf6439b56c1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.0.147:5555" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_API_28" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -78,12 +62,13 @@
     <property name="SelectDeploymentTargetsDialog.selectedDevices" value="Nexus_6P_API_27&#10;Galaxy_Nexus_API_29&#10;Pixel_3a_API_28&#10;Pixel_XL_API_26" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="D:/Senso2Me/Project/i-tracker" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../temp/TechnicaApp/TechnicaAppV2" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.davis.kevin.technicav2.repo" />
       <recent name="com.davis.kevin.technicav2.ui.sponsors" />
     </key>
     <key name="android.template.packageName">
@@ -251,29 +236,29 @@
     <state x="-1700" y="-9" key="AndroidCreateResourceFileDialog/0.0.1920.1040/-2560.-464.2560.1400@-2560.-464.2560.1400" timestamp="1597073256624" />
     <state x="645" y="338" key="AndroidCreateResourceFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598192882867" />
     <state x="645" y="338" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597230207410" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1599583207600">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1601044663470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599583207600" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1598225768641">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601044663470" />
+    <state width="938" height="281" key="GridCell.Tab.0.bottom" timestamp="1601048544478">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598225768641" />
+    <state width="938" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601048544478" />
     <state width="1877" height="158" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597233115662" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1598225768641">
+    <state width="938" height="281" key="GridCell.Tab.0.center" timestamp="1601048544478">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598225768641" />
+    <state width="938" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601048544478" />
     <state width="1877" height="158" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597233115661" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1598225768640">
+    <state width="938" height="281" key="GridCell.Tab.0.left" timestamp="1601048544478">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598225768640" />
+    <state width="938" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601048544478" />
     <state width="1877" height="158" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597233115661" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1598225768641">
+    <state width="938" height="281" key="GridCell.Tab.0.right" timestamp="1601048544478">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598225768641" />
+    <state width="938" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601048544478" />
     <state width="1877" height="158" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597233115661" />
     <state x="485" y="142" key="SettingsEditor" timestamp="1600967055854">
       <screen x="0" y="0" width="1920" height="1040" />

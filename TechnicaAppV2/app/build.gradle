@@ -36,11 +36,11 @@ android {
     productFlavors {
         production {
             dimension "api"
-            buildConfigField "String", "BASE_URL", "\"https://zorgapp.be/api//\""
+            buildConfigField "String", "BASE_URL", "\"https://localhost:44363/api/\""
         }
         staging {
             dimension "api"
-            buildConfigField "String", "BASE_URL", "\"https://localhost:44363/api//\""
+            buildConfigField "String", "BASE_URL", "\"https://localhost:44363/api/\""
         }
     }
 }

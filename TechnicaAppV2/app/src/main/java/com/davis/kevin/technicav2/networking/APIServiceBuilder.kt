@@ -11,22 +11,20 @@ import java.util.concurrent.TimeUnit
 
 object APIServiceBuilder {
 
-    const val AUTHORIZATION_HEADER = "Authorization"
-
-    private fun getClient(context: Context): OkHttpClient = OkHttpClient().newBuilder()
+    private fun getClient(): OkHttpClient = OkHttpClient().newBuilder()
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
         .addNetworkInterceptor((HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)))
         .build()
 
-    private fun getRetrofitClient(context: Context): Retrofit = Retrofit.Builder()
+    private fun getRetrofitClient(): Retrofit = Retrofit.Builder()
         .baseUrl(BuildConfig.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .client(getClient(context))
+        .client(getClient())
         .build()
 
-    fun <T> buildService(service: Class<T>, context: Context): T{
-        return getRetrofitClient(context).create(service)
+    fun <T> buildService(service: Class<T>): T{
+        return getRetrofitClient().create(service)
     }
 }
