@@ -35,9 +35,9 @@
         <option value="layoutResourceFile_vertical" />
         <option value="Interface" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin File" />
         <option value="layoutResourceFile" />
         <option value="resourceFile" />
+        <option value="Kotlin File" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -230,11 +230,11 @@
       <screen x="-2560" y="-464" width="2560" height="1400" />
     </state>
     <state x="-1700" y="-9" key="AndroidCreateResourceDirectoryDialog/0.0.1920.1040/-2560.-464.2560.1400@-2560.-464.2560.1400" timestamp="1597068386898" />
-    <state x="645" y="338" key="AndroidCreateResourceFileDialog" timestamp="1598192882867">
+    <state x="645" y="338" key="AndroidCreateResourceFileDialog" timestamp="1601050021164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1700" y="-9" key="AndroidCreateResourceFileDialog/0.0.1920.1040/-2560.-464.2560.1400@-2560.-464.2560.1400" timestamp="1597073256624" />
-    <state x="645" y="338" key="AndroidCreateResourceFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598192882867" />
+    <state x="645" y="338" key="AndroidCreateResourceFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601050021164" />
     <state x="645" y="338" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597230207410" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1601044663470">
       <screen x="0" y="0" width="1920" height="1040" />

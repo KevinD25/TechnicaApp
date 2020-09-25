@@ -20,13 +20,13 @@ interface Endpoints {
     suspend fun getPartners(): List<Partner>
 
     @GET("sponsor/{id}")
-    suspend fun getSponsorByID(): Partner
+    suspend fun getPartnersByID(@Path("id") id: Int): Partner
 
     @GET("praesidium")
     suspend fun getPraesidium(): List<Praesidium>
 
     @GET("praesidium/{id}")
-    suspend fun getPraesidiumByID(): Praesidium
+    suspend fun getPraesidiumByID(@Path("id") id: Int): Praesidium
 
     @GET("vacature")
     suspend fun getVacatures(): List<Vacature>
