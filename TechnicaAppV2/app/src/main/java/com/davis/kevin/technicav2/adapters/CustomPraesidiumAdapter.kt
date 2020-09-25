@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.databinding.PraesidiumBinding
 import com.davis.kevin.technicav2.databinding.VacatureBinding
+import com.davis.kevin.technicav2.models.Praesidium
 import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
 import com.davis.kevin.technicav2.ui.vacatures.VacaturesViewModel
 
 class CustomPraesidiumAdapter (val ctx : Context, val arrayList:ArrayList<PraesidiumViewModel>) : RecyclerView.Adapter<CustomPraesidiumAdapter.CustomView>(){
 
+    private var praesidiumList: MutableList<Praesidium> = ArrayList()
 
     class CustomView( val praesidiumBinding: PraesidiumBinding): RecyclerView.ViewHolder(praesidiumBinding.root){
 
@@ -22,6 +24,13 @@ class CustomPraesidiumAdapter (val ctx : Context, val arrayList:ArrayList<Praesi
             this.praesidiumBinding.praesidiummodel = praesidiumViewModel
             praesidiumBinding.executePendingBindings()
         }
+
+    }
+
+    fun setPraesidium(praesidia: MutableList<Praesidium>) {
+
+        praesidiumList.addAll(praesidia)
+        notifyDataSetChanged()
 
     }
 

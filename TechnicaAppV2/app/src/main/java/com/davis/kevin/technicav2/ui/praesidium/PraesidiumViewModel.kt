@@ -2,7 +2,14 @@ package com.davis.kevin.technicav2.ui.praesidium
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.davis.kevin.technicav2.models.Praesidium
+import com.davis.kevin.technicav2.networking.APIServiceBuilder
+import com.davis.kevin.technicav2.networking.Endpoints
+import com.davis.kevin.technicav2.networking.MainRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PraesidiumViewModel : ViewModel {
 
@@ -13,6 +20,10 @@ class PraesidiumViewModel : ViewModel {
     var birthday : String? = ""
     var studies : String? = ""
     var functie : String? = ""
+
+    private val mainRepository = MainRepository()
+    val usersSuccessLiveData = mainRepository.praesidiumSuccessLiveData
+    val usersFailureLiveData = mainRepository.praesidiumFailureLiveData
 
 
 
@@ -38,7 +49,22 @@ class PraesidiumViewModel : ViewModel {
     var arrayList = ArrayList<PraesidiumViewModel>()
 
     fun getArrayList() : MutableLiveData<ArrayList<PraesidiumViewModel>>{
-        val praesidium1 = Praesidium(id=1, name="Davis", surname = "Kevin", birthday = "25/11/1993", studies ="Elektronica-ICT", functie = "Praeses")
+
+            //this is coroutine viewmodel scope to call suspend fun of repo
+            viewModelScope.launch { mainRepository.getPraesidium() }
+
+
+
+       /* CoroutineScope(Dispatchers.IO).launch {
+          val  praesidium =  apiService.getPraesidium()
+
+            praesidium.forEach{
+                val praesidiumViewModel = PraesidiumViewModel(it)
+                arrayList!!.add(praesidiumViewModel)
+            }
+        }*/
+
+      /*  val praesidium1 = Praesidium(id=1, name="Davis", surname = "Kevin", birthday = "25/11/1993", studies ="Elektronica-ICT", functie = "Praeses")
         val praesidium2 = Praesidium(id=2, name="Brusten", surname = "Björn", birthday = "26/11/1993", studies ="Energiemanagement", functie = "Vice-Praeses")
         val praesidium3 = Praesidium(id=3, name="Van Mol", surname="Robin", birthday = "idk lol", studies="Electromechanica", functie = "Quaestor")
 
@@ -48,7 +74,7 @@ class PraesidiumViewModel : ViewModel {
 
         arrayList!!.add(praesidiumViewModel1)
         arrayList!!.add(praesidiumViewModel2)
-        arrayList!!.add(praesidiumViewModel3)
+        arrayList!!.add(praesidiumViewModel3)*/
 
         arrayListMutableLiveData.value = arrayList
         return arrayListMutableLiveData

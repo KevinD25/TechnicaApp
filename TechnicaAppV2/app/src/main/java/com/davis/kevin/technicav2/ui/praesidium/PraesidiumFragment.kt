@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -32,12 +33,14 @@ class PraesidiumFragment : Fragment() {
         viewOfLayout = inflater!!.inflate(R.layout.fragment_praesidium, container, false)
 
         PraesidiumVP = viewOfLayout.findViewById(R.id.praesidiumVP)
-        ctx = activity!!.applicationContext
+        ctx = requireActivity().applicationContext
 
         praesidiumViewModel =
             ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
 
-        praesidiumViewModel.getArrayList().observe(this, Observer { praesidiumViewModels ->
+        registerObservers()
+
+        praesidiumViewModel.getArrayList().observe(viewLifecycleOwner, Observer { praesidiumViewModels ->
             customPraesidiumAdapter = CustomPraesidiumAdapter(ctx, praesidiumViewModels!!)
             praesidiumVP!!.adapter= customPraesidiumAdapter
             val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
@@ -52,5 +55,26 @@ class PraesidiumFragment : Fragment() {
             textView.text = it
         })*/
         return viewOfLayout
+    }
+
+    private fun registerObservers() {
+
+        praesidiumViewModel.usersSuccessLiveData.observe(viewLifecycleOwner, Observer { userList ->
+
+            //if it is not null then we will display all users
+            userList?.let {
+                customPraesidiumAdapter?.setPraesidium(it)
+            }
+        })
+
+        praesidiumViewModel.usersFailureLiveData.observe(viewLifecycleOwner, Observer { isFailed ->
+
+            //if it is not null then we will display all users
+            isFailed?.let {
+
+                Toast.makeText(ctx, "Oops! something went wrong", Toast.LENGTH_SHORT).show()
+            }
+        })
+
     }
 }
