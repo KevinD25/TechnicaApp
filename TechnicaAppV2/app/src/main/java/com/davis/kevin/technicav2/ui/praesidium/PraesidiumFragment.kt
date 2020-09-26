@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
+import com.davis.kevin.technicav2.networking.Repository
 import kotlinx.android.synthetic.main.fragment_praesidium.*
 import me.relex.circleindicator.CircleIndicator3
 
@@ -38,7 +39,7 @@ class PraesidiumFragment : Fragment() {
         praesidiumViewModel =
             ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
 
-        registerObservers()
+        //registerObservers()
 
         praesidiumViewModel.getArrayList().observe(viewLifecycleOwner, Observer { praesidiumViewModels ->
             customPraesidiumAdapter = CustomPraesidiumAdapter(ctx, praesidiumViewModels!!)
@@ -57,24 +58,4 @@ class PraesidiumFragment : Fragment() {
         return viewOfLayout
     }
 
-    private fun registerObservers() {
-
-        praesidiumViewModel.usersSuccessLiveData.observe(viewLifecycleOwner, Observer { userList ->
-
-            //if it is not null then we will display all users
-            userList?.let {
-                customPraesidiumAdapter?.setPraesidium(it)
-            }
-        })
-
-        praesidiumViewModel.usersFailureLiveData.observe(viewLifecycleOwner, Observer { isFailed ->
-
-            //if it is not null then we will display all users
-            isFailed?.let {
-
-                Toast.makeText(ctx, "Oops! something went wrong", Toast.LENGTH_SHORT).show()
-            }
-        })
-
-    }
 }
