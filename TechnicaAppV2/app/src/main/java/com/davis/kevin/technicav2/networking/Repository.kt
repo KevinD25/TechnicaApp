@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class Repository() {
 
     init {
-        getData()
+        //getData()
     }
 
     var praesidium: List<Praesidium>
@@ -20,9 +20,9 @@ class Repository() {
         set(value) {}
 
 
-    private fun getData() {
+   /* private fun getData() {
         CoroutineScope(Dispatchers.IO).launch {
             praesidium = apiService.getPraesidium()
         }
-    }
+    }*/
 }

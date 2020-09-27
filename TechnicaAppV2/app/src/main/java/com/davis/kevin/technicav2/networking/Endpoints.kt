@@ -23,7 +23,7 @@ interface Endpoints {
     suspend fun getPartnersByID(@Path("id") id: Int): Partner
 
     @GET("praesidium")
-    suspend fun getPraesidium(): List<Praesidium>
+    fun getPraesidium(): Call<List<Praesidium>>
 
     @GET("praesidium/{id}")
     suspend fun getPraesidiumByID(@Path("id") id: Int): Praesidium
