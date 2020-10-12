@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Classlib;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,6 +41,8 @@ namespace TECHNICATEST.Controllers
             return Spons;
         }
         [HttpPut]
+        [Authorize]
+
         public ActionResult<Sponsor> EditSponsors([FromBody] Sponsor spons)
         {
             _ctx.Sponsors.Update(spons);
@@ -50,6 +53,8 @@ namespace TECHNICATEST.Controllers
 
 
         [HttpPost]
+        [Authorize]
+
         public ActionResult<Sponsor> AddSponsor([FromBody] Sponsor spons)
         {
             _ctx.Sponsors.Add(spons);
@@ -60,6 +65,8 @@ namespace TECHNICATEST.Controllers
 
         [Route("{id}")]
         [HttpDelete]
+        [Authorize]
+
         public ActionResult<Sponsor> DeleteSponsor0(int ID)
         {
             var Sponsor = _ctx.Sponsors.Find(ID);

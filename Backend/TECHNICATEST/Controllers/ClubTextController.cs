@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using Classlib;
 using Classlib.Services;
 using Microsoft.AspNetCore.Http;
-
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace TECHNICATEST.Controllers
 {
@@ -21,8 +20,8 @@ namespace TECHNICATEST.Controllers
         {
             _ctx = ctx;
         }
-
         [HttpGet]
+
         public ActionResult<ClubText> GetClubText()
         {
             var text = _ctx.ClubTexts.First();
@@ -32,12 +31,15 @@ namespace TECHNICATEST.Controllers
             return text;
         }
         [HttpPut]
+        [Authorize]
+
         public ActionResult<ClubText> EditClubText([FromBody] ClubText TXT)
         {
             _ctx.ClubTexts.Update(TXT);
             _ctx.SaveChanges();
             return Created("", TXT);
         }
+        [Authorize]
         [HttpPost]
         public ActionResult<ClubText> AddClubText([FromBody] ClubText TXT)
         {

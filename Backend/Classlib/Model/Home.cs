@@ -11,6 +11,7 @@ namespace Classlib
         public string imageLink{ get; set; }
 
         public DateTime date { get; set; }
-
+        public string fbLink { get; set; }
+        
 }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Classlib;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,6 +39,8 @@ namespace TECHNICATEST.Controllers
             return vac;
         }
         [HttpPut]
+        [Authorize]
+
         public ActionResult<Vacature> EditVacature([FromBody] Vacature vac)
         {
             _ctx.vacatures.Update(vac);
@@ -48,6 +51,8 @@ namespace TECHNICATEST.Controllers
 
 
         [HttpPost]
+        [Authorize]
+
         public ActionResult<Vacature> AddVacature([FromBody] Vacature vac)
         {
             _ctx.vacatures.Add(vac);
@@ -58,6 +63,8 @@ namespace TECHNICATEST.Controllers
 
         [Route("{id}")]
         [HttpDelete]
+        [Authorize]
+
         public ActionResult<Vacature> DeleteVacature(int ID)
         {
             var Vacature = _ctx.vacatures.Find(ID);
