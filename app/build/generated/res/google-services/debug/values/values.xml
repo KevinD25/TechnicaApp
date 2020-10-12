@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">375182581559-suk74u3l7f51vib67150qa2rfku2tb44.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://technicaapp-f152e.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">375182581559</string>
+    <string name="google_api_key" translatable="false">AIzaSyBW9GSgLNxXFTvljuQkmnDbboAjr6MdTWw</string>
+    <string name="google_app_id" translatable="false">1:375182581559:android:e67cf9dc599af84b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBW9GSgLNxXFTvljuQkmnDbboAjr6MdTWw</string>
+    <string name="google_storage_bucket" translatable="false">technicaapp-f152e.appspot.com</string>
+    <string name="project_id" translatable="false">technicaapp-f152e</string>
+</resources>
