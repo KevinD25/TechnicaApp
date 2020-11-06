@@ -12,14 +12,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec2247c-829c-400a-af59-adf6439b56c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../~$gelijke-calls.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="988a17305a344c3256" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_API_28" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -72,7 +78,7 @@
     <property name="SelectDeploymentTargetsDialog.selectedDevices" value="Nexus_6P_API_27&#10;Galaxy_Nexus_API_29&#10;Pixel_3a_API_28&#10;Pixel_XL_API_26" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../temp/kotlinexamples/Kotlinloginvideowithviewmodel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.language.Kotlin" />
   </component>
@@ -247,29 +253,29 @@
     <state x="-1700" y="-9" key="AndroidCreateResourceFileDialog/0.0.1920.1040/-2560.-464.2560.1400@-2560.-464.2560.1400" timestamp="1597073256624" />
     <state x="645" y="338" key="AndroidCreateResourceFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601050021164" />
     <state x="645" y="338" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597230207410" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1601411072380">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1601637620319">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601411072380" />
-    <state width="1877" height="227" key="GridCell.Tab.0.bottom" timestamp="1601484616670">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601637620319" />
+    <state width="1877" height="227" key="GridCell.Tab.0.bottom" timestamp="1604674922414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601484616670" />
+    <state width="1877" height="227" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604674922414" />
     <state width="1877" height="158" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597233115662" />
-    <state width="1877" height="227" key="GridCell.Tab.0.center" timestamp="1601484616669">
+    <state width="1877" height="227" key="GridCell.Tab.0.center" timestamp="1604674922414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601484616669" />
+    <state width="1877" height="227" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604674922414" />
     <state width="1877" height="158" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597233115661" />
-    <state width="1877" height="227" key="GridCell.Tab.0.left" timestamp="1601484616669">
+    <state width="1877" height="227" key="GridCell.Tab.0.left" timestamp="1604674922414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601484616669" />
+    <state width="1877" height="227" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604674922414" />
     <state width="1877" height="158" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597233115661" />
-    <state width="1877" height="227" key="GridCell.Tab.0.right" timestamp="1601484616670">
+    <state width="1877" height="227" key="GridCell.Tab.0.right" timestamp="1604674922414">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601484616670" />
+    <state width="1877" height="227" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604674922414" />
     <state width="1877" height="158" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597233115661" />
     <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1601142244515">
       <screen x="0" y="0" width="1920" height="1040" />
