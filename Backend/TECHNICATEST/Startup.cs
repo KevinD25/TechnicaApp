@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Classlib.Repos;
 using Classlib.Services;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace TECHNICATEST
 {
@@ -36,6 +37,12 @@ namespace TECHNICATEST
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     );
+
+            });
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.Authority = "https://dev-skr3fnrj.eu.auth0.com";
+                options.Audience = "3V3VJhjWHGmjLaXt0EuxPMVlUCuM2xJE";
             });
             services.AddMvc(option => option.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
@@ -68,20 +75,18 @@ namespace TECHNICATEST
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+          
 
-            app.UseRouting();
 
+
+            app.UseAuthorization();
+            app.UseCors("CorsPolicy");
+            app.UseAuthentication();
+            app.UseMvc();
 
 
             DBInit.Initialize(context);
-            app.UseAuthorization();
-            app.UseCors("CorsPolicy");
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
         }
     }
 }

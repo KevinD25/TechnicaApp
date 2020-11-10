@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Classlib;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -34,6 +35,8 @@ namespace TECHNICATEST.Controllers
 
       
         [HttpPut]
+        [Authorize]
+
         public ActionResult<Home> EditHome([FromBody] Home h)
         {
             _ctx.Home.Update(h);
@@ -44,6 +47,8 @@ namespace TECHNICATEST.Controllers
 
 
         [HttpPost]
+        [Authorize]
+
         public ActionResult<Home> AddHome([FromBody] Home h)
         {
             _ctx.Home.Add(h);
@@ -54,6 +59,8 @@ namespace TECHNICATEST.Controllers
 
         [Route("{id}")]
         [HttpDelete]
+        [Authorize]
+
         public ActionResult<Home> DeleteHome(int ID)
         {
             var Home = _ctx.Home.Find(ID);

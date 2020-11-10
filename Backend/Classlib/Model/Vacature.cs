@@ -6,8 +6,11 @@ namespace Classlib
     {
         public int id { get; set; }
 
-        //TODO : ADD VACATURE INFO 
+        public int name { get; set; }
 
+        public int description { get; set; }
+
+        public int link { get; set; }
 
         public int sponsorid { get; set; }
         public Sponsor sponsor { get; set; }

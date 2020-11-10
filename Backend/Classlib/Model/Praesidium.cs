@@ -7,6 +7,7 @@ namespace Classlib
     public class Praesidium
     {
         public int id { get; set; }
+        public int orderId { get; set; }
 
         public string surName { get; set; }
         public string name { get; set; }

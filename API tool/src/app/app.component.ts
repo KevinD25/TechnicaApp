@@ -1,47 +1,41 @@
 import { Component, Input } from '@angular/core';
-import {tokenNotExpired, JwtHelper} from 'angular2-jwt'
+import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import Auth0Lock from 'auth0-lock';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TokenInterceptorService } from './token-interceptor.service';
-import{DatawisselenService} from './datawisselen.service'
+import { DatawisselenService } from './datawisselen.service';
 
+// declare var Auth0Lock;
 
-//declare var Auth0Lock;
-
-
-declare module "@angular/core" {
+declare module '@angular/core' {
   interface ModuleWithProviders<T = any> {
-      ngModule: Type<T>;
-      providers?: Provider[];
+    ngModule: Type<T>;
+    providers?: Provider[];
   }
 }
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'TechnicaAngularProject';
 
-  JuisteGegevens:any;
+  JuisteGegevens: any;
 
-  constructor(private datawisselen:DatawisselenService) {this.getData()}
+  constructor(private datawisselen: DatawisselenService) {
+    this.getData();
+  }
 
+  private getData(): void {
+    this.datawisselen.change.subscribe((value) => {
+      this.JuisteGegevens = value;
+      console.log(this.JuisteGegevens);
+    });
+  }
 
-
-  private getData()
-  {
-  this.datawisselen.change.subscribe(value => {
-                 this.JuisteGegevens = value;
-                 console.log(this.JuisteGegevens)
-              });
-  }; 
-
-
-  
-
-/*
+  /*
   formGroup:FormGroup;
 
   constructor(private TokenInterceptorService:TokenInterceptorService){}
@@ -74,7 +68,7 @@ export class AppComponent {
     });
   }*/
 
-/*
+  /*
   lock=new Auth0Lock('3V3VJhjWHGmjLaXt0EuxPMVlUCuM2xJE','dev-skr3fnrj.eu.auth0.com');
   jwthelper:JwtHelper=new JwtHelper();
 
@@ -109,6 +103,4 @@ export class AppComponent {
   }
 
   */
-
-
 }
