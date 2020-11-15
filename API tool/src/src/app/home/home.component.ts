@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from "../Services/dataservice.service";
-
+import { AngularFireStorage } from "@angular/fire/storage";
+import { map, finalize } from "rxjs/operators";
+import { Observable } from "rxjs";
+import { FormControl, FormGroup } from "@angular/forms";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,9 +11,17 @@ import { DataserviceService } from "../Services/dataservice.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public DataserviceService:DataserviceService) { }
 
+  
+  constructor(public DataserviceService:DataserviceService, private storage: AngularFireStorage) { }
+  title = "cloudsSorage";
+  selectedFile: File = null;
+  fb;
+  downloadURL: Observable<string>;
   HOME;
+  n;
+  url : string;
+  file:File;
   ngOnInit(): void 
   {
     this.getHome();
@@ -20,15 +31,21 @@ export class HomeComponent implements OnInit {
 
   getHome = () => this.DataserviceService.getHome().subscribe(res => (this.HOME = res))
 
-  CREATE() 
+  async CREATE() 
   {
-    
+    this.onUpload();    
+    await this.delay(5000);
 
+    this.DataserviceService.HomeForm.patchValue({
+      imageLink: this.url.toString()
+
+    });
     let data = this.DataserviceService.HomeForm.value;
    this.DataserviceService.CreateNewEvent(data)
        .then(res => {
            prompt("succes!")
        });
+       
   }
 
   
@@ -42,4 +59,42 @@ export class HomeComponent implements OnInit {
   {
 
   }
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
 }
+
+  onFileSelected(event) 
+  {
+    this.n = Date.now();
+    this.file = event.target.files[0];
+  }
+  onUpload()
+  {
+    const filePath = `HomeImages/${this.n}`;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(`HomeImages/${this.n}`, this.file);
+    task
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          this.downloadURL = fileRef.getDownloadURL();
+          this.downloadURL.subscribe(url => {
+            if (url) {
+              this.fb = url;
+              this.url = this.fb;
+            }
+
+          });
+        })
+      )
+      .subscribe(url => {
+        if (url) 
+        {
+          console.log(url);
+        }
+      });
+  
+    }
+  }
+
+
