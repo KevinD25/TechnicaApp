@@ -1,26 +1,33 @@
 package com.davis.kevin.technicav2
 
-import android.content.Intent
-import android.net.Uri
+import android.content.pm.ActivityInfo
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.util.Log
+import android.view.Menu
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
+import com.davis.kevin.technicav2.networking.FirebaseHandler
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import android.view.Menu
-import android.view.View
-import com.davis.kevin.technicav2.repository.Repository
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    var mAuth = FirebaseAuth.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +35,11 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        Repository.getData()
+        login()
+        //Repository.getData()
+
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -44,6 +55,31 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    private fun login(){
+        val user = mAuth.currentUser
+        if (user != null) {
+            // do your stuff
+            FirebaseHandler.getFirebaseData()
+        } else {
+            signInAnonymously()
+        }
+    }
+
+    private fun signInAnonymously() {
+        mAuth.signInAnonymously().addOnSuccessListener(this, OnSuccessListener<AuthResult?> {
+            // do your stuff
+            FirebaseHandler.getFirebaseData()
+        })
+            .addOnFailureListener(this,
+                OnFailureListener { exception ->
+                    Log.e(
+                        "SIGNIN",
+                        "signInAnonymously:FAILURE",
+                        exception
+                    )
+                })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -5,11 +5,13 @@ import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.davis.kevin.technicav2.networking.FirebaseHandler
 
 class LoadingActivity : AppCompatActivity() {
 
     private var mDelayHandler: Handler? = null
     private val SPLASH_DELAY: Long = 3000 //3 seconds
+
 
     internal val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
@@ -33,6 +35,8 @@ class LoadingActivity : AppCompatActivity() {
 
         //Navigate with delay
         mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
+
+
     }
 
     public override fun onDestroy() {

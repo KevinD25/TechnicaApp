@@ -12,7 +12,7 @@ import retrofit2.Response
 
 class VacaturesViewModel : ViewModel {
 
-    var id  = 0
+    var id : String? = ""
     var companyID : String? = ""
     var name : String? = ""
     var description : String? = ""

@@ -13,11 +13,10 @@ import retrofit2.Response
 
 class SponsorsViewModel : ViewModel {
 
-    var id = 0
+    var id : String? = ""
     var name: String? = ""
     var description: String? = ""
     var website: String? = ""
-    var vacancies: List<Vacature>? = null
 
     constructor() : super()
     constructor(
@@ -27,7 +26,6 @@ class SponsorsViewModel : ViewModel {
         this.name = partner.name
         this.description = partner.description
         this.website = partner.website
-        this.vacancies = partner.vacancies
     }
 
     fun getArrayList(): MutableLiveData<List<Partner>> {

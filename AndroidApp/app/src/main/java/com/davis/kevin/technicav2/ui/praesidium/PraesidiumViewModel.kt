@@ -12,7 +12,7 @@ import retrofit2.Response
 class PraesidiumViewModel : ViewModel {
 
 
-    var id = 0
+    var id : String? = ""
     var name: String? = ""
     var surname: String? = ""
     var birthday: String? = ""
