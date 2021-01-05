@@ -27,7 +27,6 @@ class SponsorsFragment : Fragment() {
     private var customPartnerAdapter : CustomPartnerAdapter? = null
     private lateinit var ctx : Context
     private var arrayList = ArrayList<SponsorsViewModel>()
-    private lateinit var sponsors : List<Partner>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +38,7 @@ class SponsorsFragment : Fragment() {
         sponsorsViewModel =
             ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
         ctx = requireActivity().applicationContext
+        sponsorsViewModel.getContext(ctx)
         PartnerVP = viewOfLayout.findViewById(R.id.partnerVP)
 
         sponsorsViewModel.getArray().observe(viewLifecycleOwner, Observer { partners ->

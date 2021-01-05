@@ -1,7 +1,10 @@
 package com.davis.kevin.technicav2.ui.sponsors
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Partner
@@ -15,6 +18,7 @@ class SponsorsViewModel : ViewModel {
     var description: String? = ""
     var website: String? = ""
     var imagelink: Bitmap? = null
+    private lateinit var mContext: Context
 
     constructor() : super()
     constructor(
@@ -32,7 +36,11 @@ class SponsorsViewModel : ViewModel {
         return BitmapDrawable(image)
     }
 
-    private fun scale(realImage: Bitmap) : Bitmap?{
+    fun getContext(context: Context) {
+        mContext = context
+    }
+
+    private fun scale(realImage: Bitmap): Bitmap? {
         return Bitmap.createScaledBitmap(realImage, 200, 200, false)
     }
 
