@@ -32,11 +32,11 @@
 
 
         <com.github.siyamed.shapeimageview.CircularImageView
-            android:id="@+id/circularImageView"
+            android:id="@+id/imgPerson"
             android:layout_width="280dp"
             android:layout_height="280dp"
             android:layout_marginTop="8dp"
-            android:src="@drawable/kevin"
+            android:src="@{praesidiummodel.image}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,11 +49,24 @@
             android:layout_width="237dp"
             android:layout_height="131dp"
             android:layout_marginTop="164dp"
-            app:layout_constraintEnd_toEndOf="@+id/circularImageView"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/imgPerson"
             app:layout_constraintHorizontal_bias="0.79"
-            app:layout_constraintStart_toStartOf="@+id/circularImageView"
-            app:layout_constraintTop_toTopOf="@+id/circularImageView"
+            app:layout_constraintStart_toStartOf="@+id/imgPerson"
+            app:layout_constraintTop_toTopOf="@+id/imgPerson"
             app:srcCompat="@drawable/praeses" />
+
+        <TextView
+            android:id="@+id/txtFunctie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{praesidiummodel.functie}"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPerson" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -62,7 +75,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgFunctie"
+            app:layout_constraintTop_toBottomOf="@+id/txtFunctie"
             app:srcCompat="@drawable/icoonbday" />
 
         <TextView

@@ -1,7 +1,10 @@
 package com.davis.kevin.technicav2.networking
 
+import android.content.Context
 import android.graphics.BitmapFactory
 import android.util.Log
+import androidx.appcompat.content.res.AppCompatResources
+import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.models.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.crashlytics.FirebaseCrashlytics
@@ -19,11 +22,11 @@ import java.time.format.DateTimeFormatter
 
 object FirebaseHandler {
     private val storage = Firebase.storage
-    private val homeList = mutableListOf<Home>()
-    private val sponsorList = mutableListOf<Partner>()
-    private val vacancieList = mutableListOf<Vacature>()
-    private var clubTextList = mutableListOf<Clubtext>()
-    private val praesidiumList = mutableListOf<Praesidium>()
+    val homeList = mutableListOf<Home>()
+    val sponsorList = mutableListOf<Partner>()
+    val vacancieList = mutableListOf<Vacature>()
+    var clubTextList = mutableListOf<Clubtext>()
+    val praesidiumList = mutableListOf<Praesidium>()
     private val db = FirebaseFirestore.getInstance()
 
 
@@ -68,7 +71,8 @@ object FirebaseHandler {
                             birthday = document["birthday"] as String?,
                             studies = document["studies"] as String?,
                             functie = document["function"] as String?,
-                            imageLink = BitmapFactory.decodeByteArray(image, 0, image.size)
+                            imageLink = BitmapFactory.decodeByteArray(image, 0, image.size)/*,
+                            images = null*/
                         )
                         praesidiumList.add(praesidium)
                     }.addOnFailureListener { exception ->

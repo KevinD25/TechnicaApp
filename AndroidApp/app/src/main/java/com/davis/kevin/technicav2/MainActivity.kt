@@ -13,6 +13,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.davis.kevin.technicav2.networking.FirebaseHandler
+import com.davis.kevin.technicav2.repository.Repository
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.navigation.NavigationView
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         login()
-        //Repository.getData()
+        Repository.getData()
 
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT

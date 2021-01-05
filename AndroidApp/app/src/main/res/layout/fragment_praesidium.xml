@@ -12,7 +12,9 @@
         android:layout_height="48dp"
         android:id="@+id/indicator"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark" />
+        android:background="@color/colorPrimaryDark"
+        app:ci_width="3dp"
+        app:ci_height="3dp"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/praesidiumVP"
