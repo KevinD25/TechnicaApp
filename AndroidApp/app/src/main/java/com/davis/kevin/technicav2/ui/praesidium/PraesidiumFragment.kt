@@ -31,16 +31,7 @@ class PraesidiumFragment : Fragment() {
     private var customPraesidiumAdapter : CustomPraesidiumAdapter? = null
     private lateinit var ctx : Context
     var arrayList = ArrayList<PraesidiumViewModel>()
-    private lateinit var praesidium : List<Praesidium>
     private var images : MutableMap<String, Drawable>? = HashMap()
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        praesidiumViewModel = ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
-        praesidium = praesidiumViewModel.getArray()
-        ctx = requireActivity().applicationContext
-       // getAllImages()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,19 +40,21 @@ class PraesidiumFragment : Fragment() {
     ): View? {
 
         viewOfLayout = inflater!!.inflate(R.layout.fragment_praesidium, container, false)
-
+        praesidiumViewModel = ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
+        ctx = requireActivity().applicationContext
         PraesidiumVP = viewOfLayout.findViewById(R.id.praesidiumVP)
 
 
-        for(item in praesidium){
-            //item.images = images
-            val praesidiumViewModel = PraesidiumViewModel(item)
-            arrayList.add(praesidiumViewModel)
-            customPraesidiumAdapter = CustomPraesidiumAdapter(ctx, arrayList)
-            PraesidiumVP!!.adapter = customPraesidiumAdapter
-            val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
-            indicator.setViewPager(PraesidiumVP)
-        }
+        praesidiumViewModel.getArray().observe(viewLifecycleOwner, Observer { praesidium ->
+            for(praesidia in praesidium){
+                val praesidiumViewModel = PraesidiumViewModel(praesidia)
+                arrayList.add(praesidiumViewModel)
+                customPraesidiumAdapter = CustomPraesidiumAdapter(ctx, arrayList)
+                PraesidiumVP!!.adapter = customPraesidiumAdapter
+                val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
+                indicator.setViewPager(PraesidiumVP)
+            }
+        })
 
         return viewOfLayout
     }
@@ -86,5 +79,4 @@ class PraesidiumFragment : Fragment() {
         images?.set("erepraeses", getDrawable(ctx, R.drawable.erepraeses)!!)
         images?.set("cantor", getDrawable(ctx, R.drawable.cantor)!!)
     }*/
-
 }

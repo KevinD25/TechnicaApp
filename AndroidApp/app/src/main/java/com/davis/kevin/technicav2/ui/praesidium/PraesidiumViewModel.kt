@@ -67,7 +67,7 @@ class PraesidiumViewModel : ViewModel {
         return images?.get("praeses")!!
     }*/
 
-    fun getArray() : MutableList<Praesidium>{
+    fun getArray() : MutableLiveData<List<Praesidium>>{
         return FirebaseHandler.praesidiumList
     }
 

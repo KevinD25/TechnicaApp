@@ -31,9 +31,9 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="5dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:src="@drawable/sponsor3it"
+        android:padding="200dp"
+        android:scaleType="center"
+        android:src="@{partnermodel.image}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,9 +48,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:lineSpacingExtra="5dp"
-        android:maxLines="5"
-        android:minLines="5"
+        android:maxLines="6"
+        android:minLines="6"
         android:text="@{partnermodel.description}"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
@@ -61,11 +62,9 @@
 
     <Button
         android:id="@+id/btnWebsite"
-
         android:layout_width="180dp"
         android:layout_height="30dp"
-
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/buttonshape"
         android:text="BEZOEK DE WEBSITE"
         android:textColor="#FFFFFF"
@@ -77,10 +76,8 @@
 
     <Button
         android:id="@+id/btnVacatures"
-
         android:layout_width="180dp"
         android:layout_height="30dp"
-
         android:layout_marginTop="8dp"
         android:background="@drawable/buttonshape"
         android:text="BEKIJK DE VACATURES"
@@ -90,5 +87,6 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnWebsite" />
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         login()
-        Repository.getData()
+        //Repository.getData()
 
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT

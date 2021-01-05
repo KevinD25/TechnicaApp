@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.util.Log
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.MutableLiveData
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.models.*
 import com.google.firebase.auth.FirebaseAuth
@@ -23,10 +24,10 @@ import java.time.format.DateTimeFormatter
 object FirebaseHandler {
     private val storage = Firebase.storage
     val homeList = mutableListOf<Home>()
-    val sponsorList = mutableListOf<Partner>()
+    val sponsorList = MutableLiveData<List<Partner>>()
     val vacancieList = mutableListOf<Vacature>()
     var clubTextList = mutableListOf<Clubtext>()
-    val praesidiumList = mutableListOf<Praesidium>()
+    val praesidiumList = MutableLiveData<List<Praesidium>>()
     private val db = FirebaseFirestore.getInstance()
 
 
@@ -58,6 +59,7 @@ object FirebaseHandler {
     }
 
     private fun getPraesidium() {
+        val praesidia = mutableListOf<Praesidium>()
         db.collection("Praesidium").get().addOnSuccessListener { result ->
             for(document in result){
                 Log.d("INCOMING", "${document.id} => ${document.data}")
@@ -74,13 +76,14 @@ object FirebaseHandler {
                             imageLink = BitmapFactory.decodeByteArray(image, 0, image.size)/*,
                             images = null*/
                         )
-                        praesidiumList.add(praesidium)
+                        praesidia.add(praesidium)
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance()
                             .recordException(exception)
                     }
             }
         }
+        praesidiumList.value = praesidia
         Log.d("INCDATA", praesidiumList.toString())
     }
 
@@ -109,11 +112,11 @@ object FirebaseHandler {
                     }
             }
         }
-
         Log.d("INCDATA", homeList.toString())
     }
 
     private fun getPartners() {
+        val partners = mutableListOf<Partner>()
         db.collection("Sponsors").get().addOnSuccessListener { result ->
             for(document in result){
                 val ONE_MEGABYTE: Long = 1024 * 1024
@@ -126,13 +129,15 @@ object FirebaseHandler {
                             description = document["about"] as String?,
                             website = document["website"] as String?
                         )
-                        sponsorList.add(partner)
+                        partners.add(partner)
                         Log.d("Partner", sponsorList.toString())
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance().recordException(exception)
                     }
             }
         }
+
+        sponsorList.value = partners
         Log.d("INCDATA", sponsorList.toString())
     }
 
