@@ -1,6 +1,7 @@
 package com.davis.kevin.technicav2.networking
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
 import androidx.appcompat.content.res.AppCompatResources
@@ -25,7 +26,7 @@ object FirebaseHandler {
     private val storage = Firebase.storage
     val homeList = mutableListOf<Home>()
     val sponsorList = MutableLiveData<List<Partner>>()
-    val vacancieList = mutableListOf<Vacature>()
+    val vacancieList = MutableLiveData<List<Vacature>>()
     var clubTextList = mutableListOf<Clubtext>()
     val praesidiumList = MutableLiveData<List<Praesidium>>()
     private val db = FirebaseFirestore.getInstance()
@@ -136,13 +137,13 @@ object FirebaseHandler {
                     }
             }
         }
-
         sponsorList.value = partners
         Log.d("INCDATA", sponsorList.toString())
     }
 
 
     private fun getVacancies() {
+        val vacancies = mutableListOf<Vacature>()
         db.collection("Vacatures").get().addOnSuccessListener { result ->
             for(document in result){
                 val vacature = Vacature(
@@ -152,9 +153,11 @@ object FirebaseHandler {
                     description = document["description"] as String?,
                     link = document["link"] as String?
                 )
-                vacancieList.add(vacature)
+                vacancies.add(vacature)
             }
+            vacancieList.value = vacancies
         }
+
         Log.d("INCDATA", vacancieList.toString())
     }
 

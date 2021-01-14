@@ -3,16 +3,21 @@ package com.davis.kevin.technicav2.adapters
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.databinding.VacatureBinding
+import com.davis.kevin.technicav2.ui.sponsors.SponsorsViewModel
 import com.davis.kevin.technicav2.ui.vacatures.VacaturesViewModel
+import kotlinx.android.synthetic.main.innerpartnerlayout.view.*
+import kotlinx.android.synthetic.main.innervacaturelayout.view.*
 
 
 class CustomVacatureAdapter(
@@ -21,7 +26,7 @@ class CustomVacatureAdapter(
 ) : RecyclerView.Adapter<CustomVacatureAdapter.CustomView>() {
 
 
-    class CustomView(val vacatureBinding: VacatureBinding) : RecyclerView.ViewHolder(
+    class CustomView(val vacatureBinding: VacatureBinding, val parent: ViewGroup) : RecyclerView.ViewHolder(
         vacatureBinding.root
     ) {
 
@@ -38,6 +43,10 @@ class CustomVacatureAdapter(
 
         fun bind(vacaturesViewModel: VacaturesViewModel) {
             this.vacatureBinding.vacaturemodel = vacaturesViewModel
+            itemView.iv_link.setOnClickListener {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(vacaturesViewModel.link))
+                parent.context.startActivity(browserIntent)
+            }
             vacatureBinding.executePendingBindings()
         }
 
@@ -51,7 +60,7 @@ class CustomVacatureAdapter(
             parent,
             false
         )
-        return CustomView(vacatureBinding)
+        return CustomView(vacatureBinding, parent)
     }
 
     override fun getItemCount(): Int {
