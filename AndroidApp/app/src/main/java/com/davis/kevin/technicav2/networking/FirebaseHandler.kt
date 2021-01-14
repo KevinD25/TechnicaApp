@@ -20,6 +20,8 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 object FirebaseHandler {
@@ -27,7 +29,7 @@ object FirebaseHandler {
     val homeList = mutableListOf<Home>()
     val sponsorList = MutableLiveData<List<Partner>>()
     val vacancieList = MutableLiveData<List<Vacature>>()
-    var clubTextList = mutableListOf<Clubtext>()
+    var clubText = MutableLiveData<Clubtext>()
     val praesidiumList = MutableLiveData<List<Praesidium>>()
     private val db = FirebaseFirestore.getInstance()
 
@@ -40,30 +42,26 @@ object FirebaseHandler {
         getPraesidium()
     }
 
-
     private fun getClubtext() {
         db.collection("ClubTekst")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    Log.d("INCOMING", "${document.id} => ${document.data}")
                     val clubtext = Clubtext(
                         id = document.id,
                         clubText = document.data["text"] as String?
                     )
-                    clubTextList.add(clubtext)
+                    clubText.value = clubtext
                 }
             }
             .addOnFailureListener { exception ->
-                Log.d("INCOMING", "Error getting documents: ", exception)
             }
     }
 
     private fun getPraesidium() {
         val praesidia = mutableListOf<Praesidium>()
         db.collection("Praesidium").get().addOnSuccessListener { result ->
-            for(document in result){
-                Log.d("INCOMING", "${document.id} => ${document.data}")
+            for (document in result) {
                 val ONE_MEGABYTE: Long = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
@@ -85,13 +83,11 @@ object FirebaseHandler {
             }
         }
         praesidiumList.value = praesidia
-        Log.d("INCDATA", praesidiumList.toString())
     }
 
-
     private fun getHome() {
-        db.collection("Home").get().addOnSuccessListener {  result ->
-            for(document in result){
+        db.collection("Home").get().addOnSuccessListener { result ->
+            for (document in result) {
                 val ONE_MEGABYTE: Long = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
@@ -113,13 +109,12 @@ object FirebaseHandler {
                     }
             }
         }
-        Log.d("INCDATA", homeList.toString())
     }
 
     private fun getPartners() {
         val partners = mutableListOf<Partner>()
         db.collection("Sponsors").get().addOnSuccessListener { result ->
-            for(document in result){
+            for (document in result) {
                 val ONE_MEGABYTE: Long = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
@@ -131,21 +126,18 @@ object FirebaseHandler {
                             website = document["website"] as String?
                         )
                         partners.add(partner)
-                        Log.d("Partner", sponsorList.toString())
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance().recordException(exception)
                     }
             }
         }
         sponsorList.value = partners
-        Log.d("INCDATA", sponsorList.toString())
     }
-
 
     private fun getVacancies() {
         val vacancies = mutableListOf<Vacature>()
         db.collection("Vacatures").get().addOnSuccessListener { result ->
-            for(document in result){
+            for (document in result) {
                 val vacature = Vacature(
                     id = document.id,
                     companyID = document["sponsorid"] as String?,
@@ -157,8 +149,6 @@ object FirebaseHandler {
             }
             vacancieList.value = vacancies
         }
-
-        Log.d("INCDATA", vacancieList.toString())
     }
 
 }

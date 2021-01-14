@@ -62,7 +62,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3a_API_28" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-01-14T15:21:41.056Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-01-14T15:57:53.662Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -70,7 +70,7 @@
     <property name="android-custom-viewC:/Users/Kevin/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/davis/kevin/technicav2/util" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="memory.settings.postsync.last.time.stamp" value="1609159988471" />
     <property name="multi-representation-previewC:/Users/Kevin/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_selected" value="Custom views" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
@@ -254,28 +254,28 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="514" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629744385" />
-    <state width="1877" height="134" key="GridCell.Tab.0.bottom" timestamp="1610629773161">
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1610638651356">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="134" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629773161" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610638651356" />
     <state width="1874" height="284" key="GridCell.Tab.0.bottom/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609172414335" />
     <state width="2442" height="394" key="GridCell.Tab.0.bottom/72.27.2488.1413/2560.248.1920.1080@72.27.2488.1413" timestamp="1608565869352" />
-    <state width="1877" height="134" key="GridCell.Tab.0.center" timestamp="1610629773161">
+    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1610638651356">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="134" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629773161" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610638651356" />
     <state width="1874" height="284" key="GridCell.Tab.0.center/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609172414334" />
     <state width="2442" height="394" key="GridCell.Tab.0.center/72.27.2488.1413/2560.248.1920.1080@72.27.2488.1413" timestamp="1608565869352" />
-    <state width="1877" height="134" key="GridCell.Tab.0.left" timestamp="1610629773161">
+    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1610638651355">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="134" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629773161" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610638651355" />
     <state width="1874" height="284" key="GridCell.Tab.0.left/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609172414334" />
     <state width="2442" height="394" key="GridCell.Tab.0.left/72.27.2488.1413/2560.248.1920.1080@72.27.2488.1413" timestamp="1608565869352" />
-    <state width="1877" height="134" key="GridCell.Tab.0.right" timestamp="1610629773161">
+    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1610638651356">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="134" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629773161" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610638651356" />
     <state width="1874" height="284" key="GridCell.Tab.0.right/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609172414335" />
     <state width="2442" height="394" key="GridCell.Tab.0.right/72.27.2488.1413/2560.248.1920.1080@72.27.2488.1413" timestamp="1608565869352" />
     <state width="1877" height="134" key="GridCell.Tab.1.bottom" timestamp="1610629773161">
