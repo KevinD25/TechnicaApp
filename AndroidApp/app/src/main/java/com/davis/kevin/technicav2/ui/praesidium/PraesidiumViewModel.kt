@@ -1,13 +1,15 @@
 package com.davis.kevin.technicav2.ui.praesidium
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import androidx.lifecycle.*
+import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.models.Praesidium
-import com.davis.kevin.technicav2.networking.RetrofitManager.apiService
+import com.davis.kevin.technicav2.networking.FirebaseHandler
 import com.davis.kevin.technicav2.repository.Repository
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.google.common.io.Resources
+
 
 class PraesidiumViewModel : ViewModel {
 
@@ -18,6 +20,9 @@ class PraesidiumViewModel : ViewModel {
     var birthday: String? = ""
     var studies: String? = ""
     var functie: String? = ""
+    var imagelink: Bitmap? = null
+    var list : LiveData<List<Praesidium>>? = null
+    //var images : MutableMap<String, Drawable>? = HashMap()
 
 
     constructor() : super()
@@ -30,10 +35,16 @@ class PraesidiumViewModel : ViewModel {
         this.birthday = praesidium.birthday
         this.studies = praesidium.studies
         this.functie = praesidium.functie
+        this.imagelink = praesidium.imageLink
+       // this.images = praesidium.images
     }
 
-    fun getArrayList(): MutableLiveData<List<Praesidium>> {
-        return Repository.praesidiumMutableLiveData
+    fun getImage(): BitmapDrawable {
+        return BitmapDrawable(imagelink)
+    }
+
+    fun getArray() : LiveData<List<Praesidium>>{
+        return FirebaseHandler.praesidiumList
     }
 
 }

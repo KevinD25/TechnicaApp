@@ -13,14 +13,14 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.davis.kevin.technicav2.networking.FirebaseHandler
+import com.davis.kevin.technicav2.repository.Repository
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-
-
-
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,13 +29,14 @@ class MainActivity : AppCompatActivity() {
     var mAuth = FirebaseAuth.getInstance()
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        login()
+       // login()
         //Repository.getData()
 
 
@@ -69,7 +70,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun signInAnonymously() {
         mAuth.signInAnonymously().addOnSuccessListener(this, OnSuccessListener<AuthResult?> {
-            // do your stuff
             FirebaseHandler.getFirebaseData()
         })
             .addOnFailureListener(this,

@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomPartnerAdapter
 import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
+import com.davis.kevin.technicav2.models.Partner
 import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
 import kotlinx.android.synthetic.main.fragment_praesidium.*
 import kotlinx.android.synthetic.main.fragment_sponsors.*
@@ -34,18 +35,13 @@ class SponsorsFragment : Fragment() {
     ): View? {
 
         viewOfLayout = inflater.inflate(R.layout.fragment_sponsors, container, false)
-
         sponsorsViewModel =
             ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
-
-
-        PartnerVP = viewOfLayout.findViewById(R.id.partnerVP)
         ctx = requireActivity().applicationContext
+        sponsorsViewModel.getContext(ctx)
+        PartnerVP = viewOfLayout.findViewById(R.id.partnerVP)
 
-        sponsorsViewModel =
-            ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
-
-        sponsorsViewModel.getArrayList().observe(viewLifecycleOwner, Observer { partners ->
+        sponsorsViewModel.getArray().observe(viewLifecycleOwner, Observer { partners ->
             for(partner in partners){
                 val partnerViewModel = SponsorsViewModel(partner)
                 arrayList.add(partnerViewModel)
@@ -55,7 +51,6 @@ class SponsorsFragment : Fragment() {
                 indicator.setViewPager(partnerVP)
             }
         })
-
 
         return viewOfLayout
     }

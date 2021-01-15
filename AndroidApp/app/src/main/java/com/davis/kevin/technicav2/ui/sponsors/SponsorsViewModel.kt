@@ -1,22 +1,24 @@
 package com.davis.kevin.technicav2.ui.sponsors
 
-import android.util.Log
+import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Partner
-import com.davis.kevin.technicav2.models.Vacature
-import com.davis.kevin.technicav2.networking.RetrofitManager.apiService
+import com.davis.kevin.technicav2.networking.FirebaseHandler
 import com.davis.kevin.technicav2.repository.Repository
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class SponsorsViewModel : ViewModel {
 
-    var id : String? = ""
+    var id: String? = ""
     var name: String? = ""
     var description: String? = ""
     var website: String? = ""
+    var imagelink: Bitmap? = null
+    private lateinit var mContext: Context
 
     constructor() : super()
     constructor(
@@ -26,10 +28,24 @@ class SponsorsViewModel : ViewModel {
         this.name = partner.name
         this.description = partner.description
         this.website = partner.website
+        this.imagelink = partner.imageLink
     }
 
-    fun getArrayList(): MutableLiveData<List<Partner>> {
-        return Repository.partnerMutableLiveData
+    fun getImage(): BitmapDrawable {
+        var image = imagelink?.let { scale(it) }
+        return BitmapDrawable(image)
+    }
+
+    fun getContext(context: Context) {
+        mContext = context
+    }
+
+    private fun scale(realImage: Bitmap): Bitmap? {
+        return Bitmap.createScaledBitmap(realImage, 200, 200, false)
+    }
+
+    fun getArray(): MutableLiveData<List<Partner>> {
+        return FirebaseHandler.sponsorList
     }
 
 }
