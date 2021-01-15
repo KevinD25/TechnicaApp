@@ -13,7 +13,7 @@ import com.davis.kevin.technicav2.models.Praesidium
 import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
 import com.davis.kevin.technicav2.ui.vacatures.VacaturesViewModel
 
-class CustomPraesidiumAdapter(val ctx: Context, val arrayList: ArrayList<PraesidiumViewModel>) :
+class CustomPraesidiumAdapter(val ctx: Context, var arrayList: ArrayList<PraesidiumViewModel>) :
     RecyclerView.Adapter<CustomPraesidiumAdapter.CustomView>() {
 
     class CustomView(val praesidiumBinding: PraesidiumBinding) :
@@ -21,6 +21,7 @@ class CustomPraesidiumAdapter(val ctx: Context, val arrayList: ArrayList<Praesid
         fun bind(praesidiumViewModel: PraesidiumViewModel) {
             this.praesidiumBinding.praesidiummodel = praesidiumViewModel
             praesidiumBinding.executePendingBindings()
+
         }
     }
 

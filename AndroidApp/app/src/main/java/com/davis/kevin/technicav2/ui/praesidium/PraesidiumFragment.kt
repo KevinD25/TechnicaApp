@@ -7,20 +7,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
+import com.davis.kevin.technicav2.MainActivity
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
-import com.davis.kevin.technicav2.models.Praesidium
-import com.davis.kevin.technicav2.networking.FirebaseHandler
 import kotlinx.android.synthetic.main.fragment_praesidium.*
-import kotlinx.coroutines.CoroutineScope
 import me.relex.circleindicator.CircleIndicator3
 
 class PraesidiumFragment : Fragment() {
@@ -32,6 +27,7 @@ class PraesidiumFragment : Fragment() {
     private lateinit var ctx : Context
     var arrayList = ArrayList<PraesidiumViewModel>()
     private var images : MutableMap<String, Drawable>? = HashMap()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,12 +41,17 @@ class PraesidiumFragment : Fragment() {
         PraesidiumVP = viewOfLayout.findViewById(R.id.praesidiumVP)
 
 
+
+
         praesidiumViewModel.getArray().observe(viewLifecycleOwner, Observer { praesidium ->
-            for(praesidia in praesidium){
-                val praesidiumViewModel = PraesidiumViewModel(praesidia)
-                arrayList.add(praesidiumViewModel)
+            praesidium.let {
+                for (praesidia in it) {
+                    val praesidiumViewModel = PraesidiumViewModel(praesidia)
+                    arrayList.add(praesidiumViewModel)
+                }
                 customPraesidiumAdapter = CustomPraesidiumAdapter(ctx, arrayList)
                 PraesidiumVP!!.adapter = customPraesidiumAdapter
+
                 val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
                 indicator.setViewPager(PraesidiumVP)
             }

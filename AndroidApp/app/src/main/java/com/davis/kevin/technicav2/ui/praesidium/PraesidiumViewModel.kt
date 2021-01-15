@@ -3,8 +3,7 @@ package com.davis.kevin.technicav2.ui.praesidium
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.models.Praesidium
 import com.davis.kevin.technicav2.networking.FirebaseHandler
@@ -22,6 +21,7 @@ class PraesidiumViewModel : ViewModel {
     var studies: String? = ""
     var functie: String? = ""
     var imagelink: Bitmap? = null
+    var list : LiveData<List<Praesidium>>? = null
     //var images : MutableMap<String, Drawable>? = HashMap()
 
 
@@ -43,12 +43,8 @@ class PraesidiumViewModel : ViewModel {
         return BitmapDrawable(imagelink)
     }
 
-    fun getArray() : MutableLiveData<List<Praesidium>>{
+    fun getArray() : LiveData<List<Praesidium>>{
         return FirebaseHandler.praesidiumList
-    }
-
-    fun getArrayList(): MutableLiveData<List<Praesidium>> {
-        return Repository.praesidiumMutableLiveData
     }
 
 }

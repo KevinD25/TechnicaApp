@@ -5,9 +5,11 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.models.*
+import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.EventListener
@@ -42,6 +44,8 @@ object FirebaseHandler {
         getPraesidium()
     }
 
+
+
     private fun getClubtext() {
         db.collection("ClubTekst")
             .get()
@@ -56,6 +60,30 @@ object FirebaseHandler {
             }
             .addOnFailureListener { exception ->
             }
+    }
+
+    private fun getPraesidiumTest() {
+        val praesidia = mutableListOf<Praesidium>()
+        db.collection("Praesidium").addSnapshotListener { documents, _ ->
+            documents?.forEach {
+                val ONE_MEGABYTE: Long = 1024 * 1024
+                storage.reference.child(it["imageLink"] as String)
+                    .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
+                        val praesidium = Praesidium(
+                            id = it.id,
+                            name = it["name"] as String?,
+                            surname = it["surName"] as String?,
+                            birthday = it["birthday"] as String?,
+                            studies = it["studies"] as String?,
+                            functie = it["function"] as String?,
+                            imageLink = BitmapFactory.decodeByteArray(image, 0, image.size)/*,
+                            images = null*/
+                        )
+                        praesidia.add(praesidium)
+                    }
+            }
+        }
+        praesidiumList.postValue(praesidia)
     }
 
     private fun getPraesidium() {
@@ -80,9 +108,9 @@ object FirebaseHandler {
                         FirebaseCrashlytics.getInstance()
                             .recordException(exception)
                     }
+                praesidiumList.value = praesidia
             }
         }
-        praesidiumList.value = praesidia
     }
 
     private fun getHome() {
@@ -150,5 +178,4 @@ object FirebaseHandler {
             vacancieList.value = vacancies
         }
     }
-
 }
