@@ -323,20 +323,42 @@
            type="date" 
            class="input-field col s12">
 
-           <input placeholder="function" 
-           formControlName="function" 
-           type="text" 
-           class="input-field col s12">
+           <mat-form-field appearance="fill">
+            <mat-label>Function</mat-label>
+            <select matNativeControl required formControlName="function">
+              <option value="Praeses">Praeses</option>
+              <option value="Vice-Praeses">Vice-Praeses</option>
+              <option value="Quaestor">Quaestor</option>
+              <option value="Cantor">Cantor</option>
+              <option value="Ab-Actis">Ab-Actis</option>
+              <option value="Zedenmeester">Zedenmeester</option>
+              <option value="Schachtenmeester">Schachtenmeester</option>
+              <option value="Schahctentemmer">Schahctentemmer</option>
+              <option value="Cantor">Webmaster</option>
+              <option value="S.O.C.">S.O.C.</option>
+              <option value="Feest">Feest</option>
+              <option value="P.R.">P.R.</option>
+              <option value="Redactor">Redactor</option>
+              <option value="Media">Media</option>
+              <option value="Peter">Peter</option>
+              <option value="Meter">Meter</option>
+              <option value="Ere-Praeses">Ere-Praeses</option>
+              <option value="Ere-Lid">Ere-Lid</option>
+            </select>
+          </mat-form-field>
+          
 
            <input placeholder="studies" 
            formControlName="studies" 
            type="text" 
            class="input-field col s12">
 
-           <input placeholder="imageLink" 
-           formControlName="imageLink" 
-           type="text" 
-           class="input-field col s12">
+           <input type="file"
+            id="file"
+            #userPhoto
+            (change)="onFileSelected($event)"
+            name="image"
+            autocomplete="off"/>
 
                 <button (click)="CREATE()">SUBMIT</button>
         </form>
