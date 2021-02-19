@@ -378,7 +378,9 @@
         <br>
         studeert : {{ P.payload.doc.data().studies }}
         <br>
-        imagelink : {{ P.payload.doc.data().imageLink }}
+        <!--{{getUrl(P.payload.doc.data().imageLink)}}-->
+        <!--<img src="{{this.urls[1]}}">-->
+        imagelink : {{ P.payload.doc.data().imageLink  }}
         </div>
         <br>
         <button (click)="DELETE(P.payload.doc.id)">DELETE</button>
