@@ -324,10 +324,12 @@
            type="text" 
            class="input-field col s12">
 
-           <input placeholder="imageLink" 
-           formControlName="imageLink" 
-           type="text" 
-           class="input-field col s12">
+           <input type="file"
+            id="file"
+            #userPhoto
+            (change)="onFileSelected($event)"
+            name="image"
+            autocomplete="off"/>
 
 
                 <button (click)="CREATE()">SUBMIT</button>

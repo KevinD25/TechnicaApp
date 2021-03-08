@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     await this.delay(5000);
 
     this.DataserviceService.HomeForm.patchValue({
-      imageLink: this.url.toString()
+      imageLink: `/HomeImages/${this.n}`
 
     });
     let data = this.DataserviceService.HomeForm.value;
@@ -70,9 +70,9 @@ export class HomeComponent implements OnInit {
   }
   onUpload()
   {
-    const filePath = `HomeImages/${this.n}`;
+    const filePath = `/HomeImages/${this.n}`;
     const fileRef = this.storage.ref(filePath);
-    const task = this.storage.upload(`HomeImages/${this.n}`, this.file);
+    const task = this.storage.upload(`/HomeImages/${this.n}`, this.file);
     task
       .snapshotChanges()
       .pipe(
