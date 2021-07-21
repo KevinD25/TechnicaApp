@@ -1,0 +1,14 @@
+<!-- + Image
+<svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> -->
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <img width="40" alt="Technica Logo" src="assets/images/schild.png"/>
+    <span>Welcome</span>
+
+    <div *ngFor="let category of categories" class="card-container">
+        <div class="card card-small" tabindex="0">
+            <span [routerLink]="category">{{category}}</span>
+        </div>
+    </div>
+</div>
