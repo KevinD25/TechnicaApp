@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from "../Services/dataservice.service";
 import { AngularFireStorage } from "@angular/fire/storage";
-import { map, finalize } from "rxjs/operators";
+import { finalize } from "rxjs/operators";
 import { Observable } from "rxjs";
-import { FormControl, FormGroup } from "@angular/forms";
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,9 +11,8 @@ import { FormControl, FormGroup } from "@angular/forms";
 })
 export class HomeComponent implements OnInit {
 
-
-  
   constructor(public DataserviceService:DataserviceService, private storage: AngularFireStorage) { }
+
   title = "cloudsSorage";
   selectedFile: File = null;
   fb;
@@ -22,6 +21,7 @@ export class HomeComponent implements OnInit {
   n;
   url : string;
   file:File;
+
   ngOnInit(): void 
   {
     this.getHome();
