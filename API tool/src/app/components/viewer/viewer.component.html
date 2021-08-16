@@ -1,1 +1,8 @@
-<p>viewer works!</p>
+{{route}}
+
+<span *ngFor="let T of text" class="TEXT">
+    <div class="TEXT">
+        <h3>{{ T.payload.doc.id }}</h3>
+        {{ T.payload.doc.data().text }}
+    </div>
+</span>
