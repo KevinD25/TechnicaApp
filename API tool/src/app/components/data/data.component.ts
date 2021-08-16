@@ -18,16 +18,15 @@ export class DataComponent implements OnInit {
     this.activatedroute.data.subscribe(data => { this.route = data.name; })
     console.log(this.route);
     if (this.route == "ClubText") {
-      this.DataService.getClubTekst().subscribe(res => this.items = res);
+      this.DataService.getClubTekst().subscribe(res => { this.items = res; console.log(res) });
     } else if (this.route == "Events") {
-      this.DataService.getEvents().subscribe(res => (this.items = res));
+      this.DataService.getEvents().subscribe(res => { this.items = res; console.log(res) });
     } else if (this.route == "Preasidium") {
-      this.DataService.getPraesidium().subscribe(res => (this.items = res));
+      this.DataService.getPraesidium().subscribe(res => { this.items = res; console.log(res) });
     } else if (this.route == "Sponsors") {
-      this.DataService.getSponsors().subscribe(res => (this.items = res));
+      this.DataService.getSponsors().subscribe(res => { this.items = res; console.log(res) });
     } else if (this.route == "Vacatures") {
-      this.DataService.getVacatures().subscribe(res => (this.items = res));
+      this.DataService.getVacatures().subscribe(res => { this.items = res; console.log(res) });
     }
-    console.log(this.items)
   }
 }
