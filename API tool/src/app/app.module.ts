@@ -36,7 +36,7 @@ import { VacaturesComponent } from './vacatures/vacatures.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'API tool'),
     AngularFirestoreModule,
     RouterModule.forRoot([
       {path: "Preasidium", component: DataComponent, data :{ name: "Preasidium" }},

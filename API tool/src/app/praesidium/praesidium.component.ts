@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataserviceService } from "../Services/dataservice.service";
+import { DataService } from "../services/data-service/data.service";
 
 import { AngularFireStorage } from "@angular/fire/storage";
 import { map, finalize } from "rxjs/operators";
@@ -13,7 +13,7 @@ import { Observable } from "rxjs";
 export class PraesidiumComponent implements OnInit {
 
 
-  constructor(public DataserviceService: DataserviceService, private storage: AngularFireStorage) { }
+  constructor(public DataserviceService: DataService, private storage: AngularFireStorage) { }
 
   PRAESIDIUM;
   selectedFile: File = null;
@@ -25,32 +25,32 @@ export class PraesidiumComponent implements OnInit {
   count: number=0;
   urls:string[]=[""];
   ngOnInit(): void {
-    this.getPraesidium();
+    //this.getPraesidium();
 
   }
 
-  getPraesidium = () => this.DataserviceService.getPraesidium().subscribe(res => (this.PRAESIDIUM = res))
+  // getPraesidium = () => this.DataserviceService.getPraesidium().subscribe(res => (this.PRAESIDIUM = res))
 
-  async CREATE() {
-    this.onUpload();
-    await this.delay(5000);
+  // async CREATE() {
+  //   this.onUpload();
+  //   await this.delay(5000);
 
-    this.DataserviceService.PraesidiumForm.patchValue({
-      imageLink: `/Praesidium/${this.n}`
-    });
+  //   this.DataserviceService.PraesidiumForm.patchValue({
+  //     imageLink: `/Praesidium/${this.n}`
+  //   });
 
-    let data = this.DataserviceService.PraesidiumForm.value;
-    this.DataserviceService.CreatePraesidiumLid(data)
-      .then(res => {
-        prompt("succes!")
-      });
-  }
+  //   let data = this.DataserviceService.PraesidiumForm.value;
+  //   this.DataserviceService.CreatePraesidiumLid(data)
+  //     .then(res => {
+  //       prompt("succes!")
+  //     });
+  // }
 
 
-  DELETE(a: string) {
-    this.DataserviceService.DeletePraesidiumlid(a);
+  // DELETE(a: string) {
+  //   this.DataserviceService.DeletePraesidiumlid(a);
 
-  }
+  // }
   // TODO :: IMPLEMENT UPDATE 
   UPDATE() {
 

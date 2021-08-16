@@ -17,6 +17,6 @@ export class ViewerComponent implements OnInit {
   ngOnInit(): void {
     this.activatedroute.data.subscribe(data => { this.route = data.name; })
     this.DataService.getClubTekst().subscribe(res => (this.text = res))
-    console.log(this.text)
+    //console.log(this.text)
   }
 }

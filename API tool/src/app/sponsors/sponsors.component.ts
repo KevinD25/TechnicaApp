@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataserviceService } from "../Services/dataservice.service";
+import { DataService } from "../services/data-service/data.service";
 import { AngularFireStorage } from "@angular/fire/storage";
 import { map, finalize } from "rxjs/operators";
 import { Observable } from "rxjs";
@@ -12,7 +12,7 @@ import { Observable } from "rxjs";
 export class SponsorsComponent implements OnInit {
 
   
-  constructor(public DataserviceService:DataserviceService, private storage: AngularFireStorage) { }
+  constructor(public DataserviceService:DataService, private storage: AngularFireStorage) { }
 
   SPONSORS;
   selectedFile: File = null;
@@ -24,35 +24,35 @@ export class SponsorsComponent implements OnInit {
   file:File;
   ngOnInit(): void 
   {
-    this.getSponsors();
+    //this.getSponsors();
     
     
   }
 
-  getSponsors = () => this.DataserviceService.GetSponsors().subscribe(res => (this.SPONSORS = res))
+  // getSponsors = () => this.DataserviceService.GetSponsors().subscribe(res => (this.SPONSORS = res))
 
-  async CREATE() 
-  {
-    this.onUpload();    
-    await this.delay(5000);
+  // async CREATE() 
+  // {
+  //   this.onUpload();    
+  //   await this.delay(5000);
 
-    this.DataserviceService.SponsorForm.patchValue({
-      imageLink: `/Sponsors/${this.n}`
+  //   this.DataserviceService.SponsorForm.patchValue({
+  //     imageLink: `/Sponsors/${this.n}`
 
-    });
-    let data = this.DataserviceService.SponsorForm.value;
-   this.DataserviceService.CreateSponsor(data)
-       .then(res => {
-           prompt("succes!")
-       });
-  }
+  //   });
+  //   let data = this.DataserviceService.SponsorForm.value;
+  //  this.DataserviceService.CreateSponsor(data)
+  //      .then(res => {
+  //          prompt("succes!")
+  //      });
+  // }
 
   
-  DELETE(a : string)
-  {
-    this.DataserviceService.DeleteSponsor(a);
+  // DELETE(a : string)
+  // {
+  //   this.DataserviceService.DeleteSponsor(a);
 
-  }
+  // }
 // TODO :: IMPLEMENT UPDATE 
   UPDATE()
   {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataserviceService } from "../Services/dataservice.service";
+import { DataService } from "../services/data-service/data.service";
 import { AngularFireStorage } from "@angular/fire/storage";
 import { finalize } from "rxjs/operators";
 import { Observable } from "rxjs";
@@ -11,7 +11,7 @@ import { Observable } from "rxjs";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public DataserviceService:DataserviceService, private storage: AngularFireStorage) { }
+  constructor(public DataserviceService:DataService, private storage: AngularFireStorage) { }
 
   title = "cloudsSorage";
   selectedFile: File = null;
@@ -24,36 +24,36 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    this.getHome();
+    //this.getHome();
     
     
   }
 
-  getHome = () => this.DataserviceService.getHome().subscribe(res => (this.HOME = res))
+  // getHome = () => this.DataserviceService.getHome().subscribe(res => (this.HOME = res))
 
-  async CREATE() 
-  {
-    this.onUpload();    
-    await this.delay(5000);
+  // async CREATE() 
+  // {
+  //   this.onUpload();    
+  //   await this.delay(5000);
 
-    this.DataserviceService.HomeForm.patchValue({
-      imageLink: `/HomeImages/${this.n}`
+  //   this.DataserviceService.HomeForm.patchValue({
+  //     imageLink: `/HomeImages/${this.n}`
 
-    });
-    let data = this.DataserviceService.HomeForm.value;
-   this.DataserviceService.CreateNewEvent(data)
-       .then(res => {
-           prompt("succes!")
-       });
+  //   });
+  //   let data = this.DataserviceService.HomeForm.value;
+  //  this.DataserviceService.CreateNewEvent(data)
+  //      .then(res => {
+  //          prompt("succes!")
+  //      });
        
-  }
+  // }
 
   
-  DELETE(a : string)
-  {
-    this.DataserviceService.DeleteEvent(a);
+  // DELETE(a : string)
+  // {
+  //   this.DataserviceService.DeleteEvent(a);
 
-  }
+  // }
 // TODO :: IMPLEMENT UPDATE 
   UPDATE()
   {

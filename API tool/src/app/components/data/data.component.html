@@ -1,11 +1,14 @@
-<div class="card-container">
-    <div class="card card-small" tabindex="0">
-      <span>Create</span>
-    </div>
-
-    <div class="card card-small" tabindex="0">
-        <span>Read</span>
-    </div>
+<h3>{{route}}</h3>
+<div *ngIf="items?.length > 0; else noItems">
+  <ul *ngFor="let item of items">
+    <li>
+        <div *ngIf="route == 'ClubText'">
+          {{item.text}}
+        </div>
+    </li>
+  </ul>
 </div>
 
-<app-viewer></app-viewer>
+<ng-template #noItems>
+  <h5>There are no items</h5>
+</ng-template>
