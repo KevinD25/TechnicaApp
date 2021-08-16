@@ -3,18 +3,65 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { FormControl, FormGroup } from "@angular/forms";
 import { Observable } from 'rxjs/Observable'; import 'rxjs/Rx';
 
-import { IClubText } from '../../interfaces/interfaces';
+import { IClubText, IEvent, IPraesidium, ISponsor, IVacature } from '../../interfaces/collections';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  clubtextCollection: AngularFirestoreCollection<IClubText>;
-  clubtext: Observable<IClubText[]>
+  collections: {
+    clubtext: AngularFirestoreCollection<IClubText>;
+    event: AngularFirestoreCollection<IEvent>;
+    praesidium: AngularFirestoreCollection<IPraesidium>;
+    sponsor: AngularFirestoreCollection<ISponsor>;
+    vacature: AngularFirestoreCollection<IVacature>;
+  } = {
+    clubtext: null,
+    event: null,
+    praesidium: null,
+    sponsor: null,
+    vacature: null
+  }
+
+  observables: {
+    clubtext: Observable<IClubText[]>;
+    event: Observable<IEvent[]>;
+    praesidium: Observable<IPraesidium[]>;
+    sponsor: Observable<ISponsor[]>;
+    vacature: Observable<IVacature[]>;
+  } = {
+    clubtext: null,
+    event: null,
+    praesidium: null,
+    sponsor: null,
+    vacature: null,
+  }
   
   constructor(private afs : AngularFirestore) {
-    this.clubtextCollection = this.afs.collection<IClubText>("ClubTekst");
-    this.clubtext = this.clubtextCollection.snapshotChanges().map(changes => {
+    // Clubtext Setup
+    this.collections.clubtext = this.afs.collection<IClubText>("ClubTekst");
+    this.observables.clubtext = this.getClubTekst();
+
+    // Event Setup
+    this.collections.event = this.afs.collection<IEvent>("Events");
+    this.observables.event = this.getEvents();
+
+    // Praesidium Setup
+    this.collections.praesidium = this.afs.collection<IPraesidium>("Praesidium");
+    this.observables.praesidium = this.getPraesidium();
+
+    // Sponsor Setup
+    this.collections.sponsor = this.afs.collection<ISponsor>("Sponsors");
+    this.observables.sponsor = this.getSponsors();
+
+    // Vacature Setup
+    this.collections.vacature = this.afs.collection<IVacature>("Vacatures");
+    this.observables.vacature = this.getVacatures();
+  }
+
+  ////////      CLUBTEKST     ////////
+  getClubTekst() {
+    return this.collections.clubtext.snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as IClubText
         data.id = a.payload.doc.id;
@@ -23,9 +70,51 @@ export class DataService {
     });
   }
 
-  getClubTekst() {
-    return this.clubtext;
+  ////////      Event     ////////
+  getEvents() { 
+    return this.collections.event.snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as IEvent
+        data.id = a.payload.doc.id;
+        return data
+      })
+    });
   }
+
+  ////////      PRAESIDIUM     ////////
+  getPraesidium() {
+    return this.collections.praesidium.snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as IPraesidium
+        data.id = a.payload.doc.id;
+        return data
+      })
+    });
+  }
+
+  ////////      Sponsor     ////////
+  getSponsors() { 
+    return this.collections.sponsor.snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as ISponsor
+        data.id = a.payload.doc.id;
+        return data
+      })
+    });
+  }
+
+  ////////      Vacatures     ////////
+  getVacatures() { 
+    return this.collections.vacature.snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as IVacature
+        data.id = a.payload.doc.id;
+        return data
+      })
+    });
+  }
+
+  
 
   ////////      CLUBTEKST     ////////
   // getClubTekst() { 

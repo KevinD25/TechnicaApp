@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  categories: string[] = ["Preasidium", "Vacatures", "ClubText", "Home", "Sponsors"]
+  categories: string[] = [ "ClubText", "Events", "Preasidium", "Sponsors", "Vacatures"]
 
   constructor() { }
 

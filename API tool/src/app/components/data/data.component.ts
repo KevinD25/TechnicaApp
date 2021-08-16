@@ -17,16 +17,17 @@ export class DataComponent implements OnInit {
   ngOnInit(): void {
     this.activatedroute.data.subscribe(data => { this.route = data.name; })
     console.log(this.route);
-    if (this.route == "Preasidium") {
-      //this.DataService.getPraesidium().subscribe(res => (this.items = res));
-    } else if (this.route == "Vacatures") {
-      //this.DataService.getVacatures().subscribe(res => (this.items = res));
-    } else if (this.route == "ClubText") {
+    if (this.route == "ClubText") {
       this.DataService.getClubTekst().subscribe(res => this.items = res);
-    } else if (this.route == "Home") {
-      //this.DataService.getHome().subscribe(res => (this.items = res));
-    } else if  (this.route == "Sponsors") {
-      //this.DataService.GetSponsors().subscribe(res => (this.items = res));
+    } else if (this.route == "Events") {
+      this.DataService.getEvents().subscribe(res => (this.items = res));
+    } else if (this.route == "Preasidium") {
+      this.DataService.getPraesidium().subscribe(res => (this.items = res));
+    } else if (this.route == "Sponsors") {
+      this.DataService.getSponsors().subscribe(res => (this.items = res));
+    } else if (this.route == "Vacatures") {
+      this.DataService.getVacatures().subscribe(res => (this.items = res));
     }
+    console.log(this.items)
   }
 }

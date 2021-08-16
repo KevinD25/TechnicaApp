@@ -39,11 +39,11 @@ import { VacaturesComponent } from './vacatures/vacatures.component';
     AngularFireModule.initializeApp(environment.firebaseConfig, 'API tool'),
     AngularFirestoreModule,
     RouterModule.forRoot([
-      {path: "Preasidium", component: DataComponent, data :{ name: "Preasidium" }},
-      {path: "Vacatures", component: DataComponent, data :{ name: "Vacatures" }},
       {path: "ClubText", component: DataComponent, data :{ name: "ClubText" }},
-      {path: "Home", component: DataComponent, data :{ name: "Home" }},
+      {path: "Events", component: DataComponent, data :{ name: "Events" }},
+      {path: "Preasidium", component: DataComponent, data :{ name: "Preasidium" }},
       {path: "Sponsors", component: DataComponent, data :{ name: "Sponsors" }},
+      {path: "Vacatures", component: DataComponent, data :{ name: "Vacatures" }},
       {path: "", redirectTo: "Home", pathMatch: 'full'}
     ], {useHash: true})
   ],
