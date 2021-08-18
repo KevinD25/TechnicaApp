@@ -88,10 +88,7 @@ export class DataService {
   }
 
   delClubTekst(clubtekst: IClubTekst) {
-    console.log(clubtekst);
-    this.documents.clubtekst = this.afs.doc(`ClubTekst/${clubtekst.id}`);
-    console.log(this.documents.clubtekst);
-    this.documents.clubtekst.delete;
+    this.collections.clubtekst.doc(clubtekst.id).delete();
   }
 
   ////////      Event     ////////
@@ -110,8 +107,7 @@ export class DataService {
   }
   
   delEvent(event: IEvent) {
-    this.documents.event = this.collections.event.doc(event.id);
-    this.documents.event.delete;
+    this.collections.event.doc(event.id).delete();
   }
 
   ////////      Praesidium     ////////
@@ -130,8 +126,7 @@ export class DataService {
   }
 
   delPraesidiumt(praesidium: IPraesidium) {
-    this.documents.praesidium = this.collections.praesidium.doc(praesidium.id);
-    this.documents.praesidium.delete;
+    this.collections.praesidium.doc(praesidium.id).delete();
   }
 
   ////////      Sponsors     ////////
@@ -150,8 +145,7 @@ export class DataService {
   }
 
   delSponsor(sponsor: ISponsor) {
-    this.documents.sponsor = this.collections.sponsor.doc(sponsor.id);
-    this.documents.sponsor.delete;
+    this.collections.sponsor.doc(sponsor.id).delete();
   }
 
   ////////      Vacatures     ////////
@@ -170,7 +164,6 @@ export class DataService {
   }
 
   delVacature(vacature: IVacature) {
-    this.documents.vacature = this.collections.vacature.doc(vacature.id);
-    this.documents.vacature.delete;
+    this.collections.vacature.doc(vacature.id).delete();
   }
 }
