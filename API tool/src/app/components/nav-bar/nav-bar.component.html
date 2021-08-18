@@ -3,9 +3,6 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-    <img width="40" alt="Technica Logo" src="assets/images/schild.png"/>
-    <span>Welcome</span>
-
     <div *ngFor="let category of categories" class="card-container">
         <div class="card card-small" tabindex="0">
             <span [routerLink]="category">{{category}}</span>

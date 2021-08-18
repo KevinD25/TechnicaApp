@@ -5,7 +5,7 @@ import { DataService } from 'src/app/services/data-service/data.service';
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
-  styleUrls: ['./viewer.component.css']
+  styleUrls: ['./viewer.component.css', '../../app.component.css']
 })
 export class ViewerComponent implements OnInit {
 
