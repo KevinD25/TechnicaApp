@@ -1,7 +1,7 @@
 <h3>{{route}}</h3>
 <div *ngIf="items?.length > 0; else noItems">
   <ul *ngFor="let item of items">
-    <li>
+    <li (dblclick)="deleteItem($event, item)">
         <div *ngIf="route == 'ClubText'">
           {{item.text}}
         </div>
@@ -12,3 +12,13 @@
 <ng-template #noItems>
   <h5>There are no items</h5>
 </ng-template>
+
+<div class="form">
+  <div class="form-content">
+    <span class="form-title">Add Item</span>
+    <form (ngSubmit)="addClubtekst()" *ngIf="route == 'ClubText'">
+      <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="clubtekst.text" name="text"></textarea>
+      <input class="button" type="submit" value="Submit">
+    </form>
+  </div>
+</div>

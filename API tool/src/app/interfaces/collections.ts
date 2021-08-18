@@ -1,4 +1,4 @@
-export interface IClubText {
+export interface IClubTekst {
     id?: string,
     text: string
 }
