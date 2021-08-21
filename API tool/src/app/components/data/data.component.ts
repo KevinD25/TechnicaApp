@@ -6,41 +6,16 @@ import { DataService } from 'src/app/services/data-service/data.service';
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
-  styleUrls: ['./data.component.css']
+  styleUrls: ['./data.component.css', '../add-item/add-item.component.css']
 })
 export class DataComponent implements OnInit {
 
   route: string = "Everythings fine";
   items: any;
+  item: any;
+  editState: boolean = false;
+  itemToEdit: any;
 
-  clubtekst: IClubTekst = {
-    text: ""
-  }
-  event: IEvent = {
-    imageLink: "",
-    date: "",
-    fbLink: ""
-  }
-  praesidium: IPraesidium = {
-    name: "",
-    surName: "",
-    function: "",
-    birthday: "",
-    studies: "",
-    imageLink: ""
-  }
-  sponsor: ISponsor = {
-    name: "",
-    about: "",
-    website: "",
-    imageLink: "",
-  }
-  vacature: IVacature = {
-    name: "",
-    description: "",
-    link: "",
-    sponsor: ""
-  }
 
   constructor(private DataService: DataService, private activatedroute: ActivatedRoute) { }
 
@@ -48,19 +23,24 @@ export class DataComponent implements OnInit {
     this.activatedroute.data.subscribe(data => { this.route = data.name; })
     console.log(this.route);
     switch(this.route) {
-      case "ClubText": { 
+      case "ClubText": {
+        this.item = { text: "" } as IClubTekst;
         this.DataService.getClubTeksten().subscribe(res => { this.items = res; console.log(res) });
         break; 
-      } case "Events": { 
+      } case "Events": {
+        this.item as IEvent;
         this.DataService.getEvents().subscribe(res => { this.items = res; console.log(res) });
         break; 
-      } case "Preasidium": { 
+      } case "Praesidium": {
+        this.item as IPraesidium;
         this.DataService.getPraesidium().subscribe(res => { this.items = res; console.log(res) });
         break; 
-      } case "Sponsors": { 
+      } case "Sponsors": {
+        this.item as ISponsor;
         this.DataService.getSponsors().subscribe(res => { this.items = res; console.log(res) });
         break; 
-      } case "Vacatures": { 
+      } case "Vacatures": {
+        this.item as IVacature;
         this.DataService.getVacatures().subscribe(res => { this.items = res; console.log(res) });
         break;
       } default: { 
@@ -70,7 +50,13 @@ export class DataComponent implements OnInit {
     }
   }
 
-  deleteItem(event, item) {
+  clearState() {
+    this.editState = false;
+    this.itemToEdit = null;
+  }
+
+  deleteItem(item) {
+    this.clearState();
     switch(this.route) {
       case "ClubText": {
         this.DataService.delClubTekst(item);
@@ -78,7 +64,7 @@ export class DataComponent implements OnInit {
       } case "Events": { 
         this.DataService.addEvent(item);
         break; 
-      } case "Preasidium": { 
+      } case "Praesidium": { 
         this.DataService.addPraesidium(item);
         break; 
       } case "Sponsors": { 
@@ -93,42 +79,34 @@ export class DataComponent implements OnInit {
       }
     }
   }
-  
-  addClubtekst() {
-    this.DataService.addClubTekst(this.clubtekst);
-    this.clubtekst.text = "";
+
+  editItem(item) {
+    this.editState = true;
+    this.itemToEdit = item;
   }
 
-  addEvent() {
-    this.DataService.addEvent(this.event);
-    this.event.imageLink = "";
-    this.event.date = "";
-    this.event.fbLink = "";
-  }
-
-  addPraesidium() {
-    this.DataService.addPraesidium(this.praesidium);
-    this.praesidium.name = "";
-    this.praesidium.surName = "";
-    this.praesidium.function = "";
-    this.praesidium.birthday = "";
-    this.praesidium.studies = "";
-    this.praesidium.imageLink = "";
-  }
-
-  addSponsor() {
-    this.DataService.addSponsor(this.sponsor);
-    this.sponsor.name = "";
-    this.sponsor.about = "";
-    this.sponsor.website = "";
-    this.sponsor.imageLink = "";
-  }
-
-  addVacature() {
-    this.DataService.addVacature(this.vacature);
-    this.vacature.name = "";
-    this.vacature.description = "";
-    this.vacature.link = "";
-    this.vacature.sponsor = "";
+  updateItem(){
+    // switch(this.route) {
+    //   case "ClubText": {
+    //     this.DataService.patchClubTekst(this.item);
+    //     break; 
+    //   } case "Events": { 
+    //     this.DataService.patchEvent(this.item);
+    //     break; 
+    //   } case "Praesidium": { 
+    //     this.DataService.patchPraesidium(this.item);
+    //     break; 
+    //   } case "Sponsors": { 
+    //     this.DataService.patchSponsor(this.item);
+    //     break; 
+    //   } case "Vacatures": { 
+    //     this.DataService.patchVacature(this.item);
+    //     break; 
+    //   } default: { 
+    //     console.log("Route not found");
+    //     break; 
+    //   }
+    // }
+    this.clearState();
   }
 }

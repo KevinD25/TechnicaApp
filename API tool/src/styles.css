@@ -8,91 +8,26 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.content {
-    display: flex;
-    grid-column-start: 2;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-}
-
-.banner {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    background-color: #1976d2;
-}
-
-.toolbar {
-    display: grid;
-    grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "card card card card card";
-    color: white;
-    font-weight: 600;
-    width: 1000px;
-    margin: auto;
-}
-
 .card-container {
     justify-self: center;
     margin-top: 16px;
 }
 
 .card {
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    color: black;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
     padding: 16px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    transition: all 0.2s ease-in-out;
     line-height: 24px;
 }
 
-.card-container .card:not(.highlight-card):hover {
-    cursor: pointer;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+.full-width {
+    width: 960px;
 }
 
-.card.card-small {
-    height: 16px;
-    width: 128px;
-}
-
-/* Title Code */
-.card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width:25%;
-    position: relative;
-    top: 20px;
-    padding-left: 40px;
-}
-
-svg#schild {
-    width: 80px;
-    position: absolute;
-    left: -40px;
-}
-
-@media screen and (max-width: 750px) {
-    .toolbar {
-        display: grid;
-        grid-template-columns: 1fr, 1fr, 1fr;
-        grid-template-rows: 1fr, 1fr;
-        grid-template-areas: "card card card",
-                             "card card .";
+@media only screen and (max-width: 960px) {
+    .full-width {
+        width: 100%;
     }
 }

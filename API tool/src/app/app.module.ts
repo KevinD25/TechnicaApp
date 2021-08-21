@@ -8,9 +8,8 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 import { DataComponent } from './components/data/data.component';
-import { EditorComponent } from './components/editor/editor.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { ViewerComponent } from './components/viewer/viewer.component';
+import { AddItemComponent } from './components/add-item/add-item.component';
 
 import { ClubTekstComponent } from './club-tekst/club-tekst.component';
 import { HomeComponent } from './home/home.component';
@@ -22,15 +21,14 @@ import { VacaturesComponent } from './vacatures/vacatures.component';
   declarations: [
     AppComponent,
     NavBarComponent,
-    EditorComponent,
-    ViewerComponent,
     DataComponent,
+    AddItemComponent,
     
     ClubTekstComponent,
     HomeComponent,
     PraesidiumComponent,
     SponsorsComponent,
-    VacaturesComponent
+    VacaturesComponent,
   ],
   imports: [
     BrowserModule,

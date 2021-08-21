@@ -21,11 +21,11 @@ export class DataService {
    */
 
   collections: {
-    clubtekst: AngularFirestoreCollection<IClubTekst>;
-    event: AngularFirestoreCollection<IEvent>;
-    praesidium: AngularFirestoreCollection<IPraesidium>;
-    sponsor: AngularFirestoreCollection<ISponsor>;
-    vacature: AngularFirestoreCollection<IVacature>;
+    clubtekst: AngularFirestoreCollection<IClubTekst>,
+    event: AngularFirestoreCollection<IEvent>,
+    praesidium: AngularFirestoreCollection<IPraesidium>,
+    sponsor: AngularFirestoreCollection<ISponsor>,
+    vacature: AngularFirestoreCollection<IVacature>,
   } = {
     clubtekst: null,
     event: null,
@@ -35,11 +35,11 @@ export class DataService {
   }
 
   observables: {
-    clubtekst: Observable<IClubTekst[]>;
-    event: Observable<IEvent[]>;
-    praesidium: Observable<IPraesidium[]>;
-    sponsor: Observable<ISponsor[]>;
-    vacature: Observable<IVacature[]>;
+    clubtekst: Observable<IClubTekst[]>,
+    event: Observable<IEvent[]>,
+    praesidium: Observable<IPraesidium[]>,
+    sponsor: Observable<ISponsor[]>,
+    vacature: Observable<IVacature[]>,
   } = {
     clubtekst: null,
     event: null,
@@ -49,11 +49,11 @@ export class DataService {
   }
 
   documents: {
-    clubtekst: AngularFirestoreDocument<IClubTekst>;
-    event: AngularFirestoreDocument<IEvent>;
-    praesidium: AngularFirestoreDocument<IPraesidium>;
-    sponsor: AngularFirestoreDocument<ISponsor>;
-    vacature: AngularFirestoreDocument<IVacature>;
+    clubtekst: AngularFirestoreDocument<IClubTekst>,
+    event: AngularFirestoreDocument<IEvent>,
+    praesidium: AngularFirestoreDocument<IPraesidium>,
+    sponsor: AngularFirestoreDocument<ISponsor>,
+    vacature: AngularFirestoreDocument<IVacature>,
   } = {
     clubtekst: null,
     event: null,
@@ -103,6 +103,10 @@ export class DataService {
     this.collections.clubtekst.doc(clubtekst.id).delete();
   }
 
+  patchClubTekst(clubtekst: IClubTekst) {
+    this.collections.clubtekst.doc(clubtekst.id).update(clubtekst);
+  }
+
   ////////      Event     ////////
   getEvents() { 
     return this.collections.event.snapshotChanges().map(changes => {
@@ -120,6 +124,10 @@ export class DataService {
   
   delEvent(event: IEvent) {
     this.collections.event.doc(event.id).delete();
+  }
+
+  patchEvent(event: IEvent) {
+    this.collections.clubtekst.doc(event.id).update(event);
   }
 
   ////////      Praesidium     ////////
@@ -141,6 +149,10 @@ export class DataService {
     this.collections.praesidium.doc(praesidium.id).delete();
   }
 
+  patchPraesidium(praesidium: IPraesidium) {
+    this.collections.clubtekst.doc(praesidium.id).update(praesidium);
+  }
+
   ////////      Sponsors     ////////
   getSponsors() { 
     return this.collections.sponsor.snapshotChanges().map(changes => {
@@ -160,6 +172,10 @@ export class DataService {
     this.collections.sponsor.doc(sponsor.id).delete();
   }
 
+  patchSponsor(sponsor: ISponsor) {
+    this.collections.clubtekst.doc(sponsor.id).update(sponsor);
+  }
+
   ////////      Vacatures     ////////
   getVacatures() { 
     return this.collections.vacature.snapshotChanges().map(changes => {
@@ -177,5 +193,9 @@ export class DataService {
 
   delVacature(vacature: IVacature) {
     this.collections.vacature.doc(vacature.id).delete();
+  }
+
+  patchVacature(vacature: IVacature) {
+    this.collections.clubtekst.doc(vacature.id).update(vacature);
   }
 }

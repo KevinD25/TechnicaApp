@@ -35,7 +35,6 @@ object FirebaseHandler {
     val praesidiumList = MutableLiveData<List<Praesidium>>()
     private val db = FirebaseFirestore.getInstance()
 
-
     fun getFirebaseData() {
         getHome()
         getPartners()
@@ -43,8 +42,6 @@ object FirebaseHandler {
         getClubtext()
         getPraesidium()
     }
-
-
 
     private fun getClubtext() {
         db.collection("ClubTekst")

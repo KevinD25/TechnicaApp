@@ -1,79 +1,18 @@
 <app-nav-bar></app-nav-bar>
 
-<div class="content" role="main">
-<!-- Highlight Card -->
-<div class="card highlight-card card-small">
-  <svg id="schild" alt="Rocket Ship" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
-    <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
-      <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)" fill="#999999"/>
-    </g>
-    <image href="assets/images/schild.png" width="101.678" height="101.678"/>
-  </svg>
-  
-  <span id="title">{{ title }}</span>
-</div>
+<div class="content full-width" role="main">
+  <!-- Highlight Card -->
+  <div class="card highlight-card">
+    <svg id="schild" alt="Technica Schild" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678"
+      viewBox="0 0 101.678 101.678">
+      <g transform="translate(-141 -696)">
+        <circle cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)"
+          fill="#999999" />
+      </g>
+      <image href="assets/images/schild.png" width="101.678" height="101.678" />
+    </svg>
 
-  <!-- Next Steps -->
-
-  <!--<input type="hidden" #selection>
-
-  <div class="card-container">
-    <div class="card card-small" (click)="selection.value = 'Praesidium'" tabindex="0">
-      <span>Praesidium</span>
-    </div>
-
-    <div class="card card-small" (click)="selection.value = 'Vacatures'" tabindex="0">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-
-      <span>Vacatures</span>
-    </div>
-
-    <div class="card card-small" (click)="selection.value = 'ClubText'" tabindex="0">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-
-      <span>ClubText</span>
-    </div>
-
-    <div class="card card-small" (click)="selection.value = 'Home'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-
-      <span>Home</span>
-    </div>
-
-    <div class="card card-small" (click)="selection.value = 'Sponsors'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-
-      <span>Sponsors</span>
-    </div>
+    <span id="title">{{ title }}</span>
   </div>
-
-  
-  <div [ngSwitch]="selection.value">
-      <pre *ngSwitchDefault>
-        Maak een keuze
-
-      </pre>
-      <pre *ngSwitchCase="'Praesidium'">
-        Praesidium
-        <app-praesidium></app-praesidium>
-      </pre>
-      <pre *ngSwitchCase="'Home'">
-        Home
-        <app-home></app-home>
-      </pre>
-      <pre *ngSwitchCase="'Sponsors'">
-        Sponsors
-        <app-sponsors></app-sponsors>
-      </pre>
-      <pre *ngSwitchCase="'ClubText'">
-        ClubText
-        <app-club-tekst></app-club-tekst>
-      </pre>
-      <pre *ngSwitchCase="'Vacatures'">
-        Vacatures
-        <app-vacatures></app-vacatures>
-
-      </pre>
-  </div> -->
-
   <router-outlet></router-outlet>
+</div>

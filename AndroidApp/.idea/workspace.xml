@@ -13,7 +13,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec2247c-829c-400a-af59-adf6439b56c1" name="Default Changelist" comment="" />
+    <list default="true" id="0ec2247c-829c-400a-af59-adf6439b56c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../API tool/src/app/Services/data-service/data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/Services/data-service/data.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
