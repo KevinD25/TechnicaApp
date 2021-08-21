@@ -11,24 +11,12 @@ import { DataComponent } from './components/data/data.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 
-import { ClubTekstComponent } from './club-tekst/club-tekst.component';
-import { HomeComponent } from './home/home.component';
-import { PraesidiumComponent } from './praesidium/praesidium.component';
-import { SponsorsComponent } from './sponsors/sponsors.component';
-import { VacaturesComponent } from './vacatures/vacatures.component';
-
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     DataComponent,
     AddItemComponent,
-    
-    ClubTekstComponent,
-    HomeComponent,
-    PraesidiumComponent,
-    SponsorsComponent,
-    VacaturesComponent,
   ],
   imports: [
     BrowserModule,

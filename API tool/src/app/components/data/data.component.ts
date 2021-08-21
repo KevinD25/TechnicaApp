@@ -12,7 +12,6 @@ export class DataComponent implements OnInit {
 
   route: string = "Everythings fine";
   items: any;
-  item: any;
   editState: boolean = false;
   itemToEdit: any;
 
@@ -24,23 +23,23 @@ export class DataComponent implements OnInit {
     console.log(this.route);
     switch(this.route) {
       case "ClubText": {
-        this.item = { text: "" } as IClubTekst;
+        this.items as IClubTekst[];
         this.DataService.getClubTeksten().subscribe(res => { this.items = res; console.log(res) });
         break; 
       } case "Events": {
-        this.item as IEvent;
+        this.items as IEvent[];
         this.DataService.getEvents().subscribe(res => { this.items = res; console.log(res) });
         break; 
       } case "Praesidium": {
-        this.item as IPraesidium;
+        this.items as IPraesidium[];
         this.DataService.getPraesidium().subscribe(res => { this.items = res; console.log(res) });
         break; 
       } case "Sponsors": {
-        this.item as ISponsor;
+        this.items as ISponsor[];
         this.DataService.getSponsors().subscribe(res => { this.items = res; console.log(res) });
         break; 
       } case "Vacatures": {
-        this.item as IVacature;
+        this.items as IVacature[];
         this.DataService.getVacatures().subscribe(res => { this.items = res; console.log(res) });
         break;
       } default: { 
@@ -85,28 +84,28 @@ export class DataComponent implements OnInit {
     this.itemToEdit = item;
   }
 
-  updateItem(){
-    // switch(this.route) {
-    //   case "ClubText": {
-    //     this.DataService.patchClubTekst(this.item);
-    //     break; 
-    //   } case "Events": { 
-    //     this.DataService.patchEvent(this.item);
-    //     break; 
-    //   } case "Praesidium": { 
-    //     this.DataService.patchPraesidium(this.item);
-    //     break; 
-    //   } case "Sponsors": { 
-    //     this.DataService.patchSponsor(this.item);
-    //     break; 
-    //   } case "Vacatures": { 
-    //     this.DataService.patchVacature(this.item);
-    //     break; 
-    //   } default: { 
-    //     console.log("Route not found");
-    //     break; 
-    //   }
-    // }
+  updateItem(item){
+    switch(this.route) {
+      case "ClubText": {
+        this.DataService.patchClubTekst(item);
+        break; 
+      } case "Events": { 
+        this.DataService.patchEvent(item);
+        break; 
+      } case "Praesidium": { 
+        this.DataService.patchPraesidium(item);
+        break; 
+      } case "Sponsors": { 
+        this.DataService.patchSponsor(item);
+        break; 
+      } case "Vacatures": { 
+        this.DataService.patchVacature(item);
+        break; 
+      } default: { 
+        console.log("Route not found");
+        break; 
+      }
+    }
     this.clearState();
   }
 }
