@@ -8,6 +8,18 @@ import { IClubTekst, IEvent, IPraesidium, ISponsor, IVacature } from '../../inte
   providedIn: 'root'
 })
 export class DataService {
+
+  /* Toturial Videos:
+   * https://www.youtube.com/watch?v=gUmItHaVL2w&list=WL&index=6
+   * https://www.youtube.com/watch?v=cwqeyOFcaoA&t=2s
+   * https://www.youtube.com/watch?v=onVp-8BYUSM&list=WL&index=3
+   */
+
+  /* npm-Packages:
+   * npm install font-awesome --save
+   * npm install --save ngx-materialize
+   */
+
   collections: {
     clubtekst: AngularFirestoreCollection<IClubTekst>;
     event: AngularFirestoreCollection<IEvent>;
