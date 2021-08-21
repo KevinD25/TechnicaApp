@@ -1,7 +1,7 @@
 <h3>{{route}}</h3>
 <div *ngIf="items?.length > 0; else noItems">
-  <ul *ngFor="let item of items">
-    <li (dblclick)="deleteItem($event, item)">
+  <ul *ngFor="let item of items" class="collection">
+    <li (dblclick)="deleteItem($event, item)" class="collection-item">
         <div *ngIf="route == 'ClubText'">
           {{item.text}}
         </div>

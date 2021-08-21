@@ -16,8 +16,8 @@ export class DataService {
    */
 
   /* npm-Packages:
-   * npm install font-awesome --save
-   * npm install --save ngx-materialize
+   * npm install --save materialize-css jquery font-awesome
+   * npm firebase angularfire
    */
 
   collections: {
