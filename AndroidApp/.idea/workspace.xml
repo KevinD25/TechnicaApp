@@ -15,9 +15,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0ec2247c-829c-400a-af59-adf6439b56c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../API tool/src/app/Services/data-service/data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/Services/data-service/data.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../API tool/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/src/app/components/add-item/add-item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/components/add-item/add-item.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API tool/src/app/components/add-item/add-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/components/add-item/add-item.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +78,7 @@
     <property name="android-custom-viewC:/Users/Kevin/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="memory.settings.postsync.last.time.stamp" value="1609159988471" />
     <property name="multi-representation-previewC:/Users/Kevin/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_selected" value="Custom views" />
@@ -232,97 +233,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="726" y="182" key="#Auto_Import" timestamp="1610714756867">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="584" y="190" key="chooseDestDirectoryDialog" timestamp="1629658502338">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="726" y="182" key="#Auto_Import/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610714756867" />
-    <state x="3040" y="523" width="950" height="537" key="#PSD" timestamp="1609166816717">
-      <screen x="2560" y="248" width="1920" height="1080" />
-    </state>
-    <state x="3040" y="523" width="950" height="537" key="#PSD/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609166816717" />
-    <state x="669" y="106" key="#app" timestamp="1609843914044">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="669" y="106" key="#app/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609843914044" />
-    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1609841985441">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609841985441" />
-    <state x="540" y="275" key="AndroidCreateResourceDirectoryDialog" timestamp="1609846331658">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="540" y="275" key="AndroidCreateResourceDirectoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609846331658" />
-    <state x="540" y="275" key="AndroidCreateResourceFileDialog" timestamp="1609857623246">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="540" y="275" key="AndroidCreateResourceFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609857623246" />
-    <state x="766" y="310" key="AndroidCreateXmlResourceDialog" timestamp="1609862272352">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="766" y="310" key="AndroidCreateXmlResourceDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609862272352" />
-    <state x="758" y="266" key="AndroidProcessChooserDialog" timestamp="1609843760704">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="758" y="266" key="AndroidProcessChooserDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609843760704" />
-    <state width="514" height="466" key="DebuggerActiveHint" timestamp="1610629744385">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="514" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629744385" />
-    <state width="1877" height="227" key="GridCell.Tab.0.bottom" timestamp="1610716658044">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610716658044" />
-    <state width="1874" height="284" key="GridCell.Tab.0.bottom/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609172414335" />
-    <state width="2442" height="394" key="GridCell.Tab.0.bottom/72.27.2488.1413/2560.248.1920.1080@72.27.2488.1413" timestamp="1608565869352" />
-    <state width="1877" height="227" key="GridCell.Tab.0.center" timestamp="1610716658044">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610716658044" />
-    <state width="1874" height="284" key="GridCell.Tab.0.center/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609172414334" />
-    <state width="2442" height="394" key="GridCell.Tab.0.center/72.27.2488.1413/2560.248.1920.1080@72.27.2488.1413" timestamp="1608565869352" />
-    <state width="1877" height="227" key="GridCell.Tab.0.left" timestamp="1610716658044">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610716658044" />
-    <state width="1874" height="284" key="GridCell.Tab.0.left/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609172414334" />
-    <state width="2442" height="394" key="GridCell.Tab.0.left/72.27.2488.1413/2560.248.1920.1080@72.27.2488.1413" timestamp="1608565869352" />
-    <state width="1877" height="227" key="GridCell.Tab.0.right" timestamp="1610716658044">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610716658044" />
-    <state width="1874" height="284" key="GridCell.Tab.0.right/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609172414335" />
-    <state width="2442" height="394" key="GridCell.Tab.0.right/72.27.2488.1413/2560.248.1920.1080@72.27.2488.1413" timestamp="1608565869352" />
-    <state width="1877" height="134" key="GridCell.Tab.1.bottom" timestamp="1610629773161">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="134" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629773161" />
-    <state width="1874" height="284" key="GridCell.Tab.1.bottom/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609169814436" />
-    <state width="1877" height="134" key="GridCell.Tab.1.center" timestamp="1610629773161">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="134" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629773161" />
-    <state width="1874" height="284" key="GridCell.Tab.1.center/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609169814436" />
-    <state width="1877" height="134" key="GridCell.Tab.1.left" timestamp="1610629773161">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="134" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629773161" />
-    <state width="1874" height="284" key="GridCell.Tab.1.left/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609169814436" />
-    <state width="1877" height="134" key="GridCell.Tab.1.right" timestamp="1610629773161">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="134" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629773161" />
-    <state width="1874" height="284" key="GridCell.Tab.1.right/72.27.2488.1413/2560.248.1920.1080@2560.248.1920.1080" timestamp="1609169814436" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1609841890944">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609841890944" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1610629744859">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610629744859" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609854136659">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609854136659" />
+    <state x="584" y="190" key="chooseDestDirectoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1629658502338" />
   </component>
 </project>

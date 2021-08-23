@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs/Observable'; import 'rxjs/Rx';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs/Observable'; 
+import 'rxjs/Rx';  // Nodig voor map functie
 
 import { IClubTekst, IEvent, IPraesidium, ISponsor, IVacature } from '../../interfaces/collections';
 
@@ -48,20 +49,6 @@ export class DataService {
     vacature: null,
   }
 
-  documents: {
-    clubtekst: AngularFirestoreDocument<IClubTekst>,
-    event: AngularFirestoreDocument<IEvent>,
-    praesidium: AngularFirestoreDocument<IPraesidium>,
-    sponsor: AngularFirestoreDocument<ISponsor>,
-    vacature: AngularFirestoreDocument<IVacature>,
-  } = {
-    clubtekst: null,
-    event: null,
-    praesidium: null,
-    sponsor: null,
-    vacature: null,
-  }
-  
   constructor(private afs : AngularFirestore) {
     // Clubtext Setup
     this.collections.clubtekst = this.afs.collection<IClubTekst>("ClubTekst", ref => ref.orderBy("text", "asc"));

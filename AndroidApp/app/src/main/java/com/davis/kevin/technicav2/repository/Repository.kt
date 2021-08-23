@@ -13,7 +13,6 @@ import retrofit2.Response
 
 
 object Repository {
-
     var eventMutableLiveData = MutableLiveData<List<Event>>()
     var vacatureMutableLiveData = MutableLiveData<List<Vacature>>()
     var praesidiumMutableLiveData = MutableLiveData<List<Praesidium>>()
@@ -28,7 +27,6 @@ object Repository {
         getPraesidium()
         getEvents()
         getPartners()
-
     }
 
     private fun getPartners() {
@@ -36,9 +34,7 @@ object Repository {
             override fun onResponse(call: Call<List<Partner>>, response: Response<List<Partner>>) {
                 partnerMutableLiveData.value = response.body()
                 Log.d("PARTNER", response.body().toString())
-            }
-
-            override fun onFailure(call: Call<List<Partner>>, t: Throwable) {
+            } override fun onFailure(call: Call<List<Partner>>, t: Throwable) {
                 Log.d("PARTNER", t.toString())
             }
 
@@ -47,14 +43,9 @@ object Repository {
 
     private fun getVacatures(){
         apiService.getVacatures().enqueue(object : Callback<List<Vacature>> {
-            override fun onResponse(
-                call: Call<List<Vacature>>,
-                response: Response<List<Vacature>>
-            ) {
+            override fun onResponse(call: Call<List<Vacature>>, response: Response<List<Vacature>>) {
                 vacatureMutableLiveData.value = response.body()
-            }
-
-            override fun onFailure(call: Call<List<Vacature>>, t: Throwable) {
+            } override fun onFailure(call: Call<List<Vacature>>, t: Throwable) {
 
             }
 
@@ -63,14 +54,9 @@ object Repository {
 
     private fun getPraesidium(){
         apiService.getPraesidium().enqueue(object : Callback<List<Praesidium>> {
-            override fun onResponse(
-                call: Call<List<Praesidium>>,
-                response: Response<List<Praesidium>>
-            ) {
+            override fun onResponse( call: Call<List<Praesidium>>, response: Response<List<Praesidium>> ) {
                 praesidiumMutableLiveData.value = response.body()
-            }
-
-            override fun onFailure(call: Call<List<Praesidium>>, t: Throwable) {
+            } override fun onFailure(call: Call<List<Praesidium>>, t: Throwable) {
 
             }
 
@@ -81,9 +67,7 @@ object Repository {
         apiService.getEvents().enqueue(object : Callback<List<Event>> {
             override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
                 eventMutableLiveData.value = response.body()
-            }
-
-            override fun onFailure(call: Call<List<Event>>, t: Throwable) {
+            } override fun onFailure(call: Call<List<Event>>, t: Throwable) {
 
             }
         })
