@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IClubTekst, IEvent, IPraesidium, ISponsor, IVacature } from 'src/app/interfaces/collections';
 import { DataService } from 'src/app/services/data-service/data.service';
+import { FileService } from 'src/app/services/file-service/file.service';
 
 @Component({
   selector: 'app-data',
@@ -11,16 +12,18 @@ import { DataService } from 'src/app/services/data-service/data.service';
 export class DataComponent implements OnInit {
 
   route: string = "Everythings fine";
-  items: any;
+  items: any[] = [];
   editState: boolean = false;
-  itemToEdit: any;
+  itemToEdit: any = null;
+  itemUrls: any[] = [];
+  url: any = null;
 
 
-  constructor(private DataService: DataService, private activatedroute: ActivatedRoute) { }
+  constructor(private DataService: DataService, private FileService: FileService, private activatedroute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedroute.data.subscribe(data => { this.route = data.name; })
-    console.log(this.route);
+    //console.log(this.route);
     switch(this.route) {
       case "ClubText": {
         this.items as IClubTekst[];
@@ -28,7 +31,11 @@ export class DataComponent implements OnInit {
         break; 
       } case "Events": {
         this.items as IEvent[];
-        this.DataService.getEvents().subscribe(res => { this.items = res; console.log(res) });
+        this.DataService.getEvents().subscribe(res => { 
+          this.items = res;
+          console.log(res);
+          this.getUrls(res);
+        });
         break; 
       } case "Praesidium": {
         this.items as IPraesidium[];
@@ -79,18 +86,17 @@ export class DataComponent implements OnInit {
     }
   }
 
-  editItem(item) {
-    this.editState = true;
-    this.itemToEdit = item;
-  }
-
   updateItem(item){
     switch(this.route) {
       case "ClubText": {
         this.DataService.patchClubTekst(item);
         break; 
       } case "Events": { 
+        this.url = null;
+        item.imageLink = this.FileService.addImage(this.route);
+        console.log(item)
         this.DataService.patchEvent(item);
+        window.location.reload();
         break; 
       } case "Praesidium": { 
         this.DataService.patchPraesidium(item);
@@ -107,5 +113,43 @@ export class DataComponent implements OnInit {
       }
     }
     this.clearState();
+  }
+  
+  editItem(item) {
+    this.editState = true;
+    this.itemToEdit = item;
+  }
+
+  upload(event) {
+    this.FileService.fileToUpload = event.target.files[0];
+    let reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.url = event.target.result;
+    };
+    reader.onerror = (event: any) => {
+      console.log("File could not be read: " + event.target.error.code);
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  getUrls(items: any[]){
+    let imageUrls: string[] = [];
+    
+    // Tegen willekeurige plaatsing van foto's
+    // Bestanden zijn aparte entiteiten van de data
+    items.forEach(item => {
+      imageUrls.push(item.imageLink.slice(this.route.length + 2, item.imageLink.indexOf('.')));
+      this.itemUrls.push(null)
+    });
+
+    items.forEach(item => {
+      this.FileService.getFile(item.imageLink).subscribe(res => {
+        imageUrls.forEach(url => {
+            if (JSON.stringify(res).includes(url)) {
+              this.itemUrls[imageUrls.indexOf(url)] = res;
+            }
+          });
+        });
+    });
   }
 }

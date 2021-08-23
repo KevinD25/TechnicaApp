@@ -7,21 +7,26 @@
             <div class="input-field col s6">
                 <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="variables.clubtekst.text" 
                 name="text"></textarea>
-                <label>ClubText</label>
             </div>
             <input type="submit" value="Submit" class="btn">
         </form>
 
         <!--    Event    -->
         <form (ngSubmit)="addItem()" *ngIf="route == 'Events'" class="col s6">
-            <div class="input-field col s6">
-                <input type="text" [(ngModel)]="variables.event.fbLink" placeholder="FaceBook-Link">
-                <input type="text" [(ngModel)]="variables.event.date" placeholder="Date">
-                <input type="text" [(ngModel)]="variables.event.imageLink">
+            <div class="row">
+                <div *ngIf="url" class="col s12 m4 l4">
+                    <img [src]="url" class="check">
+                </div>
+                <div class="col s12 m4 l8">
+                    <input type="date" placeholder="Date" [(ngModel)]="variables.event.date" name="date">
+                    <input type="text" placeholder="FaceBook-Link" [(ngModel)]="variables.event.fbLink" name="facebook">
+                    <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg" class="light-blue lighten-3"/>
+                </div>
             </div>
             <input type="submit" value="Submit" class="btn">
         </form>
 
     </div>
 </div>
+
 <!--<input type="file" (change)="upload($event.target.files[0])" accept=".png, .jpg, .jpeg"/>-->

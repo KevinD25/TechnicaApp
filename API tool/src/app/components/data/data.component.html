@@ -3,23 +3,70 @@
 <div *ngIf="items?.length > 0; else noItems" class="full-width">
   <ul *ngFor="let item of items" class="collection">
     <li class="collection-item">
-      <div *ngIf="route == 'ClubText'">
-        {{item.text}}
+
+      <!--    Data    -->
+      <div>
+
+        <!--    Clubtext    -->
+        <div *ngIf="route == 'ClubText'">
+          {{item.text}}
+        </div>
+
+        <!--    Event    -->
+        <div *ngIf="route == 'Events'">
+          <div class="row">
+            <div *ngIf="itemUrls" class="col s12 m4 l4">
+              <img [src]="itemUrls[items.indexOf(item)]" class="check">
+            </div>
+            <div class="col s12 m4 l8">
+              <div>{{item.date}}</div>
+              <div>{{item.fbLink}}</div>
+              <div>{{item.imageLink}}</div>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+
+
+      <!--    Icon    -->
       <a class="secondary-content">
-        <i (click)="editItem(item)" class="fa fa-pencil"></i>  
+        <i (click)="editItem(item)" class="fa fa-pencil"></i>
         <i *ngIf="editState && itemToEdit.id == item.id" (click)="clearState()" class="fa fa-compress"></i>
       </a>
 
+
+
+      <!--    Edit    -->
       <div *ngIf="editState && itemToEdit.id == item.id">
+
+        <!--    Clubtext    -->
         <form (ngSubmit)="updateItem(item)" *ngIf="route == 'ClubText'" class="col s6">
           <div class="input-field col s6">
-              <textarea class="text-field" type="text" placeholder="Add Text"
-                  [(ngModel)]="item.text" name="text"></textarea>
+            <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="item.text"
+              name="text"></textarea>
           </div>
           <input type="submit" value="Submit" class="btn">
           <button (click)="deleteItem(item)" class="btn red">Delete Item</button>
-      </form>
+        </form>
+
+        <!--    Event    -->
+        <form (ngSubmit)="updateItem(item)" *ngIf="route == 'Events'" class="col s6">
+          <div class="row">
+            <div *ngIf="url" class="col s12 m4 l4">
+              <img [src]="url" class="check">
+            </div>
+            <div class="col s12 m4 l8">
+              <input type="date" placeholder="Date" [(ngModel)]="item.date" name="date">
+              <input type="text" placeholder="FaceBook-Link" [(ngModel)]="item.fbLink" name="facebook">
+              <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg" class="light-blue lighten-3" />
+            </div>
+          </div>
+          <input type="submit" value="Submit" class="btn">
+          <button (click)="deleteItem(item)" class="btn red">Delete Item</button>
+        </form>
+
       </div>
     </li>
   </ul>
@@ -28,4 +75,3 @@
 <ng-template #noItems>
   <h5>There are no items</h5>
 </ng-template>
-

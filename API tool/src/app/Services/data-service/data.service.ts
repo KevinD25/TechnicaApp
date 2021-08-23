@@ -55,7 +55,7 @@ export class DataService {
     this.observables.clubtekst = this.getClubTeksten();
 
     // Event Setup
-    this.collections.event = this.afs.collection<IEvent>("Events");
+    this.collections.event = this.afs.collection<IEvent>("Events", ref => ref.orderBy("date", "asc"));
     this.observables.event = this.getEvents();
 
     // Praesidium Setup
@@ -83,15 +83,18 @@ export class DataService {
   }
 
   addClubTekst(clubtext: IClubTekst) {
-    this.collections.clubtekst.add(clubtext);
+    this.collections.clubtekst.add(clubtext)
+    .catch(error => console.log(error));
   }
 
   delClubTekst(clubtekst: IClubTekst) {
-    this.collections.clubtekst.doc(clubtekst.id).delete();
+    this.collections.clubtekst.doc(clubtekst.id).delete()
+    .catch(error => console.log(error));
   }
 
   patchClubTekst(clubtekst: IClubTekst) {
-    this.collections.clubtekst.doc(clubtekst.id).update(clubtekst);
+    this.collections.clubtekst.doc(clubtekst.id).update(clubtekst)
+    .catch(error => console.log(error));
   }
 
   ////////      Event     ////////
@@ -106,16 +109,18 @@ export class DataService {
   }
   
   addEvent(event: IEvent) {
-    console.log(event)
-    //this.collections.event.add(event);
+    this.collections.event.add(event)
+    .catch(error => console.log(error));
   }
   
   delEvent(event: IEvent) {
-    this.collections.event.doc(event.id).delete();
+    this.collections.event.doc(event.id).delete()
+    .catch(error => console.log(error));
   }
 
   patchEvent(event: IEvent) {
-    this.collections.clubtekst.doc(event.id).update(event);
+    this.collections.event.doc(event.id).update(event)
+    .catch(error => console.log(error));
   }
 
   ////////      Praesidium     ////////
@@ -130,15 +135,18 @@ export class DataService {
   }
   
   addPraesidium(praesidium: IPraesidium) {
-    this.collections.praesidium.add(praesidium);
+    this.collections.praesidium.add(praesidium)
+    .catch(error => console.log(error));
   }
 
   delPraesidiumt(praesidium: IPraesidium) {
-    this.collections.praesidium.doc(praesidium.id).delete();
+    this.collections.praesidium.doc(praesidium.id).delete()
+    .catch(error => console.log(error));
   }
 
   patchPraesidium(praesidium: IPraesidium) {
-    this.collections.clubtekst.doc(praesidium.id).update(praesidium);
+    this.collections.praesidium.doc(praesidium.id).update(praesidium)
+    .catch(error => console.log(error));
   }
 
   ////////      Sponsors     ////////
@@ -153,15 +161,18 @@ export class DataService {
   }
 
   addSponsor(sponsor: ISponsor) {
-    this.collections.sponsor.add(sponsor);
+    this.collections.sponsor.add(sponsor)
+    .catch(error => console.log(error));
   }
 
   delSponsor(sponsor: ISponsor) {
-    this.collections.sponsor.doc(sponsor.id).delete();
+    this.collections.sponsor.doc(sponsor.id).delete()
+    .catch(error => console.log(error));
   }
 
   patchSponsor(sponsor: ISponsor) {
-    this.collections.clubtekst.doc(sponsor.id).update(sponsor);
+    this.collections.sponsor.doc(sponsor.id).update(sponsor)
+    .catch(error => console.log(error));
   }
 
   ////////      Vacatures     ////////
@@ -176,14 +187,17 @@ export class DataService {
   }
 
   addVacature(vacature: IVacature) {
-    this.collections.vacature.add(vacature);
+    this.collections.vacature.add(vacature)
+    .catch(error => console.log(error));
   }
 
   delVacature(vacature: IVacature) {
-    this.collections.vacature.doc(vacature.id).delete();
+    this.collections.vacature.doc(vacature.id).delete()
+    .catch(error => console.log(error));
   }
 
   patchVacature(vacature: IVacature) {
-    this.collections.clubtekst.doc(vacature.id).update(vacature);
+    this.collections.vacature.doc(vacature.id).update(vacature)
+    .catch(error => console.log(error));
   }
 }
