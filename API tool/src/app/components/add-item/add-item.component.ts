@@ -26,6 +26,7 @@ export class AddItemComponent implements OnInit {
       text: ""
     },
     event: {
+      name: "",
       date: "",
       fbLink: "",
       imageLink: ""
@@ -36,13 +37,15 @@ export class AddItemComponent implements OnInit {
       function: "",
       birthday: "",
       studies: "",
-      imageLink: ""
+      imageLink: "",
+      priority: null
     },
     sponsor: {
       name: "",
       about: "",
       website: "",
       imageLink: "",
+      priority: null
     },
     vacature: {
       name: "",
@@ -69,11 +72,15 @@ export class AddItemComponent implements OnInit {
         this.url = null;
         this.variables.event.imageLink = this.FileService.addImage(this.route);
         this.DataService.addEvent(this.variables.event);
+        this.variables.event.name = "";
         this.variables.event.date = "";
         this.variables.event.fbLink = "";
         this.variables.event.imageLink = "";
         break; 
       } case "Praesidium": {
+        this.url = null;
+        this.variables.praesidium.imageLink = this.FileService.addImage(this.route);
+        this.variables.praesidium.priority = this.DataService.setPriotity(this.variables.praesidium.function);
         this.DataService.addPraesidium(this.variables.praesidium);
         this.variables.praesidium.name = "";
         this.variables.praesidium.surName = "";
@@ -83,6 +90,8 @@ export class AddItemComponent implements OnInit {
         this.variables.praesidium.imageLink = "";
         break; 
       } case "Sponsors": {
+        this.url = null;
+        this.variables.sponsor.imageLink = this.FileService.addImage(this.route);
         this.DataService.addSponsor(this.variables.sponsor);
         this.variables.sponsor.name = "";
         this.variables.sponsor.about = "";
@@ -113,5 +122,9 @@ export class AddItemComponent implements OnInit {
       console.log("File could not be read: " + event.target.error.code);
     };
     reader.readAsDataURL(event.target.files[0]);
+  }
+  
+  get functions() {
+    return this.DataService.functions;
   }
 }

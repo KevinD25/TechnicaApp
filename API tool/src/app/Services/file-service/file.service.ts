@@ -8,21 +8,21 @@ export class FileService {
 
   // https://medium.com/codingthesmartway-com-blog/firebase-cloud-storage-with-angular-394566fd529
   // https://stackoverflow.com/questions/54149972/convert-file-object-to-img-angular
-
-  ref: AngularFireStorageReference;
-  task: AngularFireUploadTask;
   fileToUpload: File = null;
 
   constructor(private afs: AngularFireStorage) { }
 
   getFile(imageLink: string) {
-    this.ref = this.afs.ref(imageLink);
-    return this.ref.getDownloadURL();
+    return this.afs.ref(imageLink).getDownloadURL();
+  }
+
+  delFile(imageLink: string) {
+    console.log(imageLink)
+    this.afs.ref(imageLink).delete();
   }
 
   addFile(route: string, file: File) {
-    this.ref = this.afs.ref(route).child(file.name);
-    this.task = this.ref.put(file);
+    this.afs.ref(route).child(file.name).put(file);
   }
 
   addImage(route: string) {

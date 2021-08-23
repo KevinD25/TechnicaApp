@@ -5,8 +5,8 @@
         <!--    Clubtext    -->
         <form (ngSubmit)="addItem()" *ngIf="route == 'ClubText'" class="col s6">
             <div class="input-field col s6">
-                <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="variables.clubtekst.text" 
-                name="text"></textarea>
+                <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="variables.clubtekst.text"
+                    name="text"></textarea>
             </div>
             <input type="submit" value="Submit" class="btn">
         </form>
@@ -18,15 +18,70 @@
                     <img [src]="url" class="check">
                 </div>
                 <div class="col s12 m4 l8">
+                    <input type="text" placeholder="Name" [(ngModel)]="variables.event.name" name="name">
+                    <input type="text" placeholder="FaceBook" [(ngModel)]="variables.event.fbLink" name="facebook">
                     <input type="date" placeholder="Date" [(ngModel)]="variables.event.date" name="date">
-                    <input type="text" placeholder="FaceBook-Link" [(ngModel)]="variables.event.fbLink" name="facebook">
-                    <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg" class="light-blue lighten-3"/>
+                    <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg"
+                        class="light-blue lighten-3" />
                 </div>
+            </div>
+            <input type="submit" value="Submit" class="btn">
+        </form>
+
+        <!--    Praesidium    -->
+        <form (ngSubmit)="addItem()" *ngIf="route == 'Praesidium'" class="col s6">
+            <div class="row">
+                <div *ngIf="url" class="col s12 m4 l4">
+                    <img [src]="url" class="check">
+                </div>
+                <div class="col s12 m4 l8">
+                    <input type="text" placeholder="Name" [(ngModel)]="variables.praesidium.name" name="name">
+                    <input type="text" placeholder="Surname" [(ngModel)]="variables.praesidium.surName" name="surname">
+                    <input type="text" placeholder="Studies" [(ngModel)]="variables.praesidium.studies" name="studies">
+                    <input type="date" placeholder="Birthday" [(ngModel)]="variables.praesidium.birthday" name="birthday">
+                    <div class="input-field col s12">
+                        <select name="function" id="function" [(ngModel)]="variables.praesidium.function" class="select">
+                            <option disabled selected value="undefined">Select an Option</option>
+                            <option *ngFor="let function of functions" [value]="function">{{function}}</option>
+                        </select>
+                    </div>
+                    <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg"
+                        class="light-blue lighten-3" />
+                </div>
+            </div>
+            <input type="submit" value="Submit" class="btn">
+        </form>
+
+        <!--    Sponsor    -->
+        <form (ngSubmit)="addItem()" *ngIf="route == 'Sponsors'" class="col s6">
+            <div class="row">
+                <div *ngIf="url" class="col s12 m4 l4">
+                    <img [src]="url" class="check">
+                </div>
+                <div class="col s12 m4 l8">
+                    <input type="text" placeholder="name" [(ngModel)]="variables.sponsor.name" name="name">
+                    <input type="text" placeholder="website" [(ngModel)]="variables.sponsor.website" name="website">
+                    <input type="number" placeholder="Priority" [(ngModel)]="variables.sponsor.priority" name="priority">
+                    <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="variables.sponsor.about"
+                        name="about"></textarea>
+                    <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg"
+                        class="light-blue lighten-3" />
+                </div>
+            </div>
+            <input type="submit" value="Submit" class="btn">
+        </form>
+
+        <!--    Vacature    -->
+        <form (ngSubmit)="addItem()" *ngIf="route == 'Vacatures'" class="col s6">
+            <div class="input-field col s6">
+                <input type="text" placeholder="name" [(ngModel)]="variables.vacature.name" name="name">
+                <input type="text" placeholder="sponsor" [(ngModel)]="variables.vacature.sponsor" name="sponsor">
+                <input type="text" placeholder="link" [(ngModel)]="variables.vacature.link" name="link">
+                <textarea class="text-field" type="text" placeholder="Description" [(ngModel)]="variables.vacature.description"
+                    name="description"></textarea>
             </div>
             <input type="submit" value="Submit" class="btn">
         </form>
 
     </div>
 </div>
-
-<!--<input type="file" (change)="upload($event.target.files[0])" accept=".png, .jpg, .jpeg"/>-->

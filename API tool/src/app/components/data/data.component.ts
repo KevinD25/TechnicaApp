@@ -39,11 +39,19 @@ export class DataComponent implements OnInit {
         break; 
       } case "Praesidium": {
         this.items as IPraesidium[];
-        this.DataService.getPraesidium().subscribe(res => { this.items = res; console.log(res) });
+        this.DataService.getPraesidium().subscribe(res => { 
+          this.items = res;
+          console.log(res);
+          this.getUrls(res);
+        });
         break; 
       } case "Sponsors": {
         this.items as ISponsor[];
-        this.DataService.getSponsors().subscribe(res => { this.items = res; console.log(res) });
+        this.DataService.getSponsors().subscribe(res => { 
+          this.items = res;
+          console.log(res);
+          this.getUrls(res);
+        });
         break; 
       } case "Vacatures": {
         this.items as IVacature[];
@@ -68,16 +76,17 @@ export class DataComponent implements OnInit {
         this.DataService.delClubTekst(item);
         break; 
       } case "Events": { 
-        this.DataService.addEvent(item);
+        this.FileService.delFile(item.imageLink);
+        this.DataService.delEvent(item);
         break; 
       } case "Praesidium": { 
-        this.DataService.addPraesidium(item);
+        this.DataService.delPraesidium(item);
         break; 
       } case "Sponsors": { 
-        this.DataService.addSponsor(item);
+        this.DataService.delSponsor(item);
         break; 
       } case "Vacatures": { 
-        this.DataService.addVacature(item);
+        this.DataService.delVacature(item);
         break; 
       } default: { 
         console.log("Route not found");
@@ -93,15 +102,29 @@ export class DataComponent implements OnInit {
         break; 
       } case "Events": { 
         this.url = null;
-        item.imageLink = this.FileService.addImage(this.route);
-        console.log(item)
+        if (this.FileService.fileToUpload != null){
+          this.FileService.delFile(item.imageLink); // remove old image
+          item.imageLink = this.FileService.addImage(this.route); // get new imageLink
+        }
         this.DataService.patchEvent(item);
-        window.location.reload();
         break; 
       } case "Praesidium": { 
+        this.url = null;
+        if (this.FileService.fileToUpload != null){
+          this.FileService.delFile(item.imageLink); // remove old image
+          item.imageLink = this.FileService.addImage(this.route); // get new imageLink
+        }
+        item.priority = this.DataService.setPriotity(item.function);
+        console.log(item)
+        console.log(this.DataService.setPriotity(item.function));
         this.DataService.patchPraesidium(item);
         break; 
       } case "Sponsors": { 
+        this.url = null;
+        if (this.FileService.fileToUpload != null){
+          this.FileService.delFile(item.imageLink); // remove old image
+          item.imageLink = this.FileService.addImage(this.route); // get new imageLink
+        }
         this.DataService.patchSponsor(item);
         break; 
       } case "Vacatures": { 
@@ -145,11 +168,15 @@ export class DataComponent implements OnInit {
     items.forEach(item => {
       this.FileService.getFile(item.imageLink).subscribe(res => {
         imageUrls.forEach(url => {
-            if (JSON.stringify(res).includes(url)) {
-              this.itemUrls[imageUrls.indexOf(url)] = res;
-            }
-          });
+          if (JSON.stringify(res).includes(url)) {
+            this.itemUrls[imageUrls.indexOf(url)] = res;
+          }
         });
+      });
     });
+  }
+
+  get functions() {
+    return this.DataService.functions;
   }
 }

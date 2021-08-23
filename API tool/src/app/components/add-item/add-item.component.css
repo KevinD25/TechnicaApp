@@ -2,10 +2,15 @@
     width: 90%;
 }
 
-.text-field {
-    height: 160px;
-}
-
 .check {
     width: 100%;
+    vertical-align: middle;
+}
+
+.select {
+    display: inherit;
+}
+
+.text-field {
+    height: 160px;
 }

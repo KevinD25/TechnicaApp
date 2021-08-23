@@ -19,11 +19,43 @@
               <img [src]="itemUrls[items.indexOf(item)]" class="check">
             </div>
             <div class="col s12 m4 l8">
-              <div>{{item.date}}</div>
-              <div>{{item.fbLink}}</div>
-              <div>{{item.imageLink}}</div>
+              <div><a [href]="item.fbLink">{{item.name}}</a> - {{item.date}}</div>
             </div>
           </div>
+        </div>
+
+        <!--    Praesidium    -->
+        <div *ngIf="route == 'Praesidium'">
+          <div class="row">
+            <div *ngIf="itemUrls" class="col s12 m4 l4">
+              <img [src]="itemUrls[items.indexOf(item)]" class="check">
+            </div>
+            <div class="col s12 m4 l8">
+              <div>{{item.name}} {{item.surName}}</div>
+              <div>{{item.function}}</div>
+              <div>{{item.birthday}}</div>
+              <div>{{item.studies}}</div>
+            </div>
+          </div>
+        </div>
+
+        <!--    Sponsor    -->
+        <div *ngIf="route == 'Sponsors'">
+          <div class="row">
+            <div *ngIf="itemUrls" class="col s12 m4 l4">
+              <img [src]="itemUrls[items.indexOf(item)]" class="check">
+            </div>
+            <div class="col s12 m4 l8">
+              <div><a [href]="item.website">{{item.name}}</a></div>
+              <div>{{item.about}}</div>
+            </div>
+          </div>
+        </div>
+
+        <!--    Vacature    -->
+        <div *ngIf="route == 'Vacatures'">
+          <div><a [href]="item.link">{{item.name}} - {{item.sponsor}}</a></div>
+          <div>{{item.description}}</div>
         </div>
 
       </div>
@@ -44,8 +76,7 @@
         <!--    Clubtext    -->
         <form (ngSubmit)="updateItem(item)" *ngIf="route == 'ClubText'" class="col s6">
           <div class="input-field col s6">
-            <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="item.text"
-              name="text"></textarea>
+            <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="item.text" name="text"></textarea>
           </div>
           <input type="submit" value="Submit" class="btn">
           <button (click)="deleteItem(item)" class="btn red">Delete Item</button>
@@ -58,14 +89,71 @@
               <img [src]="url" class="check">
             </div>
             <div class="col s12 m4 l8">
-              <input type="date" placeholder="Date" [(ngModel)]="item.date" name="date">
+              <input type="text" placeholder="Name" [(ngModel)]="item.name" name="name">
               <input type="text" placeholder="FaceBook-Link" [(ngModel)]="item.fbLink" name="facebook">
+              <input type="date" placeholder="Date" [(ngModel)]="item.date" name="date">
               <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg" class="light-blue lighten-3" />
             </div>
           </div>
           <input type="submit" value="Submit" class="btn">
           <button (click)="deleteItem(item)" class="btn red">Delete Item</button>
         </form>
+
+        <!--    Praesidium    -->
+        <form (ngSubmit)="updateItem(item)" *ngIf="route == 'Praesidium'" class="col s6">
+          <div class="row">
+            <div *ngIf="url" class="col s12 m4 l4">
+              <img [src]="url" class="check">
+            </div>
+            <div class="col s12 m4 l8">
+              <input type="text" placeholder="Name" [(ngModel)]="item.name" name="name">
+              <input type="text" placeholder="Surname" [(ngModel)]="item.surName" name="surname">
+              <input type="text" placeholder="Studies" [(ngModel)]="item.studies" name="studies">
+              <input type="date" placeholder="Birthday" [(ngModel)]="item.birthday" name="birthday">
+              <div class="input-field col s12">
+                <select name="function" id="function" [(ngModel)]="item.function" class="select">
+                  <option disabled selected value="undefined">Select an Option</option>
+                  <option *ngFor="let function of functions" [value]="function">{{function}}</option>
+                </select>
+              </div>
+              <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg" class="light-blue lighten-3" />
+            </div>
+          </div>
+          <input type="submit" value="Submit" class="btn">
+          <button (click)="deleteItem(item)" class="btn red">Delete Item</button>
+        </form>
+
+        <!--    Sponsor    -->
+        <form (ngSubmit)="updateItem(item)" *ngIf="route == 'Sponsors'" class="col s6">
+          <div class="row">
+              <div *ngIf="url" class="col s12 m4 l4">
+                  <img [src]="url" class="check">
+              </div>
+              <div class="col s12 m4 l8">
+                  <input type="text" placeholder="Name" [(ngModel)]="item.name" name="name">
+                  <input type="text" placeholder="Website" [(ngModel)]="item.website" name="website">
+                  <input type="number" placeholder="Priority" [(ngModel)]="item.priority" name="priority">
+                  <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="item.about" name="about"></textarea>
+                  <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg"
+                      class="light-blue lighten-3" />
+              </div>
+          </div>
+          <input type="submit" value="Submit" class="btn">
+          <button (click)="deleteItem(item)" class="btn red">Delete Item</button>
+      </form>
+
+      <!--    Vacature    -->
+      <form (ngSubmit)="addItem()" *ngIf="route == 'Vacatures'" class="col s6">
+          <div class="input-field col s6">
+              <input type="text" placeholder="name" [(ngModel)]="item.name" name="name">
+              <input type="text" placeholder="sponsor" [(ngModel)]="item.sponsor" name="sponsor">
+              <input type="text" placeholder="link" [(ngModel)]="item.link" name="link">
+              <textarea class="text-field" type="text" placeholder="Description" [(ngModel)]="item.description" name="description">
+              </textarea>
+          </div>
+          <input type="submit" value="Submit" class="btn">
+          <button (click)="deleteItem(item)" class="btn red">Delete Item</button>
+      </form>
 
       </div>
     </li>

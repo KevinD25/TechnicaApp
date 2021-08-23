@@ -5,6 +5,7 @@ export interface IClubTekst {
 
 export interface IEvent {
     id?: string,
+    name: string,
     imageLink: string,
     date: string,
     fbLink: string,
@@ -17,7 +18,8 @@ export interface IPraesidium {
     function: string,
     birthday: string,
     studies: string,
-    imageLink: string
+    imageLink: string,
+    priority?: number
 }
 
 export interface ISponsor {
@@ -25,7 +27,8 @@ export interface ISponsor {
     name: string,
     about: string,
     website: string,
-    imageLink: string
+    imageLink: string,
+    priority?: number
 }
 
 export interface IVacature {
