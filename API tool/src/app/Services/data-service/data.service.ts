@@ -106,7 +106,8 @@ export class DataService {
   }
   
   addEvent(event: IEvent) {
-    this.collections.event.add(event);
+    console.log(event)
+    //this.collections.event.add(event);
   }
   
   delEvent(event: IEvent) {

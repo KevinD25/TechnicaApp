@@ -13,6 +13,7 @@ export class AddItemComponent implements OnInit {
 
   route: string = "Everythings fine";
   items: any;
+  date: Date;
   
   variables: {
     clubtekst: IClubTekst,
