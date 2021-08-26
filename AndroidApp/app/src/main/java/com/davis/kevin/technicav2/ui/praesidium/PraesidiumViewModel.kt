@@ -13,7 +13,6 @@ import com.google.common.io.Resources
 
 class PraesidiumViewModel : ViewModel {
 
-
     var id : String? = ""
     var name: String? = ""
     var surname: String? = ""
@@ -21,14 +20,12 @@ class PraesidiumViewModel : ViewModel {
     var studies: String? = ""
     var functie: String? = ""
     var imagelink: Bitmap? = null
+    var priority: Long? = null
     var list : LiveData<List<Praesidium>>? = null
     //var images : MutableMap<String, Drawable>? = HashMap()
 
-
     constructor() : super()
-    constructor(
-        praesidium: Praesidium
-    ) : super() {
+    constructor(praesidium: Praesidium) : super() {
         this.id = praesidium.id
         this.name = praesidium.name
         this.surname = praesidium.surname
@@ -36,6 +33,7 @@ class PraesidiumViewModel : ViewModel {
         this.studies = praesidium.studies
         this.functie = praesidium.functie
         this.imagelink = praesidium.imageLink
+        this.priority = praesidium.priority
        // this.images = praesidium.images
     }
 

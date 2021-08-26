@@ -54,12 +54,11 @@ object Repository {
 
     private fun getPraesidium(){
         apiService.getPraesidium().enqueue(object : Callback<List<Praesidium>> {
-            override fun onResponse( call: Call<List<Praesidium>>, response: Response<List<Praesidium>> ) {
+            override fun onResponse(call: Call<List<Praesidium>>, response: Response<List<Praesidium>> ) {
                 praesidiumMutableLiveData.value = response.body()
             } override fun onFailure(call: Call<List<Praesidium>>, t: Throwable) {
 
             }
-
         })
     }
 

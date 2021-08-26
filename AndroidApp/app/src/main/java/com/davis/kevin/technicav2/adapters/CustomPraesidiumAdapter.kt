@@ -21,7 +21,6 @@ class CustomPraesidiumAdapter(val ctx: Context, var arrayList: ArrayList<Praesid
         fun bind(praesidiumViewModel: PraesidiumViewModel) {
             this.praesidiumBinding.praesidiummodel = praesidiumViewModel
             praesidiumBinding.executePendingBindings()
-
         }
     }
 

@@ -38,6 +38,7 @@
         android:name="com.davis.kevin.technicav2.ui.clublied.ClubliedFragment"
         android:label="@string/menu_clublied"
         tools:layout="@layout/fragment_clublied" />
+
     <fragment
         android:id="@+id/nav_vacatures"
         android:name="com.davis.kevin.technicav2.ui.vacatures.VacaturesFragment"

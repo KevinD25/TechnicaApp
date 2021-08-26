@@ -29,20 +29,21 @@ class PraesidiumFragment : Fragment() {
     private var images : MutableMap<String, Drawable>? = HashMap()
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        viewOfLayout = inflater!!.inflate(R.layout.fragment_praesidium, container, false)
-        praesidiumViewModel = ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
+        // Get Context
         ctx = requireActivity().applicationContext
+
+        // activity_main.include --> app_bar_main.include --> content_main.fragment
+        // content_main.fragment.navGraph --> navigation (directory) --> mobile_navigation
+        // mobile_navigation.fragment.PraesidiumFragment
+        viewOfLayout = inflater!!.inflate(R.layout.fragment_praesidium, container, false)
+        // Get ViewPager
         PraesidiumVP = viewOfLayout.findViewById(R.id.praesidiumVP)
 
-
-
-
+        // Get View Model --> The database class is converted to the one in that is used for the view (ViewModel)
+        praesidiumViewModel = ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
+        // Get the data from the FirebaseHandler (getPraesidium()) and use it in the view
         praesidiumViewModel.getArray().observe(viewLifecycleOwner, Observer { praesidium ->
             praesidium.let {
                 for (praesidia in it) {

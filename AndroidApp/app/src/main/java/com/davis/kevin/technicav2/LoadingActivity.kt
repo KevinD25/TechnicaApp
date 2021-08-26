@@ -18,7 +18,6 @@ class LoadingActivity : AppCompatActivity() {
     private val SPLASH_DELAY: Long = 3000 //3 seconds
     var mAuth = FirebaseAuth.getInstance()
 
-
     private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
             val intent = Intent(applicationContext, MainActivity::class.java)

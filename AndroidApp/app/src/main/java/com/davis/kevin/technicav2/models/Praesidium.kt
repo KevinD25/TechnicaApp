@@ -10,6 +10,7 @@ class Praesidium(
     val birthday: String? = null,
     val imageLink : Bitmap? = null,
     val studies: String? = null,
-    val functie: String? = null
+    val functie: String? = null,
+    val priority: Long? = null
     /*, var images: MutableMap<String, Drawable>?*/) {
 }

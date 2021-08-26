@@ -31,7 +31,7 @@ object FirebaseHandler {
     val homeList = mutableListOf<Home>()
     val sponsorList = MutableLiveData<List<Partner>>()
     val vacancieList = MutableLiveData<List<Vacature>>()
-    var clubText = MutableLiveData<Clubtext>()
+    val clubText = MutableLiveData<Clubtext>()
     val praesidiumList = MutableLiveData<List<Praesidium>>()
     private val db = FirebaseFirestore.getInstance()
 
@@ -44,9 +44,7 @@ object FirebaseHandler {
     }
 
     private fun getClubtext() {
-        db.collection("ClubTekst")
-            .get()
-            .addOnSuccessListener { result ->
+        db.collection("ClubTekst").get().addOnSuccessListener{ result ->
                 for (document in result) {
                     val clubtext = Clubtext(
                         id = document.id,
@@ -59,37 +57,19 @@ object FirebaseHandler {
             }
     }
 
-    private fun getPraesidiumTest() {
-        val praesidia = mutableListOf<Praesidium>()
-        db.collection("Praesidium").addSnapshotListener { documents, _ ->
-            documents?.forEach {
-                val ONE_MEGABYTE: Long = 1024 * 1024
-                storage.reference.child(it["imageLink"] as String)
-                    .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
-                        val praesidium = Praesidium(
-                            id = it.id,
-                            name = it["name"] as String?,
-                            surname = it["surName"] as String?,
-                            birthday = it["birthday"] as String?,
-                            studies = it["studies"] as String?,
-                            functie = it["function"] as String?,
-                            imageLink = BitmapFactory.decodeByteArray(image, 0, image.size)/*,
-                            images = null*/
-                        )
-                        praesidia.add(praesidium)
-                    }
-            }
-        }
-        praesidiumList.postValue(praesidia)
-    }
-
     private fun getPraesidium() {
-        val praesidia = mutableListOf<Praesidium>()
-        db.collection("Praesidium").get().addOnSuccessListener { result ->
+        // Make a List
+        var praesidia = mutableListOf<Praesidium>()
+        // The data from the database
+        db.collection("Praesidium").get().addOnSuccessListener{ result ->
+            // Go through all data objects (document = 1 object)
             for (document in result) {
+                // Create an image size
                 val ONE_MEGABYTE: Long = 1024 * 1024
-                storage.reference.child(document["imageLink"] as String)
-                    .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
+                // Use the imageLink variable to find the image in the FireBase Storage
+                storage.reference.child(document["imageLink"] as String).getBytes(ONE_MEGABYTE)
+                    .addOnSuccessListener { image ->
+                        // Create a Praesidium-Object with the data
                         val praesidium = Praesidium(
                             id = document.id,
                             name = document["name"] as String?,
@@ -97,13 +77,16 @@ object FirebaseHandler {
                             birthday = document["birthday"] as String?,
                             studies = document["studies"] as String?,
                             functie = document["function"] as String?,
+                            priority = document["priority"] as Long?,
                             imageLink = BitmapFactory.decodeByteArray(image, 0, image.size)/*,
                             images = null*/
                         )
+                        // Add the Praesidium-Object to the List
                         praesidia.add(praesidium)
+                        // Sort the List when al items are loaded
+                        if (document.id == result.last().id) praesidia.sortBy { Praesidium -> Praesidium.priority }
                     }.addOnFailureListener { exception ->
-                        FirebaseCrashlytics.getInstance()
-                            .recordException(exception)
+                        FirebaseCrashlytics.getInstance().recordException(exception)
                     }
                 praesidiumList.value = praesidia
             }

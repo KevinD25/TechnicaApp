@@ -14,8 +14,7 @@ class ClubliedFragment : Fragment() {
 
     private lateinit var clubliedViewModel: ClubliedViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
+    override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
