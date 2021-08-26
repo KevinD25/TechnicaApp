@@ -6,15 +6,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_menu_home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_onzeclub"
-            android:icon="@drawable/ic_club"
+            android:icon="@drawable/ic_menu_club"
             android:title="@string/menu_onzeclub" />
         <item
             android:id="@+id/nav_clublied"
-            android:icon="@drawable/ic_clublied"
+            android:icon="@drawable/ic_menu_clublied"
             android:title="@string/menu_clublied" />
         <item
             android:id="@+id/nav_praesidium"
@@ -22,7 +22,7 @@
             android:title="@string/menu_praesidium" />
         <item
             android:id="@+id/nav_kalender"
-            android:icon="@drawable/ic_event"
+            android:icon="@drawable/ic_menu_event"
             android:title="@string/menu_kalender" />
         <item
             android:id="@+id/nav_sponsors"

@@ -20,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/schildtechnica" />
+        app:srcCompat="@drawable/technica_schild" />
 
     <TextView
         android:id="@+id/txtClublied"
@@ -42,7 +42,7 @@
         android:layout_height="30dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/buttonshape"
+        android:background="@drawable/style_button_shape"
         android:text="BELUISTER HIER HET CLUBLIED"
         android:textColor="#FFFFFF"
         android:textSize="14sp"

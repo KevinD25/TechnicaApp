@@ -59,7 +59,7 @@
                 app:layout_constraintHorizontal_bias="0.79"
                 app:layout_constraintStart_toStartOf="@+id/imgPerson"
                 app:layout_constraintTop_toTopOf="@+id/imgPerson"
-                app:srcCompat="@drawable/praeses" />
+                app:srcCompat="@drawable/functie_praeses" />
 
             <TextView
                 android:id="@+id/txtFunctie"
@@ -81,7 +81,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtFunctie"
-                app:srcCompat="@drawable/icoonbday" />
+                app:srcCompat="@drawable/style_icon_bday" />
 
             <TextView
                 android:id="@+id/txtBday"
@@ -103,7 +103,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtBday"
-                app:srcCompat="@drawable/icoonstudie" />
+                app:srcCompat="@drawable/style_icon_studie" />
 
             <TextView
                 android:id="@+id/txtStudie"

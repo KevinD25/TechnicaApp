@@ -13,38 +13,34 @@
         android:layout_marginBottom="10dp"
         android:background="@color/white">
 
+        <TextView
+            android:id="@+id/txtHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/imgSchild"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/imgSchild"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/txtRichtingen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/schildtechnica" />
-
-        <TextView
-            android:id="@+id/txtHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/home"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgSchild"
-            app:layout_constraintVertical_bias="0.022" />
-
+            app:layout_constraintTop_toBottomOf="@id/txtHome"
+            app:srcCompat="@drawable/technica_schild" />
 
         <TextView
             android:id="@+id/txtRichtingen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="@string/richtingen"
@@ -53,7 +49,7 @@
             app:layout_constraintBottom_toTopOf="@id/imageView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtHome" />
+            app:layout_constraintTop_toBottomOf="@+id/imgSchild" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -68,7 +64,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtRichtingen"
-            app:srcCompat="@drawable/tweedezit" />
+            app:srcCompat="@drawable/delete_tweedezit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
