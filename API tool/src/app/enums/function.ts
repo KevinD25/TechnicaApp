@@ -18,7 +18,7 @@ export enum FunctionEnum {
   PETER,
   ERE_PRAESES,
   ERE_LID,
-  OUWE_ZAK,
+  OUWE_ZAK
 }
 
 export const Function2LabelMapping: Record<FunctionEnum, string> = {

@@ -1,7 +1,7 @@
 package com.davis.kevin.technicav2.models
 
 import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
+import com.davis.kevin.technicav2.ui.praesidium.Functie
 
 class Praesidium(
     val id: String = "",
@@ -10,7 +10,6 @@ class Praesidium(
     val birthday: String? = null,
     val imageLink : Bitmap? = null,
     val studies: String? = null,
-    val functie: String? = null,
-    val priority: Long? = null
+    val functie: Functie? = null
     /*, var images: MutableMap<String, Drawable>?*/) {
 }

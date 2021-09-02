@@ -47,7 +47,7 @@
             <TextView
                 android:id="@+id/txt_person"
                 style="@style/Header"
-                android:text="@{praesidiummodel.name  + ' ' + praesidiummodel.surname + '\n' + praesidiummodel.functie}"
+                android:text="@{praesidiummodel.name  + ' ' + praesidiummodel.surname + '\n' + praesidiummodel.praesidiumFunctie}"
                 app:layout_constraintBottom_toTopOf="@id/img_bday"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

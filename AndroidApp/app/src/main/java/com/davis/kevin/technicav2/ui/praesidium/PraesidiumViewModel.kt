@@ -2,13 +2,9 @@ package com.davis.kevin.technicav2.ui.praesidium
 
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import androidx.lifecycle.*
-import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.models.Praesidium
 import com.davis.kevin.technicav2.networking.FirebaseHandler
-import com.davis.kevin.technicav2.repository.Repository
-import com.google.common.io.Resources
 
 
 class PraesidiumViewModel : ViewModel {
@@ -18,9 +14,8 @@ class PraesidiumViewModel : ViewModel {
     var surname: String? = ""
     var birthday: String? = ""
     var studies: String? = ""
-    var functie: String? = ""
+    var functie: Functie? = null
     var imagelink: Bitmap? = null
-    var priority: Long? = null
     var list : LiveData<List<Praesidium>>? = null
     //var images : MutableMap<String, Drawable>? = HashMap()
 
@@ -33,7 +28,6 @@ class PraesidiumViewModel : ViewModel {
         this.studies = praesidium.studies
         this.functie = praesidium.functie
         this.imagelink = praesidium.imageLink
-        this.priority = praesidium.priority
        // this.images = praesidium.images
     }
 
@@ -43,6 +37,10 @@ class PraesidiumViewModel : ViewModel {
 
     fun getArray() : LiveData<List<Praesidium>>{
         return FirebaseHandler.praesidiumList
+    }
+
+    fun getPraesidiumFunctie() : String? {
+        return Functie.EnumToString(this.functie)
     }
 
 }

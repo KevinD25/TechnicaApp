@@ -1,29 +1,17 @@
 package com.davis.kevin.technicav2.networking
 
-import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.models.*
-import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
-import com.google.firebase.auth.FirebaseAuth
+import com.davis.kevin.technicav2.ui.praesidium.Functie
 import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ListenerRegistration
-import com.google.firebase.firestore.QuerySnapshot
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 object FirebaseHandler {
@@ -76,15 +64,14 @@ object FirebaseHandler {
                             surname = document["surName"] as String?,
                             birthday = document["birthday"] as String?,
                             studies = document["studies"] as String?,
-                            functie = document["function"] as String?,
-                            priority = document["priority"] as Long?,
+                            functie = Functie.LongToEnum(document["function"] as Long?),
                             imageLink = BitmapFactory.decodeByteArray(image, 0, image.size)/*,
                             images = null*/
                         )
                         // Add the Praesidium-Object to the List
                         praesidia.add(praesidium)
                         // Sort the List when al items are loaded
-                        if (document.id == result.last().id) praesidia.sortBy { praesidium -> praesidium.priority }
+                        if (document.id == result.last().id) praesidia.sortBy { praesidium -> praesidium.functie!!.value }
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance().recordException(exception)
                     }
