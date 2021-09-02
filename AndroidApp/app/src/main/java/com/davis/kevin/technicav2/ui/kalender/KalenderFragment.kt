@@ -27,21 +27,14 @@ class KalenderFragment : Fragment() {
     private lateinit var ctx : Context
     private var arrayList = ArrayList<KalenderViewModel>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        viewOfLayout = inflater.inflate(R.layout.fragment_kalender, container, false)
-
-        KalenderRV = viewOfLayout.findViewById(R.id.KalenderRV)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         ctx = requireActivity().applicationContext
 
-        kalenderViewModel =
-            ViewModelProviders.of(this).get(KalenderViewModel::class.java)
+        viewOfLayout = inflater.inflate(R.layout.fragment_kalender, container, false)
+        KalenderRV = viewOfLayout.findViewById(R.id.KalenderRV)
 
+        kalenderViewModel = ViewModelProviders.of(this).get(KalenderViewModel::class.java)
         kalenderViewModel.getArrayList().observe(viewLifecycleOwner, Observer { events ->
             for(event in events){
                 val kalenderViewModel = KalenderViewModel(event)

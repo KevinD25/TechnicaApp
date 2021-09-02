@@ -26,7 +26,7 @@ class CustomKalenderAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {
         val layoutInflater = LayoutInflater.from(parent.context)
         val kalenderBinding: KalenderBinding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.innerkalenderlayout, parent, false)
+            DataBindingUtil.inflate(layoutInflater, R.layout.inner_kalender, parent, false)
         return CustomView(kalenderBinding)
     }
 

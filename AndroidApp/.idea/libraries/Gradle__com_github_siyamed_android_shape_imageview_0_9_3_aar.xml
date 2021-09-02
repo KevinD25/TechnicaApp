@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.siyamed:android-shape-imageview:0.9.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2def370b964099453065b2305f65d1e8/jetified-android-shape-imageview-0.9.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2def370b964099453065b2305f65d1e8/jetified-android-shape-imageview-0.9.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2def370b964099453065b2305f65d1e8/jetified-android-shape-imageview-0.9.3/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8b269e52165bf65b6c941d9419ec16e/jetified-android-shape-imageview-0.9.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8b269e52165bf65b6c941d9419ec16e/jetified-android-shape-imageview-0.9.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8b269e52165bf65b6c941d9419ec16e/jetified-android-shape-imageview-0.9.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.siyamed/android-shape-imageview/0.9.3/43ed467a5a32f0fd2bc4af9852d29178a85ee984/android-shape-imageview-0.9.3-javadoc.jar!/" />

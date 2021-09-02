@@ -36,7 +36,7 @@ class PraesidiumFragment : Fragment() {
 
         // activity_main.include --> app_bar_main.include --> content_main.fragment
         // content_main.fragment.navGraph --> navigation (directory) --> mobile_navigation
-        // mobile_navigation.fragment.PraesidiumFragment
+        // mobile_navigation.fragment.fragment_praesidium
         viewOfLayout = inflater!!.inflate(R.layout.fragment_praesidium, container, false)
         // Get ViewPager
         PraesidiumVP = viewOfLayout.findViewById(R.id.praesidiumVP)
