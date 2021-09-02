@@ -48,7 +48,7 @@
                         android:text="@{kalendermodel.name}" />
 
                     <TextView
-                        android:id="@+id/Name"
+                        android:id="@+id/txt_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{kalendermodel.date}" />

@@ -7,14 +7,13 @@
     android:background="@color/white">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/VacatureRV"
+        android:id="@+id/vacature_RV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/filler"
         android:clickable="true"
         android:focusable="true"
         android:onClick="goToLink"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        tools:itemCount="17"
+        tools:itemCount="5"
         tools:listitem="@layout/inner_vacature" />
 </LinearLayout>

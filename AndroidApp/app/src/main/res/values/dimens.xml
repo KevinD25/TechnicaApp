@@ -10,5 +10,8 @@
     <dimen name="text">16sp</dimen>
     <dimen name="header">24sp</dimen>
 
+    <dimen name="icon">48dp</dimen>
+    <dimen name="big_image">320dp</dimen>
+
     <dimen name="fab_margin">16dp</dimen>
 </resources>

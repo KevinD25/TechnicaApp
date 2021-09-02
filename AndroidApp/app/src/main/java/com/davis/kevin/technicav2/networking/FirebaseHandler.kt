@@ -84,7 +84,7 @@ object FirebaseHandler {
                         // Add the Praesidium-Object to the List
                         praesidia.add(praesidium)
                         // Sort the List when al items are loaded
-                        if (document.id == result.last().id) praesidia.sortBy { Praesidium -> Praesidium.priority }
+                        if (document.id == result.last().id) praesidia.sortBy { praesidium -> praesidium.priority }
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance().recordException(exception)
                     }
@@ -131,9 +131,12 @@ object FirebaseHandler {
                             imageLink = BitmapFactory.decodeByteArray(image, 0, image.size),
                             name = document["name"] as String?,
                             description = document["about"] as String?,
+                            priority = document["priority"] as Long?,
                             website = document["website"] as String?
+
                         )
                         partners.add(partner)
+                        if (document.id == result.last().id) partners.sortBy { partner -> partner.priority }
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance().recordException(exception)
                     }

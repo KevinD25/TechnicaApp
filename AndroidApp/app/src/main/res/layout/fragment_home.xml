@@ -40,17 +40,11 @@
 
         <ImageView
             android:id="@+id/img_current"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
-            android:layout_marginStart="@dimen/filler_big"
-            android:layout_marginTop="@dimen/filler"
-            android:layout_marginEnd="@dimen/filler_big"
-            android:layout_marginBottom="@dimen/filler"
+            style="@style/BigImage"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_richtingen"
-            app:srcCompat="@drawable/delete_tweedezit" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_richtingen" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

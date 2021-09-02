@@ -40,16 +40,28 @@
     </style>
 
     <!-- Image theme. -->
-    <style name="Icon">
-        <item name="android:layout_width">50dp</item>
-        <item name="android:layout_height">50dp</item>
-    </style>
-
-    <style name="Schild">
+    <style name="Image">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">@dimen/filler</item>
+    </style>
+
+    <style name="Schild" parent="Image">
         <item name="srcCompat">@drawable/technica_schild</item>
+    </style>
+
+    <style name="BigImage" parent="Image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">@dimen/filler_big</item>
+        <item name="android:minHeight">@dimen/big_image</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="srcCompat">@mipmap/ic_launcher</item>
+    </style>
+
+    <style name="Icon">
+        <item name="android:layout_width">@dimen/icon</item>
+        <item name="android:layout_height">@dimen/icon</item>
     </style>
 
     <!-- Button theme. -->
@@ -62,7 +74,7 @@
         <item name="android:textSize">@dimen/text</item>
     </style>
 
-    <!-- ConstraintLayout theme. -->
+    <!-- Layout theme. -->
     <style name="ConLay">
         <item name="android:background">@color/white</item>
         <item name="android:paddingVertical">@dimen/filler_small</item>

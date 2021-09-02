@@ -8,7 +8,7 @@
         android:background="@color/white">
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/partnerVP"
+            android:id="@+id/partner_VP"
             style="@style/ViewPager"
             tools:listitem="@layout/inner_partner" />
 

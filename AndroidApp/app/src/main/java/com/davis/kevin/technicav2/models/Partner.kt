@@ -7,5 +7,6 @@ class Partner(
     val name: String? = null,
     val imageLink : Bitmap? = null,
     val description: String? = null,
-    val website: String?= null) {
+    val website: String?= null,
+    val priority: Long? = null) {
 }

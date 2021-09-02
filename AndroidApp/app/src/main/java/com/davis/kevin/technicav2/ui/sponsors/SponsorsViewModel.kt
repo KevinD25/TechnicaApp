@@ -18,6 +18,7 @@ class SponsorsViewModel : ViewModel {
     var description: String? = ""
     var website: String? = ""
     var imagelink: Bitmap? = null
+    var priority: Long? = null
     private lateinit var mContext: Context
 
     constructor() : super()
@@ -29,6 +30,7 @@ class SponsorsViewModel : ViewModel {
         this.description = partner.description
         this.website = partner.website
         this.imagelink = partner.imageLink
+        this.priority = partner.priority
     }
 
     fun getImage(): BitmapDrawable {

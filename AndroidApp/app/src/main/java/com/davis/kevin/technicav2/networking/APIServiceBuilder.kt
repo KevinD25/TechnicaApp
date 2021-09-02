@@ -28,7 +28,4 @@ object APIServiceBuilder {
     fun <T> buildService(service: Class<T>): T{
         return getRetrofitClient().create(service)
     }
-
-
-
 }

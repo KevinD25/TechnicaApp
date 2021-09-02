@@ -1,14 +1,12 @@
-package com.davis.kevin.technicav2.ui.onzeclub
+package com.davis.kevin.technicav2.ui.introductie
 
 import android.content.Context
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Clubtext
 import com.davis.kevin.technicav2.networking.FirebaseHandler
-import com.google.firebase.ktx.Firebase
 
-class OnzeclubViewModel : ViewModel {
+class IntroductieViewModel : ViewModel {
 
     var id : String? = ""
     var text : String? = ""

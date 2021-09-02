@@ -20,12 +20,7 @@
 
             <ImageView
                 android:id="@+id/img_sponsor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="@dimen/filler_big"
-                android:layout_margin="@dimen/filler_big"
-                android:scaleType="fitCenter"
-                android:adjustViewBounds="true"
+                style="@style/BigImage"
                 android:src="@{partnermodel.image}"
                 app:layout_constraintBottom_toTopOf="@+id/txt_info"
                 app:layout_constraintEnd_toEndOf="parent"

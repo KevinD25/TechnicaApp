@@ -16,10 +16,10 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/filler"
             android:focusable="true"
             android:foreground="?selectableItemBackground"
-            app:cardCornerRadius="10dp">
+            app:cardCornerRadius="@dimen/filler">
 
             <!-- Main Content View -->
             <RelativeLayout
@@ -28,33 +28,27 @@
                 android:background="@color/colorPrimaryDark"
                 android:gravity="start|center_vertical"
                 android:orientation="horizontal"
-                android:padding="8dp">
+                android:padding="@dimen/filler_small">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="5dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/Name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
+                        android:id="@+id/txt_name"
+                        style="@style/Text"
                         android:text="@{vacaturemodel.name}"
-                        android:layout_marginBottom="10dp"
                         android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="false"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginHorizontal="@dimen/filler_small"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -62,15 +56,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@mipmap/ic_launcher"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="24dp"/>
+                            android:layout_marginTop="@dimen/filler_small"
+                            android:layout_marginEnd="@dimen/filler_small"
+                            android:layout_marginBottom="@dimen/filler_big"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:paddingStart="10dp">
+                            android:paddingStart="@dimen/filler_small">
 
                             <TextView
                                 android:id="@+id/descr"
@@ -85,15 +79,20 @@
                                 android:id="@+id/iv_link"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:src="@drawable/ic_public_white_18dp"
+                                android:layout_margin="@dimen/filler_small"
+                                android:src="@drawable/ic_weblink"
                                 android:layout_gravity="end" />
 
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
+
     </RelativeLayout>
 
 </layout>

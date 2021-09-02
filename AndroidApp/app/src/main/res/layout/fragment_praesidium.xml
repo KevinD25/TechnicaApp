@@ -8,13 +8,12 @@
         android:background="@color/white">
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/praesidiumVP"
+            android:id="@+id/praesidium_VP"
             style="@style/ViewPager"
             tools:listitem="@layout/inner_praesidium" />
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/indicator"
-            style="@style/Indicator"
-            android:background="@color/colorPrimaryDark" />
+            style="@style/Indicator" />
 
     </RelativeLayout>

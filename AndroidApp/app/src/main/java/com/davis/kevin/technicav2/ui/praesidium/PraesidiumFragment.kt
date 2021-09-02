@@ -3,16 +3,13 @@ package com.davis.kevin.technicav2.ui.praesidium
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
-import com.davis.kevin.technicav2.MainActivity
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
 import kotlinx.android.synthetic.main.fragment_praesidium.*
@@ -39,7 +36,7 @@ class PraesidiumFragment : Fragment() {
         // mobile_navigation.fragment.fragment_praesidium
         viewOfLayout = inflater!!.inflate(R.layout.fragment_praesidium, container, false)
         // Get ViewPager
-        PraesidiumVP = viewOfLayout.findViewById(R.id.praesidiumVP)
+        PraesidiumVP = viewOfLayout.findViewById(R.id.praesidium_VP)
 
         // Get View Model --> The database class is converted to the one in that is used for the view (ViewModel)
         praesidiumViewModel = ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
