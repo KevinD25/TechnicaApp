@@ -25,7 +25,7 @@ class CustomPartnerAdapter(
         fun bind(sponsorsViewModel: SponsorsViewModel) {
             this.partnerBinding.partnermodel = sponsorsViewModel
 
-            itemView.btnWebsite.setOnClickListener {
+            itemView.btn_website_sponsor.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(sponsorsViewModel.website))
                 parent.context.startActivity(browserIntent)
             }

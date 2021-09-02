@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val imageView: ImageView = root.findViewById(R.id.img_home_schild)
+        val imageView: ImageView = root.findViewById(R.id.img_schild)
         return root
     }
 }

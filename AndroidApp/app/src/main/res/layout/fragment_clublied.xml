@@ -5,50 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/img_clublied_schild"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/filler_big"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/technica_schild" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/ConLay" >
 
-    <TextView
-        android:id="@+id/txt_clublied"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/filler_big"
-        android:text="@string/clublied"
-        android:textColor="@color/colorPrimaryDark"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/btn_clublied"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_clublied_schild"/>
+        <ImageView
+            android:id="@+id/img_schild"
+            style="@style/Schild"
+            app:layout_constraintBottom_toTopOf="@+id/txt_clublied"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_clublied"
-        android:layout_width="270dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="@dimen/filler_small"
-        android:layout_marginTop="@dimen/filler_big"
-        android:background="@drawable/style_button_shape"
-        android:text="@string/clublied_button"
-        android:textColor="#FFFFFF"
-        android:textSize="@dimen/text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_clublied" />
+        <TextView
+            android:id="@+id/txt_clublied"
+            style="@style/Text"
+            android:text="@string/clublied"
+            app:layout_constraintBottom_toTopOf="@id/btn_clublied"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_schild"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btn_clublied"
+            style="@style/Button"
+            android:text="@string/clublied_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_clublied" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.core.widget.NestedScrollView>

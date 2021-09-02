@@ -10,16 +10,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
-        android:background="@color/white">
+        style="@style/ConLay" >
 
         <ImageView
-            android:id="@+id/img_home_schild"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/filler_big"
-            android:layout_marginBottom="@dimen/filler_small"
-            app:srcCompat="@drawable/technica_schild"
+            android:id="@+id/img_schild"
+            style="@style/Schild"
             app:layout_constraintBottom_toTopOf="@id/txt_home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,32 +22,24 @@
 
         <TextView
             android:id="@+id/txt_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Header"
             android:text="@string/home"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/header"
-            app:layout_constraintBottom_toTopOf="@+id/img_home_schild"
+            app:layout_constraintBottom_toTopOf="@+id/img_schild"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_home_schild" />
+            app:layout_constraintTop_toBottomOf="@+id/img_schild" />
 
         <TextView
-            android:id="@+id/txtRichtingen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/filler_small"
-            android:gravity="center"
+            android:id="@+id/txt_richtingen"
+            style="@style/Text"
             android:text="@string/richtingen"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/text"
-            app:layout_constraintBottom_toTopOf="@id/imageView3"
+            app:layout_constraintBottom_toTopOf="@id/img_current"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_home" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/img_current"
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:layout_marginStart="@dimen/filler_big"
@@ -62,8 +49,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtRichtingen"
+            app:layout_constraintTop_toBottomOf="@+id/txt_richtingen"
             app:srcCompat="@drawable/delete_tweedezit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.core.widget.NestedScrollView>

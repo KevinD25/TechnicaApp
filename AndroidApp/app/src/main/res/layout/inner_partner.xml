@@ -16,10 +16,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white">
+            style="@style/ConLay" >
 
             <ImageView
-                android:id="@+id/img_schild"
+                android:id="@+id/img_sponsor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/filler_big"
@@ -27,57 +27,38 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:src="@{partnermodel.image}"
-                app:layout_constraintBottom_toTopOf="@+id/txtUitleg"
+                app:layout_constraintBottom_toTopOf="@+id/txt_info"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
-                android:id="@+id/txtUitleg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/filler"
-                android:layout_marginVertical="@dimen/filler_small"
-                android:lineSpacingExtra="@dimen/lineSpace"
-                android:lines="8"
-                android:textSize="@dimen/text"
+                android:id="@+id/txt_info"
+                style="@style/Info"
                 android:text="@{partnermodel.description}"
-                android:justificationMode="inter_word"
-                android:textColor="@color/colorPrimaryDark"
-                app:layout_constraintBottom_toTopOf="@+id/btnWebsite"
+                app:layout_constraintBottom_toTopOf="@+id/btn_website_sponsor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_schild" />
+                app:layout_constraintTop_toBottomOf="@+id/img_sponsor" />
 
             <Button
-                android:id="@+id/btnWebsite"
-                android:layout_width="180dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="@dimen/filler"
-                android:layout_marginBottom="@dimen/filler_big"
-                android:background="@drawable/style_button_shape"
+                android:id="@+id/btn_website_sponsor"
+                style="@style/Button"
                 android:text="@string/sponsor_website_button"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtUitleg" />
+                app:layout_constraintTop_toBottomOf="@id/txt_info" />
 
             <!--
             <Button
                 android:id="@+id/btnVacatures"
-                android:layout_width="180dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/buttonshape"
+                style="@style/Button"
                 android:text="BEKIJK DE VACATURES"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnWebsite" />-->
+                app:layout_constraintTop_toBottomOf="@+id/btn_website_sponsor" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

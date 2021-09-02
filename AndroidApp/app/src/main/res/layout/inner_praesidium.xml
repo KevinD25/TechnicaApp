@@ -17,18 +17,18 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/filler"
-            android:background="@color/white">
+            style="@style/ConLay"
+            android:paddingVertical="@dimen/filler_big">
 
             <com.github.siyamed.shapeimageview.CircularImageView
-                android:id="@+id/imgPerson"
+                android:id="@+id/img_person"
                 android:layout_width="280dp"
                 android:layout_height="280dp"
                 android:src="@{praesidiummodel.image}"
-                app:layout_constraintBottom_toTopOf="@id/txtInfo"
+                app:layout_constraintBottom_toTopOf="@id/txt_person"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtInfo"
+                app:layout_constraintTop_toBottomOf="@+id/txt_person"
                 app:siBorderColor="@color/colorPrimary"
                 app:siBorderWidth="8dp" />
 
@@ -45,59 +45,49 @@
                 app:srcCompat="@drawable/functie_praeses" /> -->
 
             <TextView
-                android:id="@+id/txtInfo"
-                android:text="@{praesidiummodel.name  + ' ' + praesidiummodel.surname + '\n' + praesidiummodel.functie}"
+                android:id="@+id/txt_person"
                 style="@style/Header"
-                app:layout_constraintBottom_toTopOf="@id/imgBday"
+                android:text="@{praesidiummodel.name  + ' ' + praesidiummodel.surname + '\n' + praesidiummodel.functie}"
+                app:layout_constraintBottom_toTopOf="@id/img_bday"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgPerson" />
+                app:layout_constraintTop_toBottomOf="@id/img_person" />
 
             <ImageView
-                android:id="@+id/imgBday"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:id="@+id/img_bday"
+                style="@style/Icon"
                 app:srcCompat="@drawable/style_icon_bday"
-                app:layout_constraintBottom_toTopOf="@+id/txtBday"
+                app:layout_constraintBottom_toTopOf="@+id/txt_bday"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtInfo" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_person" />
 
             <TextView
-                android:id="@+id/txtBday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/filler_small"
+                android:id="@+id/txt_bday"
+                style="@style/Text"
                 android:text="@{praesidiummodel.birthday}"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text"
-                app:layout_constraintBottom_toTopOf="@+id/imgStudie"
+                app:layout_constraintBottom_toTopOf="@+id/img_studie"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgBday" />
+                app:layout_constraintTop_toBottomOf="@+id/img_bday" />
 
             <ImageView
-                android:id="@+id/imgStudie"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:id="@+id/img_studie"
+                style="@style/Icon"
                 app:srcCompat="@drawable/style_icon_studie"
-                app:layout_constraintBottom_toTopOf="@+id/txtStudie"
+                app:layout_constraintBottom_toTopOf="@+id/txt_studie"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtBday" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_bday" />
 
             <TextView
-                android:id="@+id/txtStudie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/filler_small"
+                android:id="@+id/txt_studie"
+                style="@style/Text"
                 android:text="@{praesidiummodel.studies}"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgStudie" />
+                app:layout_constraintTop_toBottomOf="@+id/img_studie" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

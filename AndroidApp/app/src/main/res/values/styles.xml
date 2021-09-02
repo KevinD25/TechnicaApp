@@ -18,19 +18,54 @@
 
     <!-- Textview theme. -->
     <style name="Text">
-        <item name="android:layout_width">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="Header">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginVertical">@dimen/filler_small</item>
 
+        <item name="android:lineSpacingExtra">@dimen/lineSpace</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/text</item>
+    </style>
+
+    <style name="Info" parent="Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginHorizontal">@dimen/filler</item>
+        <item name="android:lines">8</item>
+        <item name="android:justificationMode">inter_word</item>
+    </style>
+
+    <style name="Header" parent="Text">
         <item name="android:textSize">@dimen/header</item>
+    </style>
+
+    <!-- Image theme. -->
+    <style name="Icon">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="Schild">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/filler</item>
+        <item name="srcCompat">@drawable/technica_schild</item>
+    </style>
+
+    <!-- Button theme. -->
+    <style name="Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_margin">@dimen/filler</item>
+        <item name="android:background">@drawable/style_button_shape</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/text</item>
+    </style>
+
+    <!-- ConstraintLayout theme. -->
+    <style name="ConLay">
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingVertical">@dimen/filler_small</item>
     </style>
 
     <!-- ViewPager theme. -->

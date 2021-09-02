@@ -29,7 +29,7 @@ class OnzeclubFragment : Fragment() {
         ctx = requireActivity().applicationContext
         onzeclubViewModel.getContext(ctx)
         onzeclubViewModel.getArray().observe(viewLifecycleOwner, Observer { text ->
-            txtClub.text = text.clubText
+            txt_club.text = text.clubText
         })
 
         return viewOfLayout

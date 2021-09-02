@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/img_home_schild"
+        android:id="@+id/img_schild"
         android:scaleType="fitCenter"
         android:padding="80dp"
         app:srcCompat="@drawable/technica_schild_laad_pagina"/>
