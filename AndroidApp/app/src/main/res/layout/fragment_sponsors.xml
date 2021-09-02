@@ -7,19 +7,13 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/partnerVP"
+            style="@style/ViewPager"
+            tools:listitem="@layout/inner_partner" />
 
         <me.relex.circleindicator.CircleIndicator3
             android:id="@+id/indicator"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorPrimaryDark" />
+            style="@style/Indicator" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/partnerVP"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/indicator"
-            android:layout_centerInParent="true"
-            tools:listitem="@layout/inner_partner" />
     </RelativeLayout>

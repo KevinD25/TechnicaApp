@@ -12,45 +12,43 @@
     android:background="@color/white">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/img_clublied_schild"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/filler_big"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/technica_schild" />
 
     <TextView
-        android:id="@+id/txtClublied"
+        android:id="@+id/txt_clublied"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/filler_big"
         android:text="@string/clublied"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
         android:textColor="@color/colorPrimaryDark"
         android:textAlignment="center"
-        android:textSize="16dp"/>
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/btn_clublied"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_clublied_schild"/>
 
     <Button
-        android:id="@+id/angry_btn"
-
+        android:id="@+id/btn_clublied"
         android:layout_width="270dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="@dimen/filler_small"
+        android:layout_marginTop="@dimen/filler_big"
         android:background="@drawable/style_button_shape"
-        android:text="BELUISTER HIER HET CLUBLIED"
+        android:text="@string/clublied_button"
         android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textSize="@dimen/text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtClublied"
-        app:layout_constraintVertical_bias="0.012" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_clublied" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

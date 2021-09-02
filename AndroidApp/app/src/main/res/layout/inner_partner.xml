@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data class="PartnerBinding">
-        <variable
-            name="partnermodel"
+        <variable            name="partnermodel"
             type="com.davis.kevin.technicav2.ui.sponsors.SponsorsViewModel" />
     </data>
 
@@ -20,11 +19,11 @@
             android:background="@color/white">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/img_schild"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="25dp"
-                android:layout_margin="25dp"
+                android:minHeight="@dimen/filler_big"
+                android:layout_margin="@dimen/filler_big"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:src="@{partnermodel.image}"
@@ -37,34 +36,31 @@
                 android:id="@+id/txtUitleg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:lineSpacingExtra="5dp"
-                android:maxLines="8"
-                android:minLines="8"
+                android:layout_marginHorizontal="@dimen/filler"
+                android:layout_marginVertical="@dimen/filler_small"
+                android:lineSpacingExtra="@dimen/lineSpace"
+                android:lines="8"
+                android:textSize="@dimen/text"
                 android:text="@{partnermodel.description}"
-                android:textAlignment="center"
+                android:justificationMode="inter_word"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnWebsite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/img_schild" />
 
             <Button
                 android:id="@+id/btnWebsite"
                 android:layout_width="180dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginTop="@dimen/filler"
+                android:layout_marginBottom="@dimen/filler_big"
                 android:background="@drawable/style_button_shape"
-                android:text="BEZOEK DE WEBSITE"
+                android:text="@string/sponsor_website_button"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"
+                android:textSize="@dimen/text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtUitleg" />
 

@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data class="PraesidiumBinding">
-
         <variable
             name="praesidiummodel"
             type="com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel" />
@@ -16,40 +15,24 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="@dimen/filler"
             android:background="@color/white">
-
-
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@{praesidiummodel.surname  + ' ' + praesidiummodel.name}"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="26sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
 
             <com.github.siyamed.shapeimageview.CircularImageView
                 android:id="@+id/imgPerson"
                 android:layout_width="280dp"
                 android:layout_height="280dp"
-                android:layout_marginTop="8dp"
                 android:src="@{praesidiummodel.image}"
+                app:layout_constraintBottom_toTopOf="@id/txtInfo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtName"
+                app:layout_constraintTop_toBottomOf="@+id/txtInfo"
                 app:siBorderColor="@color/colorPrimary"
-                app:siBorderWidth="6dp" />
+                app:siBorderWidth="8dp" />
 
-            <ImageView
+            <!-- <ImageView Voor de Functie banners in de drawable folder
                 android:id="@+id/imgFunctie"
                 android:layout_width="237dp"
                 android:layout_height="131dp"
@@ -59,63 +42,62 @@
                 app:layout_constraintHorizontal_bias="0.79"
                 app:layout_constraintStart_toStartOf="@+id/imgPerson"
                 app:layout_constraintTop_toTopOf="@+id/imgPerson"
-                app:srcCompat="@drawable/functie_praeses" />
+                app:srcCompat="@drawable/functie_praeses" /> -->
 
             <TextView
-                android:id="@+id/txtFunctie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@{praesidiummodel.functie}"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="24dp"
+                android:id="@+id/txtInfo"
+                android:text="@{praesidiummodel.name  + ' ' + praesidiummodel.surname + '\n' + praesidiummodel.functie}"
+                style="@style/Header"
+                app:layout_constraintBottom_toTopOf="@id/imgBday"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgPerson" />
+                app:layout_constraintTop_toBottomOf="@id/imgPerson" />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/imgBday"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/style_icon_bday"
+                app:layout_constraintBottom_toTopOf="@+id/txtBday"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtFunctie"
-                app:srcCompat="@drawable/style_icon_bday" />
+                app:layout_constraintTop_toBottomOf="@+id/txtInfo" />
 
             <TextView
                 android:id="@+id/txtBday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginVertical="@dimen/filler_small"
                 android:text="@{praesidiummodel.birthday}"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18dp"
+                android:textSize="@dimen/text"
+                app:layout_constraintBottom_toTopOf="@+id/imgStudie"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+                app:layout_constraintTop_toBottomOf="@+id/imgBday" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/imgStudie"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/style_icon_studie"
+                app:layout_constraintBottom_toTopOf="@+id/txtStudie"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtBday"
-                app:srcCompat="@drawable/style_icon_studie" />
+                app:layout_constraintTop_toBottomOf="@+id/txtBday" />
 
             <TextView
                 android:id="@+id/txtStudie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginVertical="@dimen/filler_small"
                 android:text="@{praesidiummodel.studies}"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18dp"
+                android:textSize="@dimen/text"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+                app:layout_constraintTop_toBottomOf="@+id/imgStudie" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

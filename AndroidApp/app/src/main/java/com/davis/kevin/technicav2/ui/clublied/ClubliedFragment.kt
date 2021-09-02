@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.davis.kevin.technicav2.R
 
@@ -21,7 +20,7 @@ class ClubliedFragment : Fragment() {
         clubliedViewModel =
             ViewModelProviders.of(this).get(ClubliedViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_clublied, container, false)
-        val textView: TextView = root.findViewById(R.id.txtClublied)
+        val textView: TextView = root.findViewById(R.id.txt_clublied)
        /* clubliedViewModel.text.observe(this, Observer {
             textView.text = it
         })*/

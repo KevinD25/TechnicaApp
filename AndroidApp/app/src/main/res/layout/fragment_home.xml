@@ -13,55 +13,54 @@
         android:layout_marginBottom="10dp"
         android:background="@color/white">
 
-        <TextView
-            android:id="@+id/txtHome"
+        <ImageView
+            android:id="@+id/img_home_schild"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/home"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/imgSchild"
+            android:layout_marginTop="@dimen/filler_big"
+            android:layout_marginBottom="@dimen/filler_small"
+            app:srcCompat="@drawable/technica_schild"
+            app:layout_constraintBottom_toTopOf="@id/txt_home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imgSchild"
+        <TextView
+            android:id="@+id/txt_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@id/txtRichtingen"
+            android:text="@string/home"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/header"
+            app:layout_constraintBottom_toTopOf="@+id/img_home_schild"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtHome"
-            app:srcCompat="@drawable/technica_schild" />
+            app:layout_constraintTop_toBottomOf="@+id/img_home_schild" />
 
         <TextView
             android:id="@+id/txtRichtingen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/filler_small"
             android:gravity="center"
             android:text="@string/richtingen"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
+            android:textSize="@dimen/text"
             app:layout_constraintBottom_toTopOf="@id/imageView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgSchild" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_home" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="350dp"
             android:layout_height="350dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="@dimen/filler_big"
+            android:layout_marginTop="@dimen/filler"
+            android:layout_marginEnd="@dimen/filler_big"
+            android:layout_marginBottom="@dimen/filler"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtRichtingen"
             app:srcCompat="@drawable/delete_tweedezit" />

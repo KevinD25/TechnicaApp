@@ -4,11 +4,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data class="VacatureBinding">
-
         <variable
             name="vacaturemodel"
             type="com.davis.kevin.technicav2.ui.vacatures.VacaturesViewModel"/>
-
     </data>
 
     <RelativeLayout
@@ -16,7 +14,6 @@
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
