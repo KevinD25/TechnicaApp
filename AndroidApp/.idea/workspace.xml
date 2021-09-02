@@ -49,6 +49,7 @@
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
         <option value="resourceFile" />
+        <option value="Enum" />
       </list>
     </option>
   </component>

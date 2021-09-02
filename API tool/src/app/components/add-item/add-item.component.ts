@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Function2LabelMapping } from 'src/app/enums/function';
 import { IClubTekst, IEvent, IPraesidium, ISponsor, IVacature } from 'src/app/interfaces/collections';
 import { DataService } from 'src/app/services/data-service/data.service';
 import { FileService } from 'src/app/services/file-service/file.service';
@@ -12,6 +13,7 @@ import { FileService } from 'src/app/services/file-service/file.service';
 export class AddItemComponent implements OnInit {
 
   route: string = "Everythings fine";
+  Function2LabelMapping = Function2LabelMapping;
   items: any = null;
   url: any = null;
   
@@ -34,11 +36,10 @@ export class AddItemComponent implements OnInit {
     praesidium: {
       name: "",
       surName: "",
-      function: "",
+      function: null,
       birthday: "",
       studies: "",
-      imageLink: "",
-      priority: null
+      imageLink: ""
     },
     sponsor: {
       name: "",
@@ -80,11 +81,10 @@ export class AddItemComponent implements OnInit {
       } case "Praesidium": {
         this.url = null;
         this.variables.praesidium.imageLink = this.FileService.addImage(this.route);
-        this.variables.praesidium.priority = this.DataService.setPriotity(this.variables.praesidium.function);
         this.DataService.addPraesidium(this.variables.praesidium);
         this.variables.praesidium.name = "";
         this.variables.praesidium.surName = "";
-        this.variables.praesidium.function = "";
+        this.variables.praesidium.function = null;
         this.variables.praesidium.birthday = "";
         this.variables.praesidium.studies = "";
         this.variables.praesidium.imageLink = "";

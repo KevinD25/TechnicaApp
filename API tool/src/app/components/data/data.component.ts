@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Function2LabelMapping } from 'src/app/enums/function';
 import { IClubTekst, IEvent, IPraesidium, ISponsor, IVacature } from 'src/app/interfaces/collections';
 import { DataService } from 'src/app/services/data-service/data.service';
 import { FileService } from 'src/app/services/file-service/file.service';
@@ -12,6 +13,7 @@ import { FileService } from 'src/app/services/file-service/file.service';
 export class DataComponent implements OnInit {
 
   route: string = "Everythings fine";
+  Function2LabelMapping = Function2LabelMapping;
   items: any[] = [];
   editState: boolean = false;
   itemToEdit: any = null;
@@ -114,9 +116,7 @@ export class DataComponent implements OnInit {
           this.FileService.delFile(item.imageLink); // remove old image
           item.imageLink = this.FileService.addImage(this.route); // get new imageLink
         }
-        item.priority = this.DataService.setPriotity(item.function);
         console.log(item)
-        console.log(this.DataService.setPriotity(item.function));
         this.DataService.patchPraesidium(item);
         break; 
       } case "Sponsors": { 

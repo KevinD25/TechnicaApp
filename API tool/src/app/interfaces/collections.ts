@@ -15,11 +15,10 @@ export interface IPraesidium {
     id?: string,
     name: string,
     surName: string,
-    function: string,
+    function?: number,
     birthday: string,
     studies: string,
     imageLink: string,
-    priority?: number
 }
 
 export interface ISponsor {

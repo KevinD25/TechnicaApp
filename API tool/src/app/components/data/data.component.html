@@ -32,7 +32,7 @@
             </div>
             <div class="col s12 m4 l8">
               <div>{{item.name}} {{item.surName}}</div>
-              <div>{{item.function}}</div>
+              <div>{{Function2LabelMapping[item.function]}}</div>
               <div>{{item.birthday}}</div>
               <div>{{item.studies}}</div>
             </div>
@@ -113,7 +113,7 @@
               <div class="input-field col s12">
                 <select name="function" id="function" [(ngModel)]="item.function" class="select">
                   <option disabled selected value="undefined">Select an Option</option>
-                  <option *ngFor="let function of functions" [value]="function">{{function}}</option>
+                  <option *ngFor="let function of functions" [value]="function">{{Function2LabelMapping[function]}}</option>
                 </select>
               </div>
               <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg" class="light-blue lighten-3" />

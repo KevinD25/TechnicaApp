@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';  // Nodig voor map functie
 
 import { IClubTekst, IEvent, IPraesidium, ISponsor, IVacature } from '../../interfaces/collections';
+import { FunctionEnum } from '../../enums/function' ;
 
 @Injectable({
   providedIn: 'root'
@@ -49,9 +50,7 @@ export class DataService {
       vacature: null,
     }
 
-  functions: string[] = [ "Ab-Actis", "Cantor", "Ere-Lid", "Ere-Praeses", "Feest", "Media", "Meter", 
-                          "P.R.", "Praeses", "Peter", "Quaestor", "Redactor", "Resident DJ", 
-                          "Schachtenmeester", "Schachtentemmer", "S.O.C.", "Vice-Praeses", "Webmaster", "Zedenmeester" ];
+  functions = Object.values(FunctionEnum).filter(value => typeof value == 'number');;
 
   constructor(private afs: AngularFirestore) {
     // Clubtext Setup
@@ -63,7 +62,7 @@ export class DataService {
     this.observables.event = this.getEvents();
 
     // Praesidium Setup
-    this.collections.praesidium = this.afs.collection<IPraesidium>("Praesidium", ref => ref.orderBy("priority", "asc"));
+    this.collections.praesidium = this.afs.collection<IPraesidium>("Praesidium", ref => ref.orderBy("function", "asc"));
     this.observables.praesidium = this.getPraesidium();
 
     // Sponsor Setup
@@ -151,49 +150,6 @@ export class DataService {
   patchPraesidium(praesidium: IPraesidium) {
     this.collections.praesidium.doc(praesidium.id).update(praesidium)
       .catch(error => console.log(error));
-  }
-
-  setPriotity(functie: string) {
-    switch (functie) {
-      case "Praeses":
-        return 0;
-      case "Vice-Praeses":
-        return 1;
-      case "Quaestor":
-        return 2;
-      case "Ab-Actis":
-        return 3;
-      case "Redactor":
-        return 4;
-      case "Schachtenmeester":
-        return 5;
-      case "Schachtenmeester":
-        return 6;
-      case "P.R.":
-        return 6;
-      case "Feest":
-        return 6;
-      case "S.O.C.":
-        return 6;
-      case "Cantor":
-        return 7;
-      case "Media":
-        return 7;
-      case "Zedenmeester":
-        return 7;
-      case "Webmaster":
-        return 7;
-      case "Resident DJ":
-        return 7;
-      case "Peter":
-        return 8;
-      case "Meter":
-        return 8;
-      case "Ere-Praeses":
-        return 9
-      case "Ere-Lid":
-        return 10;
-    }
   }
 
   ////////      Sponsors     ////////
