@@ -4,6 +4,7 @@
 
     <dimen name="none">0dp</dimen>
 
+    <dimen name="filler_tiny">4dp</dimen>
     <dimen name="filler_small">8dp</dimen>
     <dimen name="filler">16dp</dimen>
     <dimen name="filler_big">24dp</dimen>
@@ -14,6 +15,7 @@
 
     <dimen name="small_icon">24dp</dimen>
     <dimen name="icon">48dp</dimen>
+    <dimen name="big_icon">72dp</dimen>
     <dimen name="big_image">320dp</dimen>
 
     <dimen name="large_width">256dp</dimen>

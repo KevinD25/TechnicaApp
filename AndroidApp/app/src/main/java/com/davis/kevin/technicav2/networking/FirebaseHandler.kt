@@ -135,7 +135,7 @@ object FirebaseHandler {
             for (document in result) {
                 val vacature = Vacature(
                     id = document.id,
-                    companyID = document["sponsorid"] as String?,
+                    companyId = document["sponsorid"] as String?,
                     name = document["name"] as String?,
                     description = document["description"] as String?,
                     link = document["link"] as String?

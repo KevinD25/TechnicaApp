@@ -32,8 +32,8 @@
 
             <ImageView
                 android:id="@+id/img_logo"
-                style="@style/Image"
-                android:src="@mipmap/ic_launcher"
+                style="@style/Card.Image"
+                android:src="@{vacaturemodel.viewImage}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
@@ -50,83 +50,13 @@
 
             <ImageView
                 android:id="@+id/ic_weblink"
-                style="@style/CardImage"
+                style="@style/Card.Icon"
                 android:src="@drawable/ic_weblink"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_description" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!-- Main Content View
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:gravity="start|center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/filler_small">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txt_name"
-                    style="@style/Text"
-                    android:text="@{vacaturemodel.name}"
-                    android:textStyle="bold"
-                    android:textColor="@color/white" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:layout_marginHorizontal="@dimen/filler_small"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/img_logo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher"
-                        android:layout_marginTop="@dimen/filler_small"
-                        android:layout_marginEnd="@dimen/filler_small"
-                        android:layout_marginBottom="@dimen/filler_big"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingStart="@dimen/filler_small">
-
-                        <TextView
-                            android:id="@+id/descr"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@{vacaturemodel.description}"
-                            android:textStyle="bold"
-                            android:maxLines="6"
-                            android:textColor="@color/white"/>
-
-                        <ImageView
-                            android:id="@+id/iv_link"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/filler_small"
-                            android:src="@drawable/ic_weblink"
-                            android:layout_gravity="end" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>-->
 
     </androidx.cardview.widget.CardView>
 

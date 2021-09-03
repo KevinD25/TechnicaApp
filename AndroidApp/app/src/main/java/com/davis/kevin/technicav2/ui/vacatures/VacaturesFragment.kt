@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
@@ -41,6 +40,7 @@ class VacaturesFragment : Fragment() {
                 if (!VacaturesViewModel.partnerMap.containsKey(partner.id)){
                     val sponsorsViewModel = SponsorsViewModel(partner)
                     VacaturesViewModel.partnerMap.put(sponsorsViewModel.id!!, sponsorsViewModel.name!!)
+                    VacaturesViewModel.imageMap.put(sponsorsViewModel.id!!, sponsorsViewModel.image!!)
                 }
             }
         })
@@ -49,7 +49,7 @@ class VacaturesFragment : Fragment() {
         vacaturesViewModel.getArray().observe(viewLifecycleOwner, Observer { vacatures ->
             for (vacature in vacatures) {
                 val vacaturesViewModel = VacaturesViewModel(vacature)
-                if (vacaturesViewModel.companyID.equals(SponsorsFragment.sponsorId)
+                if (vacaturesViewModel.companyId.equals(SponsorsFragment.sponsorId)
                     || SponsorsFragment.sponsorId.isNullOrEmpty()) {
                     arrayList.add(vacaturesViewModel)
                 }

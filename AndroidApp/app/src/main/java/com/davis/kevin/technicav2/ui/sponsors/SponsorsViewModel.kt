@@ -14,7 +14,7 @@ class SponsorsViewModel : ViewModel {
     var name: String? = ""
     var description: String? = ""
     var website: String? = ""
-    var imagelink: Bitmap? = null
+    var image: Bitmap? = null
     var priority: Long? = null
     private lateinit var mContext: Context
 
@@ -26,21 +26,16 @@ class SponsorsViewModel : ViewModel {
         this.name = partner.name
         this.description = partner.description
         this.website = partner.website
-        this.imagelink = partner.image
+        this.image = partner.image
         this.priority = partner.priority
     }
 
-    fun getImage(): BitmapDrawable {
-        var image = imagelink?.let { scale(it) }
+    fun getViewImage(): BitmapDrawable {
         return BitmapDrawable(image)
     }
 
     fun getContext(context: Context) {
         mContext = context
-    }
-
-    private fun scale(realImage: Bitmap): Bitmap? {
-        return Bitmap.createScaledBitmap(realImage, 200, 200, false)
     }
 
     fun getArray(): MutableLiveData<List<Partner>> {

@@ -15,7 +15,7 @@ class PraesidiumViewModel : ViewModel {
     var birthday: String? = ""
     var studies: String? = ""
     var functie: Functie? = null
-    var imagelink: Bitmap? = null
+    var image: Bitmap? = null
     var list : LiveData<List<Praesidium>>? = null
     //var images : MutableMap<String, Drawable>? = HashMap()
 
@@ -27,12 +27,12 @@ class PraesidiumViewModel : ViewModel {
         this.birthday = praesidium.birthday
         this.studies = praesidium.studies
         this.functie = praesidium.functie
-        this.imagelink = praesidium.image
+        this.image = praesidium.image
        // this.images = praesidium.images
     }
 
-    fun getImage(): BitmapDrawable {
-        return BitmapDrawable(imagelink)
+    fun getViewImage(): BitmapDrawable {
+        return BitmapDrawable(image)
     }
 
     fun getArray() : LiveData<List<Praesidium>>{

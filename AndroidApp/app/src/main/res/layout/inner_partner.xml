@@ -21,7 +21,7 @@
             <ImageView
                 android:id="@+id/img_sponsor"
                 style="@style/BigImage"
-                android:src="@{partnermodel.image}"
+                android:src="@{partnermodel.viewImage}"
                 app:layout_constraintBottom_toTopOf="@+id/txt_info"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
