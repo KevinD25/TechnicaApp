@@ -81,7 +81,7 @@ object FirebaseHandler {
     }
 
     private fun getHome() {
-        db.collection("Home").get().addOnSuccessListener { result ->
+        db.collection("Events").get().addOnSuccessListener { result ->
             for (document in result) {
                 val ONE_MEGABYTE: Long = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)

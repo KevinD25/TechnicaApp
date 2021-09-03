@@ -63,7 +63,7 @@ export class DataComponent implements OnInit {
         // Map sponsor id and name
         this.DataService.getSponsors().subscribe(res => { 
           this.DataService.mapSponsors(res);
-          // Use the name and id for Vacature use
+          // Use the name and id for vacature use
           this.DataService.getVacatures().subscribe(res => { 
             this.items = res;
             console.log(this.items)
