@@ -11,16 +11,15 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 
 object FirebaseHandler {
     private val storage = Firebase.storage
-    val homeList = mutableListOf<Home>()
-    val sponsorList = MutableLiveData<List<Partner>>()
-    val vacancieList = MutableLiveData<List<Vacature>>()
     val clubText = MutableLiveData<Clubtext>()
     val praesidiumList = MutableLiveData<List<Praesidium>>()
+    val eventList = MutableLiveData<List<Home>>()
+    val sponsorList = MutableLiveData<List<Partner>>()
+    val vacancieList = MutableLiveData<List<Vacature>>()
     private val db = FirebaseFirestore.getInstance()
 
     fun getFirebaseData() {
@@ -65,8 +64,7 @@ object FirebaseHandler {
                             birthday = document["birthday"] as String?,
                             studies = document["studies"] as String?,
                             functie = Functie.LongToEnum(document["function"] as Long?),
-                            imageLink = BitmapFactory.decodeByteArray(image, 0, image.size)/*,
-                            images = null*/
+                            image = BitmapFactory.decodeByteArray(image, 0, image.size)
                         )
                         // Add the Praesidium-Object to the List
                         praesidia.add(praesidium)
@@ -81,27 +79,27 @@ object FirebaseHandler {
     }
 
     private fun getHome() {
+        val events = mutableListOf<Home>()
         db.collection("Events").get().addOnSuccessListener { result ->
             for (document in result) {
                 val ONE_MEGABYTE: Long = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
                         val dateString = document["date"] as String?
-                        val date =
-                            LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-
                         val home = Home(
                             id = document.id,
-                            imageLink = BitmapFactory.decodeByteArray(image, 0, image.size),
+                            name = document["name"] as String?,
                             fbLink = document["fbLink"] as String?,
-                            date = date
+                            date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                            image = BitmapFactory.decodeByteArray(image, 0, image.size)
                         )
-                        homeList.add(home)
-                        Log.d("Home", homeList.toString())
+                        events.add(home)
+                        Log.d("Event", eventList.toString())
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance()
                             .recordException(exception)
                     }
+                eventList.value = events
             }
         }
     }
@@ -115,12 +113,11 @@ object FirebaseHandler {
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
                         val partner = Partner(
                             id = document.id,
-                            imageLink = BitmapFactory.decodeByteArray(image, 0, image.size),
                             name = document["name"] as String?,
                             description = document["about"] as String?,
+                            website = document["website"] as String?,
                             priority = document["priority"] as Long?,
-                            website = document["website"] as String?
-
+                            image = BitmapFactory.decodeByteArray(image, 0, image.size)
                         )
                         partners.add(partner)
                         if (document.id == result.last().id) partners.sortBy { partner -> partner.priority }

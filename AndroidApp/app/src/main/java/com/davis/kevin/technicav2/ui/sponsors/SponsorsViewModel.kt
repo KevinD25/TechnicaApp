@@ -1,15 +1,12 @@
 package com.davis.kevin.technicav2.ui.sponsors
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Partner
 import com.davis.kevin.technicav2.networking.FirebaseHandler
-import com.davis.kevin.technicav2.repository.Repository
 
 class SponsorsViewModel : ViewModel {
 
@@ -29,7 +26,7 @@ class SponsorsViewModel : ViewModel {
         this.name = partner.name
         this.description = partner.description
         this.website = partner.website
-        this.imagelink = partner.imageLink
+        this.imagelink = partner.image
         this.priority = partner.priority
     }
 

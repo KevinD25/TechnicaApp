@@ -27,7 +27,7 @@ class PraesidiumViewModel : ViewModel {
         this.birthday = praesidium.birthday
         this.studies = praesidium.studies
         this.functie = praesidium.functie
-        this.imagelink = praesidium.imageLink
+        this.imagelink = praesidium.image
        // this.images = praesidium.images
     }
 

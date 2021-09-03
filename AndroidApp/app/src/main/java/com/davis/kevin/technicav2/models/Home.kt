@@ -6,7 +6,8 @@ import java.util.*
 
 class Home(
     val id: String? = null,
-    val imageLink: Bitmap? = null,
+    val name: String? = null,
     val fbLink: String? = null,
-    val date : LocalDate) {
+    val date: LocalDate? = null,
+    val image: Bitmap? = null) {
 }
