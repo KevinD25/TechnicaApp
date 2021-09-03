@@ -2,7 +2,7 @@ package com.davis.kevin.technicav2.repository
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.davis.kevin.technicav2.models.Event
+import com.davis.kevin.technicav2.models.Evenement
 import com.davis.kevin.technicav2.models.Partner
 import com.davis.kevin.technicav2.models.Praesidium
 import com.davis.kevin.technicav2.models.Vacature
@@ -13,7 +13,7 @@ import retrofit2.Response
 
 
 object Repository {
-    var eventMutableLiveData = MutableLiveData<List<Event>>()
+    var eventMutableLiveData = MutableLiveData<List<Evenement>>()
     var vacatureMutableLiveData = MutableLiveData<List<Vacature>>()
     var praesidiumMutableLiveData = MutableLiveData<List<Praesidium>>()
     var partnerMutableLiveData = MutableLiveData<List<Partner>>()
@@ -63,10 +63,10 @@ object Repository {
     }
 
     private fun getEvents(){
-        apiService.getEvents().enqueue(object : Callback<List<Event>> {
-            override fun onResponse(call: Call<List<Event>>, response: Response<List<Event>>) {
+        apiService.getEvents().enqueue(object : Callback<List<Evenement>> {
+            override fun onResponse(call: Call<List<Evenement>>, response: Response<List<Evenement>>) {
                 eventMutableLiveData.value = response.body()
-            } override fun onFailure(call: Call<List<Event>>, t: Throwable) {
+            } override fun onFailure(call: Call<List<Evenement>>, t: Throwable) {
 
             }
         })

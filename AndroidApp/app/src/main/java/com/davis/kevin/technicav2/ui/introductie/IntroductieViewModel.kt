@@ -3,7 +3,7 @@ package com.davis.kevin.technicav2.ui.introductie
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.davis.kevin.technicav2.models.Clubtext
+import com.davis.kevin.technicav2.models.Introductie
 import com.davis.kevin.technicav2.networking.FirebaseHandler
 
 class IntroductieViewModel : ViewModel {
@@ -13,7 +13,7 @@ class IntroductieViewModel : ViewModel {
     private lateinit var mContext: Context
 
     constructor() : super()
-    constructor(clubtext: Clubtext): super() {
+    constructor(clubtext: Introductie): super() {
         this.id = clubtext.id
         this.text = clubtext.clubText
     }
@@ -22,7 +22,7 @@ class IntroductieViewModel : ViewModel {
         mContext = context
     }
 
-    fun getArray() : MutableLiveData<Clubtext>{
+    fun getArray() : MutableLiveData<Introductie>{
         return FirebaseHandler.clubText
     }
 

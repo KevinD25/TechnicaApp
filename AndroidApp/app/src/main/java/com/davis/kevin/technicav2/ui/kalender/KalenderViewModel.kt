@@ -1,35 +1,30 @@
 package com.davis.kevin.technicav2.ui.kalender
 
-import androidx.lifecycle.LiveData
+import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.davis.kevin.technicav2.models.Event
-import com.davis.kevin.technicav2.networking.RetrofitManager.apiService
-import com.davis.kevin.technicav2.repository.Repository
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import kotlin.collections.ArrayList
+import com.davis.kevin.technicav2.models.Evenement
+import com.davis.kevin.technicav2.networking.FirebaseHandler
+import java.time.LocalDate
 
 class KalenderViewModel : ViewModel {
 
-    var id = 0
-    var idString: String? = ""
+    var id: String? = ""
     var name: String? = ""
-    var date: String? = ""
-    var location: String? = ""
-    var description: String? = ""
-
+    var fbLink: String? = ""
+    var image: Bitmap? = null
+    var date: LocalDate? = null
 
     constructor() : super() {}
-    constructor(event: Event) : super() {
+    constructor(event: Evenement) : super() {
+        this.id = event.id
         this.name = event.name
+        this.fbLink = event.fbLink
+        this.image = event.image
+        this.date = event.date
     }
 
-    var arraylistMutableLiveData = MutableLiveData<List<Event>>()
-
-
-    fun getArrayList(): MutableLiveData<List<Event>> {
-        return Repository.eventMutableLiveData
+    fun getArrayList(): MutableLiveData<List<Evenement>> {
+        return FirebaseHandler.eventList
     }
 }

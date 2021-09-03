@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import java.time.LocalDate
 import java.util.*
 
-class Event(
+class Evenement(
     val id: String? = null,
     val name: String? = null,
     val fbLink: String? = null,

@@ -15,9 +15,9 @@ import java.time.format.DateTimeFormatter
 
 object FirebaseHandler {
     private val storage = Firebase.storage
-    val clubText = MutableLiveData<Clubtext>()
+    val clubText = MutableLiveData<Introductie>()
     val praesidiumList = MutableLiveData<List<Praesidium>>()
-    val eventList = MutableLiveData<List<Event>>()
+    val eventList = MutableLiveData<List<Evenement>>()
     val sponsorList = MutableLiveData<List<Partner>>()
     val vacancieList = MutableLiveData<List<Vacature>>()
     private val db = FirebaseFirestore.getInstance()
@@ -33,7 +33,7 @@ object FirebaseHandler {
     private fun getClubtext() {
         db.collection("ClubTekst").get().addOnSuccessListener{ result ->
                 for (document in result) {
-                    val clubtext = Clubtext(
+                    val clubtext = Introductie(
                         id = document.id,
                         clubText = document.data["text"] as String?
                     )
@@ -79,14 +79,14 @@ object FirebaseHandler {
     }
 
     private fun getHome() {
-        val events = mutableListOf<Event>()
+        val events = mutableListOf<Evenement>()
         db.collection("Events").get().addOnSuccessListener { result ->
             for (document in result) {
                 val ONE_MEGABYTE: Long = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
                         val dateString = document["date"] as String?
-                        val event = Event(
+                        val event = Evenement(
                             id = document.id,
                             name = document["name"] as String?,
                             fbLink = document["fbLink"] as String?,

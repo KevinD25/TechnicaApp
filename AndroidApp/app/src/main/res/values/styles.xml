@@ -31,8 +31,11 @@
     <style name="Info" parent="Text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginHorizontal">@dimen/filler</item>
-        <item name="android:lines">8</item>
         <item name="android:justificationMode">inter_word</item>
+    </style>
+
+    <style name="Info.small">
+        <item name="android:lines">8</item>
     </style>
 
     <style name="Header" parent="Text">
