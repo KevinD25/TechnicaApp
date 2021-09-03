@@ -2,6 +2,8 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="nav_header_height">176dp</dimen>
 
+    <dimen name="none">0dp</dimen>
+
     <dimen name="filler_small">8dp</dimen>
     <dimen name="filler">16dp</dimen>
     <dimen name="filler_big">24dp</dimen>
@@ -10,8 +12,11 @@
     <dimen name="text">16sp</dimen>
     <dimen name="header">24sp</dimen>
 
+    <dimen name="small_icon">24dp</dimen>
     <dimen name="icon">48dp</dimen>
     <dimen name="big_image">320dp</dimen>
+
+    <dimen name="large_width">256dp</dimen>
 
     <dimen name="fab_margin">16dp</dimen>
 </resources>

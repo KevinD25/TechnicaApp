@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.databinding.VacatureBinding
 import com.davis.kevin.technicav2.ui.vacatures.VacaturesViewModel
-import kotlinx.android.synthetic.main.inner_partner.view.*
 import kotlinx.android.synthetic.main.inner_vacature.view.*
 
 
@@ -32,7 +31,7 @@ class CustomVacatureAdapter(private val ctx: Context, private val arrayList: Arr
 
         fun bind(vacaturesViewModel: VacaturesViewModel) {
             this.vacatureBinding.vacaturemodel = vacaturesViewModel
-            itemView.iv_link.setOnClickListener {
+            itemView.ic_weblink.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(vacaturesViewModel.link))
                 parent.context.startActivity(browserIntent)
             }
