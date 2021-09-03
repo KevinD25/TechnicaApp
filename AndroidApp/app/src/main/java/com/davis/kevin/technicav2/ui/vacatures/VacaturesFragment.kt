@@ -42,10 +42,12 @@ class VacaturesFragment : Fragment() {
                 }
             }
         })
+
         // Use the name and id for vacature use
         vacaturesViewModel.getArray().observe(viewLifecycleOwner, Observer { vacatures ->
             for (vacature in vacatures) {
                 val vacaturesViewModel = VacaturesViewModel(vacature)
+                // if (vacaturesViewModel.id.equals(sponsor.id)) {}
                 arrayList.add(vacaturesViewModel)
                 customVacatureAdapter = CustomVacatureAdapter(ctx, arrayList)
                 VacatureRV!!.layoutManager = LinearLayoutManager(ctx)

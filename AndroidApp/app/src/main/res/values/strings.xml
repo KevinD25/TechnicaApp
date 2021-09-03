@@ -8,7 +8,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_onzeclub">Introductie</string>
+    <string name="menu_introductie">Introductie</string>
     <string name="menu_sponsors">Partners</string>
     <string name="menu_kalender">Kalender</string>
     <string name="menu_praesidium">Praesidium</string>
@@ -18,7 +18,7 @@
     <string name="home">Faculteitsvereniging Antwerpen</string>
     <string name="richtingen">Elektromechanica "\t" Elektronica-ICT "\n" Energiemanagement "\t" Integrale Veiligheid</string>
 
-    <string name="onze_club">
+    <string name="voorwoord">
         Ik had mezelf voorgenomen dat studentenverenigingen niets voor mij waren,
         tot op het moment dat een paar goede vrienden mij uiteindelijk overtuigden om het toch maar eens te proberen.
         Nu twee jaar later sta ik aan het hoofd van deze mooie familie voor het komende academiejaar.
@@ -51,5 +51,6 @@
     <string name="clublied_button">BELUISTER HIER HET CLUBLIED</string>
 
     <string name="sponsor_website_button">BEZOEK DE WEBSITE</string>
+    <string name="sponsor_vacature_button">BEKIJK DE VACATURES</string>
 
 </resources>

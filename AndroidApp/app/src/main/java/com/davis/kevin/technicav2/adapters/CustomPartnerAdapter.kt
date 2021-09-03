@@ -12,12 +12,8 @@ import com.davis.kevin.technicav2.databinding.PartnerBinding
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsViewModel
 import kotlinx.android.synthetic.main.inner_partner.view.*
 
-class CustomPartnerAdapter(
-    val ctx: Context,
-    val arrayList: ArrayList<SponsorsViewModel>,
-   /* val onClickListener: OnClickListener*/
-) : RecyclerView.Adapter<CustomPartnerAdapter.CustomView>() {
-
+class CustomPartnerAdapter(val ctx: Context, val arrayList: ArrayList<SponsorsViewModel>)
+    : RecyclerView.Adapter<CustomPartnerAdapter.CustomView>() {
 
     class CustomView(val partnerBinding: PartnerBinding, val parent: ViewGroup) :
         RecyclerView.ViewHolder(partnerBinding.root) {
@@ -29,6 +25,11 @@ class CustomPartnerAdapter(
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(sponsorsViewModel.website))
                 parent.context.startActivity(browserIntent)
             }
+
+            itemView.btn_vacature_sponsor.setOnClickListener {
+                val sponsorId = sponsorsViewModel.id
+            }
+
             partnerBinding.executePendingBindings()
         }
     }

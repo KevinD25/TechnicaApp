@@ -24,19 +24,15 @@ class SponsorsFragment : Fragment() {
     private lateinit var ctx : Context
     private var arrayList = ArrayList<SponsorsViewModel>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        ctx = requireActivity().applicationContext
 
         viewOfLayout = inflater.inflate(R.layout.fragment_sponsors, container, false)
-        sponsorsViewModel =
-            ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
-        ctx = requireActivity().applicationContext
-        sponsorsViewModel.getContext(ctx)
         PartnerVP = viewOfLayout.findViewById(R.id.partner_VP)
 
+        sponsorsViewModel = ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
+        sponsorsViewModel.getContext(ctx)
         sponsorsViewModel.getArray().observe(viewLifecycleOwner, Observer { partners ->
             for(partner in partners){
                 val partnerViewModel = SponsorsViewModel(partner)
