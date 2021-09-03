@@ -35,6 +35,5 @@ export interface IVacature {
     name: string,
     description: string,
     link: string,
-    sponsor: string,
     sponsorId?: string
 }

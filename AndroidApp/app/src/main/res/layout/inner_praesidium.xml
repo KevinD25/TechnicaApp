@@ -30,7 +30,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_person"
                 app:siBorderColor="@color/colorPrimary"
-                app:siBorderWidth="8dp" />
+                app:siBorderWidth="@dimen/filler_small" />
 
             <!-- <ImageView Voor de Functie banners in de drawable folder
                 android:id="@+id/imgFunctie"

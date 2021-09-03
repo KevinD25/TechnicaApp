@@ -51,6 +51,7 @@ export class DataService {
     }
 
   functions = Object.values(FunctionEnum).filter(value => typeof value == 'number');;
+  sponsors: Map<string, string> = new Map<string, string>();
 
   constructor(private afs: AngularFirestore) {
     // Clubtext Setup
@@ -176,6 +177,13 @@ export class DataService {
   patchSponsor(sponsor: ISponsor) {
     this.collections.sponsor.doc(sponsor.id).update(sponsor)
       .catch(error => console.log(error));
+  }
+
+  mapSponsors(sponsors: ISponsor[]) {
+    sponsors.forEach(sponsor => {
+      this.sponsors.set(sponsor.id, sponsor.name)
+    });
+    console.log(this.sponsors)
   }
 
   ////////      Vacatures     ////////

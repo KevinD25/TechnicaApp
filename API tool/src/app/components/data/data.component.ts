@@ -29,7 +29,10 @@ export class DataComponent implements OnInit {
     switch(this.route) {
       case "ClubText": {
         this.items as IClubTekst[];
-        this.DataService.getClubTeksten().subscribe(res => { this.items = res; console.log(res) });
+        this.DataService.getClubTeksten().subscribe(res => {
+          this.items = res;
+          console.log(res)
+        });
         break; 
       } case "Events": {
         this.items as IEvent[];
@@ -57,7 +60,15 @@ export class DataComponent implements OnInit {
         break; 
       } case "Vacatures": {
         this.items as IVacature[];
-        this.DataService.getVacatures().subscribe(res => { this.items = res; console.log(res) });
+        // Map sponsor id and name
+        this.DataService.getSponsors().subscribe(res => { 
+          this.DataService.mapSponsors(res);
+          // Use the name and id for Vacature use
+          this.DataService.getVacatures().subscribe(res => { 
+            this.items = res;
+            console.log(this.items)
+          });
+        });
         break;
       } default: { 
         console.log("Route not found");
@@ -178,5 +189,9 @@ export class DataComponent implements OnInit {
 
   get functions() {
     return this.DataService.functions;
+  }
+
+  get sponsors() : Map<string, string> {
+    return this.DataService.sponsors;
   }
 }

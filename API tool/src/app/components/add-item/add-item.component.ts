@@ -52,7 +52,7 @@ export class AddItemComponent implements OnInit {
       name: "",
       description: "",
       link: "",
-      sponsor: ""
+      sponsorId: ""
     }
   }
 
@@ -103,7 +103,7 @@ export class AddItemComponent implements OnInit {
         this.variables.vacature.name = "";
         this.variables.vacature.description = "";
         this.variables.vacature.link = "";
-        this.variables.vacature.sponsor = "";
+        this.variables.vacature.sponsorId = "";
         break; 
       } default: { 
         console.log("Route not found");
@@ -126,5 +126,9 @@ export class AddItemComponent implements OnInit {
   
   get functions() {
     return this.DataService.functions;
+  }
+
+  get sponsors() : Map<string, string> {
+    return this.DataService.sponsors;
   }
 }

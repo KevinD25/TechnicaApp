@@ -54,7 +54,7 @@
 
         <!--    Vacature    -->
         <div *ngIf="route == 'Vacatures'">
-          <div><a [href]="item.link">{{item.name}} - {{item.sponsor}}</a></div>
+          <div><a [href]="item.link">{{item.name}} - {{sponsors.get(item.sponsorid)}}</a></div>
           <div>{{item.description}}</div>
         </div>
 
@@ -143,11 +143,16 @@
       </form>
 
       <!--    Vacature    -->
-      <form (ngSubmit)="addItem()" *ngIf="route == 'Vacatures'" class="col s6">
+      <form (ngSubmit)="updateItem(item)" *ngIf="route == 'Vacatures'" class="col s6">
           <div class="input-field col s6">
-              <input type="text" placeholder="name" [(ngModel)]="item.name" name="name">
-              <input type="text" placeholder="sponsor" [(ngModel)]="item.sponsor" name="sponsor">
+              <input type="text" placeholder="description" [(ngModel)]="item.name" name="name">
               <input type="text" placeholder="link" [(ngModel)]="item.link" name="link">
+              <div class="input-field col s12">
+                <select name="sponsorid" id="sponsorid" [(ngModel)]="item.sponsorid" class="select">
+                  <option disabled selected value="undefined">Select an Option</option>
+                  <option *ngFor="let sponsor of sponsors | keyvalue" [value]="sponsor.key">{{sponsor.value}}</option>
+                </select>
+              </div>
               <textarea class="text-field" type="text" placeholder="Description" [(ngModel)]="item.description" name="description">
               </textarea>
           </div>
