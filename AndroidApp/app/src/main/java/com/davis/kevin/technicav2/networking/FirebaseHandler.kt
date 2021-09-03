@@ -17,7 +17,7 @@ object FirebaseHandler {
     private val storage = Firebase.storage
     val clubText = MutableLiveData<Clubtext>()
     val praesidiumList = MutableLiveData<List<Praesidium>>()
-    val eventList = MutableLiveData<List<Home>>()
+    val eventList = MutableLiveData<List<Event>>()
     val sponsorList = MutableLiveData<List<Partner>>()
     val vacancieList = MutableLiveData<List<Vacature>>()
     private val db = FirebaseFirestore.getInstance()
@@ -79,21 +79,21 @@ object FirebaseHandler {
     }
 
     private fun getHome() {
-        val events = mutableListOf<Home>()
+        val events = mutableListOf<Event>()
         db.collection("Events").get().addOnSuccessListener { result ->
             for (document in result) {
                 val ONE_MEGABYTE: Long = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
                         val dateString = document["date"] as String?
-                        val home = Home(
+                        val event = Event(
                             id = document.id,
                             name = document["name"] as String?,
                             fbLink = document["fbLink"] as String?,
                             date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd")),
                             image = BitmapFactory.decodeByteArray(image, 0, image.size)
                         )
-                        events.add(home)
+                        events.add(event)
                         Log.d("Event", eventList.toString())
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance()

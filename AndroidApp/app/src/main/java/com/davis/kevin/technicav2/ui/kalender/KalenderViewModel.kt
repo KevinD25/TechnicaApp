@@ -22,15 +22,8 @@ class KalenderViewModel : ViewModel {
 
 
     constructor() : super() {}
-    constructor(
-        event: Event
-    ) : super() {
-        this.id = event.id
-        this.idString = event.id.toString()
+    constructor(event: Event) : super() {
         this.name = event.name
-        this.date = event.date
-        this.location = event.location
-        this.description = event.description
     }
 
     var arraylistMutableLiveData = MutableLiveData<List<Event>>()
