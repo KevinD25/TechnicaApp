@@ -26,13 +26,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     var mAuth = FirebaseAuth.getInstance()
 
-
-    companion object {
-        fun navigate(navController: NavController ,nav_id: Int) {
-            navController.navigate(nav_id)
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

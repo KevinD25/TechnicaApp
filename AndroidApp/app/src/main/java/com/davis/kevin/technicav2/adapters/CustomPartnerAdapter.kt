@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.MainActivity
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.databinding.PartnerBinding
+import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsViewModel
 import kotlinx.android.synthetic.main.inner_partner.view.*
 
@@ -32,7 +33,7 @@ class CustomPartnerAdapter(val ctx: Context, val arrayList: ArrayList<SponsorsVi
             }
 
             itemView.btn_vacature_sponsor.setOnClickListener {
-                MainActivity.navigate(navController, R.id.nav_vacatures)
+                SponsorsFragment.navigateToVacatures(navController, R.id.nav_vacatures, sponsorsViewModel.id)
             }
 
             partnerBinding.executePendingBindings()

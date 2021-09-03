@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomVacatureAdapter
+import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsViewModel
 
 
@@ -48,11 +49,14 @@ class VacaturesFragment : Fragment() {
         vacaturesViewModel.getArray().observe(viewLifecycleOwner, Observer { vacatures ->
             for (vacature in vacatures) {
                 val vacaturesViewModel = VacaturesViewModel(vacature)
-                // if (vacaturesViewModel.id.equals(sponsor.id)) {}
-                arrayList.add(vacaturesViewModel)
+                if (vacaturesViewModel.companyID.equals(SponsorsFragment.sponsorId)
+                    || SponsorsFragment.sponsorId.isNullOrEmpty()) {
+                    arrayList.add(vacaturesViewModel)
+                }
                 customVacatureAdapter = CustomVacatureAdapter(ctx, arrayList)
                 VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
                 VacatureRV!!.adapter = customVacatureAdapter
+                if (vacature.id == vacatures.last().id) SponsorsFragment.sponsorId = null
             }
         })
 

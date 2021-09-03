@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.davis.kevin.technicav2.R
@@ -24,6 +25,14 @@ class SponsorsFragment : Fragment() {
     private var customPartnerAdapter : CustomPartnerAdapter? = null
     private lateinit var ctx : Context
     private var arrayList = ArrayList<SponsorsViewModel>()
+
+    companion object {
+        var sponsorId: String? = null
+        fun navigateToVacatures(navController: NavController, nav_id: Int, sponsorId: String?) {
+            this.sponsorId = sponsorId
+            navController.navigate(nav_id)
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
