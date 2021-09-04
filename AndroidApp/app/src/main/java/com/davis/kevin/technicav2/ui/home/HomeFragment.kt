@@ -53,7 +53,7 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
             }
             while (arrayList.size < 3) {
                 arrayList.add(HomeViewModel(
-                    Evenement( name = "No Upcomming Events Planned",
+                    Evenement( name = "No Upcoming Events Planned",
                         image = BitmapFactory.decodeResource(ctx.resources, R.drawable.technica_schild_laad_pagina)
                     )
                 ))

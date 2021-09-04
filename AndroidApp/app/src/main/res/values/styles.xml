@@ -22,7 +22,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginVertical">@dimen/filler_small</item>
 
-        <item name="android:lineSpacingExtra">@dimen/lineSpace</item>
+        <item name="android:lineSpacingExtra">@dimen/line_space</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/text</item>
@@ -50,7 +50,7 @@
 
     <style name="Card.Info">
         <item name="android:layout_margin">@dimen/filler_tiny</item>
-        <item name="android:maxWidth">@dimen/large_width</item>
+        <item name="android:maxWidth">@dimen/dim</item>
         <item name="android:justificationMode">inter_word</item>
         <item name="android:lines">6</item>
     </style>
@@ -63,9 +63,8 @@
 
     <style name="Card.Big">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">@dimen/dim</item>
         <item name="android:layout_margin">@dimen/filler_big</item>
-        <item name="android:minHeight">@dimen/big_image</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
@@ -104,10 +103,12 @@
     </style>
 
     <style name="Card.Image.Big">
-        <item name="android:layout_width">@dimen/large_width</item>
-        <item name="android:layout_height">@dimen/large_width</item>
-        <item name="android:background">@drawable/style_image_background</item>
-        <item name="android:padding">@dimen/filler_big</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxHeight">@dimen/dim</item>
+        <item name="android:minHeight">@dimen/small_dim</item>
+        <item name="android:background">@drawable/style_image_background_blue</item>
+        <item name="android:padding">@dimen/filler</item>
         <item name="srcCompat">@mipmap/ic_launcher</item>
     </style>
 
