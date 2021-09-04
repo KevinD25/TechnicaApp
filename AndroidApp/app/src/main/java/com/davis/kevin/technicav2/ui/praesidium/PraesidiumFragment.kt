@@ -57,25 +57,4 @@ class PraesidiumFragment : Fragment() {
 
         return viewOfLayout
     }
-
-   /* private fun getAllImages(){
-        images?.set("praeses", getDrawable(ctx, R.drawable.praeses)!!)
-        images?.set("vicepraeses", getDrawable(ctx, R.drawable.vicepraeses)!!)
-        images?.set("soc", getDrawable(ctx, R.drawable.soc)!!)
-        images?.set("quaestor", getDrawable(ctx, R.drawable.quaestor)!!)
-        images?.set("erelid", getDrawable(ctx, R.drawable.erelid)!!)
-        images?.set("peter", getDrawable(ctx, R.drawable.peter)!!)
-        images?.set("redactor", getDrawable(ctx, R.drawable.redactor)!!)
-        images?.set("media", getDrawable(ctx, R.drawable.media)!!)
-        images?.set("feest", getDrawable(ctx, R.drawable.feest)!!)
-        images?.set("zeden", getDrawable(ctx, R.drawable.zeden)!!)
-        images?.set("meester", getDrawable(ctx, R.drawable.meester)!!)
-        images?.set("meter", getDrawable(ctx, R.drawable.meter)!!)
-        images?.set("meterke", getDrawable(ctx, R.drawable.meterke)!!)
-        images?.set("temmer", getDrawable(ctx, R.drawable.temmer)!!)
-        images?.set("pr", getDrawable(ctx, R.drawable.pr)!!)
-        images?.set("abactis", getDrawable(ctx, R.drawable.abactis)!!)
-        images?.set("erepraeses", getDrawable(ctx, R.drawable.erepraeses)!!)
-        images?.set("cantor", getDrawable(ctx, R.drawable.cantor)!!)
-    }*/
 }

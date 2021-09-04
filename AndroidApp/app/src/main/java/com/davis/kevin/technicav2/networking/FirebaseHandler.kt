@@ -23,7 +23,7 @@ object FirebaseHandler {
     private val db = FirebaseFirestore.getInstance()
 
     fun getFirebaseData() {
-        getHome()
+        getEvents()
         getPartners()
         getVacancies()
         getClubtext()
@@ -78,7 +78,7 @@ object FirebaseHandler {
         }
     }
 
-    private fun getHome() {
+    private fun getEvents() {
         val events = mutableListOf<Evenement>()
         db.collection("Events").get().addOnSuccessListener { result ->
             for (document in result) {
@@ -94,6 +94,7 @@ object FirebaseHandler {
                             image = BitmapFactory.decodeByteArray(image, 0, image.size)
                         )
                         events.add(event)
+                        if (document.id == result.last().id) events.sortBy { event -> event.date }
                         Log.d("Event", eventList.toString())
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance()

@@ -34,10 +34,10 @@ class KalenderFragment : Fragment() {
             for(event in events){
                 val kalenderViewModel = KalenderViewModel(event)
                 arrayList.add(kalenderViewModel)
-                customKalenderAdapter = CustomKalenderAdapter(ctx, arrayList)
-                KalenderRV!!.layoutManager = LinearLayoutManager(ctx)
-                KalenderRV!!.adapter = customKalenderAdapter
             }
+            customKalenderAdapter = CustomKalenderAdapter(ctx, arrayList)
+            KalenderRV!!.layoutManager = LinearLayoutManager(ctx)
+            KalenderRV!!.adapter = customKalenderAdapter
         })
 
         return viewOfLayout

@@ -13,12 +13,9 @@ class ClubliedFragment : Fragment() {
 
     private lateinit var clubliedViewModel: ClubliedViewModel
 
-    override fun onCreateView(inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        clubliedViewModel =
-            ViewModelProviders.of(this).get(ClubliedViewModel::class.java)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        clubliedViewModel = ViewModelProviders.of(this).get(ClubliedViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_clublied, container, false)
         val textView: TextView = root.findViewById(R.id.txt_clublied)
        /* clubliedViewModel.text.observe(this, Observer {

@@ -18,19 +18,9 @@ class CustomVacatureAdapter(private val ctx: Context, private val arrayList: Arr
 
     class CustomView(val vacatureBinding: VacatureBinding, val parent: ViewGroup) : RecyclerView.ViewHolder(
         vacatureBinding.root) {
-        //val itemLink : TextView = v.findViewById(R.id.txtLink)
-
-        /*init{
-            itemLink.setOnClickListener {v: View ->
-                val position = adapterPosition
-                val link = arrayList[position].link
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(link)) //Not sure wether this one works
-                ctx.startActivity(browserIntent)
-            }
-        }*/
 
         fun bind(vacaturesViewModel: VacaturesViewModel) {
-            this.vacatureBinding.vacaturemodel = vacaturesViewModel
+            this.vacatureBinding.vacatureModel = vacaturesViewModel
             itemView.ic_weblink.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(vacaturesViewModel.link))
                 parent.context.startActivity(browserIntent)

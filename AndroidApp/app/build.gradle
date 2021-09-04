@@ -98,7 +98,6 @@ dependencies {
     implementation "android.arch.lifecycle:livedata:1.1.1"
     //noinspection LifecycleAnnotationProcessorWithJava8
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
-
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     // Firebase
@@ -109,5 +108,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage-ktx'
     implementation 'com.google.firebase:firebase-config-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // DiscreteScrollView
+    implementation 'com.yarolegovich:discrete-scrollview:1.5.1'
 
 }

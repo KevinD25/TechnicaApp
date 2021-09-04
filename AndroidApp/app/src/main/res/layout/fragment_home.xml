@@ -33,18 +33,18 @@
             android:id="@+id/txt_richtingen"
             style="@style/Text"
             android:text="@string/richtingen"
-            app:layout_constraintBottom_toTopOf="@id/img_current"
+            app:layout_constraintBottom_toTopOf="@id/carousel_event"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_home" />
 
-        <ImageView
-            android:id="@+id/img_current"
-            style="@style/BigImage"
+        <com.yarolegovich.discretescrollview.DiscreteScrollView
+            android:id="@+id/carousel_event"
+            style="@style/Card.Big"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_richtingen" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_richtingen"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

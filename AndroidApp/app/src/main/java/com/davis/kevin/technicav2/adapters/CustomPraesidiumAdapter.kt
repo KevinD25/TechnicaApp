@@ -12,10 +12,10 @@ import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
 class CustomPraesidiumAdapter(val ctx: Context, var arrayList: ArrayList<PraesidiumViewModel>) :
     RecyclerView.Adapter<CustomPraesidiumAdapter.CustomView>() {
 
-    class CustomView(val praesidiumBinding: PraesidiumBinding) :
-        RecyclerView.ViewHolder(praesidiumBinding.root) {
+    class CustomView(val praesidiumBinding: PraesidiumBinding) : RecyclerView.ViewHolder(praesidiumBinding.root) {
+
         fun bind(praesidiumViewModel: PraesidiumViewModel) {
-            this.praesidiumBinding.praesidiummodel = praesidiumViewModel
+            this.praesidiumBinding.praesidiumModel = praesidiumViewModel
             praesidiumBinding.executePendingBindings()
         }
     }

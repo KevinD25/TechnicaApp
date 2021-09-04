@@ -1,6 +1,7 @@
 package com.davis.kevin.technicav2.ui.kalender
 
 import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Evenement
@@ -26,5 +27,9 @@ class KalenderViewModel : ViewModel {
 
     fun getArrayList(): MutableLiveData<List<Evenement>> {
         return FirebaseHandler.eventList
+    }
+
+    fun getViewImage(): BitmapDrawable {
+        return BitmapDrawable(image)
     }
 }

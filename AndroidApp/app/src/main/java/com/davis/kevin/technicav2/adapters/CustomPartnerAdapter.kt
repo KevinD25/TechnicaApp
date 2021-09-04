@@ -21,11 +21,11 @@ class CustomPartnerAdapter(val ctx: Context, val arrayList: ArrayList<SponsorsVi
     : RecyclerView.Adapter<CustomPartnerAdapter.CustomView>() {
 
 
-    class CustomView(val partnerBinding: PartnerBinding, val parent: ViewGroup, private val navController: NavController) :
-        RecyclerView.ViewHolder(partnerBinding.root) {
+    class CustomView(val partnerBinding: PartnerBinding, val parent: ViewGroup, private val navController: NavController)
+        : RecyclerView.ViewHolder(partnerBinding.root) {
 
         fun bind(sponsorsViewModel: SponsorsViewModel) {
-            this.partnerBinding.partnermodel = sponsorsViewModel
+            this.partnerBinding.partnerModel = sponsorsViewModel
 
             itemView.btn_website_sponsor.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(sponsorsViewModel.website))

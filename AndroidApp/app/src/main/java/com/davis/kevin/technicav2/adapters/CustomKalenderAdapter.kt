@@ -9,16 +9,14 @@ import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.databinding.KalenderBinding
 import com.davis.kevin.technicav2.ui.kalender.KalenderViewModel
 
-class CustomKalenderAdapter(
-    private val ctx: Context,
-    private val arrayList: ArrayList<KalenderViewModel>
-) : RecyclerView.Adapter<CustomKalenderAdapter.CustomView>() {
+class CustomKalenderAdapter(private val ctx: Context, private val arrayList: ArrayList<KalenderViewModel>)
+    : RecyclerView.Adapter<CustomKalenderAdapter.CustomView>() {
 
     class CustomView(val kalenderBinding: KalenderBinding) :
         RecyclerView.ViewHolder(kalenderBinding.root) {
 
         fun bind(kalenderViewModel: KalenderViewModel) {
-            this.kalenderBinding.kalendermodel = kalenderViewModel
+            this.kalenderBinding.kalenderModel = kalenderViewModel
             kalenderBinding.executePendingBindings()
         }
     }

@@ -61,6 +61,15 @@
         <item name="android:textSize">@dimen/text</item>
     </style>
 
+    <style name="Card.Big">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/filler_big</item>
+        <item name="android:minHeight">@dimen/big_image</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
     <!-- Image theme. -->
     <style name="Image">
         <item name="android:layout_width">wrap_content</item>
@@ -94,6 +103,14 @@
         <item name="srcCompat">@mipmap/ic_launcher</item>
     </style>
 
+    <style name="Card.Image.Big">
+        <item name="android:layout_width">@dimen/large_width</item>
+        <item name="android:layout_height">@dimen/large_width</item>
+        <item name="android:background">@drawable/style_image_background</item>
+        <item name="android:padding">@dimen/filler_big</item>
+        <item name="srcCompat">@mipmap/ic_launcher</item>
+    </style>
+
     <style name="Card.Icon">
         <item name="android:layout_width">@dimen/small_icon</item>
         <item name="android:layout_height">@dimen/small_icon</item>
@@ -113,12 +130,11 @@
 
     <!-- Layout theme. -->
     <style name="ConLay">
-        <item name="android:background">@color/white</item>
         <item name="android:paddingVertical">@dimen/filler_small</item>
     </style>
 
     <style name="CardLay">
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@drawable/style_image_background_blue</item>
         <item name="android:padding">@dimen/filler_small</item>
     </style>
 

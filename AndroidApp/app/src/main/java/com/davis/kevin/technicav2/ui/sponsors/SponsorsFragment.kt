@@ -47,11 +47,12 @@ class SponsorsFragment : Fragment() {
             for(partner in partners){
                 val partnerViewModel = SponsorsViewModel(partner)
                 arrayList.add(partnerViewModel)
-                customPartnerAdapter = CustomPartnerAdapter(ctx, arrayList, this.findNavController())
-                PartnerVP!!.adapter = customPartnerAdapter
-                val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
-                indicator.setViewPager(partner_VP)
             }
+            customPartnerAdapter = CustomPartnerAdapter(ctx, arrayList, this.findNavController())
+            PartnerVP!!.adapter = customPartnerAdapter
+
+            val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
+            indicator.setViewPager(partner_VP)
         })
 
         return viewOfLayout

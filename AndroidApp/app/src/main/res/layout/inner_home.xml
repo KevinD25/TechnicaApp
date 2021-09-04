@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="HomeBinding">
+        <variable name="homeModel"
+            type="com.davis.kevin.technicav2.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/CardLay">
+
+        <ImageView
+            android:id="@+id/img_current_event"
+            style="@style/Card.Image.Big"
+            android:src="@{homeModel.viewImage}"
+            app:layout_constraintBottom_toTopOf="@+id/txt_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_header"
+            style="@style/Card.Header"
+            android:text="@{homeModel.name}"
+            app:layout_constraintBottom_toTopOf="@+id/txt_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_current_event"/>
+
+        <TextView
+            android:id="@+id/txt_date"
+            style="@style/Card.Info"
+            android:text="@{homeModel.viewDate}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_header"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

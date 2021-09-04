@@ -53,11 +53,11 @@ class VacaturesFragment : Fragment() {
                     || SponsorsFragment.sponsorId.isNullOrEmpty()) {
                     arrayList.add(vacaturesViewModel)
                 }
-                customVacatureAdapter = CustomVacatureAdapter(ctx, arrayList)
-                VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
-                VacatureRV!!.adapter = customVacatureAdapter
-                if (vacature.id == vacatures.last().id) SponsorsFragment.sponsorId = null
             }
+            customVacatureAdapter = CustomVacatureAdapter(ctx, arrayList)
+            VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
+            VacatureRV!!.adapter = customVacatureAdapter
+            SponsorsFragment.sponsorId = null
         })
 
         return viewOfLayout
