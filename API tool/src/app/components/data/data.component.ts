@@ -175,10 +175,14 @@ export class DataComponent implements OnInit {
       imageUrls.push(item.imageLink.slice(this.route.length + 2, item.imageLink.indexOf('.')));
       this.itemUrls.push(null)
     });
+    console.log(imageUrls)
 
     items.forEach(item => {
       this.FileService.getFile(item.imageLink).subscribe(res => {
         imageUrls.forEach(url => {
+          // Speciale tekens kunnen prolemen veroorzaken
+          //console.log(url)
+          //console.log(JSON.stringify(res))
           if (JSON.stringify(res).includes(url)) {
             this.itemUrls[imageUrls.indexOf(url)] = res;
           }

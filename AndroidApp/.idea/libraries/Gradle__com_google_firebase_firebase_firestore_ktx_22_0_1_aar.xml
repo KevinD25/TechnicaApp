@@ -3,9 +3,10 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4840edc52931fa80fa04ee4380dd0ed9/jetified-firebase-firestore-ktx-22.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8ec9d4c5d5b0857c253621f6bfdc739d/jetified-firebase-firestore-ktx-22.0.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1158846f498a3f6215c92d99d4204362/jetified-firebase-firestore-ktx-22.0.1/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1158846f498a3f6215c92d99d4204362/jetified-firebase-firestore-ktx-22.0.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1158846f498a3f6215c92d99d4204362/jetified-firebase-firestore-ktx-22.0.1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/0cb8d3b01d19ccd48d8ea11c47913d07/transformed/jetified-firebase-firestore-ktx-22.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0cb8d3b01d19ccd48d8ea11c47913d07/transformed/jetified-firebase-firestore-ktx-22.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0cb8d3b01d19ccd48d8ea11c47913d07/transformed/jetified-firebase-firestore-ktx-22.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-firestore-ktx/22.0.1/6538d497e6a2fcd88d6bb89abf4d6a37c7ee80b5/firebase-firestore-ktx-22.0.1-javadoc.jar!/" />
