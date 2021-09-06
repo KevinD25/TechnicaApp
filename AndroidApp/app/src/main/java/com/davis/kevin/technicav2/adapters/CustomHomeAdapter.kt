@@ -17,6 +17,9 @@ class CustomHomeAdapter(private val ctx: Context, var arrayList: ArrayList<HomeV
     class CostumView(val homeBinding: HomeBinding, val parent: ViewGroup): RecyclerView.ViewHolder(homeBinding.root)  {
         fun bind(homeViewModel: HomeViewModel) {
             this.homeBinding.homeModel = homeViewModel
+            if(homeViewModel.getViewDate().isNullOrBlank()) {
+                itemView.txt_date.setVisibility(View.GONE)
+            } else itemView.txt_date.setVisibility(View.VISIBLE);
         }
     }
 
