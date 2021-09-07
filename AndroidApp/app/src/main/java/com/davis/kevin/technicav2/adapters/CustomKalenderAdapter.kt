@@ -44,4 +44,8 @@ class CustomKalenderAdapter(private val arrayList: ArrayList<KalenderViewModel>,
         val kalenderViewModel = arrayList[position]
         holder.bind(kalenderViewModel)
     }
+
+    fun getItemIndex(item: KalenderViewModel?): Int {
+        return arrayList.indexOf(item)
+    }
 }

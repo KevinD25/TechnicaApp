@@ -27,7 +27,7 @@ class KalenderFragment : Fragment() {
     private var customKalenderAdapter: CustomKalenderAdapter? = null
     private lateinit var ctx: Context
     private var arrayList = ArrayList<KalenderViewModel>()
-    private var firstEventIsSet: Boolean = false
+    private var upcomingEvent: KalenderViewModel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -43,16 +43,18 @@ class KalenderFragment : Fragment() {
                 val kalenderViewModel = KalenderViewModel(event)
                 arrayList.add(kalenderViewModel)
                 // Get First Upcoming Event
-                if (!firstEventIsSet && (kalenderViewModel.date!!.year > currentDate.year ||
+                if (upcomingEvent == null && (kalenderViewModel.date!!.year > currentDate.year ||
                             (kalenderViewModel.date!!.year == currentDate.year && kalenderViewModel.date!!.dayOfYear >= currentDate.dayOfYear))) {
-                    setUpcomingEvent(kalenderViewModel)
-                    firstEventIsSet = true
+                    upcomingEvent = kalenderViewModel
                 }
             }
 
             customKalenderAdapter = CustomKalenderAdapter(arrayList, viewOfLayout)
             kalenderRV!!.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
             kalenderRV!!.adapter = customKalenderAdapter
+            kalenderRV!!.scrollToPosition(customKalenderAdapter!!.getItemIndex(upcomingEvent))
+            setUpcomingEvent(upcomingEvent)
+            upcomingEvent = null
         })
 
         return viewOfLayout
