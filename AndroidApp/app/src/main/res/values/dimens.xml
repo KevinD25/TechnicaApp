@@ -18,6 +18,11 @@
     <dimen name="big_icon">72dp</dimen>
     <dimen name="big_image">320dp</dimen>
 
+    <dimen name="indicator">48dp</dimen>
+    <dimen name="big_indicator">96dp</dimen>
+
+    <dimen name="indicator_image">40dp</dimen>
+
     <dimen name="small_dim">160dp</dimen>
     <dimen name="dim">256dp</dimen>
     <dimen name="large_dim">360dp</dimen>

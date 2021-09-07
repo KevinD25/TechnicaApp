@@ -7,12 +7,15 @@ import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Evenement
 import com.davis.kevin.technicav2.networking.FirebaseHandler
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class KalenderViewModel : ViewModel {
 
     var id: String? = ""
     var name: String? = ""
     var fbLink: String? = ""
+    var location: String? = "http://maps.google.co.in/maps?q="
+    var description: String? = ""
     var image: Bitmap? = null
     var date: LocalDate? = null
 
@@ -31,5 +34,10 @@ class KalenderViewModel : ViewModel {
 
     fun getViewImage(): BitmapDrawable {
         return BitmapDrawable(image)
+    }
+
+    fun getViewDate(): String {
+        if (date == null) return ""
+        return date!!.format(DateTimeFormatter.ofPattern("dd MM yyyy"))
     }
 }

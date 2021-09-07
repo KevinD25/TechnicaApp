@@ -13,7 +13,7 @@
         android:layout_marginHorizontal="@dimen/filler"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="goToLink"
         tools:itemCount="5"
         tools:listitem="@layout/inner_vacature" />
+
 </LinearLayout>

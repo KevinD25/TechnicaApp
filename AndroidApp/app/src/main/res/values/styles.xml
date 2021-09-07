@@ -22,10 +22,15 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginVertical">@dimen/filler_small</item>
 
+        <item name="android:text">@string/app_name</item>
         <item name="android:lineSpacingExtra">@dimen/line_space</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/text</item>
+    </style>
+
+    <style name="Text.Header">
+        <item name="android:textSize">@dimen/header</item>
     </style>
 
     <style name="Info" parent="Text">
@@ -36,10 +41,6 @@
 
     <style name="Info.Lines">
         <item name="android:lines">8</item>
-    </style>
-
-    <style name="Header" parent="Text">
-        <item name="android:textSize">@dimen/header</item>
     </style>
 
     <style name="Card">
@@ -80,20 +81,27 @@
         <item name="android:layout_margin">@dimen/filler</item>
     </style>
 
-    <style name="Schild" parent="Image">
+    <style name="Image.Schild">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/style_image_background_blue</item>
         <item name="srcCompat">@drawable/technica_schild</item>
     </style>
 
-    <style name="BigImage" parent="Image">
+    <style name="Image.Big">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_margin">@dimen/filler_big</item>
         <item name="android:minHeight">@dimen/big_image</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:adjustViewBounds">true</item>
         <item name="srcCompat">@mipmap/ic_launcher</item>
+    </style>
+
+    <style name="Image.Scroll">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="srcCompat">@mipmap/ic_launcher</item>
+        <item name="android:layout_margin">@dimen/none</item>
     </style>
 
     <style name="Icon">
@@ -136,6 +144,7 @@
 
     <!-- Layout theme. -->
     <style name="ConLay">
+        <item name="android:background">@drawable/style_image_background</item>
         <item name="android:paddingVertical">@dimen/filler_small</item>
     </style>
 
@@ -152,10 +161,14 @@
         <item name="android:layout_above">@id/indicator</item>
     </style>
 
+    <style name="ConstraintView" parent="ViewPager">
+        <item name="android:layout_above">@id/kalender_RV</item>
+    </style>
+
     <!-- Indicator theme. -->
     <style name="Indicator">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_height">@dimen/indicator</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:background">@color/colorPrimaryDark</item>
     </style>

@@ -7,25 +7,31 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.databinding.KalenderBinding
+import com.davis.kevin.technicav2.ui.kalender.KalenderFragment
 import com.davis.kevin.technicav2.ui.kalender.KalenderViewModel
+import kotlinx.android.synthetic.main.inner_kalender.view.*
+
 
 class CustomKalenderAdapter(private val ctx: Context, private val arrayList: ArrayList<KalenderViewModel>)
     : RecyclerView.Adapter<CustomKalenderAdapter.CustomView>() {
 
-    class CustomView(val kalenderBinding: KalenderBinding) :
-        RecyclerView.ViewHolder(kalenderBinding.root) {
+    class CustomView(val kalenderBinding: KalenderBinding, val parent: ViewGroup)
+        : RecyclerView.ViewHolder(kalenderBinding.root) {
 
         fun bind(kalenderViewModel: KalenderViewModel) {
             this.kalenderBinding.kalenderModel = kalenderViewModel
+            itemView.img_event.setOnClickListener {
+                KalenderFragment.setUpcomingEvent(kalenderViewModel, parent.context)
+            }
             kalenderBinding.executePendingBindings()
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val kalenderBinding: KalenderBinding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.inner_kalender, parent, false)
-        return CustomView(kalenderBinding)
+        val kalenderBinding: KalenderBinding = DataBindingUtil.inflate(layoutInflater,
+            R.layout.inner_kalender, parent, false)
+        return CustomView(kalenderBinding, parent)
     }
 
     override fun getItemCount(): Int {

@@ -16,8 +16,8 @@ import kotlinx.android.synthetic.main.inner_vacature.view.*
 class CustomVacatureAdapter(private val ctx: Context, private val arrayList: ArrayList<VacaturesViewModel>)
     : RecyclerView.Adapter<CustomVacatureAdapter.CustomView>() {
 
-    class CustomView(val vacatureBinding: VacatureBinding, val parent: ViewGroup) : RecyclerView.ViewHolder(
-        vacatureBinding.root) {
+    class CustomView(val vacatureBinding: VacatureBinding, val parent: ViewGroup)
+        : RecyclerView.ViewHolder(vacatureBinding.root) {
 
         fun bind(vacaturesViewModel: VacaturesViewModel) {
             this.vacatureBinding.vacatureModel = vacaturesViewModel
@@ -27,7 +27,6 @@ class CustomVacatureAdapter(private val ctx: Context, private val arrayList: Arr
             }
             vacatureBinding.executePendingBindings()
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {
@@ -43,16 +42,6 @@ class CustomVacatureAdapter(private val ctx: Context, private val arrayList: Arr
 
     override fun onBindViewHolder(holder: CustomView, position: Int) {
         val vacaturesViewModel = arrayList[position]
-
-        /*holder.itemView.setOnClickListener(View.OnClickListener {
-            val browserIntent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse(arrayList[position].link)
-            ) //Not sure wether this one works
-            ctx.startActivity(browserIntent)
-        })*/
         holder.bind(vacaturesViewModel)
     }
-
-
 }

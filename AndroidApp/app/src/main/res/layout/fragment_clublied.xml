@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/img_schild"
-            style="@style/Schild"
+            style="@style/Image.Schild"
             app:layout_constraintBottom_toTopOf="@+id/txt_clublied"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -44,10 +44,9 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
             for(event in events){
                 val homeViewModel = HomeViewModel(event)
                 // Only new events
-                if (homeViewModel.date!!.year > currentDate.year){
+                if (homeViewModel.date!!.year > currentDate.year ||
+                    (homeViewModel.date!!.year == currentDate.year && homeViewModel.date!!.dayOfYear >= currentDate.dayOfYear)){
                     // Max show 3
-                    if (arrayList.size < 3) arrayList.add(homeViewModel)
-                } else if (homeViewModel.date!!.year == currentDate.year && homeViewModel.date!!.dayOfYear >= currentDate.dayOfYear){
                     if (arrayList.size < 3) arrayList.add(homeViewModel)
                 }
             }

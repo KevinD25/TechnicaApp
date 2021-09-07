@@ -14,7 +14,7 @@
         android:layout_marginTop="@dimen/filler"
         android:focusable="true"
         android:foreground="?selectableItemBackground"
-        app:cardCornerRadius="@dimen/filler">
+        app:cardCornerRadius="@dimen/filler" >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

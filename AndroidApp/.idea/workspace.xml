@@ -12,7 +12,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -25,7 +25,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Thoma\.android\avd\Nexus_S_API_27.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Thoma\.android\avd\Pixel_3_API_27_1.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -62,6 +62,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1ftn0ATjx5dxSaO0hpknZcGoTAn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -104,8 +107,8 @@
       <recent name="D:\Technica\TechnicaApp\Applicatie\TechnicaAppV2\app\src\main\java\com\davis\kevin\technicav2\ui\vacatures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\values" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\drawable" />
+      <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\values" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\mipmap-xxxhdpi" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
