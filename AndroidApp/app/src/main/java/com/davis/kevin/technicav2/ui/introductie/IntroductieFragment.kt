@@ -24,9 +24,9 @@ class IntroductieFragment : Fragment() {
         viewOfLayout = inflater.inflate(R.layout.fragment_introductie, container, false)
         introductieViewModel = ViewModelProviders.of(this).get(IntroductieViewModel::class.java)
 
-        introductieViewModel.getContext(ctx)
         introductieViewModel.getArray().observe(viewLifecycleOwner, Observer { text ->
-            txt_introductie.text = text.clubText
+            var introductieViewModel = IntroductieViewModel(text)
+            txt_introductie.text = introductieViewModel.text
         })
 
         return viewOfLayout

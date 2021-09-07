@@ -15,7 +15,6 @@ import com.davis.kevin.technicav2.adapters.CustomVacatureAdapter
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsViewModel
 
-
 class VacaturesFragment : Fragment() {
 
     private lateinit var vacaturesViewModel: VacaturesViewModel
@@ -54,7 +53,7 @@ class VacaturesFragment : Fragment() {
                     arrayList.add(vacaturesViewModel)
                 }
             }
-            customVacatureAdapter = CustomVacatureAdapter(ctx, arrayList)
+            customVacatureAdapter = CustomVacatureAdapter(arrayList)
             VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
             VacatureRV!!.adapter = customVacatureAdapter
             SponsorsFragment.sponsorId = null

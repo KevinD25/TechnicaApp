@@ -1,9 +1,7 @@
 package com.davis.kevin.technicav2.ui.vacatures
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import androidx.core.graphics.scale
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Partner
@@ -18,7 +16,6 @@ class VacaturesViewModel : ViewModel {
     var link : String? = ""
     var companyId : String? = ""
     var companyImg : Bitmap? = null
-    private lateinit var mContext: Context
 
     constructor() : super() {}
     constructor(vacature: Vacature) : super() {
@@ -48,10 +45,6 @@ class VacaturesViewModel : ViewModel {
     fun getViewImage(): BitmapDrawable {
         var image = companyImg?.let { scale(it) }
         return BitmapDrawable(image)
-    }
-
-    fun getContext(context: Context) {
-        mContext = context
     }
 
     private fun scale(realImage: Bitmap): Bitmap? {

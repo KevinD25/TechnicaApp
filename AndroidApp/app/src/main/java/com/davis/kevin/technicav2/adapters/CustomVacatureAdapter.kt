@@ -1,6 +1,5 @@
 package com.davis.kevin.technicav2.adapters
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -13,7 +12,7 @@ import com.davis.kevin.technicav2.ui.vacatures.VacaturesViewModel
 import kotlinx.android.synthetic.main.inner_vacature.view.*
 
 
-class CustomVacatureAdapter(private val ctx: Context, private val arrayList: ArrayList<VacaturesViewModel>)
+class CustomVacatureAdapter(private val arrayList: ArrayList<VacaturesViewModel>)
     : RecyclerView.Adapter<CustomVacatureAdapter.CustomView>() {
 
     class CustomView(val vacatureBinding: VacatureBinding, val parent: ViewGroup)
@@ -30,8 +29,7 @@ class CustomVacatureAdapter(private val ctx: Context, private val arrayList: Arr
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val vacatureBinding: VacatureBinding = DataBindingUtil.inflate(layoutInflater,
+        val vacatureBinding: VacatureBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
             R.layout.inner_vacature, parent, false)
         return CustomView(vacatureBinding, parent)
     }

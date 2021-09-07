@@ -7,17 +7,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.davis.kevin.technicav2.MainActivity
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.databinding.PartnerBinding
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsViewModel
 import kotlinx.android.synthetic.main.inner_partner.view.*
 
-class CustomPartnerAdapter(val ctx: Context, val arrayList: ArrayList<SponsorsViewModel>, private val navController: NavController)
+class CustomPartnerAdapter(val arrayList: ArrayList<SponsorsViewModel>, private val navController: NavController)
     : RecyclerView.Adapter<CustomPartnerAdapter.CustomView>() {
 
 
@@ -41,12 +38,8 @@ class CustomPartnerAdapter(val ctx: Context, val arrayList: ArrayList<SponsorsVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {
-        val layoutInflater = LayoutInflater.from(parent.context)
-
-        val partnerBinding: PartnerBinding = DataBindingUtil.inflate(layoutInflater,
+        val partnerBinding: PartnerBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
             R.layout.inner_partner, parent, false)
-        val partnerView = layoutInflater.inflate(R.layout.inner_partner, parent, false)
-
         return CustomView(partnerBinding, parent, navController)
     }
 

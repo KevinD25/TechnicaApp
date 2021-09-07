@@ -1,6 +1,5 @@
 package com.davis.kevin.technicav2.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -9,7 +8,7 @@ import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.databinding.PraesidiumBinding
 import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
 
-class CustomPraesidiumAdapter(val ctx: Context, var arrayList: ArrayList<PraesidiumViewModel>) :
+class CustomPraesidiumAdapter(var arrayList: ArrayList<PraesidiumViewModel>) :
     RecyclerView.Adapter<CustomPraesidiumAdapter.CustomView>() {
 
     class CustomView(val praesidiumBinding: PraesidiumBinding) : RecyclerView.ViewHolder(praesidiumBinding.root) {
@@ -21,12 +20,8 @@ class CustomPraesidiumAdapter(val ctx: Context, var arrayList: ArrayList<Praesid
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {
-
-        val layoutInflater = LayoutInflater.from(parent.context)
-
-        val praesidiumBinding: PraesidiumBinding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.inner_praesidium, parent, false)
-
+        val praesidiumBinding: PraesidiumBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
+            R.layout.inner_praesidium, parent, false)
         return CustomView(praesidiumBinding)
     }
 

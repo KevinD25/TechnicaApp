@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomPartnerAdapter
-import kotlinx.android.synthetic.main.fragment_praesidium.*
 import kotlinx.android.synthetic.main.fragment_sponsors.*
 import me.relex.circleindicator.CircleIndicator3
 
@@ -48,7 +47,7 @@ class SponsorsFragment : Fragment() {
                 val partnerViewModel = SponsorsViewModel(partner)
                 arrayList.add(partnerViewModel)
             }
-            customPartnerAdapter = CustomPartnerAdapter(ctx, arrayList, this.findNavController())
+            customPartnerAdapter = CustomPartnerAdapter(arrayList, this.findNavController())
             PartnerVP!!.adapter = customPartnerAdapter
 
             val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)

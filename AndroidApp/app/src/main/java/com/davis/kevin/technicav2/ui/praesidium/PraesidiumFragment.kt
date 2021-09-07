@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
-import kotlinx.android.synthetic.main.fragment_praesidium.*
 import me.relex.circleindicator.CircleIndicator3
 
 class PraesidiumFragment : Fragment() {
@@ -23,7 +22,6 @@ class PraesidiumFragment : Fragment() {
     private var customPraesidiumAdapter : CustomPraesidiumAdapter? = null
     private lateinit var ctx : Context
     var arrayList = ArrayList<PraesidiumViewModel>()
-    private var images : MutableMap<String, Drawable>? = HashMap()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -47,7 +45,7 @@ class PraesidiumFragment : Fragment() {
                     val praesidiumViewModel = PraesidiumViewModel(praesidia)
                     arrayList.add(praesidiumViewModel)
                 }
-                customPraesidiumAdapter = CustomPraesidiumAdapter(ctx, arrayList)
+                customPraesidiumAdapter = CustomPraesidiumAdapter(arrayList)
                 PraesidiumVP!!.adapter = customPraesidiumAdapter
 
                 val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)

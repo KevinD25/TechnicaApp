@@ -6,7 +6,6 @@ import androidx.lifecycle.*
 import com.davis.kevin.technicav2.models.Praesidium
 import com.davis.kevin.technicav2.networking.FirebaseHandler
 
-
 class PraesidiumViewModel : ViewModel {
 
     var id : String? = ""

@@ -1,6 +1,5 @@
 package com.davis.kevin.technicav2.ui.home
 
-import android.app.usage.UsageEvents
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -57,7 +56,7 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
                     )
                 ))
             }
-            customHomeAdapter = CustomHomeAdapter(ctx, arrayList)
+            customHomeAdapter = CustomHomeAdapter(arrayList)
             infiniteScrollWrapper = InfiniteScrollAdapter.wrap(customHomeAdapter!!)
             homeDSV!!.adapter = infiniteScrollWrapper
             homeDSV!!.setItemTransformer(CarouselTransformer())

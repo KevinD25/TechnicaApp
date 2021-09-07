@@ -2,7 +2,6 @@ package com.davis.kevin.technicav2.ui.home
 
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Evenement
