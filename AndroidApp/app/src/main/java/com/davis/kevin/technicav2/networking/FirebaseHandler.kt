@@ -1,7 +1,6 @@
 package com.davis.kevin.technicav2.networking
 
 import android.graphics.BitmapFactory
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.davis.kevin.technicav2.models.*
 import com.davis.kevin.technicav2.ui.praesidium.Functie
@@ -46,7 +45,7 @@ object FirebaseHandler {
 
     private fun getPraesidium() {
         // Make a List
-        var praesidia = mutableListOf<Praesidium>()
+        val praesidia = mutableListOf<Praesidium>()
         // The data from the database
         db.collection("Praesidium").get().addOnSuccessListener{ result ->
             // Go through all data objects (document = 1 object)
@@ -101,7 +100,6 @@ object FirebaseHandler {
                         )
                         events.add(event)
                         if (document.id == result.last().id) events.sortBy { event -> event.date }
-                        Log.d("Event", eventList.toString())
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance()
                             .recordException(exception)
