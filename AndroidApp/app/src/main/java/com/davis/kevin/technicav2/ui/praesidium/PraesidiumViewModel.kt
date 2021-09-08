@@ -5,18 +5,18 @@ import android.graphics.drawable.BitmapDrawable
 import androidx.lifecycle.*
 import com.davis.kevin.technicav2.models.Praesidium
 import com.davis.kevin.technicav2.networking.FirebaseHandler
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class PraesidiumViewModel : ViewModel {
 
     var id : String? = ""
     var name: String? = ""
     var surname: String? = ""
-    var birthday: String? = ""
     var studies: String? = ""
-    var functie: Functie? = null
     var image: Bitmap? = null
-    var list : LiveData<List<Praesidium>>? = null
-    //var images : MutableMap<String, Drawable>? = HashMap()
+    var functie: Functie? = null
+    var birthday: LocalDate? = null
 
     constructor() : super()
     constructor(praesidium: Praesidium) : super() {
@@ -58,6 +58,11 @@ class PraesidiumViewModel : ViewModel {
         } else { // Stuurt hem door als de string niet te lang is
             return studies
         }
+    }
+
+    fun getViewBirthday(): String {
+        if (this.birthday == null) return ""
+        return this.birthday!!.format(DateTimeFormatter.ofPattern("dd'/'MM'/'yyyy"))
     }
 
 }

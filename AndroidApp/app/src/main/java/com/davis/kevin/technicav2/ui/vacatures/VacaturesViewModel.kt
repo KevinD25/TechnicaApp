@@ -10,12 +10,11 @@ import com.davis.kevin.technicav2.networking.FirebaseHandler
 
 class VacaturesViewModel : ViewModel {
 
-    var id : String? = ""
-    var name : String? = ""
-    var description : String? = ""
-    var link : String? = ""
-    var companyId : String? = ""
-    var companyImg : Bitmap? = null
+    var id: String? = ""
+    var name: String? = ""
+    var description: String? = ""
+    var link: String? = ""
+    var partner: VacatureSponsor? = null
 
     constructor() : super() {}
     constructor(vacature: Vacature) : super() {
@@ -23,27 +22,14 @@ class VacaturesViewModel : ViewModel {
         this.name = vacature.name
         this.description = vacature.description
         this.link = vacature.link
-        this.companyId = vacature.companyId
-        this.companyImg = imageMap.get(vacature.companyId)
-        // this.company = partnerMap.get(vacature.companyID)
     }
 
-    var arraylist = ArrayList<VacaturesViewModel>()
-    companion object {
-        var partnerMap = mutableMapOf<String, String>()
-        var imageMap = mutableMapOf<String, Bitmap>()
-    }
-
-    fun getArray(): MutableLiveData<List<Vacature>>{
+    fun getArray(): MutableLiveData<List<Vacature>> {
         return FirebaseHandler.vacancieList
     }
 
-    fun getPartners(): MutableLiveData<List<Partner>> {
-        return FirebaseHandler.sponsorList
-    }
-
     fun getViewImage(): BitmapDrawable {
-        var image = companyImg?.let { scale(it) }
+        val image = this.partner!!.image?.let { scale(it) }
         return BitmapDrawable(image)
     }
 

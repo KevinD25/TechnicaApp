@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
@@ -13,16 +14,20 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomPartnerAdapter
+import com.davis.kevin.technicav2.ui.vacatures.VacaturesFragment
 import kotlinx.android.synthetic.main.fragment_sponsors.*
 import me.relex.circleindicator.CircleIndicator3
+
+
+
 
 class SponsorsFragment : Fragment() {
 
     private lateinit var sponsorsViewModel: SponsorsViewModel
-    private var PartnerVP : ViewPager2? = null
-    private lateinit var viewOfLayout : View
-    private var customPartnerAdapter : CustomPartnerAdapter? = null
-    private lateinit var ctx : Context
+    private var PartnerVP: ViewPager2? = null
+    private lateinit var viewOfLayout: View
+    private var customPartnerAdapter: CustomPartnerAdapter? = null
+    private lateinit var ctx: Context
     private var arrayList = ArrayList<SponsorsViewModel>()
 
     companion object {
@@ -41,7 +46,6 @@ class SponsorsFragment : Fragment() {
         PartnerVP = viewOfLayout.findViewById(R.id.partner_VP)
 
         sponsorsViewModel = ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
-        sponsorsViewModel.getContext(ctx)
         sponsorsViewModel.getArray().observe(viewLifecycleOwner, Observer { partners ->
             for(partner in partners){
                 val partnerViewModel = SponsorsViewModel(partner)

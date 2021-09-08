@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomVacatureAdapter
+import com.davis.kevin.technicav2.networking.FirebaseHandler
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsViewModel
 
@@ -28,35 +29,33 @@ class VacaturesFragment : Fragment() {
 
         ctx = requireActivity().applicationContext
 
-        viewOfLayout = inflater!!.inflate(R.layout.fragment_vacatures, container, false)
+        viewOfLayout = inflater.inflate(R.layout.fragment_vacatures, container, false)
         VacatureRV = viewOfLayout.findViewById(R.id.vacature_RV)
 
         vacaturesViewModel = ViewModelProviders.of(this).get(VacaturesViewModel::class.java)
-        // Map partner id and name
-        vacaturesViewModel.getPartners().observe(viewLifecycleOwner, Observer { partners ->
+        val sponsorList = ArrayList<VacatureSponsor>()
+        // Get Sponsor Items
+        VacatureSponsor().getArray().observe(viewLifecycleOwner, Observer { partners ->
             for (partner in partners) {
-                // Adds only new values
-                if (!VacaturesViewModel.partnerMap.containsKey(partner.id)){
-                    val sponsorsViewModel = SponsorsViewModel(partner)
-                    VacaturesViewModel.partnerMap.put(sponsorsViewModel.id!!, sponsorsViewModel.name!!)
-                    VacaturesViewModel.imageMap.put(sponsorsViewModel.id!!, sponsorsViewModel.image!!)
-                }
+                val vacatureSponsor = VacatureSponsor(partner)
+                sponsorList.add(vacatureSponsor)
             }
-        })
 
-        // Use the name and id for vacature use
-        vacaturesViewModel.getArray().observe(viewLifecycleOwner, Observer { vacatures ->
-            for (vacature in vacatures) {
-                val vacaturesViewModel = VacaturesViewModel(vacature)
-                if (vacaturesViewModel.companyId.equals(SponsorsFragment.sponsorId)
-                    || SponsorsFragment.sponsorId.isNullOrEmpty()) {
-                    arrayList.add(vacaturesViewModel)
+            // Use the name and id for the vacatures
+            vacaturesViewModel.getArray().observe(viewLifecycleOwner, Observer { vacatures ->
+                for (vacature in vacatures) {
+                    val vacaturesViewModel = VacaturesViewModel(vacature)
+                    vacaturesViewModel.partner = sponsorList.firstOrNull { sponsor: VacatureSponsor -> sponsor.id.equals(vacature.companyId) }
+                    if (vacaturesViewModel.partner!!.id.equals(SponsorsFragment.sponsorId)
+                        || SponsorsFragment.sponsorId.isNullOrEmpty()) {
+                        arrayList.add(vacaturesViewModel)
+                    }
                 }
-            }
-            customVacatureAdapter = CustomVacatureAdapter(arrayList)
-            VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
-            VacatureRV!!.adapter = customVacatureAdapter
-            SponsorsFragment.sponsorId = null
+                customVacatureAdapter = CustomVacatureAdapter(arrayList)
+                VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
+                VacatureRV!!.adapter = customVacatureAdapter
+                SponsorsFragment.sponsorId = null
+            })
         })
 
         return viewOfLayout

@@ -8,6 +8,7 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -55,14 +56,15 @@ object FirebaseHandler {
                 // Use the imageLink variable to find the image in the FireBase Storage
                 storage.reference.child(document["imageLink"] as String).getBytes(ONE_MEGABYTE)
                     .addOnSuccessListener { image ->
+                        val birthdayString = document["birthday"] as String?
                         // Create a Praesidium-Object with the data
                         val praesidium = Praesidium(
                             id = document.id,
                             name = document["name"] as String?,
                             surname = document["surName"] as String?,
-                            birthday = document["birthday"] as String?,
                             studies = document["studies"] as String?,
                             functie = Functie.LongToEnum(document["function"] as Long?),
+                            birthday = LocalDate.parse(birthdayString, DateTimeFormatter.ofPattern("yyyy-MM-dd")),
                             image = BitmapFactory.decodeByteArray(image, 0, image.size)
                         )
                         // Add the Praesidium-Object to the List

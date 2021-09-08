@@ -1,6 +1,5 @@
 package com.davis.kevin.technicav2.ui.sponsors
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +15,6 @@ class SponsorsViewModel : ViewModel {
     var website: String? = ""
     var image: Bitmap? = null
     var priority: Long? = null
-    private lateinit var mContext: Context
 
     constructor() : super()
     constructor(
@@ -30,16 +28,12 @@ class SponsorsViewModel : ViewModel {
         this.priority = partner.priority
     }
 
-    fun getViewImage(): BitmapDrawable {
-        return BitmapDrawable(image)
-    }
-
-    fun getContext(context: Context) {
-        mContext = context
-    }
-
     fun getArray(): MutableLiveData<List<Partner>> {
         return FirebaseHandler.sponsorList
+    }
+
+    fun getViewImage(): BitmapDrawable {
+        return BitmapDrawable(image)
     }
 
 }
