@@ -9,7 +9,7 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 
@@ -86,11 +86,17 @@ object FirebaseHandler {
                 storage.reference.child(document["imageLink"] as String)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
                         val dateString = document["date"] as String?
+                        val timeString = document["time"] as String?
                         val event = Evenement(
                             id = document.id,
                             name = document["name"] as String?,
                             fbLink = document["fbLink"] as String?,
-                            date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                            formsLink = document["formsLink"] as String?,
+                            location = document["location"] as String?,
+                            price = document["price"] as Long?,
+                            description = document["description"] as String?,
+                            date = LocalDateTime.parse("$dateString $timeString",
+                                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),
                             image = BitmapFactory.decodeByteArray(image, 0, image.size)
                         )
                         events.add(event)

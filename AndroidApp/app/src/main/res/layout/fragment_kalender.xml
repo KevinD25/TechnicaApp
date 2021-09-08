@@ -8,7 +8,9 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout style="@style/ConstraintView">
 
@@ -33,6 +35,7 @@
                     android:id="@+id/txt_name"
                     style="@style/Text.Header"
                     android:layout_marginVertical="@dimen/none"
+                    android:layout_marginEnd="@dimen/filler_small"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/img_fb_link"
                     app:layout_constraintStart_toStartOf="parent"
@@ -42,22 +45,78 @@
                     android:id="@+id/img_fb_link"
                     android:layout_width="@dimen/header"
                     android:layout_height="@dimen/header"
-                    android:layout_margin="@dimen/filler_small"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/img_forms_link"
                     app:layout_constraintStart_toEndOf="@+id/txt_name"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_fb_icon" />
+                    app:srcCompat="@drawable/ic_icon_fb" />
+
+                <ImageView
+                    android:id="@+id/img_forms_link"
+                    android:layout_width="@dimen/icon"
+                    android:layout_height="@dimen/icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_fb_link"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_icon_docs" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/txt_date"
                 style="@style/Text"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/bar_location"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bar_bday" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bar_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/txt_price"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_date">
+
+                <TextView
+                    android:id="@+id/txt_location"
+                    style="@style/Text"
+                    android:layout_marginVertical="@dimen/none"
+                    android:layout_marginEnd="@dimen/filler_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/img_location"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_location"
+                    android:layout_width="@dimen/header"
+                    android:layout_height="@dimen/header"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_location"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_icon_maps" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/txt_price"
+                style="@style/Text"
+                app:layout_constraintBottom_toTopOf="@+id/bar_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bar_location" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                style="@style/Info"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_price" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

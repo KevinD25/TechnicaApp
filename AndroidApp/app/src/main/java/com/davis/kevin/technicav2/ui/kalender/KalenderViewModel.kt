@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Evenement
 import com.davis.kevin.technicav2.networking.FirebaseHandler
-import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class KalenderViewModel : ViewModel {
@@ -14,15 +14,21 @@ class KalenderViewModel : ViewModel {
     var id: String? = ""
     var name: String? = ""
     var fbLink: String? = ""
-    var location: String? = "https://maps.google.co.in/maps?q=\"Cafe Barbier\"&?z=1"
+    var formsLink: String? = ""
+    var location: String? = ""
+    var price: Int? = null
     var description: String? = ""
     var image: Bitmap? = null
-    var date: LocalDate? = null
+    var date: LocalDateTime? = null
 
     constructor() : super() {}
     constructor(event: Evenement) : super() {
         this.id = event.id
         this.name = event.name
+        this.formsLink = event.formsLink
+        this.location = event.location
+        this.price = event.price!!.toInt()
+        this.description = event.description
         this.fbLink = event.fbLink
         this.image = event.image
         this.date = event.date
@@ -38,6 +44,10 @@ class KalenderViewModel : ViewModel {
 
     fun getViewDate(): String {
         if (date == null) return ""
-        return date!!.format(DateTimeFormatter.ofPattern("dd MM yyyy"))
+        return date!!.format(DateTimeFormatter.ofPattern("dd MM yyyy HH:mm"))
+    }
+
+    fun getViewPrice(): String? {
+        return "BE27 7310 2609 3173 - €${price.toString()}"
     }
 }

@@ -29,6 +29,60 @@ class KalenderFragment : Fragment() {
     private var arrayList = ArrayList<KalenderViewModel>()
     private var upcomingEvent: KalenderViewModel? = null
 
+    companion object {
+        fun setUpcomingEvent(upcomingEvent: KalenderViewModel?, view: View) {
+
+            // Image
+            view.img_event.setImageDrawable(BitmapDrawable(upcomingEvent!!.image))
+
+            // Name
+            view.txt_name.text = upcomingEvent.name
+
+            // FaceBook Link
+            view.img_fb_link.setOnClickListener {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(upcomingEvent.fbLink))
+                view.context.startActivity(browserIntent)
+            }
+
+            // Google Forms Link
+            if (upcomingEvent.formsLink.isNullOrBlank()) {
+                view.img_forms_link.visibility = View.GONE
+            } else {
+                view.img_forms_link.visibility = View.VISIBLE
+                view.img_forms_link.setOnClickListener {
+                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(upcomingEvent.formsLink))
+                    view.context.startActivity(browserIntent)
+                }
+            }
+
+            // Date
+            view.txt_date.text = upcomingEvent.getViewDate()
+
+            // Location
+            if (upcomingEvent.location.isNullOrBlank()) {
+                view.bar_location.visibility = View.GONE
+            } else {
+                view.bar_location.visibility = View.VISIBLE
+                view.txt_location.text = upcomingEvent.location
+                view.img_location.setOnClickListener {
+                    val browserIntent = Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://maps.google.co.in/maps?q=\"${upcomingEvent.location} Belgium\"&?z=1"))
+                    view.context.startActivity(browserIntent)
+                }
+            }
+
+            // Price
+            if (upcomingEvent.price == null || upcomingEvent.price == 0) {
+                view.txt_price.visibility = View.GONE
+            } else {
+                view.txt_price.visibility = View.VISIBLE
+                view.txt_price.text = upcomingEvent.getViewPrice()
+            }
+
+            view.txt_description.text = upcomingEvent.description
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         ctx = requireActivity().applicationContext
@@ -53,20 +107,10 @@ class KalenderFragment : Fragment() {
             kalenderRV!!.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
             kalenderRV!!.adapter = customKalenderAdapter
             kalenderRV!!.scrollToPosition(customKalenderAdapter!!.getItemIndex(upcomingEvent))
-            setUpcomingEvent(upcomingEvent)
+            setUpcomingEvent(upcomingEvent, viewOfLayout)
             upcomingEvent = null
         })
 
         return viewOfLayout
-    }
-
-    private fun setUpcomingEvent(upcomingEvent: KalenderViewModel?) {
-        viewOfLayout.img_event.setImageDrawable(BitmapDrawable(upcomingEvent!!.image))
-        viewOfLayout.txt_name.text = upcomingEvent.name
-        viewOfLayout.img_fb_link.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(upcomingEvent.fbLink))
-            ctx.startActivity(browserIntent)
-        }
-        viewOfLayout.txt_date.text = upcomingEvent.getViewDate()
     }
 }

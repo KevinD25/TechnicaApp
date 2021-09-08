@@ -18,7 +18,7 @@ class CustomPartnerAdapter(val arrayList: ArrayList<SponsorsViewModel>, private 
     : RecyclerView.Adapter<CustomPartnerAdapter.CustomView>() {
 
 
-    class CustomView(val partnerBinding: PartnerBinding, val parent: ViewGroup, private val navController: NavController)
+    class CustomView(private val partnerBinding: PartnerBinding, val parent: ViewGroup, private val navController: NavController)
         : RecyclerView.ViewHolder(partnerBinding.root) {
 
         fun bind(sponsorsViewModel: SponsorsViewModel) {

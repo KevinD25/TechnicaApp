@@ -13,12 +13,12 @@ import kotlinx.android.synthetic.main.inner_home.view.*
 class CustomHomeAdapter(var arrayList: ArrayList<HomeViewModel>)
     : RecyclerView.Adapter<CustomHomeAdapter.CostumView>() {
 
-    class CostumView(val homeBinding: HomeBinding, val parent: ViewGroup): RecyclerView.ViewHolder(homeBinding.root)  {
+    class CostumView(private val homeBinding: HomeBinding, val parent: ViewGroup): RecyclerView.ViewHolder(homeBinding.root)  {
         fun bind(homeViewModel: HomeViewModel) {
             this.homeBinding.homeModel = homeViewModel
             if(homeViewModel.getViewDate().isNullOrBlank()) {
-                itemView.txt_date.setVisibility(View.GONE)
-            } else itemView.txt_date.setVisibility(View.VISIBLE);
+                itemView.txt_date.visibility = View.GONE
+            } else itemView.txt_date.visibility = View.VISIBLE;
         }
     }
 

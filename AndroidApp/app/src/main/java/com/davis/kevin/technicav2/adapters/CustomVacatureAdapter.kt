@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.inner_vacature.view.*
 class CustomVacatureAdapter(private val arrayList: ArrayList<VacaturesViewModel>)
     : RecyclerView.Adapter<CustomVacatureAdapter.CustomView>() {
 
-    class CustomView(val vacatureBinding: VacatureBinding, val parent: ViewGroup)
+    class CustomView(private val vacatureBinding: VacatureBinding, val parent: ViewGroup)
         : RecyclerView.ViewHolder(vacatureBinding.root) {
 
         fun bind(vacaturesViewModel: VacaturesViewModel) {

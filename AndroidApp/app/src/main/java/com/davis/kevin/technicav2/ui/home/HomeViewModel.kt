@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Evenement
 import com.davis.kevin.technicav2.networking.FirebaseHandler
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class HomeViewModel : ViewModel {
@@ -15,7 +16,7 @@ class HomeViewModel : ViewModel {
     var name: String? = ""
     var fbLink: String? = ""
     var image: Bitmap? = null
-    var date: LocalDate? = null
+    var date: LocalDateTime? = null
 
     constructor() : super() {}
     constructor(event: Evenement) : super() {
