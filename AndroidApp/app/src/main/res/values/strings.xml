@@ -17,6 +17,8 @@
 
     <string name="home">Faculteitsvereniging Antwerpen</string>
     <string name="richtingen">Elektromechanica "\t" Elektronica-ICT "\n" Energiemanagement "\t" Integrale Veiligheid</string>
+    <string name="developers">Made by \n Kevin Davis &amp; Thomas Kramp \n Designed by Evi Claes</string>
+    <string name="designer"></string>
 
     <string name="voorwoord">
         Ik had mezelf voorgenomen dat studentenverenigingen niets voor mij waren,

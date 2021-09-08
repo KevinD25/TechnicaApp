@@ -15,13 +15,13 @@
             <ImageView
                 android:id="@+id/img_event"
                 style="@style/Image.Big"
-                app:layout_constraintBottom_toTopOf="@+id/crd_name"
+                app:layout_constraintBottom_toTopOf="@+id/bar_bday"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/crd_name"
+                android:id="@+id/bar_bday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/txt_date"
@@ -57,7 +57,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/crd_name" />
+                app:layout_constraintTop_toBottomOf="@+id/bar_bday" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -29,9 +29,14 @@ export class AddItemComponent implements OnInit {
     },
     event: {
       name: "",
-      date: "",
       fbLink: "",
-      imageLink: ""
+      formsLink: "",
+      date: "",
+      time: "",
+      location: "",
+      price: 0,
+      imageLink: "",
+      description: ""
     },
     praesidium: {
       name: "",

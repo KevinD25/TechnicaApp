@@ -14,7 +14,7 @@ class KalenderViewModel : ViewModel {
     var id: String? = ""
     var name: String? = ""
     var fbLink: String? = ""
-    var location: String? = "http://maps.google.co.in/maps?q="
+    var location: String? = "https://maps.google.co.in/maps?q=\"Cafe Barbier\"&?z=1"
     var description: String? = ""
     var image: Bitmap? = null
     var date: LocalDate? = null

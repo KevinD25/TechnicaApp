@@ -33,6 +33,15 @@
         <item name="android:textSize">@dimen/header</item>
     </style>
 
+    <style name="Text.Note">
+        <item name="android:textSize">@dimen/note</item>
+        <item name="android:maxWidth">@dimen/dim</item>
+    </style>
+
+    <style name="Text.Bar">
+        <item name="android:textSize">@dimen/bar</item>
+    </style>
+
     <style name="Info" parent="Text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginHorizontal">@dimen/filler</item>
@@ -107,6 +116,7 @@
     <style name="Icon">
         <item name="android:layout_width">@dimen/icon</item>
         <item name="android:layout_height">@dimen/icon</item>
+        <item name="android:layout_marginEnd">@dimen/filler_small</item>
     </style>
 
     <style name="Card.Image" parent="Card.Icon">
@@ -151,6 +161,12 @@
     <style name="CardLay">
         <item name="android:background">@drawable/style_image_background_blue</item>
         <item name="android:padding">@dimen/filler_small</item>
+    </style>
+
+    <style name="BarLay">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/filler_tiny</item>
     </style>
 
     <!-- ViewPager theme. -->

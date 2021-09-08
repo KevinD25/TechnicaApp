@@ -6,9 +6,14 @@ export interface IClubTekst {
 export interface IEvent {
     id?: string,
     name: string,
-    imageLink: string,
-    date: string,
     fbLink: string,
+    formsLink: string,
+    date: string,
+    time: string,
+    location: string,
+    price?: number,
+    imageLink: string,
+    description: string
 }
 
 export interface IPraesidium {

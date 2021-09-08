@@ -19,7 +19,20 @@
               <img [src]="itemUrls[items.indexOf(item)]" class="check">
             </div>
             <div class="col s12 m4 l8">
-              <div><a [href]="item.fbLink">{{item.name}}</a> - {{item.date}}</div>
+              <div>
+                <a [href]="item.fbLink">{{item.name}}</a> - 
+                <ng-container *ngIf="item.formsLink">
+                  <a [href]="item.formsLink">{{item.date}} {{item.time}}</a> - 
+                </ng-container>
+                <ng-container *ngIf="!item.formsLink">
+                  {{item.date}} {{item.time}} - 
+                </ng-container>
+                <ng-container *ngIf="item.location" >
+                  <a [href]='"https://maps.google.co.in/maps?q=\"" + item.location + "\"&?z=1"'>{{item.location}}</a> -
+                </ng-container>
+                €{{item.price}}
+              </div>
+              <div>{{item.description}}</div>
             </div>
           </div>
         </div>
@@ -90,8 +103,14 @@
             </div>
             <div class="col s12 m4 l8">
               <input type="text" placeholder="Name" [(ngModel)]="item.name" name="name">
-              <input type="text" placeholder="FaceBook-Link" [(ngModel)]="item.fbLink" name="facebook">
+              <input type="url" placeholder="FaceBook" [(ngModel)]="item.fbLink" name="facebook">
+              <input type="url" placeholder="GoogleForms" [(ngModel)]="item.formsLink" name="googleforms">
               <input type="date" placeholder="Date" [(ngModel)]="item.date" name="date">
+              <input type="time" placeholder="Time" [(ngModel)]="item.time" name="time">
+              <input type="text" placeholder="Location" [(ngModel)]="item.location" name="location">
+              <input type="number" placeholder="Price" [(ngModel)]="item.price" name="price">
+              <textarea class="text-field" type="text" placeholder="Description" [(ngModel)]="item.description"
+                  name="about"></textarea>
               <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg" class="light-blue lighten-3" />
             </div>
           </div>
@@ -131,7 +150,7 @@
               </div>
               <div class="col s12 m4 l8">
                   <input type="text" placeholder="Name" [(ngModel)]="item.name" name="name">
-                  <input type="text" placeholder="Website" [(ngModel)]="item.website" name="website">
+                  <input type="url" placeholder="Website" [(ngModel)]="item.website" name="website">
                   <input type="number" placeholder="Priority" [(ngModel)]="item.priority" name="priority">
                   <textarea class="text-field" type="text" placeholder="Add Text" [(ngModel)]="item.about" name="about"></textarea>
                   <input type="file" (change)="upload($event)" accept=".png, .jpg, .jpeg"
@@ -146,7 +165,7 @@
       <form (ngSubmit)="updateItem(item)" *ngIf="route == 'Vacatures'" class="col s6">
           <div class="input-field col s6">
               <input type="text" placeholder="description" [(ngModel)]="item.name" name="name">
-              <input type="text" placeholder="link" [(ngModel)]="item.link" name="link">
+              <input type="url" placeholder="link" [(ngModel)]="item.link" name="link">
               <div class="input-field col s12">
                 <select name="sponsorid" id="sponsorid" [(ngModel)]="item.sponsorid" class="select">
                   <option disabled selected value="undefined">Select an Option</option>

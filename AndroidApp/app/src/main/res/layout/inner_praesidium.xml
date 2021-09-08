@@ -22,8 +22,7 @@
 
             <com.github.siyamed.shapeimageview.CircularImageView
                 android:id="@+id/img_person"
-                android:layout_width="@dimen/big_image"
-                android:layout_height="@dimen/big_image"
+                style="@style/Image.Big"
                 android:src="@{praesidiumModel.viewImage}"
                 app:layout_constraintBottom_toTopOf="@id/txt_person"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -32,64 +31,75 @@
                 app:siBorderColor="@color/colorPrimary"
                 app:siBorderWidth="@dimen/filler_small" />
 
-            <!-- <ImageView Voor de Functie banners in de drawable folder
-                android:id="@+id/imgFunctie"
-                android:layout_width="237dp"
-                android:layout_height="131dp"
-                android:layout_marginTop="164dp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="@+id/imgPerson"
-                app:layout_constraintHorizontal_bias="0.79"
-                app:layout_constraintStart_toStartOf="@+id/imgPerson"
-                app:layout_constraintTop_toTopOf="@+id/imgPerson"
-                app:srcCompat="@drawable/functie_praeses" /> -->
-
             <TextView
                 android:id="@+id/txt_person"
                 style="@style/Text.Header"
                 android:text="@{praesidiumModel.name  + ' ' + praesidiumModel.surname + '\n' + praesidiumModel.praesidiumFunctie}"
-                app:layout_constraintBottom_toTopOf="@id/img_bday"
+                app:layout_constraintBottom_toTopOf="@id/bar_bday"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/img_person" />
 
-            <ImageView
-                android:id="@+id/img_bday"
-                style="@style/Icon"
-                app:srcCompat="@drawable/style_icon_bday"
-                app:layout_constraintBottom_toTopOf="@+id/txt_bday"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bar_bday"
+                style="@style/BarLay"
+                app:layout_constraintBottom_toTopOf="@+id/bar_studie"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_person" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_person">
 
-            <TextView
-                android:id="@+id/txt_bday"
-                style="@style/Text"
-                android:text="@{praesidiumModel.birthday}"
-                app:layout_constraintBottom_toTopOf="@+id/img_studie"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_bday" />
+                <ImageView
+                    android:id="@+id/img_bday"
+                    style="@style/Icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_bday"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/style_icon_bday" />
 
-            <ImageView
-                android:id="@+id/img_studie"
-                style="@style/Icon"
-                app:srcCompat="@drawable/style_icon_studie"
-                app:layout_constraintBottom_toTopOf="@+id/txt_studie"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_bday" />
+                <TextView
+                    android:id="@+id/txt_bday"
+                    style="@style/Text.Bar"
+                    android:text="@{praesidiumModel.birthday}"
+                    android:layout_marginVertical="@dimen/none"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_bday"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/txt_studie"
-                style="@style/Text"
-                android:text="@{praesidiumModel.studies}"
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bar_studie"
+                style="@style/BarLay"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_studie" />
+                app:layout_constraintTop_toBottomOf="@+id/bar_bday">
+
+                <ImageView
+                    android:id="@+id/img_studie"
+                    style="@style/Icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_studie"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/style_icon_studie" />
+
+                <TextView
+                    android:id="@+id/txt_studie"
+                    style="@style/Text.Bar"
+                    android:text="@{praesidiumModel.studies}"
+                    android:layout_marginVertical="@dimen/none"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_studie"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 </layout>

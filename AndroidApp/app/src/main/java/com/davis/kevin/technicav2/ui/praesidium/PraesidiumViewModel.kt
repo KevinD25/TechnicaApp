@@ -24,10 +24,9 @@ class PraesidiumViewModel : ViewModel {
         this.name = praesidium.name
         this.surname = praesidium.surname
         this.birthday = praesidium.birthday
-        this.studies = praesidium.studies
+        this.studies = formatStudies(praesidium.studies)
         this.functie = praesidium.functie
         this.image = praesidium.image
-       // this.images = praesidium.images
     }
 
     fun getViewImage(): BitmapDrawable {
@@ -40,6 +39,25 @@ class PraesidiumViewModel : ViewModel {
 
     fun getPraesidiumFunctie() : String? {
         return Functie.EnumToString(this.functie)
+    }
+
+    private fun formatStudies(studies: String?) : String {
+        if (studies!!.length > 25) {   // Kijkt na of de string te lang is
+            val words: List<String> = studies.split(" ")   // Plaats alle woorden apart in een lijst
+            var line = ""
+            var result = ""
+            for (word: String in words) {
+                if (line.length + word.length < 28) {
+                    line = "$line $word"
+                } else { // Als de lijn te lang word dan breekt hij af
+                    result += line
+                    line = " \n $word"
+                }
+            }
+            return result + line
+        } else { // Stuurt hem door als de string niet te lang is
+            return studies
+        }
     }
 
 }
