@@ -86,6 +86,7 @@ export class AddItemComponent implements OnInit {
       } case "Praesidium": {
         this.url = null;
         this.variables.praesidium.imageLink = this.FileService.addImage(this.route);
+        this.variables.praesidium.function = Number(this.variables.praesidium.function)
         this.DataService.addPraesidium(this.variables.praesidium);
         this.variables.praesidium.name = "";
         this.variables.praesidium.surName = "";

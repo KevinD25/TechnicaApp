@@ -103,6 +103,7 @@ class KalenderFragment : Fragment() {
                 }
             }
 
+            if (upcomingEvent == null) upcomingEvent = arrayList.last()
             customKalenderAdapter = CustomKalenderAdapter(arrayList, viewOfLayout)
             kalenderRV!!.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
             kalenderRV!!.adapter = customKalenderAdapter

@@ -128,6 +128,7 @@ export class DataComponent implements OnInit {
           item.imageLink = this.FileService.addImage(this.route); // get new imageLink
         }
         console.log(item)
+        item.function = Number(item.function)
         this.DataService.patchPraesidium(item);
         break; 
       } case "Sponsors": { 
