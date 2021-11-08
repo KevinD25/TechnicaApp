@@ -172,24 +172,18 @@ export class DataComponent implements OnInit {
     
     // Tegen willekeurige plaatsing van foto's
     // Bestanden zijn aparte entiteiten van de data
-    items.forEach(item => {
-      imageUrls.push(item.imageLink.slice(this.route.length + 2, item.imageLink.indexOf('.')));
-      this.itemUrls.push(null)
-    });
+    items.forEach(item => imageUrls.push(item.imageLink.slice(this.route.length + 2, item.imageLink.indexOf('.'))));
     console.log(imageUrls)
 
     items.forEach(item => {
       this.FileService.getFile(item.imageLink).subscribe(res => {
-        imageUrls.forEach(url => {
-          // Speciale tekens kunnen prolemen veroorzaken
-          //console.log(url)
-          //console.log(JSON.stringify(res))
-          if (JSON.stringify(res).includes(url)) {
-            this.itemUrls[imageUrls.indexOf(url)] = res;
-          }
-        });
+        console.log(JSON.stringify(res));
+        for (var i = 0; i < imageUrls.length; i++)
+          if (JSON.stringify(res).includes(imageUrls[i])) this.itemUrls[i] = res;
       });
     });
+
+    //console.log(this.itemUrls)
   }
 
   get functions() {

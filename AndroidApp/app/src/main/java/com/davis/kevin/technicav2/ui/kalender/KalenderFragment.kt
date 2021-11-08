@@ -11,10 +11,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomKalenderAdapter
+import com.davis.kevin.technicav2.ui.home.HomeFragment
+import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import kotlinx.android.synthetic.main.fragment_kalender.view.*
 import java.time.LocalDate
 
@@ -30,6 +33,7 @@ class KalenderFragment : Fragment() {
     private var upcomingEvent: KalenderViewModel? = null
 
     companion object {
+        var ObjectAmount: Long? = 1000
         fun setUpcomingEvent(upcomingEvent: KalenderViewModel?, view: View) {
 
             // Image
@@ -90,6 +94,8 @@ class KalenderFragment : Fragment() {
         viewOfLayout = inflater.inflate(R.layout.fragment_kalender, container, false)
         kalenderRV = viewOfLayout.findViewById(R.id.kalender_RV)
 
+        if (!HomeFragment.isOnline(ctx)) HomeFragment.navigateHome(ctx, this.findNavController())
+
         val currentDate: LocalDate = LocalDate.now()
         kalenderViewModel = ViewModelProviders.of(this).get(KalenderViewModel::class.java)
         kalenderViewModel.getArrayList().observe(viewLifecycleOwner, Observer { events ->
@@ -103,12 +109,16 @@ class KalenderFragment : Fragment() {
                 }
             }
 
-            if (upcomingEvent == null) upcomingEvent = arrayList.last()
+            if (ObjectAmount != null)
+                if (arrayList.size < ObjectAmount!!)
+                    HomeFragment.navigateHome(ctx, this.findNavController())
+
+            if (upcomingEvent == null && arrayList.size != 0) upcomingEvent = arrayList.last()
             customKalenderAdapter = CustomKalenderAdapter(arrayList, viewOfLayout)
             kalenderRV!!.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
             kalenderRV!!.adapter = customKalenderAdapter
             kalenderRV!!.scrollToPosition(customKalenderAdapter!!.getItemIndex(upcomingEvent))
-            setUpcomingEvent(upcomingEvent, viewOfLayout)
+            if (upcomingEvent != null) setUpcomingEvent(upcomingEvent, viewOfLayout)
             upcomingEvent = null
         })
 

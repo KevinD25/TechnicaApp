@@ -19,13 +19,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec2247c-829c-400a-af59-adf6439b56c1" name="Default Changelist" comment="" />
+    <list default="true" id="0ec2247c-829c-400a-af59-adf6439b56c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../API tool/src/app/components/data/data.component.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Thoma\.android\avd\Pixel_4_API_27.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RF8N11P38RP]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -71,9 +73,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
   <component name="ProjectId" id="1ftn0ATjx5dxSaO0hpknZcGoTAn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -93,7 +92,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
     <property name="memory.settings.postsync.last.time.stamp" value="1609159988471" />
     <property name="multi-representation-previewC:/Users/Kevin/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_selected" value="Custom views" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
@@ -109,11 +108,11 @@
       <recent name="com.davis.kevin.technicav2" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\layout" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\drawable" />
       <recent name="D:\Technica\TechnicaApp\Applicatie\AndroidApp\app\src\main\java\com\davis\kevin\technicav2\util" />
       <recent name="D:\Technica\TechnicaApp\Applicatie\TechnicaAppV2\app\src\main\java\com\davis\kevin\technicav2\util" />
       <recent name="D:\Technica\TechnicaApp\Applicatie\TechnicaAppV2\app\src\main\res\layout" />
-      <recent name="D:\Technica\TechnicaApp\Applicatie\TechnicaAppV2\app\src\main\java\com\davis\kevin\technicav2\ui\vacatures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\drawable" />

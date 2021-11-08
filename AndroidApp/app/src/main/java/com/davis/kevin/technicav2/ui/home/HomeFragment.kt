@@ -2,13 +2,18 @@ package com.davis.kevin.technicav2.ui.home
 
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomHomeAdapter
 import com.davis.kevin.technicav2.models.Evenement
@@ -25,6 +30,34 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
     private lateinit var infiniteScrollWrapper: InfiniteScrollAdapter<*>
     private lateinit var ctx: Context
     private var arrayList: ArrayList<HomeViewModel> = arrayListOf()
+
+    companion object {
+        fun navigateHome(context: Context, navController: NavController) {
+            Toast.makeText(context, "Couldn't load all files! \nCheck your wifi connection.", Toast.LENGTH_SHORT).show()
+            navController.navigate(R.id.nav_home)
+        }
+
+        fun isOnline(context: Context): Boolean {
+            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            if (connectivityManager != null) {
+                val capabilities =
+                    connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+                if (capabilities != null) {
+                    if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                        Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                        return true
+                    } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                        Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                        return true
+                    } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                        Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                        return true
+                    }
+                }
+            }
+            return false
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
