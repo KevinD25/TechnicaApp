@@ -67,7 +67,8 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="62" />
+                                                <entry key="imagePath" value="C:\Users\Thoma\Pictures\technica_achtergrond_laad_pagina.png" />
+                                                <entry key="scalingPercent" value="150" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -91,8 +92,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\Thoma\Pictures\technica_schild_icon.png" />
-                                                <entry key="scalingPercent" value="81" />
+                                                <entry key="imagePath" value="C:\Users\Thoma\Pictures\technica_schild_laad_pagina.png" />
+                                                <entry key="scalingPercent" value="75" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -121,12 +122,6 @@
                                           </PersistentState>
                                         </value>
                                       </entry>
-                                    </map>
-                                  </option>
-                                  <option name="values">
-                                    <map>
-                                      <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="fefeff" />
                                     </map>
                                   </option>
                                 </PersistentState>
