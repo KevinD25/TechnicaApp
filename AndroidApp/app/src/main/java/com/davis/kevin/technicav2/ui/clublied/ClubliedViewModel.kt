@@ -1,13 +1,21 @@
 package com.davis.kevin.technicav2.ui.clublied
 
+import android.media.MediaPlayer
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.davis.kevin.technicav2.models.Evenement
+import com.davis.kevin.technicav2.models.Liederen
 
-class ClubliedViewModel : ViewModel() {
+class ClubliedViewModel : ViewModel {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is send Fragment"
+    var id: String? = null
+    var title: String? = null
+    var song: MediaPlayer? = null
+
+    constructor() : super()
+    constructor(song: Liederen) : super() {
+        this.title = song.title
+        this.song = song.song
     }
-    val text: LiveData<String> = _text
 }

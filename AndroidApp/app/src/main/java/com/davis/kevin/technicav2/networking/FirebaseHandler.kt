@@ -29,6 +29,7 @@ object FirebaseHandler {
     fun getFirebaseData() {
         getLengths()
         getClubtext()
+        getLiederen()
         getEvents()
         getPartners()
         getPraesidium()
@@ -68,6 +69,10 @@ object FirebaseHandler {
             }
             .addOnFailureListener { exception ->
             }
+    }
+
+    private fun getLiederen() {
+        storage.reference.child("\\Liederen\\technica_clublied.mp3")
     }
 
     private fun getEvents() {

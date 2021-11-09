@@ -32,6 +32,10 @@
             android:id="@+id/nav_vacatures"
             android:icon="@drawable/ic_vacatures"
             android:title="@string/menu_vacatures" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_club"
+            android:title="@string/menu_about" />
 
     </group>
 

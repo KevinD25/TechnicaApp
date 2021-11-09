@@ -5,9 +5,10 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c4e88a9ff69e1ae627152d046ffed136/transformed/jetified-firebase-crashlytics-ktx-18.2.1/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c4e88a9ff69e1ae627152d046ffed136/transformed/jetified-firebase-crashlytics-ktx-18.2.1/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c4e88a9ff69e1ae627152d046ffed136/transformed/jetified-firebase-crashlytics-ktx-18.2.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0ede3b4704142a7b891adda9e823f039/transformed/jetified-firebase-crashlytics-ktx-18.2.1/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0ede3b4704142a7b891adda9e823f039/transformed/jetified-firebase-crashlytics-ktx-18.2.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/0ede3b4704142a7b891adda9e823f039/transformed/jetified-firebase-crashlytics-ktx-18.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2b8e7d278751916ad04f78099e84dcf3/transformed/jetified-firebase-crashlytics-ktx-18.2.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2b8e7d278751916ad04f78099e84dcf3/transformed/jetified-firebase-crashlytics-ktx-18.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2b8e7d278751916ad04f78099e84dcf3/transformed/jetified-firebase-crashlytics-ktx-18.2.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-crashlytics-ktx/18.2.1/fc3b69e747c541be04e0281fbe8f4307001f992c/firebase-crashlytics-ktx-18.2.1-javadoc.jar!/" />

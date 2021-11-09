@@ -14,6 +14,7 @@
     <string name="menu_praesidium">Praesidium</string>
     <string name="menu_clublied">Clublied</string>
     <string name="menu_vacatures">Vacatures</string>
+    <string name="menu_about">about</string>
 
     <string name="home">Faculteitsvereniging Antwerpen</string>
     <string name="richtingen">Elektromechanica "\t" Elektronica-ICT "\n" Energiemanagement "\t" Integrale Veiligheid</string>
@@ -54,5 +55,7 @@
 
     <string name="sponsor_website_button">BEZOEK DE WEBSITE</string>
     <string name="sponsor_vacature_button">BEKIJK DE VACATURES</string>
+
+    <string name="copyright">Licenties</string>
 
 </resources>

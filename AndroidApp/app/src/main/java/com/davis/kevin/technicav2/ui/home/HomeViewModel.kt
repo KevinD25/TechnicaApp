@@ -18,7 +18,7 @@ class HomeViewModel : ViewModel {
     var image: Bitmap? = null
     var date: LocalDateTime? = null
 
-    constructor() : super() {}
+    constructor() : super()
     constructor(event: Evenement) : super() {
         this.id = event.id
         this.name = event.name
