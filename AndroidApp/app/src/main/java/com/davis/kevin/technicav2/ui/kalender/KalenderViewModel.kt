@@ -47,7 +47,7 @@ class KalenderViewModel : ViewModel {
         return date!!.format(DateTimeFormatter.ofPattern("dd'/'MM'/'yyyy | HH:mm"))
     }
 
-    fun getViewPrice(): String? {
+    fun getViewPrice(): String {
         return "BE27 7310 2609 3173 - €${price.toString()}"
     }
 }

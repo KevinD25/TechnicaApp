@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import com.davis.kevin.technicav2.R
@@ -39,17 +38,19 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
 
         fun isOnline(context: Context): Boolean {
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            if (connectivityManager != null) {
-                val capabilities =
-                    connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-                if (capabilities != null) {
-                    if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+            val capabilities =
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            if (capabilities != null) {
+                when {
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
                         Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
                         return true
-                    } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
                         Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
                         return true
-                    } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                    }
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
                         Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
                         return true
                     }
@@ -63,16 +64,16 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         ctx = requireActivity().applicationContext
 
         viewOfLayout = inflater.inflate(R.layout.fragment_home, container, false)
         homeDSV = viewOfLayout.findViewById(R.id.carousel_event)
 
-        var currentDate: LocalDate = LocalDate.now()
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        homeViewModel.getArrayList().observe(viewLifecycleOwner, Observer { events ->
+        val currentDate: LocalDate = LocalDate.now()
+        homeViewModel = ViewModelProviders.of(this)[HomeViewModel::class.java]
+        homeViewModel.getArrayList().observe(viewLifecycleOwner, { events ->
             for(event in events){
                 val homeViewModel = HomeViewModel(event)
                 // Only new events

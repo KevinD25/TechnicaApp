@@ -1,10 +1,7 @@
 package com.davis.kevin.technicav2.ui.clublied
 
 import android.media.MediaPlayer
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.davis.kevin.technicav2.models.Evenement
 import com.davis.kevin.technicav2.models.Liederen
 
 class ClubliedViewModel : ViewModel {

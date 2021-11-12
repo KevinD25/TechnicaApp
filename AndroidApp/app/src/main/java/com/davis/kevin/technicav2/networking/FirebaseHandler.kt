@@ -151,7 +151,7 @@ object FirebaseHandler {
                             name = document["name"] as String?,
                             surname = document["surName"] as String?,
                             studies = document["studies"] as String?,
-                            functie = Functie.LongToEnum(document["function"] as Long?),
+                            functie = Functie.longToEnum(document["function"] as Long?),
                             birthday = LocalDate.parse(birthdayString, DateTimeFormatter.ofPattern("yyyy-MM-dd")),
                             image = BitmapFactory.decodeByteArray(image, 0, image.size)
                         )

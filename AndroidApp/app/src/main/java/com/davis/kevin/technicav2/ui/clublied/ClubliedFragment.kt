@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.davis.kevin.technicav2.R
@@ -20,7 +19,7 @@ class ClubliedFragment : Fragment() {
     private lateinit var player: MediaPlayer
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         ctx = requireActivity().applicationContext
         player = MediaPlayer.create(ctx, R.raw.technica_clublied)
@@ -29,7 +28,7 @@ class ClubliedFragment : Fragment() {
         val button: Button? = viewOfLayout.findViewById(R.id.btn_clublied)
         button?.setOnClickListener{ player.start() }
 
-        clubliedViewModel = ViewModelProviders.of(this).get(ClubliedViewModel::class.java)
+        clubliedViewModel = ViewModelProviders.of(this)[ClubliedViewModel::class.java]
         /* clubliedViewModel.text.observe(this, Observer { })*/
         return viewOfLayout
     }

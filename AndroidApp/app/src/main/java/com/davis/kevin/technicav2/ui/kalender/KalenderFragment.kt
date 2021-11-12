@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomKalenderAdapter
 import com.davis.kevin.technicav2.ui.home.HomeFragment
-import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import kotlinx.android.synthetic.main.fragment_kalender.view.*
 import java.time.LocalDate
 
@@ -87,7 +85,7 @@ class KalenderFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         ctx = requireActivity().applicationContext
 
@@ -97,8 +95,8 @@ class KalenderFragment : Fragment() {
         if (!HomeFragment.isOnline(ctx)) HomeFragment.navigateHome(ctx, this.findNavController())
 
         val currentDate: LocalDate = LocalDate.now()
-        kalenderViewModel = ViewModelProviders.of(this).get(KalenderViewModel::class.java)
-        kalenderViewModel.getArrayList().observe(viewLifecycleOwner, Observer { events ->
+        kalenderViewModel = ViewModelProviders.of(this)[KalenderViewModel::class.java]
+        kalenderViewModel.getArrayList().observe(viewLifecycleOwner, { events ->
             for(event in events){
                 val kalenderViewModel = KalenderViewModel(event)
                 arrayList.add(kalenderViewModel)

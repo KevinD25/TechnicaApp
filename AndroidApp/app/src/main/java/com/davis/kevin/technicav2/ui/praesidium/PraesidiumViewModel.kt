@@ -37,8 +37,8 @@ class PraesidiumViewModel : ViewModel {
         return FirebaseHandler.praesidiumList
     }
 
-    fun getPraesidiumFunctie() : String? {
-        return Functie.EnumToString(this.functie)
+    fun getPraesidiumFunctie() : String {
+        return Functie.enumToString(this.functie)
     }
 
     private fun formatStudies(studies: String?) : String {

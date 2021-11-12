@@ -8,18 +8,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable-anydpi/ic_menu_copyright.xml" value="0.14375" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable-hdpi/ic_menu_copyright.xml" value="0.14375" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/______.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_docs_icon.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_fb.xml" value="0.2703125" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_fb_icon.xml" value="0.2703125" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_hulp_call.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_hulp_mail.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_hulp_maps.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_icon_docs.xml" value="0.11979166666666667" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_maps_icon.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_menu_camera.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_menu_club.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_menu_clublied.xml" value="0.14375" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_menu_copyright.xml" value="0.14375" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_menu_event.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_menu_manage.xml" value="0.14375" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_menu_send.xml" value="0.2703125" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/ic_partners.xml" value="0.14375" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/style_background_schild.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/style_image_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/drawable/style_image_background_blue.xml" value="0.14635416666666667" />
@@ -30,9 +39,10 @@
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/app_bar_main.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/content_main.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/fragment_about.xml" value="0.264" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/fragment_about.xml" value="0.1" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/fragment_clublied.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/fragment_hulp.xml" value="0.30709677419354836" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/fragment_introductie.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/fragment_kalender.xml" value="0.35260115606936415" />
         <entry key="..\:/Users/Thoma/Documents/Tom/Technica/TechnicaApp/AndroidApp/app/src/main/res/layout/fragment_praesidium.xml" value="0.13020833333333334" />

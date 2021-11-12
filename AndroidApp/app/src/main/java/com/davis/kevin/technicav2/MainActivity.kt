@@ -13,17 +13,14 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.davis.kevin.technicav2.networking.FirebaseHandler
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    var mAuth = FirebaseAuth.getInstance()
+    private var mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,17 +60,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun signInAnonymously() {
-        mAuth.signInAnonymously().addOnSuccessListener(this, OnSuccessListener<AuthResult?> {
+        mAuth.signInAnonymously().addOnSuccessListener(this) {
             FirebaseHandler.getFirebaseData()
-        })
-            .addOnFailureListener(this,
-                OnFailureListener { exception ->
-                    Log.e(
-                        "SIGNIN",
-                        "signInAnonymously:FAILURE",
-                        exception
-                    )
-                })
+        }
+            .addOnFailureListener(this) { exception ->
+                Log.e("SIGNING", "signInAnonymously:FAILURE", exception)
+            }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

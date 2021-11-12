@@ -48,9 +48,9 @@
         tools:layout="@layout/fragment_vacatures" />
 
     <fragment
-        android:id="@+id/nav_about"
-        android:name="com.davis.kevin.technicav2.ui.about.AboutFragment"
-        android:label="@string/menu_about"
-        tools:layout="@layout/fragment_about" />
+        android:id="@+id/nav_hulp"
+        android:name="com.davis.kevin.technicav2.ui.hulp.HulpFragment"
+        android:label="@string/menu_hulp"
+        tools:layout="@layout/fragment_hulp" />
 
 </navigation>

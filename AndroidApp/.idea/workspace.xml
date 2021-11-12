@@ -25,7 +25,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Thoma\.android\avd\Nexus_S_API_27.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RF8N11P38RP]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -90,7 +90,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="memory.settings.postsync.last.time.stamp" value="1609159988471" />
     <property name="multi-representation-previewC:/Users/Kevin/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_selected" value="Custom views" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
@@ -106,13 +106,14 @@
       <recent name="com.davis.kevin.technicav2" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\layout" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\drawable" />
+      <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\layout" />
       <recent name="D:\Technica\TechnicaApp\Applicatie\AndroidApp\app\src\main\java\com\davis\kevin\technicav2\util" />
       <recent name="D:\Technica\TechnicaApp\Applicatie\TechnicaAppV2\app\src\main\java\com\davis\kevin\technicav2\util" />
       <recent name="D:\Technica\TechnicaApp\Applicatie\TechnicaAppV2\app\src\main\res\layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\drawable-hdpi" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\drawable" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\values" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\mipmap-xxxhdpi" />
