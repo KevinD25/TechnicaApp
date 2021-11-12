@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.davis.kevin.technicav2.models.Partner
 import com.davis.kevin.technicav2.models.Vacature
 import com.davis.kevin.technicav2.networking.FirebaseHandler
 

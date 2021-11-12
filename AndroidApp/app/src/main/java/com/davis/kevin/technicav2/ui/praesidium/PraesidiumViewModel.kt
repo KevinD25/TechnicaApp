@@ -15,8 +15,8 @@ class PraesidiumViewModel : ViewModel {
     var surname: String? = ""
     var studies: String? = ""
     var image: Bitmap? = null
-    var functie: Functie? = null
-    var birthday: LocalDate? = null
+    private var functie: Functie? = null
+    private var birthday: LocalDate? = null
 
     constructor() : super()
     constructor(praesidium: Praesidium) : super() {

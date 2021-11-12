@@ -12,5 +12,4 @@ class Praesidium(
     val image : Bitmap? = null,
     val functie: Functie? = null,
     val birthday: LocalDate? = null
-    /*, var images: MutableMap<String, Drawable>?*/) {
-}
+    /*, var images: MutableMap<String, Drawable>?*/)

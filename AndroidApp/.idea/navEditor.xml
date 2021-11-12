@@ -20,19 +20,19 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="nav_copyright">
+                  <entry key="nav_home">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="692" />
-                            <option name="y" value="-1" />
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="nav_home">
+                  <entry key="nav_hulp">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">

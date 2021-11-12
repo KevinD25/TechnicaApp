@@ -27,7 +27,7 @@ class VacaturesFragment : Fragment() {
 
     companion object { var ObjectAmount: Long? = 1000; }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         ctx = requireActivity().applicationContext
 
@@ -39,7 +39,7 @@ class VacaturesFragment : Fragment() {
         vacaturesViewModel = ViewModelProviders.of(this).get(VacaturesViewModel::class.java)
         val sponsorList = ArrayList<VacatureSponsor>()
         // Get Sponsor Items
-        VacatureSponsor().getArray().observe(viewLifecycleOwner, Observer { partners ->
+        VacatureSponsor().getArray().observe(viewLifecycleOwner, { partners ->
             for (partner in partners) {
                 val vacatureSponsor = VacatureSponsor(partner)
                 sponsorList.add(vacatureSponsor)
@@ -50,7 +50,7 @@ class VacaturesFragment : Fragment() {
                     HomeFragment.navigateHome(ctx, this.findNavController())
 
             // Use the name and id for the vacatures
-            vacaturesViewModel.getArray().observe(viewLifecycleOwner, Observer { vacatures ->
+            vacaturesViewModel.getArray().observe(viewLifecycleOwner, { vacatures ->
                 for (vacature in vacatures) {
                     val vacaturesViewModel = VacaturesViewModel(vacature)
                     vacaturesViewModel.partner = sponsorList.firstOrNull { sponsor: VacatureSponsor -> sponsor.id.equals(vacature.companyId) }

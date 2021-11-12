@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.davis.kevin.technicav2.models.Evenement
 import com.davis.kevin.technicav2.networking.FirebaseHandler
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 

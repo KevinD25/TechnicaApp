@@ -1,7 +1,5 @@
 package com.davis.kevin.technicav2.networking
 
-import android.content.Context
-import android.provider.SyncStateContract
 import com.davis.kevin.technicav2.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

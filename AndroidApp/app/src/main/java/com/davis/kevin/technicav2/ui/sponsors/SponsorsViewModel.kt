@@ -14,12 +14,10 @@ class SponsorsViewModel : ViewModel {
     var description: String? = ""
     var website: String? = ""
     var image: Bitmap? = null
-    var priority: Long? = null
+    private var priority: Long? = null
 
     constructor() : super()
-    constructor(
-        partner: Partner
-    ) : super() {
+    constructor(partner: Partner) : super() {
         this.id = partner.id
         this.name = partner.name
         this.description = partner.description

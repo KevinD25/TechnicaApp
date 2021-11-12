@@ -23,7 +23,8 @@
                 app:layout_constraintBottom_toTopOf="@+id/bar_bday"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/image_description" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/bar_bday"
@@ -52,7 +53,8 @@
                     app:layout_constraintEnd_toStartOf="@+id/img_forms_link"
                     app:layout_constraintStart_toEndOf="@+id/txt_name"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_icon_fb" />
+                    app:srcCompat="@drawable/ic_icon_fb"
+                    android:contentDescription="@string/image_description" />
 
                 <ImageView
                     android:id="@+id/img_forms_link"
@@ -62,7 +64,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/img_fb_link"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_icon_docs" />
+                    app:srcCompat="@drawable/ic_icon_docs"
+                    android:contentDescription="@string/image_description" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -101,7 +104,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/txt_location"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_icon_maps" />
+                    app:srcCompat="@drawable/ic_icon_maps"
+                    android:contentDescription="@string/image_description" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

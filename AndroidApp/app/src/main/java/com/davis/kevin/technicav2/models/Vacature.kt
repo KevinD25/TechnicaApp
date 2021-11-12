@@ -8,5 +8,4 @@ class Vacature(
     val name: String?  = null,
     val description: String? = null,
     val link:String? = null,
-    var image: Bitmap? = null) {
-}
+    var image: Bitmap? = null)

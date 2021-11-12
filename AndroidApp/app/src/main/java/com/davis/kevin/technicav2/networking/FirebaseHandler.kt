@@ -19,12 +19,12 @@ import java.time.format.DateTimeFormatter
 
 object FirebaseHandler {
     private val storage = Firebase.storage
+    private val db = FirebaseFirestore.getInstance()
     val clubText = MutableLiveData<Introductie>()
     val praesidiumList = MutableLiveData<List<Praesidium>>()
     val eventList = MutableLiveData<List<Evenement>>()
     val sponsorList = MutableLiveData<List<Partner>>()
     val vacancieList = MutableLiveData<List<Vacature>>()
-    private val db = FirebaseFirestore.getInstance()
 
     fun getFirebaseData() {
         getLengths()
@@ -52,23 +52,23 @@ object FirebaseHandler {
                     else -> { }
                 }
             }
+        }.addOnFailureListener { exception ->
+            FirebaseCrashlytics.getInstance().recordException(exception)
         }
-            .addOnFailureListener { exception ->
-            }
     }
 
     private fun getClubtext() {
         db.collection("ClubTekst").get().addOnSuccessListener{ result ->
-                for (document in result) {
-                    val clubtext = Introductie(
-                        id = document.id,
-                        clubText = document.data["text"] as String?
-                    )
-                    clubText.value = clubtext
-                }
+            for (document in result) {
+                val clubtext = Introductie(
+                    id = document.id,
+                    clubText = document.data["text"] as String?
+                )
+                clubText.value = clubtext
             }
-            .addOnFailureListener { exception ->
-            }
+        }.addOnFailureListener { exception ->
+            FirebaseCrashlytics.getInstance().recordException(exception)
+        }
     }
 
     private fun getLiederen() {
@@ -79,7 +79,7 @@ object FirebaseHandler {
         val events = mutableListOf<Evenement>()
         db.collection("Events").get().addOnSuccessListener { result ->
             for (document in result) {
-                val ONE_MEGABYTE: Long = 1024 * 1024
+                val ONE_MEGABYTE: Long = 1048576 // = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
                         val dateString = document["date"] as String?
@@ -99,8 +99,7 @@ object FirebaseHandler {
                         events.add(event)
                         if (document.id == result.last().id) events.sortBy { event -> event.date }
                     }.addOnFailureListener { exception ->
-                        FirebaseCrashlytics.getInstance()
-                            .recordException(exception)
+                        FirebaseCrashlytics.getInstance().recordException(exception)
                     }
                 eventList.value = events
             }
@@ -111,7 +110,7 @@ object FirebaseHandler {
         val partners = mutableListOf<Partner>()
         db.collection("Sponsors").get().addOnSuccessListener { result ->
             for (document in result) {
-                val ONE_MEGABYTE: Long = 1024 * 1024
+                val ONE_MEGABYTE: Long = 1048576 // = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
                         val partner = Partner(
@@ -140,10 +139,9 @@ object FirebaseHandler {
             // Go through all data objects (document = 1 object)
             for (document in result) {
                 // Create an image size
-                val ONE_MEGABYTE: Long = 1024 * 1024
+                val ONE_MEGABYTE: Long = 1048576 // = 1024 * 1024
                 // Use the imageLink variable to find the image in the FireBase Storage
-                storage.reference.child(document["imageLink"] as String).getBytes(ONE_MEGABYTE)
-                    .addOnSuccessListener { image ->
+                storage.reference.child(document["imageLink"] as String).getBytes(ONE_MEGABYTE).addOnSuccessListener { image ->
                         val birthdayString = document["birthday"] as String?
                         // Create a Praesidium-Object with the data
                         val praesidium = Praesidium(
@@ -181,6 +179,8 @@ object FirebaseHandler {
                 vacancies.add(vacature)
             }
             vacancieList.value = vacancies
+        }.addOnFailureListener { exception ->
+            FirebaseCrashlytics.getInstance().recordException(exception)
         }
     }
 }

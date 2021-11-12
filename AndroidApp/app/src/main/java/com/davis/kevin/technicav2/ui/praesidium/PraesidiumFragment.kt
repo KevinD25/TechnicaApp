@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
@@ -27,7 +26,7 @@ class PraesidiumFragment : Fragment() {
 
     companion object { var ObjectAmount: Long? = 1000; }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         // Get Context
         ctx = requireActivity().applicationContext
@@ -44,7 +43,7 @@ class PraesidiumFragment : Fragment() {
         // Get View Model --> The database class is converted to the one in that is used for the view (ViewModel)
         praesidiumViewModel = ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
         // Get the data from the FirebaseHandler (getPraesidium()) and use it in the view
-        praesidiumViewModel.getArray().observe(viewLifecycleOwner, Observer { praesidium ->
+        praesidiumViewModel.getArray().observe(viewLifecycleOwner, { praesidium ->
             praesidium.let {
                 for (praesidia in it) {
                     val praesidiumViewModel = PraesidiumViewModel(praesidia)

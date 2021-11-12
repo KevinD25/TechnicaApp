@@ -1,6 +1,5 @@
 package com.davis.kevin.technicav2.adapters
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater

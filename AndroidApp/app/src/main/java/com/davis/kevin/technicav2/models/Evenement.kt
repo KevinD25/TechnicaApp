@@ -2,7 +2,6 @@ package com.davis.kevin.technicav2.models
 
 import android.graphics.Bitmap
 import java.time.LocalDateTime
-import java.util.*
 
 class Evenement(
     val id: String? = null,
@@ -14,5 +13,4 @@ class Evenement(
     val description: String? = null,
     val image: Bitmap? = null,
     val date: LocalDateTime? = null
-) {
-}
+)

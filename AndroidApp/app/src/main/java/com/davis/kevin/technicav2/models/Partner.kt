@@ -8,5 +8,4 @@ class Partner(
     val image : Bitmap? = null,
     val description: String? = null,
     val website: String?= null,
-    val priority: Long? = null) {
-}
+    val priority: Long? = null)

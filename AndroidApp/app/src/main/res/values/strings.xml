@@ -59,5 +59,6 @@
     <string name="hulp_maps">Ellermanstraat 33 2060 Antwerpen</string>
     <string name="hulp_copyright">Issued under the Apache License 2.0 \u00a9</string><!-- Apache License 2.0 & MIT License -->
     <string name="hulp_developers">Made by \n Kevin Davis &amp; Thomas Kramp \n Designed by Evi Claes</string>
+    <string name="image_description">TODO</string>
 
 </resources>

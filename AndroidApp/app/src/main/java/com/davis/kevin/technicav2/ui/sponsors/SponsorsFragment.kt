@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -16,9 +15,6 @@ import com.davis.kevin.technicav2.adapters.CustomPartnerAdapter
 import com.davis.kevin.technicav2.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.fragment_sponsors.*
 import me.relex.circleindicator.CircleIndicator3
-
-
-
 
 class SponsorsFragment : Fragment() {
 
@@ -38,7 +34,7 @@ class SponsorsFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         ctx = requireActivity().applicationContext
 
@@ -48,7 +44,7 @@ class SponsorsFragment : Fragment() {
         if (!HomeFragment.isOnline(ctx)) HomeFragment.navigateHome(ctx, this.findNavController())
 
         sponsorsViewModel = ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
-        sponsorsViewModel.getArray().observe(viewLifecycleOwner, Observer { partners ->
+        sponsorsViewModel.getArray().observe(viewLifecycleOwner, { partners ->
             for(partner in partners){
                 val partnerViewModel = SponsorsViewModel(partner)
                 arrayList.add(partnerViewModel)
