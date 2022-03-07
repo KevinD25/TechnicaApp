@@ -29,7 +29,8 @@ class CustomPartnerAdapter(val arrayList: ArrayList<SponsorsViewModel>, private 
             }
 
             itemView.btn_vacature_sponsor.setOnClickListener {
-                SponsorsFragment.navigateToVacatures(navController, R.id.nav_vacatures, sponsorsViewModel.id)
+                SponsorsFragment.navigateToVacatures(navController, R.id.nav_vacatures,
+                    sponsorsViewModel.id, sponsorsViewModel.image)
             }
 
             partnerBinding.executePendingBindings()

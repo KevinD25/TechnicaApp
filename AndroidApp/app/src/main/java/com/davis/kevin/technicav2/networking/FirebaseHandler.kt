@@ -91,6 +91,7 @@ object FirebaseHandler {
                             formsLink = document["formsLink"] as String?,
                             location = document["location"] as String?,
                             price = document["price"] as Long?,
+                            //Double werken niet
                             description = document["description"] as String?,
                             date = LocalDateTime.parse("$dateString $timeString",
                                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")),

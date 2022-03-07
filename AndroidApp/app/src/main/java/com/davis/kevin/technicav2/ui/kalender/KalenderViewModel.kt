@@ -16,7 +16,7 @@ class KalenderViewModel : ViewModel {
     var fbLink: String? = ""
     var formsLink: String? = ""
     var location: String? = ""
-    var price: Int? = null
+    var price: Long? = null
     var description: String? = ""
     var image: Bitmap? = null
     var date: LocalDateTime? = null
@@ -27,7 +27,7 @@ class KalenderViewModel : ViewModel {
         this.name = event.name
         this.formsLink = event.formsLink
         this.location = event.location
-        this.price = event.price!!.toInt()
+        this.price = event.price!!.toLong()
         this.description = event.description
         this.fbLink = event.fbLink
         this.image = event.image

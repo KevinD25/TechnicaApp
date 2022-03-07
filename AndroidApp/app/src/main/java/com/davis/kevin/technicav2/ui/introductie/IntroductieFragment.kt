@@ -23,10 +23,11 @@ class IntroductieFragment : Fragment() {
         viewOfLayout = inflater.inflate(R.layout.fragment_introductie, container, false)
         introductieViewModel = ViewModelProviders.of(this)[IntroductieViewModel::class.java]
 
-        introductieViewModel.getArray().observe(viewLifecycleOwner, { text ->
+        introductieViewModel.getArray().observe(viewLifecycleOwner) { text ->
             val introductieViewModel = IntroductieViewModel(text)
+            introductieViewModel.text = introductieViewModel.text?.replace("\\n", "\n\n")
             txt_introductie.text = introductieViewModel.text
-        })
+        }
 
         return viewOfLayout
     }

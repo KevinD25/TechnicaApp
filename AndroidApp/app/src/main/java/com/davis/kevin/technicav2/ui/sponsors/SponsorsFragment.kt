@@ -1,6 +1,7 @@
 package com.davis.kevin.technicav2.ui.sponsors
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +29,10 @@ class SponsorsFragment : Fragment() {
     companion object {
         var ObjectAmount: Long? = 1000
         var sponsorId: String? = null
-        fun navigateToVacatures(navController: NavController, nav_id: Int, sponsorId: String?) {
+        var sponsorImage: Bitmap? = null
+        fun navigateToVacatures(navController: NavController, nav_id: Int, sponsorId: String?, sponsorImage: Bitmap?) {
             this.sponsorId = sponsorId
+            this.sponsorImage = sponsorImage
             navController.navigate(nav_id)
         }
     }
@@ -44,8 +47,8 @@ class SponsorsFragment : Fragment() {
         if (!HomeFragment.isOnline(ctx)) HomeFragment.navigateHome(ctx, this.findNavController())
 
         sponsorsViewModel = ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
-        sponsorsViewModel.getArray().observe(viewLifecycleOwner, { partners ->
-            for(partner in partners){
+        sponsorsViewModel.getArray().observe(viewLifecycleOwner) { partners ->
+            for (partner in partners) {
                 val partnerViewModel = SponsorsViewModel(partner)
                 arrayList.add(partnerViewModel)
             }
@@ -59,7 +62,7 @@ class SponsorsFragment : Fragment() {
 
             val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
             indicator.setViewPager(partner_VP)
-        })
+        }
 
         return viewOfLayout
     }

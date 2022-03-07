@@ -41,19 +41,10 @@
         <com.yarolegovich.discretescrollview.DiscreteScrollView
             android:id="@+id/carousel_event"
             style="@style/Card.Big"
-            app:layout_constraintBottom_toTopOf="@+id/txt_makers"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_richtingen" />
-
-        <TextView
-            android:id="@+id/txt_makers"
-            style="@style/Text.Note"
-            android:text="@string/hulp_developers"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/carousel_event" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_richtingen" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

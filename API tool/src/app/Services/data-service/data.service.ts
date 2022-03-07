@@ -59,7 +59,7 @@ export class DataService {
     this.observables.clubtekst = this.getClubTeksten();
 
     // Event Setup
-    this.collections.event = this.afs.collection<IEvent>("Events", ref => ref.orderBy("date", "asc"));
+    this.collections.event = this.afs.collection<IEvent>("Events", ref => ref.orderBy("date", "desc"));
     this.observables.event = this.getEvents();
 
     // Praesidium Setup
@@ -113,6 +113,7 @@ export class DataService {
   }
 
   addEvent(event: IEvent) {
+    console.log(event)
     this.collections.event.add(event)
       .catch(error => console.log(error));
   }

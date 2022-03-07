@@ -20,6 +20,23 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
+    /*  TO DO
+    *   Upcomming events laten werken bij de eerste call
+    *   Upcomming Events & kalender auto laten scrollen
+    *   Volledige teksten bij evenementen
+    * */
+
+    /*  DONE
+    *   Placeholder vacature
+    *   Home-Page made-by eraf halen
+    *   Citeer introductie text
+    *   Introductie text \n probleem oplossen
+    *   Namen & Achternamen juist zetten
+    *   Functies herangschikken
+    *   Björn & Pheadra job veranderen
+    *   Upcomming events beter laten laden
+    * */
+
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var mAuth = FirebaseAuth.getInstance()
 

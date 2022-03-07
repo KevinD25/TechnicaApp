@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -73,20 +74,22 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
 
         val currentDate: LocalDate = LocalDate.now()
         homeViewModel = ViewModelProviders.of(this)[HomeViewModel::class.java]
-        homeViewModel.getArrayList().observe(viewLifecycleOwner, { events ->
-            for(event in events){
+        homeViewModel.getArrayList().observe(viewLifecycleOwner) { events ->
+            for (event in events) {
                 val homeViewModel = HomeViewModel(event)
                 // Only new events
                 if (homeViewModel.date!!.year > currentDate.year ||
-                    (homeViewModel.date!!.year == currentDate.year && homeViewModel.date!!.dayOfYear >= currentDate.dayOfYear)){
+                    (homeViewModel.date!!.year == currentDate.year && homeViewModel.date!!.dayOfYear >= currentDate.dayOfYear)
+                ) {
                     // Max show 3
                     if (arrayList.size < 3) arrayList.add(homeViewModel)
                 }
             }
             while (arrayList.size < 3) {
                 arrayList.add(HomeViewModel(
-                    Evenement( name = "No Upcoming Events Planned",
-                        image = BitmapFactory.decodeResource(ctx.resources, R.drawable.technica_schild_laad_pagina)
+                    Evenement(name = "No Upcoming Events Planned",
+                        image = BitmapFactory.decodeResource(ctx.resources,
+                            R.drawable.technica_schild_laad_pagina)
                     )
                 ))
             }
@@ -95,7 +98,17 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
             homeDSV!!.adapter = infiniteScrollWrapper
             homeDSV!!.setItemTransformer(CarouselTransformer())
             homeDSV!!.addOnItemChangedListener(this)
-        })
+            homeDSV!!.adapter!!.notifyDataSetChanged()
+            //homeDSV!!.smoothScrollToPosition(1)
+        }
+
+        /*val updateHandler = Handler()
+        var count = 0
+        val runnable = Runnable {
+            count++
+            updateHandler.postDelayed(runnable, 1000)
+        }
+        updateHandler.postDelayed(runnable, 1000)*/
 
         return viewOfLayout
     }
@@ -104,4 +117,8 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
         val realPosition = infiniteScrollWrapper.realCurrentPosition
         //log("onCurrentItemChanged $realPosition")
     }
+}
+
+private fun Handler.postDelayed(runnable: Runnable) {
+
 }

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomVacatureAdapter
+import com.davis.kevin.technicav2.models.Vacature
 import com.davis.kevin.technicav2.ui.home.HomeFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 
@@ -39,7 +40,7 @@ class VacaturesFragment : Fragment() {
         vacaturesViewModel = ViewModelProviders.of(this).get(VacaturesViewModel::class.java)
         val sponsorList = ArrayList<VacatureSponsor>()
         // Get Sponsor Items
-        VacatureSponsor().getArray().observe(viewLifecycleOwner, { partners ->
+        VacatureSponsor().getArray().observe(viewLifecycleOwner) { partners ->
             for (partner in partners) {
                 val vacatureSponsor = VacatureSponsor(partner)
                 sponsorList.add(vacatureSponsor)
@@ -50,23 +51,39 @@ class VacaturesFragment : Fragment() {
                     HomeFragment.navigateHome(ctx, this.findNavController())
 
             // Use the name and id for the vacatures
-            vacaturesViewModel.getArray().observe(viewLifecycleOwner, { vacatures ->
+            vacaturesViewModel.getArray().observe(viewLifecycleOwner) { vacatures ->
                 for (vacature in vacatures) {
                     val vacaturesViewModel = VacaturesViewModel(vacature)
-                    vacaturesViewModel.partner = sponsorList.firstOrNull { sponsor: VacatureSponsor -> sponsor.id.equals(vacature.companyId) }
-                    if (vacaturesViewModel.partner != null){
+                    // Assign Partners
+                    vacaturesViewModel.partner = sponsorList.firstOrNull { sponsor: VacatureSponsor ->
+                            sponsor.id.equals(vacature.companyId)
+                        }
+                    if (vacaturesViewModel.partner != null) {
                         if (vacaturesViewModel.partner!!.id.equals(SponsorsFragment.sponsorId)
                             || SponsorsFragment.sponsorId.isNullOrEmpty()) {
                             arrayList.add(vacaturesViewModel)
                         }
                     }
                 }
+
+                if (arrayList.size == 0) {
+                    var emptyVac: Vacature = Vacature("0", SponsorsFragment.sponsorId,
+                        "Geen Vacatures Gevonden", "Er is geen vacature gegeven door dit bedrijf.",
+                        "", SponsorsFragment.sponsorImage)
+                    val emptyVacVM: VacaturesViewModel = VacaturesViewModel(emptyVac)
+                    // Assign Partners
+                    emptyVacVM.partner = sponsorList.firstOrNull { sponsor: VacatureSponsor ->
+                        sponsor.id.equals(emptyVac.companyId)
+                    }
+                    arrayList.add(emptyVacVM)
+                }
+
                 customVacatureAdapter = CustomVacatureAdapter(arrayList)
                 VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
                 VacatureRV!!.adapter = customVacatureAdapter
                 SponsorsFragment.sponsorId = null
-            })
-        })
+            }
+        }
 
         return viewOfLayout
     }

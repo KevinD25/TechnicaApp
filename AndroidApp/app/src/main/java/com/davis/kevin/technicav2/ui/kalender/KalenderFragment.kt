@@ -74,7 +74,7 @@ class KalenderFragment : Fragment() {
             }
 
             // Price
-            if (upcomingEvent.price == null || upcomingEvent.price == 0) {
+            if (upcomingEvent.price == null || upcomingEvent.price == 0.toLong()) {
                 view.txt_price.visibility = View.GONE
             } else {
                 view.txt_price.visibility = View.VISIBLE
@@ -96,13 +96,14 @@ class KalenderFragment : Fragment() {
 
         val currentDate: LocalDate = LocalDate.now()
         kalenderViewModel = ViewModelProviders.of(this)[KalenderViewModel::class.java]
-        kalenderViewModel.getArrayList().observe(viewLifecycleOwner, { events ->
-            for(event in events){
+        kalenderViewModel.getArrayList().observe(viewLifecycleOwner) { events ->
+            for (event in events) {
                 val kalenderViewModel = KalenderViewModel(event)
                 arrayList.add(kalenderViewModel)
                 // Get First Upcoming Event
                 if (upcomingEvent == null && (kalenderViewModel.date!!.year > currentDate.year ||
-                            (kalenderViewModel.date!!.year == currentDate.year && kalenderViewModel.date!!.dayOfYear >= currentDate.dayOfYear))) {
+                            (kalenderViewModel.date!!.year == currentDate.year && kalenderViewModel.date!!.dayOfYear >= currentDate.dayOfYear))
+                ) {
                     upcomingEvent = kalenderViewModel
                 }
             }
@@ -113,12 +114,13 @@ class KalenderFragment : Fragment() {
 
             if (upcomingEvent == null && arrayList.size != 0) upcomingEvent = arrayList.last()
             customKalenderAdapter = CustomKalenderAdapter(arrayList, viewOfLayout)
-            kalenderRV!!.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
+            kalenderRV!!.layoutManager =
+                LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
             kalenderRV!!.adapter = customKalenderAdapter
             kalenderRV!!.scrollToPosition(customKalenderAdapter!!.getItemIndex(upcomingEvent))
             if (upcomingEvent != null) setUpcomingEvent(upcomingEvent, viewOfLayout)
             upcomingEvent = null
-        })
+        }
 
         return viewOfLayout
     }
