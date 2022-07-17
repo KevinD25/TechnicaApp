@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -83,6 +84,7 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
                 ) {
                     // Max show 3
                     if (arrayList.size < 3) arrayList.add(homeViewModel)
+                    else break
                 }
             }
             while (arrayList.size < 3) {
@@ -99,16 +101,9 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
             homeDSV!!.setItemTransformer(CarouselTransformer())
             homeDSV!!.addOnItemChangedListener(this)
             homeDSV!!.adapter!!.notifyDataSetChanged()
-            //homeDSV!!.smoothScrollToPosition(1)
         }
 
-        /*val updateHandler = Handler()
-        var count = 0
-        val runnable = Runnable {
-            count++
-            updateHandler.postDelayed(runnable, 1000)
-        }
-        updateHandler.postDelayed(runnable, 1000)*/
+        //Thread.sleep(5000);
 
         return viewOfLayout
     }

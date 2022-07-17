@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     /*  TO DO
     *   Upcomming events laten werken bij de eerste call
     *   Upcomming Events & kalender auto laten scrollen
-    *   Volledige teksten bij evenementen
     * */
 
     /*  DONE
@@ -35,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     *   Functies herangschikken
     *   Björn & Pheadra job veranderen
     *   Upcomming events beter laten laden
+    *   Volledige teksten bij evenementen
     * */
 
     private lateinit var appBarConfiguration: AppBarConfiguration

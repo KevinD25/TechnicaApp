@@ -43,8 +43,7 @@ class PraesidiumFragment : Fragment() {
         // Get View Model --> The database class is converted to the one in that is used for the view (ViewModel)
         praesidiumViewModel = ViewModelProviders.of(this).get(PraesidiumViewModel::class.java)
         // Get the data from the FirebaseHandler (getPraesidium()) and use it in the view
-        praesidiumViewModel.getArray().observe(viewLifecycleOwner, { praesidium ->
-            praesidium.let {
+        praesidiumViewModel.getArray().observe(viewLifecycleOwner) { praesidium -> praesidium.let {
                 for (praesidia in it) {
                     val praesidiumViewModel = PraesidiumViewModel(praesidia)
                     arrayList.add(praesidiumViewModel)
@@ -60,7 +59,7 @@ class PraesidiumFragment : Fragment() {
                 val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
                 indicator.setViewPager(PraesidiumVP)
             }
-        })
+        }
 
 
         return viewOfLayout

@@ -120,7 +120,6 @@
             <TextView
                 android:id="@+id/txt_description"
                 style="@style/Info"
-                android:maxLines="16"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
