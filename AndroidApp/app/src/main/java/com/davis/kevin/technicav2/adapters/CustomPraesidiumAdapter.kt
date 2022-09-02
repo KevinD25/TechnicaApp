@@ -2,27 +2,30 @@ package com.davis.kevin.technicav2.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.davis.kevin.technicav2.R
-import com.davis.kevin.technicav2.databinding.PraesidiumBinding
+import com.davis.kevin.technicav2.databinding.InnerPraesidiumBinding
 import com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel
 
 class CustomPraesidiumAdapter(var arrayList: ArrayList<PraesidiumViewModel>) :
     RecyclerView.Adapter<CustomPraesidiumAdapter.CustomView>() {
 
-    class CustomView(private val praesidiumBinding: PraesidiumBinding) : RecyclerView.ViewHolder(praesidiumBinding.root) {
+    private lateinit var _bindingInner: InnerPraesidiumBinding
+    private val bindingInner get() = _bindingInner!!
 
+    class CustomView(private val bindingInner: InnerPraesidiumBinding) : RecyclerView.ViewHolder(bindingInner.root) {
         fun bind(praesidiumViewModel: PraesidiumViewModel) {
-            this.praesidiumBinding.praesidiumModel = praesidiumViewModel
-            praesidiumBinding.executePendingBindings()
+            bindingInner.imgPerson.setImageBitmap(praesidiumViewModel.image)
+            bindingInner.txtPerson.text = praesidiumViewModel.name  + ' ' + praesidiumViewModel.surname + '\n' + praesidiumViewModel.getPraesidiumFunctie()
+            bindingInner.txtStudie.text = praesidiumViewModel.studies
+            bindingInner.txtBday.text = praesidiumViewModel.getViewBirthday()
+            bindingInner.executePendingBindings()
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {
-        val praesidiumBinding: PraesidiumBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-            R.layout.inner_praesidium, parent, false)
-        return CustomView(praesidiumBinding)
+        _bindingInner = InnerPraesidiumBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        // val praesidiumBinding: PraesidiumBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.inner_praesidium, parent, false)
+        return CustomView(bindingInner)
     }
 
     override fun getItemCount(): Int {

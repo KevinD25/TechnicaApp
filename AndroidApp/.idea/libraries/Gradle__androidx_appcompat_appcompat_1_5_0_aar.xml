@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.appcompat:appcompat:1.5.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2807d39ae0c42da848cb22ea1f2dfa06/transformed/appcompat-1.5.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2124e8819f23fe6bb1a78d88c9d23a6d/transformed/appcompat-1.5.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2807d39ae0c42da848cb22ea1f2dfa06/transformed/appcompat-1.5.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2807d39ae0c42da848cb22ea1f2dfa06/transformed/appcompat-1.5.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2807d39ae0c42da848cb22ea1f2dfa06/transformed/appcompat-1.5.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2124e8819f23fe6bb1a78d88c9d23a6d/transformed/appcompat-1.5.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2124e8819f23fe6bb1a78d88c9d23a6d/transformed/appcompat-1.5.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2124e8819f23fe6bb1a78d88c9d23a6d/transformed/appcompat-1.5.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

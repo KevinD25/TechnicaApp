@@ -13,7 +13,7 @@ class CustomKalenderAdapter(private val arrayList: ArrayList<KalenderViewModel>)
     private lateinit var _bindingInner: InnerKalenderBinding
     private val bindingInner get() = _bindingInner!!
 
-    class CustomView(val bindingInner: InnerKalenderBinding) : RecyclerView.ViewHolder(bindingInner.root) {
+    class CustomView(private val bindingInner: InnerKalenderBinding) : RecyclerView.ViewHolder(bindingInner.root) {
         fun bind(kalenderViewModel: KalenderViewModel) {
             bindingInner.imgBtnEvent.setImageDrawable(kalenderViewModel.getViewImage())
             bindingInner.imgBtnEvent.setOnClickListener {

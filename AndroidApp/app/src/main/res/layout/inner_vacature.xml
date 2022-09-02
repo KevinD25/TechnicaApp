@@ -2,12 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data class="VacatureBinding">
-        <variable
-            name="vacatureModel"
-            type="com.davis.kevin.technicav2.ui.vacatures.VacaturesViewModel"/>
-    </data>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +18,6 @@
             <TextView
                 android:id="@+id/txt_name"
                 style="@style/Card.Header"
-                android:text="@{vacatureModel.name}"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +28,6 @@
                 android:id="@+id/img_logo"
                 style="@style/Card.Image"
                 android:layout_height="wrap_content"
-                android:src="@{vacatureModel.viewImage}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/txt_description"
                 app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +37,6 @@
             <TextView
                 android:id="@+id/txt_description"
                 style="@style/Card.Info"
-                android:text="@{vacatureModel.description}"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@+id/ic_weblink"
                 app:layout_constraintEnd_toEndOf="parent"

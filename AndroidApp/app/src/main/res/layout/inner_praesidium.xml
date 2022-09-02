@@ -3,12 +3,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data class="PraesidiumBinding">
-        <variable
-            name="praesidiumModel"
-            type="com.davis.kevin.technicav2.ui.praesidium.PraesidiumViewModel" />
-    </data>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -22,7 +16,6 @@
             <com.github.siyamed.shapeimageview.CircularImageView
                 android:id="@+id/img_person"
                 style="@style/Image.Big"
-                android:src="@{praesidiumModel.viewImage}"
                 app:layout_constraintBottom_toTopOf="@id/txt_person"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +26,6 @@
             <TextView
                 android:id="@+id/txt_person"
                 style="@style/Text.Header"
-                android:text="@{praesidiumModel.name  + ' ' + praesidiumModel.surname + '\n' + praesidiumModel.praesidiumFunctie}"
                 app:layout_constraintBottom_toTopOf="@id/bar_studie"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +52,6 @@
                 <TextView
                     android:id="@+id/txt_studie"
                     style="@style/Text.Bar"
-                    android:text="@{praesidiumModel.studies}"
                     android:layout_marginVertical="@dimen/none"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +81,6 @@
                 <TextView
                     android:id="@+id/txt_bday"
                     style="@style/Text.Bar"
-                    android:text="@{praesidiumModel.viewBirthday}"
                     android:layout_marginVertical="@dimen/none"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

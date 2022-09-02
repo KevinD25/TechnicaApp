@@ -4,34 +4,34 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.davis.kevin.technicav2.R
-import com.davis.kevin.technicav2.databinding.VacatureBinding
+import com.davis.kevin.technicav2.databinding.InnerVacatureBinding
 import com.davis.kevin.technicav2.ui.vacatures.VacaturesViewModel
-import kotlinx.android.synthetic.main.inner_vacature.view.*
 
 
 class CustomVacatureAdapter(private val arrayList: ArrayList<VacaturesViewModel>)
     : RecyclerView.Adapter<CustomVacatureAdapter.CustomView>() {
 
-    class CustomView(private val vacatureBinding: VacatureBinding, val parent: ViewGroup)
-        : RecyclerView.ViewHolder(vacatureBinding.root) {
+    private lateinit var _bindingInner: InnerVacatureBinding
+    private val bindingInner get() = _bindingInner!!
 
+    class CustomView(private val bindingInner: InnerVacatureBinding): RecyclerView.ViewHolder(bindingInner.root) {
         fun bind(vacaturesViewModel: VacaturesViewModel) {
-            this.vacatureBinding.vacatureModel = vacaturesViewModel
-            itemView.ic_weblink.setOnClickListener {
+            bindingInner.txtName.text = vacaturesViewModel.name
+            bindingInner.imgLogo.setBackgroundDrawable(vacaturesViewModel.getViewImage())
+            bindingInner.txtDescription.text = vacaturesViewModel.description
+            bindingInner.icWeblink.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(vacaturesViewModel.link))
-                parent.context.startActivity(browserIntent)
+                bindingInner.root.context.startActivity(browserIntent)
             }
-            vacatureBinding.executePendingBindings()
+            bindingInner.executePendingBindings()
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {
-        val vacatureBinding: VacatureBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-            R.layout.inner_vacature, parent, false)
-        return CustomView(vacatureBinding, parent)
+        _bindingInner = InnerVacatureBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        // val vacatureBinding: VacatureBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.inner_vacature, parent, false)
+        return CustomView(bindingInner)
     }
 
     override fun getItemCount(): Int {
