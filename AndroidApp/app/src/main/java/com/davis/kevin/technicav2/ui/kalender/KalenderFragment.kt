@@ -12,19 +12,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomKalenderAdapter
+import com.davis.kevin.technicav2.databinding.FragmentKalenderBinding
 import com.davis.kevin.technicav2.ui.home.HomeFragment
-import kotlinx.android.synthetic.main.fragment_kalender.view.*
 import java.time.LocalDate
 
 
 class KalenderFragment : Fragment() {
 
+    private lateinit var _bindingFragment: FragmentKalenderBinding
+    private val bindingFragment get() = _bindingFragment!!
     private lateinit var kalenderViewModel: KalenderViewModel
-    private var kalenderRV: RecyclerView? = null
-    private lateinit var viewOfLayout: View
     private var customKalenderAdapter: CustomKalenderAdapter? = null
     private lateinit var ctx: Context
     private var arrayList = ArrayList<KalenderViewModel>()
@@ -32,66 +30,66 @@ class KalenderFragment : Fragment() {
 
     companion object {
         var ObjectAmount: Long? = 1000
-        fun setUpcomingEvent(upcomingEvent: KalenderViewModel?, view: View) {
+        fun setUpcomingEvent(upcomingEvent: KalenderViewModel?, view: FragmentKalenderBinding) {
 
             // Image
-            view.img_event.setImageDrawable(BitmapDrawable(upcomingEvent!!.image))
+            view.imgEvent.setImageDrawable(BitmapDrawable(upcomingEvent!!.image))
 
             // Name
-            view.txt_name.text = upcomingEvent.name
+            view.txtName.text = upcomingEvent.name
 
             // FaceBook Link
-            view.img_fb_link.setOnClickListener {
+            view.imgFbLink.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(upcomingEvent.fbLink))
-                view.context.startActivity(browserIntent)
+                view.root.context.startActivity(browserIntent)
             }
 
             // Google Forms Link
             if (upcomingEvent.formsLink.isNullOrBlank()) {
-                view.img_forms_link.visibility = View.GONE
+                view.imgFormsLink.visibility = View.GONE
             } else {
-                view.img_forms_link.visibility = View.VISIBLE
-                view.img_forms_link.setOnClickListener {
+                view.imgFormsLink.visibility = View.VISIBLE
+                view.imgFormsLink.setOnClickListener {
                     val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(upcomingEvent.formsLink))
-                    view.context.startActivity(browserIntent)
+                    view.root.context.startActivity(browserIntent)
                 }
             }
 
             // Date
-            view.txt_date.text = upcomingEvent.getViewDate()
+            view.txtDate.text = upcomingEvent.getViewDate()
 
             // Location
             if (upcomingEvent.location.isNullOrBlank()) {
-                view.bar_location.visibility = View.GONE
+                view.barLocation.visibility = View.GONE
             } else {
-                view.bar_location.visibility = View.VISIBLE
-                view.txt_location.text = upcomingEvent.location
-                view.img_location.setOnClickListener {
+                view.barLocation.visibility = View.VISIBLE
+                view.txtLocation.text = upcomingEvent.location
+                view.imgLocation.setOnClickListener {
                     val browserIntent = Intent(Intent.ACTION_VIEW,
                         Uri.parse("https://maps.google.co.in/maps?q=\"${upcomingEvent.location} Belgium\"&?z=1"))
-                    view.context.startActivity(browserIntent)
+                    view.root.context.startActivity(browserIntent)
                 }
             }
 
             // Price
             if (upcomingEvent.price == null || upcomingEvent.price == 0.toLong()) {
-                view.txt_price.visibility = View.GONE
+                view.txtPrice.visibility = View.GONE
             } else {
-                view.txt_price.visibility = View.VISIBLE
-                view.txt_price.text = upcomingEvent.getViewPrice()
+                view.txtPrice.visibility = View.VISIBLE
+                view.txtPrice.text = upcomingEvent.getViewPrice()
             }
 
-            view.txt_description.text = upcomingEvent.description
+            view.txtDescription.text = upcomingEvent.description
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
+        _bindingFragment = FragmentKalenderBinding.inflate(inflater, container, false)
+        val view = bindingFragment.root
+
         ctx = requireActivity().applicationContext
-
-        viewOfLayout = inflater.inflate(R.layout.fragment_kalender, container, false)
-        kalenderRV = viewOfLayout.findViewById(R.id.kalender_RV)
-
+        // Return if no context is found
         if (!HomeFragment.isOnline(ctx)) HomeFragment.navigateHome(ctx, this.findNavController())
 
         val currentDate: LocalDate = LocalDate.now()
@@ -107,21 +105,20 @@ class KalenderFragment : Fragment() {
                     upcomingEvent = kalenderViewModel
                 }
             }
-
             if (ObjectAmount != null)
                 if (arrayList.size < ObjectAmount!!)
                     HomeFragment.navigateHome(ctx, this.findNavController())
 
             if (upcomingEvent == null && arrayList.size != 0) upcomingEvent = arrayList.last()
-            customKalenderAdapter = CustomKalenderAdapter(arrayList, viewOfLayout)
-            kalenderRV!!.layoutManager =
+            customKalenderAdapter = CustomKalenderAdapter(arrayList)
+            bindingFragment.kalenderRV.layoutManager =
                 LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
-            kalenderRV!!.adapter = customKalenderAdapter
-            kalenderRV!!.scrollToPosition(customKalenderAdapter!!.getItemIndex(upcomingEvent))
-            if (upcomingEvent != null) setUpcomingEvent(upcomingEvent, viewOfLayout)
+            bindingFragment.kalenderRV.adapter = customKalenderAdapter
+            bindingFragment.kalenderRV.scrollToPosition(customKalenderAdapter!!.getItemIndex(upcomingEvent))
+            if (upcomingEvent != null) setUpcomingEvent(upcomingEvent, bindingFragment)
             upcomingEvent = null
         }
 
-        return viewOfLayout
+        return view
     }
 }

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -13,6 +12,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.davis.kevin.technicav2.databinding.ActivityMainBinding
+import com.davis.kevin.technicav2.databinding.AppBarMainBinding
 import com.davis.kevin.technicav2.networking.FirebaseHandler
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -37,22 +38,28 @@ class MainActivity : AppCompatActivity() {
     *   Volledige teksten bij evenementen
     * */
 
+    private lateinit var bindingMain: ActivityMainBinding
+    private lateinit var bindingAppBar: AppBarMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        bindingMain = ActivityMainBinding.inflate(layoutInflater)
+        val view = bindingMain.root
+        setContentView(view)
+        bindingAppBar = AppBarMainBinding.inflate(layoutInflater)
+        //setContentView(R.layout.activity_main)
+        setSupportActionBar(bindingAppBar.toolbar)
 
         //login()
         //Repository.getData()
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
+        bindingMain.drawerLayout
+        val drawerLayout: DrawerLayout = bindingMain.drawerLayout //= findViewById(R.id.drawer_layout)
+        val navView: NavigationView = bindingMain.navView //= findViewById(R.id.nav_view)
         val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 

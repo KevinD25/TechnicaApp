@@ -16,5 +16,4 @@
         android:contentDescription="@string/nav_header_desc"
         app:srcCompat="@drawable/technica_schild"
         android:layout_gravity="center"/>
-
 </LinearLayout>

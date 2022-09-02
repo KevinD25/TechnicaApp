@@ -1,12 +1,12 @@
 package com.davis.kevin.technicav2.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomHomeAdapter
+import com.davis.kevin.technicav2.databinding.FragmentHomeBinding
 import com.davis.kevin.technicav2.models.Evenement
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.InfiniteScrollAdapter
@@ -24,9 +25,9 @@ import java.time.LocalDate
 
 class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<CustomHomeAdapter.CostumView> {
 
+    private lateinit var _bindingFragment: FragmentHomeBinding
+    private val bindingFragment get() = _bindingFragment!!
     private lateinit var homeViewModel: HomeViewModel
-    private var homeDSV: DiscreteScrollView? = null
-    private lateinit var viewOfLayout: View
     private var customHomeAdapter: CustomHomeAdapter? = null
     private lateinit var infiniteScrollWrapper: InfiniteScrollAdapter<*>
     private lateinit var ctx: Context
@@ -62,16 +63,13 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-        ctx = requireActivity().applicationContext
+        _bindingFragment = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = bindingFragment.root
 
-        viewOfLayout = inflater.inflate(R.layout.fragment_home, container, false)
-        homeDSV = viewOfLayout.findViewById(R.id.carousel_event)
+        ctx = requireActivity().applicationContext
 
         val currentDate: LocalDate = LocalDate.now()
         homeViewModel = ViewModelProviders.of(this)[HomeViewModel::class.java]
@@ -97,15 +95,13 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
             }
             customHomeAdapter = CustomHomeAdapter(arrayList)
             infiniteScrollWrapper = InfiniteScrollAdapter.wrap(customHomeAdapter!!)
-            homeDSV!!.adapter = infiniteScrollWrapper
-            homeDSV!!.setItemTransformer(CarouselTransformer())
-            homeDSV!!.addOnItemChangedListener(this)
-            homeDSV!!.adapter!!.notifyDataSetChanged()
+            bindingFragment.carouselEvent.adapter = infiniteScrollWrapper
+            bindingFragment.carouselEvent.setItemTransformer(CarouselTransformer())
+            bindingFragment.carouselEvent.addOnItemChangedListener(this)
+            bindingFragment.carouselEvent.adapter!!.notifyDataSetChanged()
         }
-
         //Thread.sleep(5000);
-
-        return viewOfLayout
+        return view
     }
 
     override fun onCurrentItemChanged(viewHolder: CustomHomeAdapter.CostumView?, adapterPosition: Int) {

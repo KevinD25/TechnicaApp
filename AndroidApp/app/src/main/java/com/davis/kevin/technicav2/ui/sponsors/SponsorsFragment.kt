@@ -10,18 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.ViewPager2
-import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomPartnerAdapter
+import com.davis.kevin.technicav2.databinding.FragmentSponsorsBinding
 import com.davis.kevin.technicav2.ui.home.HomeFragment
-import kotlinx.android.synthetic.main.fragment_sponsors.*
-import me.relex.circleindicator.CircleIndicator3
 
 class SponsorsFragment : Fragment() {
 
+    private lateinit var _bindingFragment: FragmentSponsorsBinding
+    private val bindingFragment get() = _bindingFragment!!
     private lateinit var sponsorsViewModel: SponsorsViewModel
-    private var PartnerVP: ViewPager2? = null
-    private lateinit var viewOfLayout: View
     private var customPartnerAdapter: CustomPartnerAdapter? = null
     private lateinit var ctx: Context
     private var arrayList = ArrayList<SponsorsViewModel>()
@@ -39,31 +36,27 @@ class SponsorsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
+        _bindingFragment = FragmentSponsorsBinding.inflate(inflater, container, false)
+        val view = bindingFragment.root
+
         ctx = requireActivity().applicationContext
-
-        viewOfLayout = inflater.inflate(R.layout.fragment_sponsors, container, false)
-        PartnerVP = viewOfLayout.findViewById(R.id.partner_VP)
-
+        // Return if no context is found
         if (!HomeFragment.isOnline(ctx)) HomeFragment.navigateHome(ctx, this.findNavController())
 
-        sponsorsViewModel = ViewModelProviders.of(this).get(SponsorsViewModel::class.java)
+        sponsorsViewModel = ViewModelProviders.of(this)[SponsorsViewModel::class.java]
         sponsorsViewModel.getArray().observe(viewLifecycleOwner) { partners ->
             for (partner in partners) {
                 val partnerViewModel = SponsorsViewModel(partner)
                 arrayList.add(partnerViewModel)
             }
-
             if (ObjectAmount != null)
                 if (arrayList.size < ObjectAmount!!)
                     HomeFragment.navigateHome(ctx, this.findNavController())
 
             customPartnerAdapter = CustomPartnerAdapter(arrayList, this.findNavController())
-            PartnerVP!!.adapter = customPartnerAdapter
-
-            val indicator = viewOfLayout.findViewById<CircleIndicator3>(R.id.indicator)
-            indicator.setViewPager(partner_VP)
+            bindingFragment.partnerVP.adapter = customPartnerAdapter
+            bindingFragment.indicator.setViewPager(bindingFragment.partnerVP)
         }
-
-        return viewOfLayout
+        return view
     }
 }

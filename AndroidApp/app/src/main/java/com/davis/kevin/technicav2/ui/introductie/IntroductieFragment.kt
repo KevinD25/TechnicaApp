@@ -7,28 +7,32 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.davis.kevin.technicav2.R
-import kotlinx.android.synthetic.main.fragment_introductie.*
+import androidx.navigation.fragment.findNavController
+import com.davis.kevin.technicav2.databinding.FragmentIntroductieBinding
+import com.davis.kevin.technicav2.ui.home.HomeFragment
 
 class IntroductieFragment : Fragment() {
 
+    private lateinit var _bindingFragment: FragmentIntroductieBinding
+    private val bindingFragment get() = _bindingFragment!!
     private lateinit var introductieViewModel: IntroductieViewModel
-    private lateinit var viewOfLayout : View
     private lateinit var ctx : Context
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
+        _bindingFragment = FragmentIntroductieBinding.inflate(inflater, container, false)
+        val view = bindingFragment.root
+
         ctx = requireActivity().applicationContext
+        // Return if no context is found
+        if (!HomeFragment.isOnline(ctx)) HomeFragment.navigateHome(ctx, this.findNavController())
 
-        viewOfLayout = inflater.inflate(R.layout.fragment_introductie, container, false)
         introductieViewModel = ViewModelProviders.of(this)[IntroductieViewModel::class.java]
-
         introductieViewModel.getArray().observe(viewLifecycleOwner) { text ->
             val introductieViewModel = IntroductieViewModel(text)
             introductieViewModel.text = introductieViewModel.text?.replace("\\n", "\n\n")
-            txt_introductie.text = introductieViewModel.text
+            bindingFragment.txtIntroductie.text = introductieViewModel.text
         }
-
-        return viewOfLayout
+        return view
     }
 }

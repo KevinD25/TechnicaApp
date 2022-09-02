@@ -6,22 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.adapters.CustomVacatureAdapter
+import com.davis.kevin.technicav2.databinding.FragmentVacaturesBinding
 import com.davis.kevin.technicav2.models.Vacature
 import com.davis.kevin.technicav2.ui.home.HomeFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 
 class VacaturesFragment : Fragment() {
 
+    private lateinit var _bindingFragment: FragmentVacaturesBinding
+    private val bindingFragment get() = _bindingFragment!!
     private lateinit var vacaturesViewModel: VacaturesViewModel
-    private var VacatureRV: RecyclerView? = null
-    private lateinit var viewOfLayout: View
     private var customVacatureAdapter: CustomVacatureAdapter? = null
     private lateinit var ctx: Context
     private var arrayList = ArrayList<VacaturesViewModel>()
@@ -30,14 +29,14 @@ class VacaturesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
+        _bindingFragment = FragmentVacaturesBinding.inflate(inflater, container, false)
+        val view = bindingFragment.root
+
         ctx = requireActivity().applicationContext
-
-        viewOfLayout = inflater.inflate(R.layout.fragment_vacatures, container, false)
-        VacatureRV = viewOfLayout.findViewById(R.id.vacature_RV)
-
+        // Return if no context is found
         if (!HomeFragment.isOnline(ctx)) HomeFragment.navigateHome(ctx, this.findNavController())
 
-        vacaturesViewModel = ViewModelProviders.of(this).get(VacaturesViewModel::class.java)
+        vacaturesViewModel = ViewModelProviders.of(this)[VacaturesViewModel::class.java]
         val sponsorList = ArrayList<VacatureSponsor>()
         // Get Sponsor Items
         VacatureSponsor().getArray().observe(viewLifecycleOwner) { partners ->
@@ -65,26 +64,22 @@ class VacaturesFragment : Fragment() {
                         }
                     }
                 }
-
                 if (arrayList.size == 0) {
-                    var emptyVac: Vacature = Vacature("0", SponsorsFragment.sponsorId,
-                        "Geen Vacatures Gevonden", "Er is geen vacature gegeven door dit bedrijf.",
-                        "", SponsorsFragment.sponsorImage)
-                    val emptyVacVM: VacaturesViewModel = VacaturesViewModel(emptyVac)
+                    val emptyVac = Vacature("0", SponsorsFragment.sponsorId,"Geen Vacatures Gevonden",
+                        "Er is geen vacature gegeven door dit bedrijf.", "", SponsorsFragment.sponsorImage)
+                    val emptyVacVM = VacaturesViewModel(emptyVac)
                     // Assign Partners
                     emptyVacVM.partner = sponsorList.firstOrNull { sponsor: VacatureSponsor ->
                         sponsor.id.equals(emptyVac.companyId)
                     }
                     arrayList.add(emptyVacVM)
                 }
-
                 customVacatureAdapter = CustomVacatureAdapter(arrayList)
-                VacatureRV!!.layoutManager = LinearLayoutManager(ctx)
-                VacatureRV!!.adapter = customVacatureAdapter
+                bindingFragment.vacatureRV.layoutManager = LinearLayoutManager(ctx)
+                bindingFragment.vacatureRV.adapter = customVacatureAdapter
                 SponsorsFragment.sponsorId = null
             }
         }
-
-        return viewOfLayout
+        return view
     }
 }

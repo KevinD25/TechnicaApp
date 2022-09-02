@@ -29,7 +29,7 @@ enum class Functie(index: Int) {
         private set
 
     companion object {
-        val Functies: ArrayList<String> = object : ArrayList<String>(
+        private val Functies: ArrayList<String> = object : ArrayList<String>(
             listOf(
                 "Praeses",
                 "Vice-Praeses",
@@ -55,11 +55,11 @@ enum class Functie(index: Int) {
         ) {}
 
         fun longToEnum(functie: Long?): Functie {
-            return Functie.values()[functie!!.toInt()]
+            return values()[functie!!.toInt()]
         }
 
-        fun integerToEnum(functie: Int?): Functie {
-            return Functie.values()[functie!!]
+        private fun integerToEnum(functie: Int?): Functie {
+            return values()[functie!!]
         }
 
         fun stringToEnum(functie: String?): Functie {

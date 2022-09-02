@@ -6,30 +6,36 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.davis.kevin.technicav2.R
+import com.davis.kevin.technicav2.databinding.FragmentClubliedBinding
+import com.davis.kevin.technicav2.ui.home.HomeFragment
 
 class ClubliedFragment : Fragment() {
 
+    private lateinit var _bindingFragment: FragmentClubliedBinding
+    private val bindingFragment get() = _bindingFragment!!
     private lateinit var clubliedViewModel: ClubliedViewModel
-    private lateinit var viewOfLayout: View
     private lateinit var ctx: Context
     private lateinit var player: MediaPlayer
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-        ctx = requireActivity().applicationContext
-        player = MediaPlayer.create(ctx, R.raw.technica_clublied)
+        _bindingFragment = FragmentClubliedBinding.inflate(inflater, container, false)
+        val view = bindingFragment.root
 
-        viewOfLayout = inflater.inflate(R.layout.fragment_clublied, container, false)
-        val button: Button? = viewOfLayout.findViewById(R.id.btn_clublied)
-        button?.setOnClickListener{ player.start() }
+        ctx = requireActivity().applicationContext
+        // Return if no context is found
+        if (!HomeFragment.isOnline(ctx)) HomeFragment.navigateHome(ctx, this.findNavController())
+
+        player = MediaPlayer.create(ctx, R.raw.technica_clublied)
+        bindingFragment.btnClublied.setOnClickListener{ player.start() }
 
         clubliedViewModel = ViewModelProviders.of(this)[ClubliedViewModel::class.java]
         /* clubliedViewModel.text.observe(this, Observer { })*/
-        return viewOfLayout
+        return view
     }
 }
