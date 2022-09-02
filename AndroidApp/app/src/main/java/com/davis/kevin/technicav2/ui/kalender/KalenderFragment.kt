@@ -34,16 +34,13 @@ class KalenderFragment : Fragment() {
 
             // Image
             view.imgEvent.setImageDrawable(BitmapDrawable(upcomingEvent!!.image))
-
             // Name
             view.txtName.text = upcomingEvent.name
-
             // FaceBook Link
             view.imgFbLink.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(upcomingEvent.fbLink))
                 view.root.context.startActivity(browserIntent)
             }
-
             // Google Forms Link
             if (upcomingEvent.formsLink.isNullOrBlank()) {
                 view.imgFormsLink.visibility = View.GONE
@@ -54,10 +51,8 @@ class KalenderFragment : Fragment() {
                     view.root.context.startActivity(browserIntent)
                 }
             }
-
             // Date
             view.txtDate.text = upcomingEvent.getViewDate()
-
             // Location
             if (upcomingEvent.location.isNullOrBlank()) {
                 view.barLocation.visibility = View.GONE
@@ -70,7 +65,6 @@ class KalenderFragment : Fragment() {
                     view.root.context.startActivity(browserIntent)
                 }
             }
-
             // Price
             if (upcomingEvent.price == null || upcomingEvent.price == 0.toLong()) {
                 view.txtPrice.visibility = View.GONE
@@ -78,7 +72,6 @@ class KalenderFragment : Fragment() {
                 view.txtPrice.visibility = View.VISIBLE
                 view.txtPrice.text = upcomingEvent.getViewPrice()
             }
-
             view.txtDescription.text = upcomingEvent.description
         }
     }
@@ -98,19 +91,14 @@ class KalenderFragment : Fragment() {
             for (event in events) {
                 val kalenderViewModel = KalenderViewModel(event)
                 arrayList.add(kalenderViewModel)
-                // Get First Upcoming Event
-                if (upcomingEvent == null && (kalenderViewModel.date!!.year > currentDate.year ||
-                            (kalenderViewModel.date!!.year == currentDate.year && kalenderViewModel.date!!.dayOfYear >= currentDate.dayOfYear))
-                ) {
-                    upcomingEvent = kalenderViewModel
-                }
+                upcomingEvent = kalenderViewModel
             }
             if (ObjectAmount != null)
                 if (arrayList.size < ObjectAmount!!)
                     HomeFragment.navigateHome(ctx, this.findNavController())
 
             if (upcomingEvent == null && arrayList.size != 0) upcomingEvent = arrayList.last()
-            customKalenderAdapter = CustomKalenderAdapter(arrayList)
+            customKalenderAdapter = CustomKalenderAdapter(arrayList, bindingFragment)
             bindingFragment.kalenderRV.layoutManager =
                 LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
             bindingFragment.kalenderRV.adapter = customKalenderAdapter

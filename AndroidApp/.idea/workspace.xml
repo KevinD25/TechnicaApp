@@ -254,7 +254,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/davis/kevin/technicav2/ui/kalender/KalenderFragment.kt</url>
-          <line>97</line>
+          <line>90</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

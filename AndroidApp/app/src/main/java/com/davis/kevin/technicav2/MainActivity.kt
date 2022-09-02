@@ -26,38 +26,21 @@ class MainActivity : AppCompatActivity() {
     *   Upcomming Events & kalender auto laten scrollen
     * */
 
-    /*  DONE
-    *   Placeholder vacature
-    *   Home-Page made-by eraf halen
-    *   Citeer introductie text
-    *   Introductie text \n probleem oplossen
-    *   Namen & Achternamen juist zetten
-    *   Functies herangschikken
-    *   Björn & Pheadra job veranderen
-    *   Upcomming events beter laten laden
-    *   Volledige teksten bij evenementen
-    * */
-
     private lateinit var bindingMain: ActivityMainBinding
-    private lateinit var bindingAppBar: AppBarMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingMain = ActivityMainBinding.inflate(layoutInflater)
-        val view = bindingMain.root
-        setContentView(view)
-        bindingAppBar = AppBarMainBinding.inflate(layoutInflater)
         //setContentView(R.layout.activity_main)
-        setSupportActionBar(bindingAppBar.toolbar)
+        setSupportActionBar(bindingMain.toolbar)
 
         //login()
         //Repository.getData()
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        bindingMain.drawerLayout
         val drawerLayout: DrawerLayout = bindingMain.drawerLayout //= findViewById(R.id.drawer_layout)
         val navView: NavigationView = bindingMain.navView //= findViewById(R.id.nav_view)
         val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -74,6 +57,9 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val view = bindingMain.root
+        setContentView(view)
     }
 
     private fun login(){

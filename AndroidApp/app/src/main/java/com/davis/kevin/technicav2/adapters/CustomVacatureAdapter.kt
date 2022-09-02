@@ -18,7 +18,7 @@ class CustomVacatureAdapter(private val arrayList: ArrayList<VacaturesViewModel>
     class CustomView(private val bindingInner: InnerVacatureBinding): RecyclerView.ViewHolder(bindingInner.root) {
         fun bind(vacaturesViewModel: VacaturesViewModel) {
             bindingInner.txtName.text = vacaturesViewModel.name
-            bindingInner.imgLogo.setBackgroundDrawable(vacaturesViewModel.getViewImage())
+            bindingInner.imgLogo.setImageDrawable(vacaturesViewModel.getViewImage())
             bindingInner.txtDescription.text = vacaturesViewModel.description
             bindingInner.icWeblink.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(vacaturesViewModel.link))
