@@ -26,12 +26,10 @@ class KalenderFragment : Fragment() {
     private var customKalenderAdapter: CustomKalenderAdapter? = null
     private lateinit var ctx: Context
     private var arrayList = ArrayList<KalenderViewModel>()
-    private var upcomingEvent: KalenderViewModel? = null
 
     companion object {
-        var ObjectAmount: Long? = 1000
+        var ObjectAmount: Long? = 1000;
         fun setUpcomingEvent(upcomingEvent: KalenderViewModel?, view: FragmentKalenderBinding) {
-
             // Image
             view.imgEvent.setImageDrawable(BitmapDrawable(upcomingEvent!!.image))
             // Name
@@ -91,22 +89,14 @@ class KalenderFragment : Fragment() {
             for (event in events) {
                 val kalenderViewModel = KalenderViewModel(event)
                 arrayList.add(kalenderViewModel)
-                upcomingEvent = kalenderViewModel
             }
-            if (ObjectAmount != null)
-                if (arrayList.size < ObjectAmount!!)
-                    HomeFragment.navigateHome(ctx, this.findNavController())
-
-            if (upcomingEvent == null && arrayList.size != 0) upcomingEvent = arrayList.last()
+            if (arrayList.size < 4) HomeFragment.navigateHome(ctx, this.findNavController())
             customKalenderAdapter = CustomKalenderAdapter(arrayList, bindingFragment)
-            bindingFragment.kalenderRV.layoutManager =
-                LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
+            bindingFragment.kalenderRV.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
             bindingFragment.kalenderRV.adapter = customKalenderAdapter
-            bindingFragment.kalenderRV.scrollToPosition(customKalenderAdapter!!.getItemIndex(upcomingEvent))
-            if (upcomingEvent != null) setUpcomingEvent(upcomingEvent, bindingFragment)
-            upcomingEvent = null
+            bindingFragment.kalenderRV.scrollToPosition(0)
+            setUpcomingEvent(arrayList.first(), bindingFragment)
         }
-
         return view
     }
 }

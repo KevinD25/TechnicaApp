@@ -79,7 +79,7 @@ object FirebaseHandler {
     private fun getEvents() {
         val events = mutableListOf<Evenement>()
 
-        db.collection("Events").whereGreaterThanOrEqualTo("date", LocalDate.now().toString())
+        db.collection("Events").whereGreaterThanOrEqualTo("date", LocalDate.now().toString()).limit(16)
             .get().addOnSuccessListener { result ->
             for (document in result) {
                 val ONE_MEGABYTE: Long = 1048576 // = 1024 * 1024

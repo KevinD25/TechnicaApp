@@ -115,6 +115,7 @@
       <recent name="D:\Technica\TechnicaApp\Applicatie\TechnicaAppV2\app\src\main\res\layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Thoma\Documents\Vereneging\Technica\Webmaster\TechnicaApp\AndroidApp\app\src\main\res\drawable" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\drawable-hdpi" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\drawable" />
       <recent name="C:\Users\Thoma\Documents\Tom\Technica\TechnicaApp\AndroidApp\app\src\main\res\values" />
@@ -254,7 +255,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/davis/kevin/technicav2/ui/kalender/KalenderFragment.kt</url>
-          <line>90</line>
+          <line>88</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

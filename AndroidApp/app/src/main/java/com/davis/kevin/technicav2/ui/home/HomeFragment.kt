@@ -77,19 +77,15 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
             for (event in events) {
                 val homeViewModel = HomeViewModel(event)
                 // Only new events
-                if (homeViewModel.date!!.year > currentDate.year ||
-                    (homeViewModel.date!!.year == currentDate.year && homeViewModel.date!!.dayOfYear >= currentDate.dayOfYear)
-                ) {
-                    // Max show 3
-                    if (arrayList.size < 3) arrayList.add(homeViewModel)
-                    else break
-                }
+                // Max show 3
+                if (arrayList.size < 3) arrayList.add(homeViewModel)
+                else break
             }
             while (arrayList.size < 3) {
                 arrayList.add(HomeViewModel(
                     Evenement(name = "No Upcoming Events Planned",
                         image = BitmapFactory.decodeResource(ctx.resources,
-                            R.drawable.technica_schild_laad_pagina)
+                        R.drawable.technica_schild_laad_pagina)
                     )
                 ))
             }

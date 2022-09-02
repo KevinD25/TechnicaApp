@@ -57,6 +57,12 @@ class HulpFragment : Fragment() {
             hulpIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             ctx.startActivity(hulpIntent)
         }
+
+        bindingFragment.barMaps.setOnClickListener{
+            hulpIntent.data = Uri.parse("http://www.ejustice.just.fgov.be/tsv_pdf/2019/08/07/19329540.pdf")
+            hulpIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            ctx.startActivity(hulpIntent)
+        }
         return view
     }
 

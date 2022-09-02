@@ -13,7 +13,6 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.davis.kevin.technicav2.databinding.ActivityMainBinding
-import com.davis.kevin.technicav2.databinding.AppBarMainBinding
 import com.davis.kevin.technicav2.networking.FirebaseHandler
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
