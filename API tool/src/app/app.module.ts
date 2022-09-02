@@ -34,7 +34,7 @@ import { AddItemComponent } from './components/add-item/add-item.component';
       {path: "Sponsors", component: DataComponent, data :{ name: "Sponsors" }},
       {path: "Vacatures", component: DataComponent, data :{ name: "Vacatures" }},
       {path: "", redirectTo: "Home", pathMatch: 'full'}
-    ], {useHash: true})
+    ], { useHash: true, relativeLinkResolution: 'legacy' })
   ],
   providers: [],
   bootstrap: [AppComponent]

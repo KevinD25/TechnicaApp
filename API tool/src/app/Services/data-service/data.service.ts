@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';  // Nodig voor map functie
+import { map } from 'rxjs/operators';
 
 import { IClubTekst, IEvent, IPraesidium, ISponsor, IVacature } from '../../interfaces/collections';
 import { FunctionEnum } from '../../enums/function' ;
@@ -77,13 +78,13 @@ export class DataService {
 
   ////////      CLUBTEKST     ////////
   getClubTeksten() {
-    return this.collections.clubtekst.snapshotChanges().map(changes => {
+    return this.collections.clubtekst.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as IClubTekst
         data.id = a.payload.doc.id;
         return data
       })
-    });
+    }));
   }
 
   addClubTekst(clubtext: IClubTekst) {
@@ -103,13 +104,13 @@ export class DataService {
 
   ////////      Event     ////////
   getEvents() {
-    return this.collections.event.snapshotChanges().map(changes => {
+    return this.collections.event.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as IEvent
         data.id = a.payload.doc.id;
         return data
       })
-    });
+    }));
   }
 
   addEvent(event: IEvent) {
@@ -130,13 +131,13 @@ export class DataService {
 
   ////////      Praesidium     ////////
   getPraesidium() {
-    return this.collections.praesidium.snapshotChanges().map(changes => {
+    return this.collections.praesidium.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as IPraesidium
         data.id = a.payload.doc.id;
         return data
       })
-    });
+    }));
   }
 
   addPraesidium(praesidium: IPraesidium) {
@@ -156,13 +157,13 @@ export class DataService {
 
   ////////      Sponsors     ////////
   getSponsors() {
-    return this.collections.sponsor.snapshotChanges().map(changes => {
+    return this.collections.sponsor.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as ISponsor
         data.id = a.payload.doc.id;
         return data
       })
-    });
+    }));
   }
 
   addSponsor(sponsor: ISponsor) {
@@ -189,13 +190,13 @@ export class DataService {
 
   ////////      Vacatures     ////////
   getVacatures() {
-    return this.collections.vacature.snapshotChanges().map(changes => {
+    return this.collections.vacature.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as IVacature
         data.id = a.payload.doc.id;
         return data
       })
-    });
+    }));
   }
 
   addVacature(vacature: IVacature) {

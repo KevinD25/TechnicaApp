@@ -9,6 +9,7 @@ import com.davis.kevin.technicav2.ui.praesidium.PraesidiumFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import com.davis.kevin.technicav2.ui.vacatures.VacaturesFragment
 import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -77,7 +78,9 @@ object FirebaseHandler {
 
     private fun getEvents() {
         val events = mutableListOf<Evenement>()
-        db.collection("Events").get().addOnSuccessListener { result ->
+
+        db.collection("Events").whereGreaterThanOrEqualTo("date", LocalDate.now().toString())
+            .get().addOnSuccessListener { result ->
             for (document in result) {
                 val ONE_MEGABYTE: Long = 1048576 // = 1024 * 1024
                 storage.reference.child(document["imageLink"] as String)
