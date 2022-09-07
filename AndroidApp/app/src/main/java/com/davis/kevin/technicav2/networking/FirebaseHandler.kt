@@ -46,10 +46,8 @@ object FirebaseHandler {
                     length = document.data["Length"] as Long?
                 )
                 when (length.collection) {
-                    "Events" -> KalenderFragment.ObjectAmount = length.length
                     "Preasidium" -> PraesidiumFragment.ObjectAmount = length.length
                     "Sponsors" -> SponsorsFragment.ObjectAmount = length.length
-                    "Vacatures" -> VacaturesFragment.ObjectAmount = length.length
                     else -> { }
                 }
             }

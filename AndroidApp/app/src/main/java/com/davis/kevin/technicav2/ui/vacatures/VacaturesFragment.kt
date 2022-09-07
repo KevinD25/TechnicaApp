@@ -30,7 +30,6 @@ class VacaturesFragment : Fragment() {
     private var arrayList = ArrayList<VacaturesViewModel>()
 
     companion object {
-        var ObjectAmount: Long? = 1000
         var sponsorId: String? = null
         var sponsorImage: Bitmap? = null
     }
@@ -53,17 +52,16 @@ class VacaturesFragment : Fragment() {
                 sponsorList.add(vacatureSponsor)
             }
 
-            if (PraesidiumFragment.ObjectAmount != null)
-                if (arrayList.size < ObjectAmount!!) HomeFragment.navigateHome(ctx, this.findNavController())
+            if (SponsorsFragment.ObjectAmount != null)
+                if (sponsorList.size < SponsorsFragment.ObjectAmount!!)
+                    HomeFragment.navigateHome(ctx, this.findNavController())
 
             // Use the name and id for the vacatures
             vacaturesViewModel.getArray().observe(viewLifecycleOwner) { vacatures ->
                 for (vacature in vacatures) {
                     val vacaturesViewModel = VacaturesViewModel(vacature)
                     // Assign Partners
-                    vacaturesViewModel.partner = sponsorList.firstOrNull { sponsor: VacatureSponsor ->
-                            sponsor.id.equals(vacature.companyId)
-                        }
+                    vacaturesViewModel.partner = sponsorList.firstOrNull { sponsor -> sponsor.id.equals(vacature.companyId) }
                     if (vacaturesViewModel.partner != null) {
                         if (vacaturesViewModel.partner!!.id.equals(sponsorId) || sponsorId.isNullOrEmpty()) {
                             arrayList.add(vacaturesViewModel)
@@ -71,22 +69,18 @@ class VacaturesFragment : Fragment() {
                     }
                 }
                 if (arrayList.size == 0) {
-                    val emptyVac = Vacature("0",
-                        VacaturesFragment.sponsorId,
-                        "Geen Vacatures Gevonden",
-                        "Er is geen vacature gegeven door dit bedrijf.",
-                        "", VacaturesFragment.sponsorImage)
+                    val emptyVac = Vacature("0", sponsorId, "Geen Vacatures Gevonden",
+                        "Er is geen vacature gegeven door dit bedrijf.", "", sponsorImage)
                     val emptyVacVM = VacaturesViewModel(emptyVac)
                     // Assign Partners
-                    emptyVacVM.partner = sponsorList.firstOrNull { sponsor: VacatureSponsor ->
-                        sponsor.id.equals(emptyVac.companyId)
-                    }
+                    emptyVacVM.partner = sponsorList.firstOrNull { sponsor: VacatureSponsor -> sponsor.id.equals(emptyVac.companyId) }
                     arrayList.add(emptyVacVM)
                 }
                 customVacatureAdapter = CustomVacatureAdapter(arrayList)
                 bindingFragment.vacatureRV.layoutManager = LinearLayoutManager(ctx)
                 bindingFragment.vacatureRV.adapter = customVacatureAdapter
                 sponsorId = null
+                sponsorImage = null
             }
         }
         return view

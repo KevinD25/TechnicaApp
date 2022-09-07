@@ -46,7 +46,7 @@ class SponsorsFragment : Fragment() {
                     arrayList.add(partnerViewModel)
                 }
             }
-            if (PraesidiumFragment.ObjectAmount != null)
+            if (ObjectAmount != null)
                 if (arrayList.size < ObjectAmount!!) HomeFragment.navigateHome(ctx, this.findNavController())
 
             arrayList.sortBy { partner -> partner.getPriority() }

@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         const val TAG = "Technica-APP"
         fun navigateToFragment(navController: NavController, nav_id: Int) {
             navController.navigate(nav_id)
+            navController.clearBackStack()
         }
     }
 

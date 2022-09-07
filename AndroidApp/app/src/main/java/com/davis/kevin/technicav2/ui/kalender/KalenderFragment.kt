@@ -30,7 +30,6 @@ class KalenderFragment : Fragment() {
     private var arrayList = ArrayList<KalenderViewModel>()
 
     companion object {
-        var ObjectAmount: Long? = 1000
         var showEventId: String? = ""
         fun setUpcomingEvent(upcomingEvent: KalenderViewModel?, view: FragmentKalenderBinding) {
             // Image
