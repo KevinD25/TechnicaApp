@@ -3,6 +3,7 @@ package com.davis.kevin.technicav2.ui.sponsors
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,9 +46,11 @@ class SponsorsFragment : Fragment() {
 
         sponsorsViewModel = ViewModelProviders.of(this)[SponsorsViewModel::class.java]
         sponsorsViewModel.getArray().observe(viewLifecycleOwner) { partners ->
-            for (partner in partners) {
-                val partnerViewModel = SponsorsViewModel(partner)
-                arrayList.add(partnerViewModel)
+            if (arrayList.size < partners.size){ // Without this line the array grows with the vacatures button press
+                for (partner in partners) {
+                    val partnerViewModel = SponsorsViewModel(partner)
+                    arrayList.add(partnerViewModel)
+                }
             }
             if (ObjectAmount != null)
                 if (arrayList.size < ObjectAmount!!)

@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
     /*  TO DO
     *   Upcomming events laten werken bij de eerste call
     *   Upcomming Events & kalender auto laten scrollen
+        *   Zoek naar de onTouch methode die upcomming events laat scrollen en zet daar een time handler op
+    *   Preasidium volgorde nog eens sorteren in Preasidium fragment
+        *   Doe hetzelfde voor de kalender en sponsors
+    *   Upcomming event onTouch naar eiegen event
     * */
 
     private lateinit var bindingMain: ActivityMainBinding

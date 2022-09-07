@@ -38,4 +38,9 @@ class ClubliedFragment : Fragment() {
         /* clubliedViewModel.text.observe(this, Observer { })*/
         return view
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        player.stop()
+    }
 }
