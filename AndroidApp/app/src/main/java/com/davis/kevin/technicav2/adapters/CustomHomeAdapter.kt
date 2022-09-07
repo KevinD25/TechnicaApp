@@ -19,17 +19,17 @@ class CustomHomeAdapter(var arrayList: ArrayList<HomeViewModel>): RecyclerView.A
 
     class CostumView(private val bindingInner: InnerHomeBinding): RecyclerView.ViewHolder(bindingInner.root)  {
         fun bind(homeViewModel: HomeViewModel) {
-            bindingInner.eventCard.setOnLongClickListener {
-                KalenderFragment.showEventId = homeViewModel.id
-                MainActivity.navigateToFragment(bindingInner.root.findNavController(), R.id.nav_kalender)
-                true // <- OnLongClickListener need a true on the end
-            }
             bindingInner.imgCurrentEvent.setImageBitmap(homeViewModel.image)
             bindingInner.txtHeader.text = homeViewModel.name
             if (homeViewModel.getViewDate().isBlank()) bindingInner.txtDate.visibility = View.GONE
-            else {
+            else {  // Execute only if nut a null event
                 bindingInner.txtDate.visibility = View.VISIBLE
                 bindingInner.txtDate.text = homeViewModel.getViewDate()
+                bindingInner.eventCard.setOnLongClickListener {
+                    KalenderFragment.showEventId = homeViewModel.id
+                    MainActivity.navigateToFragment(bindingInner.root.findNavController(), R.id.nav_kalender)
+                    true // <- OnLongClickListener need a true on the end
+                }
             }
         }
     }

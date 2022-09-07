@@ -34,7 +34,7 @@ object FirebaseHandler {
         getPartners()
         getPraesidium()
         getVacancies()
-        Thread.sleep(750)
+        Thread.sleep(1000)
     }
 
     private fun getLengths() {
