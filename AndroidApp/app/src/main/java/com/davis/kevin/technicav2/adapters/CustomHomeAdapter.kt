@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.databinding.InnerHomeBinding
 import com.davis.kevin.technicav2.ui.home.HomeViewModel
+import java.time.format.DateTimeFormatter
 
 class CustomHomeAdapter(var arrayList: ArrayList<HomeViewModel>): RecyclerView.Adapter<CustomHomeAdapter.CostumView>() {
 
@@ -16,7 +17,7 @@ class CustomHomeAdapter(var arrayList: ArrayList<HomeViewModel>): RecyclerView.A
         fun bind(homeViewModel: HomeViewModel) {
             bindingInner.imgCurrentEvent.setImageBitmap(homeViewModel.image)
             bindingInner.txtHeader.text = homeViewModel.name
-            bindingInner.txtDate.text = homeViewModel.date.toString()
+            bindingInner.txtDate.text = homeViewModel.date!!.format(DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm"))
             if(homeViewModel.getViewDate().isBlank()) bindingInner.txtDate.visibility = View.GONE
             else bindingInner.txtDate.visibility = View.VISIBLE
         }

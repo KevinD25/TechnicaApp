@@ -37,17 +37,19 @@ class PraesidiumFragment : Fragment() {
         praesidiumViewModel = ViewModelProviders.of(this)[PraesidiumViewModel::class.java]
         // Get the data from the FirebaseHandler (getPraesidium()) and use it in the view
         praesidiumViewModel.getArray().observe(viewLifecycleOwner) { praesidium -> praesidium.let {
-                for (praesidia in it) {
-                    val praesidiumViewModel = PraesidiumViewModel(praesidia)
-                    arrayList.add(praesidiumViewModel)
-                }
-                if (ObjectAmount != null)
-                    if (arrayList.size < SponsorsFragment.ObjectAmount!!)
-                        HomeFragment.navigateHome(ctx, this.findNavController())
+            for (praesidia in it) {
+                val praesidiumViewModel = PraesidiumViewModel(praesidia)
+                arrayList.add(praesidiumViewModel)
+            }
+            if (ObjectAmount != null)
+                if (arrayList.size < SponsorsFragment.ObjectAmount!!)
+                    HomeFragment.navigateHome(ctx, this.findNavController())
 
-                customPraesidiumAdapter = CustomPraesidiumAdapter(arrayList)
-                bindingFragment.praesidiumVP.adapter = customPraesidiumAdapter
-                bindingFragment.indicator.setViewPager(bindingFragment.praesidiumVP)
+            arrayList.sortBy { praesidium -> praesidium.getPraesidiumFunctieInt() }
+
+            customPraesidiumAdapter = CustomPraesidiumAdapter(arrayList)
+            bindingFragment.praesidiumVP.adapter = customPraesidiumAdapter
+            bindingFragment.indicator.setViewPager(bindingFragment.praesidiumVP)
             }
         }
         return view

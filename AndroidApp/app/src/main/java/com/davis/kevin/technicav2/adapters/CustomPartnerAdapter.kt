@@ -21,7 +21,7 @@ class CustomPartnerAdapter(val arrayList: ArrayList<SponsorsViewModel>, private 
         : RecyclerView.ViewHolder(bindingInner.root) {
         fun bind(sponsorsViewModel: SponsorsViewModel) {
             bindingInner.imgSponsor.setImageBitmap(sponsorsViewModel.image)
-            bindingInner.txtInfo.text = sponsorsViewModel.name
+            bindingInner.txtInfo.text = "${sponsorsViewModel.name} \n ${sponsorsViewModel.description}"
             bindingInner.btnWebsiteSponsor.setOnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(sponsorsViewModel.website))
                 bindingInner.root.context.startActivity(browserIntent)

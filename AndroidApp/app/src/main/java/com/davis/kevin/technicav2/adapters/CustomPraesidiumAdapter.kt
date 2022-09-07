@@ -15,7 +15,7 @@ class CustomPraesidiumAdapter(var arrayList: ArrayList<PraesidiumViewModel>) :
     class CustomView(private val bindingInner: InnerPraesidiumBinding) : RecyclerView.ViewHolder(bindingInner.root) {
         fun bind(praesidiumViewModel: PraesidiumViewModel) {
             bindingInner.imgPerson.setImageBitmap(praesidiumViewModel.image)
-            bindingInner.txtPerson.text = praesidiumViewModel.name  + ' ' + praesidiumViewModel.surname + '\n' + praesidiumViewModel.getPraesidiumFunctie()
+            bindingInner.txtPerson.text = "${praesidiumViewModel.name} ${praesidiumViewModel.surname} \n ${praesidiumViewModel.getPraesidiumFunctieString()}"
             bindingInner.txtStudie.text = praesidiumViewModel.studies
             bindingInner.txtBday.text = praesidiumViewModel.getViewBirthday()
             bindingInner.executePendingBindings()
