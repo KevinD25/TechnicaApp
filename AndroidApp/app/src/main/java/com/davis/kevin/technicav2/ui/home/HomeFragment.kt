@@ -22,6 +22,8 @@ import com.davis.kevin.technicav2.models.Evenement
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.InfiniteScrollAdapter
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<CustomHomeAdapter.CostumView> {
 
@@ -31,7 +33,6 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
     private var customHomeAdapter: CustomHomeAdapter? = null
     private lateinit var infiniteScrollWrapper: InfiniteScrollAdapter<*>
     private lateinit var ctx: Context
-    private var arrayList: ArrayList<HomeViewModel> = arrayListOf()
 
     companion object {
         fun navigateHome(context: Context, navController: NavController) {
@@ -71,24 +72,22 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
 
         ctx = requireActivity().applicationContext
 
-        val currentDate: LocalDate = LocalDate.now()
+        var arrayList: ArrayList<HomeViewModel> = arrayListOf()
         homeViewModel = ViewModelProviders.of(this)[HomeViewModel::class.java]
         homeViewModel.getArrayList().observe(viewLifecycleOwner) { events ->
             for (event in events) {
                 val homeViewModel = HomeViewModel(event)
-                // Only new events
-                // Max show 3
-                if (arrayList.size < 3) arrayList.add(homeViewModel)
-                else break
+                arrayList.add(homeViewModel)
             }
-            while (arrayList.size < 3) {
-                arrayList.add(HomeViewModel(
-                    Evenement(name = "No Upcoming Events Planned",
-                        image = BitmapFactory.decodeResource(ctx.resources,
-                        R.drawable.technica_schild_laad_pagina)
-                    )
-                ))
+            while (arrayList.size < 3) {    // add null events
+                arrayList.add(HomeViewModel(Evenement(name = "No Upcoming Events Planned",
+                    image = BitmapFactory.decodeResource(ctx.resources, R.drawable.technica_schild_laad_pagina),
+                    date = LocalDateTime.now().plusYears(5)
+                )))
             }
+
+            arrayList.sortBy { event -> event.date }
+
             customHomeAdapter = CustomHomeAdapter(arrayList)
             infiniteScrollWrapper = InfiniteScrollAdapter.wrap(customHomeAdapter!!)
             bindingFragment.carouselEvent.adapter = infiniteScrollWrapper
@@ -96,7 +95,6 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
             bindingFragment.carouselEvent.addOnItemChangedListener(this)
             bindingFragment.carouselEvent.adapter!!.notifyDataSetChanged()
         }
-        //Thread.sleep(5000);
         return view
     }
 

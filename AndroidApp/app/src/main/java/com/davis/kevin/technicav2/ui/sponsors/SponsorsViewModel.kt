@@ -30,6 +30,10 @@ class SponsorsViewModel : ViewModel {
         return FirebaseHandler.sponsorList
     }
 
+    fun getPriority(): Int {
+        return priority!!.toInt()
+    }
+
     fun getViewImage(): BitmapDrawable {
         return BitmapDrawable(image)
     }

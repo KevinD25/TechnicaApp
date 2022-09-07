@@ -91,6 +91,9 @@ class KalenderFragment : Fragment() {
                 arrayList.add(kalenderViewModel)
             }
             if (arrayList.size < 4) HomeFragment.navigateHome(ctx, this.findNavController())
+
+            arrayList.sortBy { event -> event.date }
+
             customKalenderAdapter = CustomKalenderAdapter(arrayList, bindingFragment)
             bindingFragment.kalenderRV.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
             bindingFragment.kalenderRV.adapter = customKalenderAdapter

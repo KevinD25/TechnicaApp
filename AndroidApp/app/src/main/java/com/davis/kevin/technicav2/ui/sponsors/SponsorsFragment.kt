@@ -56,6 +56,8 @@ class SponsorsFragment : Fragment() {
                 if (arrayList.size < ObjectAmount!!)
                     HomeFragment.navigateHome(ctx, this.findNavController())
 
+            arrayList.sortBy { partner -> partner.getPriority() }
+
             customPartnerAdapter = CustomPartnerAdapter(arrayList, this.findNavController())
             bindingFragment.partnerVP.adapter = customPartnerAdapter
             bindingFragment.indicator.setViewPager(bindingFragment.partnerVP)

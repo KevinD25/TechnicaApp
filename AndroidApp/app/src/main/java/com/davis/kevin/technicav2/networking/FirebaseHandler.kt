@@ -35,6 +35,7 @@ object FirebaseHandler {
         getPartners()
         getPraesidium()
         getVacancies()
+        Thread.sleep(378)
     }
 
     private fun getLengths() {
@@ -105,8 +106,8 @@ object FirebaseHandler {
                     }.addOnFailureListener { exception ->
                         FirebaseCrashlytics.getInstance().recordException(exception)
                     }
-                eventList.value = events
             }
+            eventList.value = events
         }
     }
 
