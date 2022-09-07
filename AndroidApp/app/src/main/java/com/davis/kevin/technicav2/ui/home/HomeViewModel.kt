@@ -45,6 +45,6 @@ class HomeViewModel : ViewModel {
 
     fun getViewDate(): String {
         if (date == null) return ""
-        return date!!.format(DateTimeFormatter.ofPattern("dd'/'MM'/'yyyy"))
+        return date!!.format(DateTimeFormatter.ofPattern("dd/MM/yyyy | HH:mm"))
     }
 }

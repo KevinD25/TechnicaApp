@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -24,12 +25,19 @@ class MainActivity : AppCompatActivity() {
     *   Upcomming events laten werken bij de eerste call
     *   Upcomming Events & kalender auto laten scrollen
         *   Zoek naar de onTouch methode die upcomming events laat scrollen en zet daar een time handler op
-    *   Upcomming event onTouch naar eiegen event
+    *   Upcomming event onTouch naar eigen event
     * */
 
     private lateinit var bindingMain: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var mAuth = FirebaseAuth.getInstance()
+
+    companion object {
+        const val TAG = "Technica-APP"
+        fun navigateToFragment(navController: NavController, nav_id: Int) {
+            navController.navigate(nav_id)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
         setSupportActionBar(bindingMain.toolbar)
 
+        bindingMain.navHostFragment
         //login()
         //Repository.getData()
 

@@ -9,7 +9,6 @@ import com.davis.kevin.technicav2.ui.praesidium.PraesidiumFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import com.davis.kevin.technicav2.ui.vacatures.VacaturesFragment
 import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -35,7 +34,7 @@ object FirebaseHandler {
         getPartners()
         getPraesidium()
         getVacancies()
-        Thread.sleep(378)
+        Thread.sleep(750)
     }
 
     private fun getLengths() {

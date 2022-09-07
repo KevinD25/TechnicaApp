@@ -10,10 +10,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.davis.kevin.technicav2.MainActivity
 import com.davis.kevin.technicav2.adapters.CustomPartnerAdapter
 import com.davis.kevin.technicav2.databinding.FragmentSponsorsBinding
 import com.davis.kevin.technicav2.ui.home.HomeFragment
+import com.davis.kevin.technicav2.ui.praesidium.PraesidiumFragment
 
 class SponsorsFragment : Fragment() {
 
@@ -24,16 +27,7 @@ class SponsorsFragment : Fragment() {
     private lateinit var ctx: Context
     private var arrayList = ArrayList<SponsorsViewModel>()
 
-    companion object {
-        var ObjectAmount: Long? = 1000
-        var sponsorId: String? = null
-        var sponsorImage: Bitmap? = null
-        fun navigateToVacatures(navController: NavController, nav_id: Int, sponsorId: String?, sponsorImage: Bitmap?) {
-            this.sponsorId = sponsorId
-            this.sponsorImage = sponsorImage
-            navController.navigate(nav_id)
-        }
-    }
+    companion object { var ObjectAmount: Long? = 1000 }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
@@ -52,13 +46,12 @@ class SponsorsFragment : Fragment() {
                     arrayList.add(partnerViewModel)
                 }
             }
-            if (ObjectAmount != null)
-                if (arrayList.size < ObjectAmount!!)
-                    HomeFragment.navigateHome(ctx, this.findNavController())
+            if (PraesidiumFragment.ObjectAmount != null)
+                if (arrayList.size < ObjectAmount!!) HomeFragment.navigateHome(ctx, this.findNavController())
 
             arrayList.sortBy { partner -> partner.getPriority() }
 
-            customPartnerAdapter = CustomPartnerAdapter(arrayList, this.findNavController())
+            customPartnerAdapter = CustomPartnerAdapter(arrayList)
             bindingFragment.partnerVP.adapter = customPartnerAdapter
             bindingFragment.indicator.setViewPager(bindingFragment.partnerVP)
         }

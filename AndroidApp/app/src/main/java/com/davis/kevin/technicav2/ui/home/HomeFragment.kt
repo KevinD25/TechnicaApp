@@ -2,6 +2,7 @@ package com.davis.kevin.technicav2.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -44,22 +45,20 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val capabilities =
                 connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-            if (capabilities != null) {
-                when {
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
-                        Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
-                        return true
-                    }
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
-                        Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
-                        return true
-                    }
-                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
-                        Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
-                        return true
-                    }
+            if (capabilities != null) { when {
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                    return true
                 }
-            }
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                    return true
+                }
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                    return true
+                }
+            }}
             return false
         }
     }
@@ -72,7 +71,7 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
 
         ctx = requireActivity().applicationContext
 
-        var arrayList: ArrayList<HomeViewModel> = arrayListOf()
+        val arrayList: ArrayList<HomeViewModel> = arrayListOf()
         homeViewModel = ViewModelProviders.of(this)[HomeViewModel::class.java]
         homeViewModel.getArrayList().observe(viewLifecycleOwner) { events ->
             for (event in events) {
@@ -81,8 +80,7 @@ class HomeFragment : Fragment(), DiscreteScrollView.OnItemChangedListener<Custom
             }
             while (arrayList.size < 3) {    // add null events
                 arrayList.add(HomeViewModel(Evenement(name = "No Upcoming Events Planned",
-                    image = BitmapFactory.decodeResource(ctx.resources, R.drawable.technica_schild_laad_pagina),
-                    date = LocalDateTime.now().plusYears(5)
+                    image = BitmapFactory.decodeResource(ctx.resources, R.drawable.technica_schild_laad_pagina)
                 )))
             }
 

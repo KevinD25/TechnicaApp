@@ -5,20 +5,20 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.davis.kevin.technicav2.MainActivity
 import com.davis.kevin.technicav2.R
 import com.davis.kevin.technicav2.databinding.InnerPartnerBinding
-import com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment
 import com.davis.kevin.technicav2.ui.sponsors.SponsorsViewModel
+import com.davis.kevin.technicav2.ui.vacatures.VacaturesFragment
 
-class CustomPartnerAdapter(val arrayList: ArrayList<SponsorsViewModel>, private val navController: NavController)
-    : RecyclerView.Adapter<CustomPartnerAdapter.CustomView>() {
+class CustomPartnerAdapter(val arrayList: ArrayList<SponsorsViewModel>): RecyclerView.Adapter<CustomPartnerAdapter.CustomView>() {
 
     private lateinit var _bindingInner: InnerPartnerBinding
     private val bindingInner get() = _bindingInner!!
 
-    class CustomView(private val bindingInner: InnerPartnerBinding, private val navController: NavController)
-        : RecyclerView.ViewHolder(bindingInner.root) {
+    class CustomView(private val bindingInner: InnerPartnerBinding): RecyclerView.ViewHolder(bindingInner.root) {
         fun bind(sponsorsViewModel: SponsorsViewModel) {
             bindingInner.imgSponsor.setImageBitmap(sponsorsViewModel.image)
             bindingInner.txtInfo.text = "${sponsorsViewModel.name} \n ${sponsorsViewModel.description}"
@@ -27,8 +27,9 @@ class CustomPartnerAdapter(val arrayList: ArrayList<SponsorsViewModel>, private 
                 bindingInner.root.context.startActivity(browserIntent)
             }
             bindingInner.btnVacatureSponsor.setOnClickListener {
-                SponsorsFragment.navigateToVacatures(navController, R.id.nav_vacatures,
-                    sponsorsViewModel.id, sponsorsViewModel.image)
+                VacaturesFragment.sponsorId = sponsorsViewModel.id
+                VacaturesFragment.sponsorImage = sponsorsViewModel.image
+                MainActivity.navigateToFragment(bindingInner.root.findNavController(), R.id.nav_vacatures)
             }
             bindingInner.executePendingBindings()
         }
@@ -37,7 +38,7 @@ class CustomPartnerAdapter(val arrayList: ArrayList<SponsorsViewModel>, private 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomView {
         _bindingInner = InnerPartnerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         //val partnerBinding: PartnerBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.inner_partner, parent, false)
-        return CustomView(bindingInner, navController)
+        return CustomView(bindingInner)
     }
 
     override fun onBindViewHolder(holder: CustomView, position: Int) {

@@ -1,7 +1,9 @@
 package com.davis.kevin.technicav2.adapters
 
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.davis.kevin.technicav2.databinding.FragmentKalenderBinding
 import com.davis.kevin.technicav2.databinding.InnerKalenderBinding
@@ -13,6 +15,14 @@ class CustomKalenderAdapter(private val arrayList: ArrayList<KalenderViewModel>,
 
     private lateinit var _bindingInner: InnerKalenderBinding
     private val bindingInner get() = _bindingInner!!
+
+    companion object {
+        var eventId: String? = null
+        fun navigateToKalander(navController: NavController, nav_id: Int, eventId: String?) {
+            this.eventId = eventId
+            navController.navigate(nav_id)
+        }
+    }
 
     class CustomView(val bindingInner: InnerKalenderBinding, private val bindingFragment: FragmentKalenderBinding)
         : RecyclerView.ViewHolder(bindingInner.root) {

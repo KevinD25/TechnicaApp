@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.davis.kevin.technicav2.MainActivity
 import com.davis.kevin.technicav2.adapters.CustomPraesidiumAdapter
 import com.davis.kevin.technicav2.databinding.FragmentPraesidiumBinding
 import com.davis.kevin.technicav2.ui.home.HomeFragment
@@ -22,7 +23,7 @@ class PraesidiumFragment : Fragment() {
     private lateinit var ctx : Context
     var arrayList = ArrayList<PraesidiumViewModel>()
 
-    companion object { var ObjectAmount: Long? = 1000; }
+    companion object { var ObjectAmount: Long? = 1000 }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
@@ -36,21 +37,19 @@ class PraesidiumFragment : Fragment() {
         // Get View Model --> The database class is converted to the one in that is used for the view (ViewModel)
         praesidiumViewModel = ViewModelProviders.of(this)[PraesidiumViewModel::class.java]
         // Get the data from the FirebaseHandler (getPraesidium()) and use it in the view
-        praesidiumViewModel.getArray().observe(viewLifecycleOwner) { praesidium -> praesidium.let {
-            for (praesidia in it) {
-                val praesidiumViewModel = PraesidiumViewModel(praesidia)
+        praesidiumViewModel.getArray().observe(viewLifecycleOwner) { praesidia ->
+            for (praesidium in praesidia) {
+                val praesidiumViewModel = PraesidiumViewModel(praesidium)
                 arrayList.add(praesidiumViewModel)
             }
             if (ObjectAmount != null)
-                if (arrayList.size < SponsorsFragment.ObjectAmount!!)
-                    HomeFragment.navigateHome(ctx, this.findNavController())
+                if (arrayList.size < ObjectAmount!!) HomeFragment.navigateHome(ctx, this.findNavController())
 
             arrayList.sortBy { praesidium -> praesidium.getPraesidiumFunctieInt() }
 
             customPraesidiumAdapter = CustomPraesidiumAdapter(arrayList)
             bindingFragment.praesidiumVP.adapter = customPraesidiumAdapter
             bindingFragment.indicator.setViewPager(bindingFragment.praesidiumVP)
-            }
         }
         return view
     }

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.davis.kevin.technicav2.MainActivity
 import com.davis.kevin.technicav2.adapters.CustomKalenderAdapter
 import com.davis.kevin.technicav2.databinding.FragmentKalenderBinding
 import com.davis.kevin.technicav2.ui.home.HomeFragment
@@ -28,7 +30,8 @@ class KalenderFragment : Fragment() {
     private var arrayList = ArrayList<KalenderViewModel>()
 
     companion object {
-        var ObjectAmount: Long? = 1000;
+        var ObjectAmount: Long? = 1000
+        var showEventId: String? = ""
         fun setUpcomingEvent(upcomingEvent: KalenderViewModel?, view: FragmentKalenderBinding) {
             // Image
             view.imgEvent.setImageDrawable(BitmapDrawable(upcomingEvent!!.image))
@@ -40,9 +43,8 @@ class KalenderFragment : Fragment() {
                 view.root.context.startActivity(browserIntent)
             }
             // Google Forms Link
-            if (upcomingEvent.formsLink.isNullOrBlank()) {
-                view.imgFormsLink.visibility = View.GONE
-            } else {
+            if (upcomingEvent.formsLink.isNullOrBlank()) view.imgFormsLink.visibility = View.GONE
+            else {
                 view.imgFormsLink.visibility = View.VISIBLE
                 view.imgFormsLink.setOnClickListener {
                     val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(upcomingEvent.formsLink))
@@ -52,9 +54,8 @@ class KalenderFragment : Fragment() {
             // Date
             view.txtDate.text = upcomingEvent.getViewDate()
             // Location
-            if (upcomingEvent.location.isNullOrBlank()) {
-                view.barLocation.visibility = View.GONE
-            } else {
+            if (upcomingEvent.location.isNullOrBlank()) view.barLocation.visibility = View.GONE
+            else {
                 view.barLocation.visibility = View.VISIBLE
                 view.txtLocation.text = upcomingEvent.location
                 view.imgLocation.setOnClickListener {
@@ -64,12 +65,12 @@ class KalenderFragment : Fragment() {
                 }
             }
             // Price
-            if (upcomingEvent.price == null || upcomingEvent.price == 0.toLong()) {
-                view.txtPrice.visibility = View.GONE
-            } else {
+            if (upcomingEvent.price == null || upcomingEvent.price == 0.toLong()) view.txtPrice.visibility = View.GONE
+            else {
                 view.txtPrice.visibility = View.VISIBLE
                 view.txtPrice.text = upcomingEvent.getViewPrice()
             }
+            // Description
             view.txtDescription.text = upcomingEvent.description
         }
     }
@@ -97,8 +98,16 @@ class KalenderFragment : Fragment() {
             customKalenderAdapter = CustomKalenderAdapter(arrayList, bindingFragment)
             bindingFragment.kalenderRV.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
             bindingFragment.kalenderRV.adapter = customKalenderAdapter
-            bindingFragment.kalenderRV.scrollToPosition(0)
-            setUpcomingEvent(arrayList.first(), bindingFragment)
+            if (showEventId.isNullOrBlank()) {
+                bindingFragment.kalenderRV.scrollToPosition(0)
+                setUpcomingEvent(arrayList.first(), bindingFragment)
+            }
+            else {
+                val index = arrayList.indexOfFirst { event -> event.id == showEventId }
+                bindingFragment.kalenderRV.scrollToPosition(index)
+                setUpcomingEvent(arrayList[index], bindingFragment)
+                showEventId = ""
+            }
         }
         return view
     }
