@@ -1,0 +1,16 @@
+.card-content {
+    width: 90%;
+}
+
+.check {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.select {
+    display: inherit;
+}
+
+.text-field {
+    height: 160px;
+}

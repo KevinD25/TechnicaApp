@@ -1,0 +1,27 @@
+.content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title Code */
+.card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 25%;
+    height: 24px;
+    position: relative;
+    top: 20px;
+    padding-left: 50px;
+}
+
+svg#schild {
+    width: 80px;
+    position: absolute;
+    left: -40px;
+}

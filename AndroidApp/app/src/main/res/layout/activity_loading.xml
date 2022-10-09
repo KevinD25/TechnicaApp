@@ -5,11 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoadingActivity"
-    android:background="@drawable/achtergrondlaadpagina">
+    android:background="@drawable/technica_achtergrond_laad_pagina">
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" app:srcCompat="@drawable/schildtechnicalaadpagina"
-        android:id="@+id/imgSchild"
+        android:layout_height="match_parent"
+        android:id="@+id/img_schild"
         android:scaleType="fitCenter"
-        android:padding="80dp"/>
+        android:padding="80dp"
+        app:srcCompat="@drawable/technica_schild_laad_pagina"
+        android:contentDescription="@string/image_description" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

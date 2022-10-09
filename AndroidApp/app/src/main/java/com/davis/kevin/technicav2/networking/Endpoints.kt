@@ -2,19 +2,18 @@ package com.davis.kevin.technicav2.networking
 
 import com.davis.kevin.technicav2.models.*
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.*
 
 interface Endpoints {
 
     @GET("home")
-    fun getHome(): Home
+    fun getHome(): Evenement
 
     @GET("clubtext")
-    fun getClubText(): Clubtext
+    fun getClubText(): Introductie
 
     @GET("event")
-    fun getEvents(): Call<List<Event>>
+    fun getEvents(): Call<List<Evenement>>
 
     @GET("sponsor")
     fun getPartners(): Call<List<Partner>>

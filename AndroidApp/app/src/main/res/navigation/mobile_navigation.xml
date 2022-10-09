@@ -12,15 +12,22 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_onzeclub"
-        android:name="com.davis.kevin.technicav2.ui.onzeclub.OnzeclubFragment"
-        android:label="@string/menu_onzeclub"
-        tools:layout="@layout/fragment_onzeclub" />
+        android:id="@+id/nav_introductie"
+        android:name="com.davis.kevin.technicav2.ui.introductie.IntroductieFragment"
+        android:label="@string/menu_introductie"
+        tools:layout="@layout/fragment_introductie" />
 
     <fragment
-        android:id="@+id/nav_sponsors"
-        android:name="com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment"
-        android:label="@string/menu_sponsors" />
+        android:id="@+id/nav_clublied"
+        android:name="com.davis.kevin.technicav2.ui.clublied.ClubliedFragment"
+        android:label="@string/menu_clublied"
+        tools:layout="@layout/fragment_clublied" />
+
+    <fragment
+        android:id="@+id/nav_praesidium"
+        android:name="com.davis.kevin.technicav2.ui.praesidium.PraesidiumFragment"
+        android:label="@string/menu_praesidium"
+        tools:layout="@layout/fragment_praesidium" />
 
     <fragment
         android:id="@+id/nav_kalender"
@@ -29,17 +36,21 @@
         tools:layout="@layout/fragment_kalender" />
 
     <fragment
-        android:id="@+id/nav_praesidium"
-        android:name="com.davis.kevin.technicav2.ui.praesidium.PraesidiumFragment"
-        android:label="@string/menu_praesidium" />
+        android:id="@+id/nav_sponsors"
+        android:name="com.davis.kevin.technicav2.ui.sponsors.SponsorsFragment"
+        android:label="@string/menu_sponsors"
+        tools:layout="@layout/fragment_sponsors" />
 
-    <fragment
-        android:id="@+id/nav_clublied"
-        android:name="com.davis.kevin.technicav2.ui.clublied.ClubliedFragment"
-        android:label="@string/menu_clublied"
-        tools:layout="@layout/fragment_clublied" />
     <fragment
         android:id="@+id/nav_vacatures"
         android:name="com.davis.kevin.technicav2.ui.vacatures.VacaturesFragment"
-        android:label="@string/menu_vacatures" />
+        android:label="@string/menu_vacatures"
+        tools:layout="@layout/fragment_vacatures" />
+
+    <fragment
+        android:id="@+id/nav_hulp"
+        android:name="com.davis.kevin.technicav2.ui.hulp.HulpFragment"
+        android:label="@string/menu_hulp"
+        tools:layout="@layout/fragment_hulp" />
+
 </navigation>

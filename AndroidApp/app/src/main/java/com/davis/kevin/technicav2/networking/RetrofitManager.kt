@@ -10,9 +10,7 @@ object RetrofitManager {
     val apiService: Endpoints
 
     init {
-
         val client = OkHttpClient.Builder().build()
-
         apiService = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

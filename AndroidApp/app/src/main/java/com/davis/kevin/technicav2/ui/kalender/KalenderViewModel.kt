@@ -1,42 +1,53 @@
 package com.davis.kevin.technicav2.ui.kalender
 
-import androidx.lifecycle.LiveData
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.davis.kevin.technicav2.models.Event
-import com.davis.kevin.technicav2.networking.RetrofitManager.apiService
-import com.davis.kevin.technicav2.repository.Repository
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import kotlin.collections.ArrayList
+import com.davis.kevin.technicav2.models.Evenement
+import com.davis.kevin.technicav2.networking.FirebaseHandler
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class KalenderViewModel : ViewModel {
 
-    var id = 0
-    var idString: String? = ""
+    var id: String? = ""
     var name: String? = ""
-    var date: String? = ""
+    var fbLink: String? = ""
+    var formsLink: String? = ""
     var location: String? = ""
+    var price: Long? = null
     var description: String? = ""
-
+    var image: Bitmap? = null
+    var date: LocalDateTime? = null
 
     constructor() : super() {}
-    constructor(
-        event: Event
-    ) : super() {
+    constructor(event: Evenement) : super() {
         this.id = event.id
-        this.idString = event.id.toString()
         this.name = event.name
-        this.date = event.date
+        this.formsLink = event.formsLink
         this.location = event.location
+        this.price = event.price!!.toLong()
         this.description = event.description
+        this.fbLink = event.fbLink
+        this.image = event.image
+        this.date = event.date
     }
 
-    var arraylistMutableLiveData = MutableLiveData<List<Event>>()
+    fun getArrayList(): MutableLiveData<List<Evenement>> {
+        return FirebaseHandler.eventList
+    }
 
+    fun getViewImage(): BitmapDrawable {
+        return BitmapDrawable(image)
+    }
 
-    fun getArrayList(): MutableLiveData<List<Event>> {
-        return Repository.eventMutableLiveData
+    fun getViewDate(): String {
+        if (date == null) return ""
+        return date!!.format(DateTimeFormatter.ofPattern("dd'/'MM'/'yyyy | HH:mm"))
+    }
+
+    fun getViewPrice(): String {
+        return "BE27 7310 2609 3173 - €${price.toString()}"
     }
 }

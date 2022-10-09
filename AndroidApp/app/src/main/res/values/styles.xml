@@ -2,7 +2,6 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -16,5 +15,178 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Textview theme. -->
+    <style name="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginVertical">@dimen/filler_small</item>
+
+        <item name="android:text">@string/app_name</item>
+        <item name="android:lineSpacingExtra">@dimen/line_space</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/text</item>
+    </style>
+
+    <style name="Text.Header">
+        <item name="android:textSize">@dimen/header</item>
+    </style>
+
+    <style name="Text.Note">
+        <item name="android:textSize">@dimen/note</item>
+        <item name="android:maxWidth">@dimen/dim</item>
+    </style>
+
+    <style name="Text.Bar">
+        <item name="android:textSize">@dimen/bar</item>
+    </style>
+
+    <style name="Info" parent="Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginHorizontal">@dimen/filler</item>
+        <item name="android:justificationMode">inter_word</item>
+    </style>
+
+    <style name="Info.Lines">
+        <item name="android:lines">8</item>
+    </style>
+
+    <style name="Card">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Card.Info">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_margin">@dimen/filler_tiny</item>
+        <item name="android:text">@string/clublied</item>
+        <item name="android:justificationMode">inter_word</item>
+        <item name="android:lines">6</item>
+    </style>
+
+    <style name="Card.Header">
+        <item name="android:textAlignment">center</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text</item>
+    </style>
+
+    <style name="Card.Big">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/filler_big</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <!-- Image theme. -->
+    <style name="Image">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/filler</item>
+    </style>
+
+    <style name="Image.Schild">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/style_image_background_blue</item>
+        <item name="srcCompat">@drawable/technica_schild</item>
+    </style>
+
+    <style name="Image.Big">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">@dimen/filler_big</item>
+        <item name="android:minHeight">@dimen/big_image</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="srcCompat">@mipmap/ic_launcher</item>
+    </style>
+
+    <style name="Image.Scroll">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="srcCompat">@mipmap/ic_launcher</item>
+        <item name="android:layout_margin">@dimen/none</item>
+    </style>
+
+    <style name="Icon">
+        <item name="android:layout_width">@dimen/icon</item>
+        <item name="android:layout_height">@dimen/icon</item>
+        <item name="android:layout_marginEnd">@dimen/filler_small</item>
+    </style>
+
+    <style name="Card.Image" parent="Card.Icon">
+        <item name="android:layout_width">@dimen/big_icon</item>
+        <item name="android:maxHeight">@dimen/big_icon</item>
+        <item name="android:background">@drawable/style_image_background</item>
+        <item name="android:padding">@dimen/filler_tiny</item>
+        <item name="srcCompat">@mipmap/ic_launcher</item>
+    </style>
+
+    <style name="Card.Image.Big">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxHeight">@dimen/small_dim</item>
+        <item name="android:background">@drawable/style_image_background_blue</item>
+        <item name="android:padding">@dimen/filler</item>
+    </style>
+
+    <style name="Card.Icon">
+        <item name="android:layout_width">@dimen/small_icon</item>
+        <item name="android:layout_height">@dimen/small_icon</item>
+        <item name="android:layout_margin">@dimen/filler_small</item>
+        <item name="android:titleMarginStart">@dimen/none</item>
+    </style>
+
+    <!-- Button theme. -->
+    <style name="Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_margin">@dimen/filler</item>
+        <item name="android:background">@drawable/style_button_shape</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/text</item>
+    </style>
+
+    <!-- Layout theme. -->
+    <style name="ConLay">
+        <item name="android:background">@drawable/style_image_background</item>
+        <item name="android:paddingVertical">@dimen/filler_small</item>
+    </style>
+
+    <style name="CardLay">
+        <item name="android:background">@drawable/style_image_background_blue</item>
+        <item name="android:padding">@dimen/filler_small</item>
+    </style>
+
+    <style name="BarLay">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/filler_tiny</item>
+    </style>
+
+    <!-- ViewPager theme. -->
+    <style name="ViewPager">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_above">@id/indicator</item>
+    </style>
+
+    <style name="ConstraintView" parent="ViewPager">
+        <item name="android:layout_above">@id/kalender_RV</item>
+    </style>
+
+    <!-- Indicator theme. -->
+    <style name="Indicator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/indicator</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
 
 </resources>

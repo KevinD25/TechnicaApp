@@ -7,24 +7,19 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import com.davis.kevin.technicav2.networking.FirebaseHandler
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
 class LoadingActivity : AppCompatActivity() {
 
     private var mDelayHandler: Handler? = null
-    private val SPLASH_DELAY: Long = 3000 //3 seconds
-    var mAuth = FirebaseAuth.getInstance()
-
+    private val mSplashDelay: Long = 3000 //3 seconds
+    private var mAuth = FirebaseAuth.getInstance()
 
     private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
-
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
         }
     }
@@ -41,8 +36,7 @@ class LoadingActivity : AppCompatActivity() {
         mDelayHandler = Handler()
 
         //Navigate with delay
-        mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
-
+        mDelayHandler!!.postDelayed(mRunnable, mSplashDelay)
     }
 
     private fun login(){
@@ -56,17 +50,12 @@ class LoadingActivity : AppCompatActivity() {
     }
 
     private fun signInAnonymously() {
-        mAuth.signInAnonymously().addOnSuccessListener(this, OnSuccessListener<AuthResult?> {
+        mAuth.signInAnonymously().addOnSuccessListener(this) {
             FirebaseHandler.getFirebaseData()
-        })
-            .addOnFailureListener(this,
-                OnFailureListener { exception ->
-                    Log.e(
-                        "SIGNIN",
-                        "signInAnonymously:FAILURE",
-                        exception
-                    )
-                })
+        }
+            .addOnFailureListener(this) { exception ->
+                Log.e("SIGNING", "signInAnonymously:FAILURE", exception)
+            }
     }
 
     public override fun onDestroy() {

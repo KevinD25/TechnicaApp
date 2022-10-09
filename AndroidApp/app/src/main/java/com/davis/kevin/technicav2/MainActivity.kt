@@ -5,57 +5,71 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.davis.kevin.technicav2.databinding.ActivityMainBinding
 import com.davis.kevin.technicav2.networking.FirebaseHandler
-import com.davis.kevin.technicav2.repository.Repository
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
 
+    /*  TO DO
+    *   Upcomming events laten werken bij de eerste call
+    *   Upcomming Events & kalender auto laten scrollen
+        *   Zoek naar de onTouch methode die upcomming events laat scrollen en zet daar een time handler op
+    *   Upcomming event onTouch naar eigen event
+    * */
+
+    private lateinit var bindingMain: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-    var mAuth = FirebaseAuth.getInstance()
+    private var mAuth = FirebaseAuth.getInstance()
 
-
+    companion object {
+        const val TAG = "Technica-APP"
+        fun navigateToFragment(navController: NavController, nav_id: Int) {
+            navController.navigate(nav_id)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        bindingMain = ActivityMainBinding.inflate(layoutInflater)
+        //setContentView(R.layout.activity_main)
+        setSupportActionBar(bindingMain.toolbar)
 
-       // login()
+        bindingMain.navHostFragment
+        //login()
         //Repository.getData()
-
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
+        val drawerLayout: DrawerLayout = bindingMain.drawerLayout //= findViewById(R.id.drawer_layout)
+        val navView: NavigationView = bindingMain.navView //= findViewById(R.id.nav_view)
+        val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_onzeclub, R.id.nav_sponsors,
+                R.id.nav_home, R.id.nav_introductie, R.id.nav_sponsors,
                 R.id.nav_kalender, R.id.nav_praesidium, R.id.nav_clublied,
-                R.id.nav_vacatures
+                R.id.nav_vacatures, R.id.nav_hulp
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val view = bindingMain.root
+        setContentView(view)
     }
 
     private fun login(){
@@ -69,17 +83,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun signInAnonymously() {
-        mAuth.signInAnonymously().addOnSuccessListener(this, OnSuccessListener<AuthResult?> {
+        mAuth.signInAnonymously().addOnSuccessListener(this) {
             FirebaseHandler.getFirebaseData()
-        })
-            .addOnFailureListener(this,
-                OnFailureListener { exception ->
-                    Log.e(
-                        "SIGNIN",
-                        "signInAnonymously:FAILURE",
-                        exception
-                    )
-                })
+        }
+            .addOnFailureListener(this) { exception ->
+                Log.e("SIGNING", "signInAnonymously:FAILURE", exception)
+            }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -92,7 +101,4 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
-
-
 }

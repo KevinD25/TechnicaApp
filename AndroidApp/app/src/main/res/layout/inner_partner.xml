@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/ConLay" >
+
+            <ImageView
+                android:id="@+id/img_sponsor"
+                style="@style/Image.Big"
+                app:layout_constraintBottom_toTopOf="@+id/txt_info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/image_description" />
+
+            <TextView
+                android:id="@+id/txt_info"
+                style="@style/Info.Lines"
+                app:layout_constraintBottom_toTopOf="@+id/btn_website_sponsor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_sponsor" />
+
+            <Button
+                android:id="@+id/btn_website_sponsor"
+                style="@style/Button"
+                android:text="@string/sponsor_website_button"
+                app:layout_constraintBottom_toTopOf="@+id/btn_vacature_sponsor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_info" />
+
+            <Button
+                android:id="@+id/btn_vacature_sponsor"
+                style="@style/Button"
+                android:text="@string/sponsor_vacature_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_website_sponsor" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

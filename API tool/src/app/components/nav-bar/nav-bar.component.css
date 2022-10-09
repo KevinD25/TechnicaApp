@@ -1,0 +1,29 @@
+.banner {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background-color: #1976d2;
+}
+
+.card {
+    height: 16px;
+    width: 128px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    color: black;
+}
+
+.card-container .card:not(.highlight-card):hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.toolbar {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "card card card card card";
+    color: white;
+    font-weight: 600;
+    margin: auto;
+}
